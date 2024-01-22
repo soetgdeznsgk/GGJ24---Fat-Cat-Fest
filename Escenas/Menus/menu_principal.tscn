@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://wibtjjyhafg4"]
+
+[ext_resource type="Texture2D" uid="uid://c227a36smrurt" path="res://Escenas/Menus/Placeholders/title.png" id="1_2cr15"]
+[ext_resource type="Texture2D" uid="uid://d138cmmsgjnxe" path="res://Escenas/Menus/Placeholders/label_new_game.png" id="2_m54ko"]
+[ext_resource type="Texture2D" uid="uid://dxnx81uhstb8i" path="res://Escenas/Menus/Placeholders/label_options.png" id="3_h2rat"]
+[ext_resource type="Texture2D" uid="uid://4hnl8t0vmcq8" path="res://Escenas/Menus/Placeholders/version.png" id="4_a6ilk"]
+[ext_resource type="Texture2D" uid="uid://2w4i8bs40b7c" path="res://Escenas/Menus/Placeholders/characters.png" id="5_msp6e"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="MenuPrincipal" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 80
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuPrincipal"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer"]
+layout_mode = 2
+
+[node name="Logo" type="TextureRect" parent="MenuPrincipal/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_2cr15")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Play" type="TextureRect" parent="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_m54ko")
+
+[node name="Options" type="TextureRect" parent="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_h2rat")
+
+[node name="Credits" type="TextureRect" parent="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_a6ilk")
+
+[node name="CenterContainer" type="CenterContainer" parent="MenuPrincipal/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Imagen" type="TextureRect" parent="MenuPrincipal/HBoxContainer/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("5_msp6e")

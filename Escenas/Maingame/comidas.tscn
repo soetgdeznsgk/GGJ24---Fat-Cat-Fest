@@ -1,17 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcrmlxmuoakqy"]
+[gd_scene load_steps=2 format=3 uid="uid://bcrmlxmuoakqy"]
 
 [ext_resource type="Script" path="res://Logica/comidas.gd" id="1_kch2t"]
-[ext_resource type="Texture2D" uid="uid://cr6oimsr4j7no" path="res://Sprites/Comidas/pngtree-simple-breadloaf-vector-illustration-on-white-background-png-image_2013485.jpg" id="1_mq8pm"]
 
 [node name="comidas" type="Node2D"]
 script = ExtResource("1_kch2t")
 
-[node name="Receta player 1" type="Sprite2D" parent="."]
-position = Vector2(178, 1)
+[node name="Receta player 1" type="Node2D" parent="."]
+position = Vector2(-178, 0)
 scale = Vector2(0.484722, 0.465278)
-texture = ExtResource("1_mq8pm")
 
-[node name="Receta player 2" type="Sprite2D" parent="."]
-position = Vector2(-175, 4)
+[node name="Receta player 2" type="Node2D" parent="."]
+position = Vector2(178, 0)
 scale = Vector2(0.484722, 0.465278)
-texture = ExtResource("1_mq8pm")

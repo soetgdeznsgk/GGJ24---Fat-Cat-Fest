@@ -13,3 +13,7 @@ config_version=5
 config/name="Ggj 24"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="canvas_items"

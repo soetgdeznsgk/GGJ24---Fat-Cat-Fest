@@ -11,5 +11,12 @@ config_version=5
 [application]
 
 config/name="Ggj 24"
+run/main_scene="res://Escenas/Menus/menu_principal.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1366
+window/size/viewport_height=768
+window/stretch/mode="canvas_items"

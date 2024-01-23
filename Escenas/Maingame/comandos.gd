@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var jugador = 1
-var diccionario := {}
+var diccionarioInputs := {}
 var listaTexturas = [ load("res://Sprites/Comandos/flechaArriba.png"), \
 load("res://Sprites/Comandos/FlechaAbajo.png"), \
 load("res://Sprites/Comandos/FlechaIzquierda.png"), \
@@ -18,19 +18,19 @@ var devices
 func _ready() -> void:
 	# Dependiendo del jugador tiene ciertas teclas para el physic process
 	if jugador == 1:
-		diccionario[Enums.Arriba] = "ArribaPj1"
-		diccionario[Enums.Abajo] = "AbajoPj1"
-		diccionario[Enums.Izquierda] = "IzquierdaPj1"
-		diccionario[Enums.Derecha] = "DerechaPj1"
+		diccionarioInputs[Enums.Arriba] = "ArribaPj1"
+		diccionarioInputs[Enums.Abajo] = "AbajoPj1"
+		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj1"
+		diccionarioInputs[Enums.Derecha] = "DerechaPj1"
 	else:
-		diccionario[Enums.Arriba] = "ArribaPj2"
-		diccionario[Enums.Abajo]  = "AbajoPj2"
-		diccionario[Enums.Izquierda] = "IzquierdaPj2"
-		diccionario[Enums.Derecha] = "DerechaPj2"
+		diccionarioInputs[Enums.Arriba] = "ArribaPj2"
+		diccionarioInputs[Enums.Abajo]  = "AbajoPj2"
+		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj2"
+		diccionarioInputs[Enums.Derecha] = "DerechaPj2"
 		
 	# TODO deberian llegar en la comida
-	comandos = [Enums.Arriba,Enums.Abajo,Enums.Izquierda,Enums.Derecha]
-	comandosConFlechas = [Enums.Arriba,Enums.Abajo,Enums.Izquierda,Enums.Derecha]
+	comandos = [Enums.Arriba,Enums.Abajo,Enums.Izquierda,Enums.Derecha,Enums.Arriba,Enums.Abajo,Enums.Izquierda,Enums.Derecha,Enums.Arriba,Enums.Abajo,Enums.Izquierda,Enums.Derecha]
+	comandosConFlechas = comandos.duplicate()
 	
 	# Colocar las primeras 3 flechas que llegan de la comida
 	for i in range(3):
@@ -38,16 +38,15 @@ func _ready() -> void:
 		comandoNodos[i].texture = listaTexturas[ultimo]
 
 func _physics_process(_delta: float) -> void:
-	# Input buffering para teclado
-	if Input.is_action_just_pressed(diccionario[Enums.Arriba]):
+	# Input buffering
+	if Input.is_action_just_pressed(diccionarioInputs[Enums.Arriba]):
 		ultimoInputRegistrado = Enums.Arriba
-	elif Input.is_action_just_pressed(diccionario[Enums.Abajo]):
+	elif Input.is_action_just_pressed(diccionarioInputs[Enums.Abajo]):
 		ultimoInputRegistrado = Enums.Abajo
-	elif Input.is_action_just_pressed(diccionario[Enums.Izquierda]):
+	elif Input.is_action_just_pressed(diccionarioInputs[Enums.Izquierda]):
 		ultimoInputRegistrado = Enums.Izquierda
-	elif Input.is_action_just_pressed(diccionario[Enums.Derecha]):
+	elif Input.is_action_just_pressed(diccionarioInputs[Enums.Derecha]):
 		ultimoInputRegistrado = Enums.Derecha
-	
 	
 	# Si está spameando entonces va mas rápido la animación
 	if ultimoInputRegistrado != null and anim.is_playing() \
@@ -63,11 +62,9 @@ func _physics_process(_delta: float) -> void:
 			verificarCorrecta(ultimoInputRegistrado)
 			ultimoInputRegistrado = null
 			permitirEntradas = false
-			
 
 func verificarCorrecta(Direccion):
-	var correcta = comandosConFlechas[0]
-	if correcta == Direccion:
+	if comandosConFlechas[0] == Direccion:
 		actualizar_flechas()
 	else:
 		error_flechas()

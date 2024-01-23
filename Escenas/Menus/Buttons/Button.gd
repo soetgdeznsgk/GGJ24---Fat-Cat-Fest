@@ -1,5 +1,13 @@
 extends Button
-var isHighlighted := false
-var dist := 100.0
-var tiempo := 0.2
+@onready var anim:AnimationPlayer = $AnimationPlayer
+@onready var tween : Tween
+@onready var leftMargin = $PlayButton.h_separation
+func _on_mouse_entered():
+	print(leftMargin)
+		
+func _on_mouse_exited():
+	print(leftMargin)
+
+
+
 

@@ -7,8 +7,10 @@
 [ext_resource type="Script" path="res://Escenas/Menus/Buttons/VolumeManager.gd" id="3_nccfq"]
 [ext_resource type="Texture2D" uid="uid://dxkx5w2qurkf3" path="res://Escenas/Menus/Buttons/OptionsButton.png" id="4_jvwwr"]
 [ext_resource type="Texture2D" uid="uid://c7ru10qr3mnrv" path="res://Escenas/Menus/Buttons/InfoButton.png" id="5_kukgg"]
+[ext_resource type="PackedScene" uid="uid://kcqxgo84fi45" path="res://button_anim.tscn" id="3_g302f"]
+[ext_resource type="Texture2D" uid="uid://dxkx5w2qurkf3" path="res://Escenas/Menus/Buttons/OptionsButton.png" id="4_gf66w"]
+[ext_resource type="Texture2D" uid="uid://c7ru10qr3mnrv" path="res://Escenas/Menus/Buttons/InfoButton.png" id="5_j1sg3"]
 [ext_resource type="Texture2D" uid="uid://2w4i8bs40b7c" path="res://Escenas/Menus/Placeholders/characters.png" id="5_msp6e"]
-[ext_resource type="Script" path="res://Escenas/Menus/Buttons/Button.gd" id="7_wf0f2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_76xur"]
 
@@ -36,7 +38,10 @@ HSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_rl27y")
 HSlider/styles/slider = SubResource("StyleBoxFlat_maygy")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71wjp"]
-content_margin_left = 100.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7348w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swt7l"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -135,36 +140,25 @@ alignment = 2
 
 [node name="PlayButton" type="Button" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("3_lanbx")
-theme_override_font_sizes/font_size = 66
-theme_override_styles/hover = SubResource("StyleBoxFlat_71wjp")
-text = "Play"
-icon = ExtResource("3_lrni4")
-expand_icon = true
-script = ExtResource("7_wf0f2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71wjp")
 
 [node name="OptionsButton" type="Button" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("3_lanbx")
-theme_override_font_sizes/font_size = 66
-theme_override_styles/hover = SubResource("StyleBoxFlat_71wjp")
-text = "Options"
-icon = ExtResource("4_jvwwr")
-expand_icon = true
-script = ExtResource("7_wf0f2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7348w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7348w")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7348w")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7348w")
+text = "Settings"
+icon = ExtResource("4_gf66w")
 
 [node name="PlayButton3" type="Button" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("3_lanbx")
-theme_override_font_sizes/font_size = 66
-theme_override_styles/hover = SubResource("StyleBoxFlat_71wjp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_swt7l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_swt7l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_swt7l")
+theme_override_styles/focus = SubResource("StyleBoxFlat_swt7l")
 text = "Credits"
-icon = ExtResource("5_kukgg")
-expand_icon = true
-script = ExtResource("7_wf0f2")
+icon = ExtResource("5_j1sg3")
 
 [node name="CenterContainer" type="CenterContainer" parent="MenuPrincipal/HBoxContainer"]
 layout_mode = 2
@@ -174,12 +168,4 @@ size_flags_horizontal = 3
 layout_mode = 2
 texture = ExtResource("5_msp6e")
 
-[connection signal="mouse_entered" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/PlayButton" to="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/PlayButton" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/PlayButton" to="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/PlayButton" method="_on_mouse_exited"]
-[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="mouse_entered" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/OptionsButton" to="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/OptionsButton" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/OptionsButton" to="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/OptionsButton" method="_on_mouse_exited"]
-[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/OptionsButton" to="." method="_on_option_button_pressed"]
-[connection signal="mouse_entered" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/PlayButton3" to="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/PlayButton3" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/PlayButton3" to="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/PlayButton3" method="_on_mouse_exited"]
-[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/PlayButton3" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]

@@ -1,6 +1,5 @@
 [gd_scene load_steps=9 format=3 uid="uid://bbx7yskj14jdm"]
 
-[ext_resource type="Texture2D" uid="uid://cr6oimsr4j7no" path="res://Sprites/Comidas/pngtree-simple-breadloaf-vector-illustration-on-white-background-png-image_2013485.jpg" id="1_as27t"]
 [ext_resource type="Script" path="res://Escenas/Maingame/comandos.gd" id="1_k17g7"]
 [ext_resource type="Texture2D" uid="uid://b7u2syubd446b" path="res://Sprites/Comandos/FlechaAbajo.png" id="2_gyd1x"]
 [ext_resource type="Texture2D" uid="uid://ds5cfarbrgm6r" path="res://Sprites/Comandos/flechaArriba.png" id="3_x3pn3"]
@@ -8,8 +7,7 @@
 
 [sub_resource type="Animation" id="Animation_tbyb4"]
 resource_name = "scroll_izquierda"
-length = 0.513
-step = 0.001
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -17,10 +15,10 @@ tracks/0/path = NodePath("Comando0:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.509),
-"transitions": PackedFloat32Array(1, 1e-05, 1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1e-05),
 "update": 0,
-"values": [Vector2(52, 51), Vector2(-50, 51), Vector2(52, 51)]
+"values": [Vector2(128, 51), Vector2(-50, 51)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -29,10 +27,10 @@ tracks/1/path = NodePath("Comando1:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.509),
-"transitions": PackedFloat32Array(1, 1e-05, 1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1e-05),
 "update": 0,
-"values": [Vector2(155, 51), Vector2(53, 51), Vector2(155, 51)]
+"values": [Vector2(256, 51), Vector2(128, 51)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -41,10 +39,10 @@ tracks/2/path = NodePath("Comando2:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.508),
-"transitions": PackedFloat32Array(1, 1e-05, 1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1e-05),
 "update": 0,
-"values": [Vector2(258, 50), Vector2(156, 51), Vector2(258, 50)]
+"values": [Vector2(384, 51), Vector2(256, 51)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -53,7 +51,7 @@ tracks/3/path = NodePath("Comando3:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.505),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -65,10 +63,34 @@ tracks/4/path = NodePath("Comando3:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.49, 0.509),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(356, 50.98), Vector2(259, 50.98), Vector2(356, 50.98)]
+"values": [Vector2(512, 51), Vector2(384, 51)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Comando0:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Comando3:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_rhm6t"]
@@ -83,7 +105,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(52, 51)]
+"values": [Vector2(128, 51)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -95,7 +117,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(155, 51)]
+"values": [Vector2(256, 51)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -107,7 +129,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(258, 50)]
+"values": [Vector2(384, 51)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -155,12 +177,90 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(352, 50.98)]
+"values": [Vector2(512, 51)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Comando0:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Comando3:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Comando0:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Comando0:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_oglbr"]
+resource_name = "error_flecha"
+length = 0.1
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Comando0:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.025, 0.05, 0.075),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.905826, -0.607375, 0.905826, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Comando0:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6k4li"]
 _data = {
 "RESET": SubResource("Animation_rhm6t"),
+"error_flecha": SubResource("Animation_oglbr"),
 "scroll_izquierda": SubResource("Animation_tbyb4")
 }
 
@@ -168,22 +268,23 @@ _data = {
 script = ExtResource("1_k17g7")
 
 [node name="Comando0" type="Sprite2D" parent="."]
-position = Vector2(52, 51)
+position = Vector2(128, 51)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_gyd1x")
 
 [node name="Comando1" type="Sprite2D" parent="."]
-position = Vector2(155, 51)
+position = Vector2(256, 51)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_x3pn3")
 
 [node name="Comando2" type="Sprite2D" parent="."]
-position = Vector2(258, 50)
+position = Vector2(384, 51)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_4hgvy")
 
 [node name="Comando3" type="Sprite2D" parent="."]
-position = Vector2(352, 50.98)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(512, 51)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_4hgvy")
 
@@ -191,13 +292,5 @@ texture = ExtResource("4_4hgvy")
 libraries = {
 "": SubResource("AnimationLibrary_6k4li")
 }
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-185, 183)
-texture = ExtResource("1_as27t")
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(492, 183)
-texture = ExtResource("1_as27t")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -10,4 +10,4 @@ position = Vector2(689, 377)
 texture = ExtResource("1_eo8rj")
 
 [node name="Comandos" parent="." instance=ExtResource("2_wilsv")]
-position = Vector2(755, 469)
+position = Vector2(650, 469)

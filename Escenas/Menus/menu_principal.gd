@@ -1,9 +1,20 @@
 extends Control
 
+var bg_music := AudioStreamPlayer.new()
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	bg_music.stream = load("res://Escenas/Menus/Musik/Warped-Alien-Band_Looping.mp3")
+	bg_music.autoplay = true
+	add_child(bg_music)
+	
+#AÑADIR ESTO A CREDITOS EPIC MUSICA
+
+#"Warped Alien Band"
+#by Eric Matyas
+#www.soundimage.org
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

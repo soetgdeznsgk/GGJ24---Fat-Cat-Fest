@@ -13,7 +13,7 @@ one_shot = true
 autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(687.5, 377.5)
+position = Vector2(685, 386)
 texture = ExtResource("2_ldjf1")
 
 [connection signal="timeout" from="TimerFinalEvento" to="." method="_on_timer_final_evento_timeout"]

@@ -78,4 +78,3 @@ func _on_credits_button_mouse_entered():
 func _on_credits_button_mouse_exited():
 	pass # Replace with function body.
 
-

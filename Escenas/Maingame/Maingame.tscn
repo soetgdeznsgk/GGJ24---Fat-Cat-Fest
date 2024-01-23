@@ -11,3 +11,7 @@ texture = ExtResource("1_eo8rj")
 
 [node name="Comandos" parent="." instance=ExtResource("2_wilsv")]
 position = Vector2(650, 469)
+
+[node name="Comandos2" parent="." instance=ExtResource("2_wilsv")]
+position = Vector2(226, 479)
+jugador = 2

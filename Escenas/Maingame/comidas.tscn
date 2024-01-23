@@ -5,10 +5,8 @@
 [node name="comidas" type="Node2D"]
 script = ExtResource("1_kch2t")
 
-[node name="Receta player 1" type="Node2D" parent="."]
-position = Vector2(-178, 0)
-scale = Vector2(0.484722, 0.465278)
+[node name="RecetaPlayer1" type="Node2D" parent="."]
+position = Vector2(-1050, 0)
 
-[node name="Receta player 2" type="Node2D" parent="."]
-position = Vector2(178, 0)
-scale = Vector2(0.484722, 0.465278)
+[node name="RecetaPlayer2" type="Node2D" parent="."]
+position = Vector2(1050, 0)

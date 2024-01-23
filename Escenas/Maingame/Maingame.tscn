@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://b4olfp085mokh"]
+[gd_scene load_steps=4 format=3 uid="uid://b4olfp085mokh"]
+
+[ext_resource type="PackedScene" uid="uid://bbx7yskj14jdm" path="res://Escenas/Maingame/comandos.tscn" id="1_w2a5j"]
+[ext_resource type="PackedScene" uid="uid://bq35do1pkwwk0" path="res://Escenas/Maingame/ui.tscn" id="2_8ybuv"]
+[ext_resource type="PackedScene" uid="uid://bcrmlxmuoakqy" path="res://Escenas/Maingame/comidas.tscn" id="3_ltjwe"]
 
 [node name="Maingame" type="Node2D"]
+
+[node name="Comandos" parent="." instance=ExtResource("1_w2a5j")]
+
+[node name="UI" parent="." instance=ExtResource("2_8ybuv")]
+
+[node name="Comidas" parent="." instance=ExtResource("3_ltjwe")]
+position = Vector2(955, 508)

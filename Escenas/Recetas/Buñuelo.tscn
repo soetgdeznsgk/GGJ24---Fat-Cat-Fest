@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://b02b22kxe33wt"]
+[gd_scene load_steps=2 format=3 uid="uid://b02b22kxe33wt"]
 
-[node name="Buñuelo" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://cr6oimsr4j7no" path="res://Sprites/Comidas/pngtree-simple-breadloaf-vector-illustration-on-white-background-png-image_2013485.jpg" id="1_xxpkr"]
+
+[node name="Buñuelo" type="Sprite2D"]
+texture = ExtResource("1_xxpkr")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://wibtjjyhafg4"]
+[gd_scene load_steps=7 format=3 uid="uid://wibtjjyhafg4"]
 
 [ext_resource type="Texture2D" uid="uid://c227a36smrurt" path="res://Escenas/Menus/Placeholders/title.png" id="1_2cr15"]
-[ext_resource type="Texture2D" uid="uid://d138cmmsgjnxe" path="res://Escenas/Menus/Placeholders/label_new_game.png" id="2_m54ko"]
-[ext_resource type="Texture2D" uid="uid://dxnx81uhstb8i" path="res://Escenas/Menus/Placeholders/label_options.png" id="3_h2rat"]
-[ext_resource type="Texture2D" uid="uid://4hnl8t0vmcq8" path="res://Escenas/Menus/Placeholders/version.png" id="4_a6ilk"]
+[ext_resource type="Script" path="res://Escenas/Menus/menu_principal.gd" id="1_vn785"]
+[ext_resource type="Texture2D" uid="uid://x886cltnkwtt" path="res://Escenas/Menus/Buttons/PlayButton.png" id="3_lrni4"]
+[ext_resource type="Texture2D" uid="uid://dxkx5w2qurkf3" path="res://Escenas/Menus/Buttons/OptionsButton.png" id="4_jvwwr"]
+[ext_resource type="Texture2D" uid="uid://c7ru10qr3mnrv" path="res://Escenas/Menus/Buttons/InfoButton.png" id="5_kukgg"]
 [ext_resource type="Texture2D" uid="uid://2w4i8bs40b7c" path="res://Escenas/Menus/Placeholders/characters.png" id="5_msp6e"]
 
 [node name="Control" type="Control"]
@@ -13,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vn785")
 metadata/_edit_lock_ = true
 
 [node name="MenuPrincipal" type="MarginContainer" parent="."]
@@ -26,6 +28,7 @@ theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 30
+metadata/_edit_lock_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MenuPrincipal"]
 layout_mode = 2
@@ -37,25 +40,66 @@ layout_mode = 2
 layout_mode = 2
 texture = ExtResource("1_2cr15")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 6
-theme_override_constants/separation = 75
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Play" type="TextureRect" parent="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("2_m54ko")
+size_flags_vertical = 3
 
-[node name="Options" type="TextureRect" parent="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="PlayButton" type="TextureButton" parent="MenuPrincipal/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("3_h2rat")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("3_lrni4")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Credits" type="TextureRect" parent="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MenuPrincipal/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 8
-texture = ExtResource("4_a6ilk")
+size_flags_horizontal = 3
+text = "placeholder 1"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="OptionButton" type="TextureButton" parent="MenuPrincipal/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("4_jvwwr")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MenuPrincipal/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "placeholder 2"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CreditsButton" type="TextureButton" parent="MenuPrincipal/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("5_kukgg")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MenuPrincipal/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "placeholder 3"
 
 [node name="CenterContainer" type="CenterContainer" parent="MenuPrincipal/HBoxContainer"]
 layout_mode = 2
@@ -64,3 +108,13 @@ size_flags_horizontal = 3
 [node name="Imagen" type="TextureRect" parent="MenuPrincipal/HBoxContainer/CenterContainer"]
 layout_mode = 2
 texture = ExtResource("5_msp6e")
+
+[connection signal="mouse_entered" from="MenuPrincipal/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_mouse_entered"]
+[connection signal="mouse_exited" from="MenuPrincipal/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_mouse_exited"]
+[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="MenuPrincipal/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/OptionButton" to="." method="_on_option_button_mouse_entered"]
+[connection signal="mouse_exited" from="MenuPrincipal/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/OptionButton" to="." method="_on_option_button_mouse_exited"]
+[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="mouse_entered" from="MenuPrincipal/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/CreditsButton" to="." method="_on_credits_button_mouse_entered"]
+[connection signal="mouse_exited" from="MenuPrincipal/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/CreditsButton" to="." method="_on_credits_button_mouse_exited"]
+[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/CreditsButton" to="." method="_on_credits_button_pressed"]

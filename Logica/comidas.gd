@@ -1,19 +1,19 @@
 extends Node2D
 
+enum {LEFT, RIGHT, UP, DOWN}
 const string = "res://Escenas/Recetas/Buñuelo.tscn"
 var receta1=preload(string)
 var nodoinstanciado=receta1.instantiate()
 var nodoinstanciado2=preload("res://Escenas/Recetas/Pan.tscn").instantiate()
-
+var recetas = {nodoinstanciado: nodoinstanciado.moveset, \
+nodoinstanciado2: nodoinstanciado2.moveset}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#spawnea la receta1 en el nodo 'RecetaPlayer1'
-	get_child(1).add_child(nodoinstanciado)
+	var recetaActual = recetas.keys()[randi() % recetas.size()]
+	get_child(1).add_child(recetaActual)
 	#get_child(0).add_child(nodoinstanciado2)
-	
-	
-	pass # Replace with function body.
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,3 +36,15 @@ func animacion_entrada(player):
 	#tween que mueve a la receta actual
 	
 	#primero va a recetaPlayer1 y despues busca la primera receta que este
+
+#no funciono esta mierda
+#func preloadRecetas():
+	#var recetasDir = "res://Escenas/Recetas"
+	#var dir = DirAccess.open(recetasDir)
+	#if dir:
+		#dir.list_dir_begin()
+		#var filePath = "/" + recetasDir + "/" + dir.get_next()
+		#while filePath != "":
+			#var receta = load(filePath)
+			#recetas[receta] = receta.moveset
+			#filePath = recetasDir + "/" + dir.get_next()

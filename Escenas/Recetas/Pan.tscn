@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dai2fqf6b4fr5"]
+[gd_scene load_steps=3 format=3 uid="uid://dai2fqf6b4fr5"]
 
 [ext_resource type="Texture2D" uid="uid://cr6oimsr4j7no" path="res://Sprites/Comidas/pngtree-simple-breadloaf-vector-illustration-on-white-background-png-image_2013485.jpg" id="1_wfdyb"]
+[ext_resource type="Script" path="res://Logica/Pan.gd" id="2_kffns"]
 
 [node name="Pan" type="Sprite2D"]
 texture = ExtResource("1_wfdyb")
+script = ExtResource("2_kffns")

@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://wibtjjyhafg4"]
+[gd_scene load_steps=10 format=3 uid="uid://wibtjjyhafg4"]
 
 [ext_resource type="Script" path="res://Escenas/Menus/menu_principal.gd" id="1_vn785"]
 [ext_resource type="Texture2D" uid="uid://d2skq3dyio1rp" path="res://Escenas/Menus/Imgs/FatCatFestLogo.png" id="2_ijal2"]
 [ext_resource type="PackedScene" uid="uid://kcqxgo84fi45" path="res://button_anim.tscn" id="3_g302f"]
+[ext_resource type="Texture2D" uid="uid://dxkx5w2qurkf3" path="res://Escenas/Menus/Buttons/OptionsButton.png" id="4_gf66w"]
+[ext_resource type="Texture2D" uid="uid://c7ru10qr3mnrv" path="res://Escenas/Menus/Buttons/InfoButton.png" id="5_j1sg3"]
 [ext_resource type="Texture2D" uid="uid://2w4i8bs40b7c" path="res://Escenas/Menus/Placeholders/characters.png" id="5_msp6e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71wjp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7348w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swt7l"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -53,6 +61,25 @@ alignment = 2
 
 [node name="PlayButton" parent="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer" instance=ExtResource("3_g302f")]
 layout_mode = 2
+theme_override_styles/pressed = SubResource("StyleBoxFlat_71wjp")
+
+[node name="PlayButton2" parent="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer" instance=ExtResource("3_g302f")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_7348w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7348w")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7348w")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7348w")
+text = "Settings"
+icon = ExtResource("4_gf66w")
+
+[node name="PlayButton3" parent="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer" instance=ExtResource("3_g302f")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_swt7l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_swt7l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_swt7l")
+theme_override_styles/focus = SubResource("StyleBoxFlat_swt7l")
+text = "Credits"
+icon = ExtResource("5_j1sg3")
 
 [node name="CenterContainer" type="CenterContainer" parent="MenuPrincipal/HBoxContainer"]
 layout_mode = 2

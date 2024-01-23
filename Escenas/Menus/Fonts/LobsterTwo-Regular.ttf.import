@@ -13,15 +13,15 @@ dest_files=["res://.godot/imported/LobsterTwo-Regular.ttf-c5eee6707bfd59a100c25d
 [params]
 
 Rendering=null
-antialiasing=1
-generate_mipmaps=false
-multichannel_signed_distance_field=false
-msdf_pixel_range=8
-msdf_size=48
-allow_system_fallback=true
+antialiasing=2
+generate_mipmaps=true
+multichannel_signed_distance_field=true
+msdf_pixel_range=24
+msdf_size=104
+allow_system_fallback=false
 force_autohinter=false
-hinting=1
-subpixel_positioning=1
+hinting=2
+subpixel_positioning=0
 oversampling=0.0
 Fallbacks=null
 fallbacks=[]

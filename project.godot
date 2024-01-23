@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Enums="*res://Logica/Globales/enums.gd"
+Eventos="*res://Logica/Globales/Eventos.gd"
 
 [display]
 

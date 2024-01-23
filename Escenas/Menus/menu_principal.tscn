@@ -1,13 +1,39 @@
-[gd_scene load_steps=10 format=3 uid="uid://wibtjjyhafg4"]
+[gd_scene load_steps=15 format=3 uid="uid://wibtjjyhafg4"]
 
 [ext_resource type="Script" path="res://Escenas/Menus/menu_principal.gd" id="1_vn785"]
 [ext_resource type="Texture2D" uid="uid://d2skq3dyio1rp" path="res://Escenas/Menus/Imgs/FatCatFestLogo.png" id="2_ijal2"]
 [ext_resource type="FontFile" uid="uid://cs81puvnc10pp" path="res://Escenas/Menus/Fonts/LobsterTwo-Regular.ttf" id="3_lanbx"]
 [ext_resource type="Texture2D" uid="uid://x886cltnkwtt" path="res://Escenas/Menus/Buttons/PlayButton.png" id="3_lrni4"]
+[ext_resource type="Script" path="res://Escenas/Menus/Buttons/VolumeManager.gd" id="3_nccfq"]
 [ext_resource type="Texture2D" uid="uid://dxkx5w2qurkf3" path="res://Escenas/Menus/Buttons/OptionsButton.png" id="4_jvwwr"]
 [ext_resource type="Texture2D" uid="uid://c7ru10qr3mnrv" path="res://Escenas/Menus/Buttons/InfoButton.png" id="5_kukgg"]
 [ext_resource type="Texture2D" uid="uid://2w4i8bs40b7c" path="res://Escenas/Menus/Placeholders/characters.png" id="5_msp6e"]
 [ext_resource type="Script" path="res://Escenas/Menus/Buttons/Button.gd" id="7_wf0f2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_76xur"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rl27y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_maygy"]
+bg_color = Color(0.921569, 0.807843, 0.611765, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.780392, 0.47451, 0.270588, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+anti_aliasing_size = 0.01
+
+[sub_resource type="Theme" id="Theme_tlrkq"]
+HSlider/constants/grabber_offset = -5
+HSlider/styles/grabber_area = SubResource("StyleBoxEmpty_76xur")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_rl27y")
+HSlider/styles/slider = SubResource("StyleBoxFlat_maygy")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71wjp"]
 content_margin_left = 100.0
@@ -19,6 +45,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_tlrkq")
 script = ExtResource("1_vn785")
 metadata/_edit_lock_ = true
 
@@ -43,22 +70,70 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
+alignment = 1
 
 [node name="Logo" type="TextureRect" parent="MenuPrincipal/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("2_ijal2")
 expand_mode = 1
-stretch_mode = 4
+stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer"]
+[node name="ContenedorOpciones" type="MarginContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 300
+
+[node name="OptionsVBoxContainer" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.59
 theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Musica"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.0
+value = 1.0
+script = ExtResource("3_nccfq")
+bus_name = "Music"
+
+[node name="Label2" type="Label" parent="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "SFX
+"
+
+[node name="MusicVolumeSlider2" type="HSlider" parent="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.0
+value = 1.0
+script = ExtResource("3_nccfq")
+bus_name = "Music"
+
+[node name="Label3" type="Label" parent="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Idioma"
+
+[node name="MainVBoxContainer" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
 alignment = 2
 
-[node name="PlayButton" type="Button" parent="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("3_lanbx")
@@ -69,7 +144,7 @@ icon = ExtResource("3_lrni4")
 expand_icon = true
 script = ExtResource("7_wf0f2")
 
-[node name="PlayButton2" type="Button" parent="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="OptionsButton" type="Button" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("3_lanbx")
@@ -80,7 +155,7 @@ icon = ExtResource("4_jvwwr")
 expand_icon = true
 script = ExtResource("7_wf0f2")
 
-[node name="PlayButton3" type="Button" parent="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="PlayButton3" type="Button" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("3_lanbx")
@@ -99,12 +174,12 @@ size_flags_horizontal = 3
 layout_mode = 2
 texture = ExtResource("5_msp6e")
 
-[connection signal="mouse_entered" from="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer/PlayButton" to="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer/PlayButton" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer/PlayButton" to="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer/PlayButton" method="_on_mouse_exited"]
-[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="mouse_entered" from="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer/PlayButton2" to="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer/PlayButton2" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer/PlayButton2" to="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer/PlayButton2" method="_on_mouse_exited"]
-[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer/PlayButton2" to="." method="_on_play_button_pressed"]
-[connection signal="mouse_entered" from="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer/PlayButton3" to="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer/PlayButton3" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer/PlayButton3" to="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer/PlayButton3" method="_on_mouse_exited"]
-[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer/PlayButton3" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/PlayButton" to="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/PlayButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/PlayButton" to="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/PlayButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/OptionsButton" to="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/OptionsButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/OptionsButton" to="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/OptionsButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/OptionsButton" to="." method="_on_option_button_pressed"]
+[connection signal="mouse_entered" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/PlayButton3" to="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/PlayButton3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/PlayButton3" to="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/PlayButton3" method="_on_mouse_exited"]
+[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/PlayButton3" to="." method="_on_play_button_pressed"]

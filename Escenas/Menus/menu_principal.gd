@@ -8,6 +8,7 @@ var bg_music := AudioStreamPlayer.new()
 func _ready():
 	bg_music.stream = load("res://Escenas/Menus/Musik/Warped-Alien-Band_Looping.mp3")
 	bg_music.autoplay = true
+	bg_music.bus = "Music"
 	add_child(bg_music)
 	
 #AÑADIR ESTO A CREDITOS EPIC MUSICA
@@ -33,7 +34,9 @@ func _on_play_button_mouse_exited():
 
 
 func _on_option_button_pressed():
-	pass # Replace with function body.
+	$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer.hide()
+	$MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones.show()
+	pass
 
 
 func _on_option_button_mouse_entered():
@@ -54,3 +57,5 @@ func _on_credits_button_mouse_entered():
 
 func _on_credits_button_mouse_exited():
 	pass # Replace with function body.
+
+

@@ -120,6 +120,6 @@ func pausarProcesos():
 	procesosPausados = true
 	visible = false
 
-func reanudarProcesos():
+func reanudarProcesos(ganador):
 	procesosPausados = false
 	visible = true

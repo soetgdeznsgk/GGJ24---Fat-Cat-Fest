@@ -1,5 +1,4 @@
 extends Node2D
-enum {LEFT, RIGHT, UP, DOWN}
 const recetasString = ["res://Escenas/Recetas/Buñuelo.tscn",\
 "res://Escenas/Recetas/Empanana.tscn"]
 const recetasSize=2

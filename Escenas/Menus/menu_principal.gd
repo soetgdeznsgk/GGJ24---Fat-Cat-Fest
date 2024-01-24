@@ -19,11 +19,11 @@ func _ready():
 
 func deviceChanged():
 	if noMouse:
-		$MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer/PlayButton.grab_focus()
+		%PlayButton.grab_focus()
 	else:
-		$MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer/PlayButton.release_focus()
-		$MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer/PlayButton2.release_focus()
-		$MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer/PlayButton3.release_focus()
+		%PlayButton.release_focus()
+		%OptionsButton.release_focus()
+		%CreditsButton.release_focus()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

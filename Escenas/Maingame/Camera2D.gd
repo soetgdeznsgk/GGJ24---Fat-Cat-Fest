@@ -10,7 +10,7 @@ func zoomCamara():
 	tween.set_ease(Tween.EASE_IN)
 	tween.tween_property(self,"zoom", zoomFinal, 0.3)
 
-func quitarZoom():
+func quitarZoom(ganador):
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(self,"zoom", Vector2(1,1), 0.3)

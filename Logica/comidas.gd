@@ -1,5 +1,5 @@
 extends Node2D
-const recetasString = ["res://Escenas/Recetas/ARrozConLeche.tscn",\
+const recetasString = ["res://Escenas/Recetas/ArrozConLeche.tscn",\
 "res://Escenas/Recetas/Empanada.tscn"]
 const recetasSize=2
 #diccionario key: es el nombre de la receta(en la escena) 
@@ -58,15 +58,21 @@ func entradaReceta(numeroJugador):
 				print("papupro",recetaActualJugador1)
 				animacion_salida(1)
 			recetaActualJugador1 = listaRecetasJugador1.pop_back()
-			recetaPlayer1.add_child(recetaActualJugador1)
-			animacion_entrada(1)
+			if recetaActualJugador1!=null:
+				recetaPlayer1.add_child(recetaActualJugador1)
+				animacion_entrada(1)
+			if recetaActualJugador1==null:
+				print("aca se manda a que el P1 gane el juego")
 		2:
 			if recetaActualJugador2!=null:
 				print("papupro2")
 				animacion_salida(2)
 			recetaActualJugador2 = listaRecetasJugador2.pop_back()
-			recetaPlayer2.add_child(recetaActualJugador2)
-			animacion_entrada(2)
+			if recetaActualJugador2!=null:
+				recetaPlayer2.add_child(recetaActualJugador2)
+				animacion_entrada(2)
+			else:
+				print("aca se manda a que el P2 gane el juego")
 	print(listaRecetasJugador1)
 
 # por alguna razon esto no funciona

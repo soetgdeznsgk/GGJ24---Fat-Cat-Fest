@@ -2,6 +2,8 @@ extends boton_simple
 class_name animated_button
 
 @onready var anim:AnimationPlayer = $AnimationPlayer
+@onready var sfx_audio := AudioStreamPlayer.new()
+
 var seeker = 0
 var backwards = false
 var forward = false
@@ -9,6 +11,11 @@ var forward = false
 signal animacion_play(tween: Tween)
 
 @onready var margin_size = get_tree().root.size.x / 5
+
+func _ready() -> void:
+	sfx_audio.bus = "SFX"
+	sfx_audio.stream = load("res://Escenas/Menus/sfx/click.mp3")
+	self.add_child(sfx_audio)
 
 # TODO corregir que la S parpadea con la animación
 func _on_mouse_entered():
@@ -42,6 +49,7 @@ func _on_focus_exited() -> void:
 	_on_mouse_exited()
 
 func _on_pressed() -> void: # intentar moverlo con el margen y no con el size
+	sfx_audio.play()
 	$"../SPButton".grab_focus()
 	hide()
 	$"../SPButton".show()

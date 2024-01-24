@@ -4,6 +4,7 @@ var bg_music := AudioStreamPlayer.new()
 var noMouse = false
 var mousePos : Vector2
 @onready var gatoGif = $MenuPrincipal/HBoxContainer/CenterContainer/GatoGif
+@onready var sfx_audio := AudioStreamPlayer.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,6 +12,9 @@ func _ready():
 	bg_music.autoplay = true
 	bg_music.bus = "Music"
 	add_child(bg_music)
+	sfx_audio.bus = "SFX"
+	sfx_audio.stream = load("res://Escenas/Menus/sfx/click.mp3")
+	self.add_child(sfx_audio)
 	gatoGif.play("Eat")
 	
 #AÑADIR ESTO A CREDITOS EPIC MUSICA
@@ -51,8 +55,10 @@ func _process(delta):
 		
 
 func _on_option_button_pressed():
+	sfx_audio.play()
 	$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer.hide()
 	$MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones.show()
+	
 
 
 func _on_h_box_container_mp_start_game(): # iniciar juego mp
@@ -61,3 +67,7 @@ func _on_h_box_container_mp_start_game(): # iniciar juego mp
 
 func _on_h_box_container_sp_start_game(): # iniciar juego sp
 	get_tree().change_scene_to_file("res://Escenas/Maingame/Maingame.tscn")
+
+
+func _on_credits_button_pressed() -> void:
+	sfx_audio.play()

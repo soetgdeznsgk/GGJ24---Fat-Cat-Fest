@@ -26,8 +26,13 @@ func _ready():
 
 func deviceChanged():
 	if noMouse:
-		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.showPlayButton()
-		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.PlayButton.grab_focus()
+		if !isDeveloped: # menu principal
+			$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.showPlayButton()
+			$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.PlayButton.grab_focus()
+		elif $MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones.visible: #menu config
+			$MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer/MusicVolumeSlider.grab_focus()
+		else: # creditos
+			pass
 	else:
 		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.PlayButton.release_focus()
 		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.SPButton.release_focus()
@@ -65,6 +70,7 @@ func _undevelop_menu():
 	
 	$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer.show()
 	$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.showPlayButton()
+	$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.PlayButton.grab_focus()
 	$MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones.hide()
 	# esconder creditos también
 

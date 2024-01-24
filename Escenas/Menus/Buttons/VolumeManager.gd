@@ -9,6 +9,8 @@ func _ready() -> void:
 	value_changed.connect(_on_value_changed)
 	value = db_to_linear(AudioServer.get_bus_volume_db(bus_index))
 	
+	focus_mode = Control.FOCUS_ALL
+	
 	
 func _on_value_changed(v: float) -> void:
 	AudioServer.set_bus_volume_db(bus_index, linear_to_db(v))

@@ -60,6 +60,7 @@ func _process(_delta):
 		
 
 func _undevelop_menu():
+	sfx_audio.play()
 	isDeveloped = false
 	
 	$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer.show()
@@ -77,10 +78,11 @@ func _on_option_button_pressed():
 
 
 func _on_h_box_container_mp_start_game(): # iniciar juego mp
-	pass # Replace with function body.
+	sfx_audio.play()
 
 
 func _on_h_box_container_sp_start_game(): # iniciar juego sp
+	sfx_audio.play()
 	get_tree().change_scene_to_file("res://Escenas/Maingame/Maingame.tscn")
 
 

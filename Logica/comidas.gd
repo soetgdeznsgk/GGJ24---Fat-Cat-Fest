@@ -1,8 +1,8 @@
 extends Node2D
 const recetasString = ["res://Escenas/Recetas/ArrozConLeche.tscn",\
 "res://Escenas/Recetas/Empanada.tscn", "res://Escenas/Recetas/Salpicon.tscn",\
-"res://Escenas/Recetas/Tamal.tscn"]
-const recetasSize=4
+"res://Escenas/Recetas/Tamal.tscn", "res://Escenas/Recetas/BuñueloyNatilla.tscn"]
+const recetasSize=5
 #diccionario key: es el nombre de la receta(en la escena) 
 #            value: nodo instanciado de la receta
 var recetas1 :={}
@@ -42,8 +42,8 @@ func generarListaRecetas():
 	var receta2
 	for i in range(recetasSize):
 		#ARREGLAR COSO
-		receta1 = recetas1.values()[rng.randi_range(0, recetas1.size() - 1)]
-		receta2 = recetas2.values()[rng.randi_range(0, recetas2.size() - 1)]
+		receta1 = recetas1.values()[rng.randi() % recetas1.size()]
+		receta2 = recetas2.values()[rng.randi() % recetas2.size()]
 		recetas1.erase(receta1.nombre)
 		recetas2.erase(receta2.nombre)
 		listaRecetasJugador1.append(receta1)

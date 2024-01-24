@@ -8,6 +8,7 @@ var forward = false
 
 # TODO corregir que la S parpadea con la animación
 func _on_mouse_entered():
+	grab_focus()
 	if anim.is_playing():
 		seeker = anim.current_animation_position
 	else:
@@ -19,6 +20,7 @@ func _on_mouse_entered():
 		anim.seek(seeker)
 
 func _on_mouse_exited():
+	release_focus()
 	if anim.is_playing():
 		seeker = anim.current_animation_position
 	else:
@@ -36,6 +38,7 @@ func _on_focus_exited() -> void:
 	_on_mouse_exited()
 
 func _on_pressed() -> void: # intentar moverlo con el margen y no con el size
+	$"../SPButton".grab_focus()
 	hide()
 	$"../SPButton".show()
 	$"../MPButton".show()

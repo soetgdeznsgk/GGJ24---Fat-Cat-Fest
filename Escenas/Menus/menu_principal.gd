@@ -19,9 +19,11 @@ func _ready():
 
 func deviceChanged():
 	if noMouse:
-		%PlayButton.grab_focus()
+		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.PlayButton.grab_focus()
 	else:
-		%PlayButton.release_focus()
+		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.PlayButton.release_focus()
+		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.SPButton.release_focus()
+		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.MPButton.release_focus()
 		%OptionsButton.release_focus()
 		%CreditsButton.release_focus()
 
@@ -41,6 +43,9 @@ func _process(delta):
 	if mousePos.distance_squared_to(get_global_mouse_position()) > 200 and noMouse:
 		noMouse = false
 		deviceChanged()
+	if %OptionsButton.has_focus() or %CreditsButton.has_focus():
+		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.showPlayButton()
+		
 
 func _on_option_button_pressed():
 	$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer.hide()

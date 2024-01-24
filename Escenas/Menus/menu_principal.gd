@@ -43,7 +43,7 @@ func _process(delta):
 	if mousePos.distance_squared_to(get_global_mouse_position()) > 200 and noMouse:
 		noMouse = false
 		deviceChanged()
-	if %OptionsButton.has_focus() or %CreditsButton.has_focus():
+	if (%OptionsButton.has_focus() or %CreditsButton.has_focus()) and $MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.isDeveloped: 
 		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.showPlayButton()
 		
 

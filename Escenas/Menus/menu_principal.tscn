@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://wibtjjyhafg4"]
+[gd_scene load_steps=15 format=3 uid="uid://wibtjjyhafg4"]
 
 [ext_resource type="Script" path="res://Escenas/Menus/menu_principal.gd" id="1_vn785"]
 [ext_resource type="Texture2D" uid="uid://d2skq3dyio1rp" path="res://Escenas/Menus/Imgs/FatCatFestLogo.png" id="2_ijal2"]
 [ext_resource type="Script" path="res://Escenas/Menus/Buttons/VolumeManager.gd" id="3_nccfq"]
-[ext_resource type="PackedScene" uid="uid://kcqxgo84fi45" path="res://button_anim.tscn" id="4_cnkgm"]
+[ext_resource type="PackedScene" uid="uid://kcqxgo84fi45" path="res://Escenas/Menus/Buttons/button_anim.tscn" id="4_cnkgm"]
 [ext_resource type="Texture2D" uid="uid://dxkx5w2qurkf3" path="res://Escenas/Menus/Buttons/OptionsButton.png" id="4_gf66w"]
+[ext_resource type="PackedScene" uid="uid://dldomgejvinaf" path="res://Escenas/Menus/Buttons/button_play_loquisimo.tscn" id="4_snve4"]
 [ext_resource type="Texture2D" uid="uid://c7ru10qr3mnrv" path="res://Escenas/Menus/Buttons/InfoButton.png" id="5_j1sg3"]
 [ext_resource type="Texture2D" uid="uid://2w4i8bs40b7c" path="res://Escenas/Menus/Placeholders/characters.png" id="5_msp6e"]
 
@@ -113,14 +114,14 @@ theme_override_font_sizes/font_size = 40
 text = "SFX
 "
 
-[node name="MusicVolumeSlider2" type="HSlider" parent="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer"]
+[node name="SFXVolumeSlider" type="HSlider" parent="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
 step = 0.0
 value = 1.0
 script = ExtResource("3_nccfq")
-bus_name = "Music"
+bus_name = "SFX"
 
 [node name="Label3" type="Label" parent="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer"]
 layout_mode = 2
@@ -134,8 +135,9 @@ size_flags_vertical = 3
 theme_override_constants/separation = 10
 alignment = 2
 
-[node name="PlayButton" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer" instance=ExtResource("4_cnkgm")]
+[node name="HBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer" instance=ExtResource("4_snve4")]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="OptionsButton" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer" instance=ExtResource("4_cnkgm")]
 layout_mode = 2
@@ -163,6 +165,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 texture = ExtResource("5_msp6e")
 
-[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="mp_start_game" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer" to="." method="_on_h_box_container_mp_start_game"]
+[connection signal="sp_start_game" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer" to="." method="_on_h_box_container_sp_start_game"]
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/OptionsButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

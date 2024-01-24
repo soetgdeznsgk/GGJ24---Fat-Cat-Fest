@@ -42,39 +42,14 @@ func _process(delta):
 		noMouse = false
 		deviceChanged()
 
-func _on_play_button_pressed():
-	get_tree().change_scene_to_file("res://Escenas/Maingame/Maingame.tscn")
-
-func _on_play_button_mouse_entered():
-	pass # Replace with function body.
-
-
-func _on_play_button_mouse_exited():
-	pass # Replace with function body.
-
-
 func _on_option_button_pressed():
 	$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer.hide()
 	$MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones.show()
-	pass
 
 
-func _on_option_button_mouse_entered():
+func _on_h_box_container_mp_start_game(): # iniciar juego mp
 	pass # Replace with function body.
 
 
-func _on_option_button_mouse_exited():
-	pass # Replace with function body.
-
-
-func _on_credits_button_pressed():
-	pass # Replace with function body.
-
-
-func _on_credits_button_mouse_entered():
-	pass # Replace with function body.
-
-
-func _on_credits_button_mouse_exited():
-	pass # Replace with function body.
-
+func _on_h_box_container_sp_start_game(): # iniciar juego sp
+	get_tree().change_scene_to_file("res://Escenas/Maingame/Maingame.tscn")

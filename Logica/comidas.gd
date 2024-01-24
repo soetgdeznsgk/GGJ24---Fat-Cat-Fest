@@ -1,6 +1,5 @@
 extends Node2D
-const recetasString = [
-"res://Escenas/Recetas/ArrozConLeche.tscn",
+const recetasString = ["res://Escenas/Recetas/ARrozConLeche.tscn",\
 "res://Escenas/Recetas/Empanada.tscn"]
 const recetasSize=2
 #diccionario key: es el nombre de la receta(en la escena) 
@@ -13,6 +12,8 @@ var listaRecetasJugador2 =[]
 @onready var recetaPlayer2=get_child(1)
 var recetaActualJugador1
 var recetaActualJugador2
+signal nuevaComida1(comida:Array)
+signal nuevaComida2(comida:Array)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	preloadRecetas()
@@ -56,7 +57,6 @@ func manejarCambioReceta():
 	print("hola")
 
 func entradaReceta(numeroJugador):
-	
 	match numeroJugador:
 		1:
 			if recetaActualJugador1!=null:
@@ -79,8 +79,13 @@ func salidaReceta():
 	animacion_salida(1)
 	animacion_salida(2)
 	
-func prueba(receta):
-	print("HOLA CHAT ESTOY ENTRANDOOOOOOOOOOOOOOO  SOY ",receta)
+func enviar_moveset(numeroJugador,recetamoveset):
+	match numeroJugador:
+		1:
+			nuevaComida1.emit(recetamoveset)
+		2:
+			nuevaComida2.emit(recetamoveset)
+	print("enviando moveset --> ",recetamoveset)
 
 func animacion_entrada(numeroJugador):
 	#tween que mueve a la receta actual
@@ -90,12 +95,13 @@ func animacion_entrada(numeroJugador):
 	match numeroJugador:
 		1:
 			recetaAMover=recetaActualJugador1
-			direccionMov=Vector2(825,0)
+			direccionMov=Vector2(700,0)
 		2:
 			recetaAMover=recetaActualJugador2
-			direccionMov=Vector2(-825,0)
+			direccionMov=Vector2(-700,0)
 	#print(recetaActual.moveset)
 	tween.tween_property(recetaAMover,"position",direccionMov,1)
+	tween.tween_callback(enviar_moveset.bind(numeroJugador,recetaAMover.moveset))
 	#tween.tween_callback(prueba.bind(recetaAMover))
 	
 

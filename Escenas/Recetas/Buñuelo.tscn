@@ -40,7 +40,6 @@ _data = {
 }
 
 [node name="Buñuelo" type="Sprite2D"]
-position = Vector2(700, 0)
 texture = ExtResource("1_b34ia")
 script = ExtResource("2_b88vv")
 

@@ -17,21 +17,11 @@ var recetaActualJugador2
 func _ready():
 	preloadRecetas()
 	generarListaRecetas()
-	recetaActualJugador1 = listaRecetasJugador1.pop_back()
-	recetaActualJugador2 = listaRecetasJugador2.pop_back()
-	print(listaRecetasJugador1)
-	recetaPlayer1.add_child(recetaActualJugador1)
-	recetaPlayer2.add_child(recetaActualJugador2)
-	
-	recetaActualJugador1.get_child(0).play("EntrandoP1")
-	
-	recetaActualJugador2.get_child(0).play("EntrandoP2")
-
+	entradaReceta()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_key_pressed(KEY_SPACE):
-		recetaActualJugador1.get_child(0).play_backwards("EntrandoP1")
-		recetaActualJugador2.get_child(0).play_backwards("EntrandoP2")
+		salidaReceta()
 	pass
 #carga todas las recetas y las coloca en el diccionario pal jugador 1 y 2
 func preloadRecetas():
@@ -58,3 +48,33 @@ func generarListaRecetas():
 		receta2 = recetas2.values()[rng.randi_range(0, recetas2.size() - 1)]
 		listaRecetasJugador1.append(receta1)
 		listaRecetasJugador2.append(receta2)
+
+func manejarCambioReceta():
+	if recetaPlayer1.get_child_count() == 0:
+		entradaReceta()
+	else:
+		salidaReceta()
+
+func entradaReceta():
+	recetaActualJugador1 = listaRecetasJugador1.pop_back()
+	recetaActualJugador2 = listaRecetasJugador2.pop_back()
+	print(listaRecetasJugador1)
+	recetaPlayer1.add_child(recetaActualJugador1)
+	recetaPlayer2.add_child(recetaActualJugador2)
+	
+	recetaActualJugador1.get_child(0).play("EntrandoP1")
+	recetaActualJugador2.get_child(0).play("EntrandoP2")
+
+# por alguna razon esto no funciona
+func salidaReceta():
+	recetaActualJugador1.getchild(0).play_backwards("EntrandoP1")
+	recetaActualJugador2.getchild(0).play_backwards("EntrandoP2")
+	recetaActualJugador1.getchild(0).animation_finished().connect(prueba1)
+	recetaActualJugador2.getchild(0).animation_finished().connect(prueba2)
+	
+func prueba1():
+	recetaPlayer1.remove_child(recetaActualJugador1)
+
+func prueba2():
+	recetaPlayer2.remove_child(recetaActualJugador2)
+	

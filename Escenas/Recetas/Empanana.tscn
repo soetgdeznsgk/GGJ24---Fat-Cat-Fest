@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dai2fqf6b4fr5"]
+[gd_scene load_steps=7 format=3 uid="uid://bybowq4jl4v8o"]
 
 [ext_resource type="Texture2D" uid="uid://dvphbofdnkk26" path="res://Sprites/Comidas/empanana.png" id="1_xleia"]
 [ext_resource type="Script" path="res://Logica/Pan.gd" id="2_lbn6m"]
@@ -18,9 +18,6 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(700, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_44nob"]
-resource_name = "new_animation"
-
 [sub_resource type="Animation" id="Animation_s7pfc"]
 resource_name = "EntrandoP2"
 tracks/0/type = "value"
@@ -35,6 +32,9 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-700, 0)]
 }
+
+[sub_resource type="Animation" id="Animation_44nob"]
+resource_name = "new_animation"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n2fmv"]
 _data = {

@@ -17,11 +17,12 @@ var recetaActualJugador2
 func _ready():
 	preloadRecetas()
 	generarListaRecetas()
-	entradaReceta()
+	entradaReceta(1)
+	entradaReceta(2)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
-		salidaReceta()
+		entradaReceta(1)
 	pass
 #carga todas las recetas y las coloca en el diccionario pal jugador 1 y 2
 func preloadRecetas():
@@ -46,40 +47,41 @@ func generarListaRecetas():
 		#ARREGLAR COSO
 		receta1 = recetas1.values()[rng.randi_range(0, recetas1.size() - 1)]
 		receta2 = recetas2.values()[rng.randi_range(0, recetas2.size() - 1)]
+		recetas1.erase(receta1.nombre)
+		recetas2.erase(receta2.nombre)
 		listaRecetasJugador1.append(receta1)
 		listaRecetasJugador2.append(receta2)
 
 func manejarCambioReceta():
-	if recetaPlayer1.get_child_count() == 0:
-		entradaReceta()
-	else:
-		salidaReceta()
+	print("hola")
 
-func entradaReceta():
-	recetaActualJugador1 = listaRecetasJugador1.pop_back()
-	recetaActualJugador2 = listaRecetasJugador2.pop_back()
+func entradaReceta(numeroJugador):
+	
+	match numeroJugador:
+		1:
+			if recetaActualJugador1!=null:
+				print("papupro",recetaActualJugador1)
+				animacion_salida(1)
+			recetaActualJugador1 = listaRecetasJugador1.pop_back()
+			recetaPlayer1.add_child(recetaActualJugador1)
+			animacion_entrada(1)
+		2:
+			if recetaActualJugador2!=null:
+				print("papupro2")
+				animacion_salida(2)
+			recetaActualJugador2 = listaRecetasJugador2.pop_back()
+			recetaPlayer2.add_child(recetaActualJugador2)
+			animacion_entrada(2)
 	print(listaRecetasJugador1)
-	recetaPlayer1.add_child(recetaActualJugador1)
-	recetaPlayer2.add_child(recetaActualJugador2)
-	animacion_entrada(1)
-	animacion_entrada(2)
 
 # por alguna razon esto no funciona
 func salidaReceta():
-	#recetaActualJugador1.get_child(0).play_backwards("EntrandoP1")
-	#recetaActualJugador2.get_child(0).play_backwards("EntrandoP1")
 	animacion_salida(1)
 	animacion_salida(2)
-	#animation_finished es una funcion, como se está conectando se pone sin parentesis (para poner la referencia)
-	recetaActualJugador1.get_child(0).animation_finished.connect(prueba1)
-	recetaActualJugador2.get_child(0).animation_finished.connect(prueba2)
 	
-func prueba1(_anim_name):
-	recetaActualJugador1.queue_free()
+func prueba(receta):
+	print("HOLA CHAT ESTOY ENTRANDOOOOOOOOOOOOOOO  SOY ",receta)
 
-func prueba2(_anim_name):
-	recetaActualJugador2.queue_free()
-	
 func animacion_entrada(numeroJugador):
 	#tween que mueve a la receta actual
 	var tween=create_tween()
@@ -94,6 +96,8 @@ func animacion_entrada(numeroJugador):
 			direccionMov=Vector2(-825,0)
 	#print(recetaActual.moveset)
 	tween.tween_property(recetaAMover,"position",direccionMov,1)
+	#tween.tween_callback(prueba.bind(recetaAMover))
+	
 
 func animacion_salida(numeroJugador):
 	var tween=create_tween()
@@ -106,5 +110,7 @@ func animacion_salida(numeroJugador):
 		2:
 			recetaAMover=recetaActualJugador2
 			direccionMov=Vector2(0,0)
-	#print(recetaActual.moveset)
+	print(recetaAMover)
 	tween.tween_property(recetaAMover,"position",direccionMov,1)
+	tween.tween_callback(manejarCambioReceta)
+	tween.tween_callback(recetaAMover.queue_free)

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Escenas/Menus/menu_principal.gd" id="1_vn785"]
 [ext_resource type="Texture2D" uid="uid://d2skq3dyio1rp" path="res://Escenas/Menus/Imgs/FatCatFestLogo.png" id="2_ijal2"]
 [ext_resource type="Script" path="res://Escenas/Menus/Buttons/VolumeManager.gd" id="3_nccfq"]
-[ext_resource type="PackedScene" uid="uid://kcqxgo84fi45" path="res://Escenas/Menus/Buttons/button_anim.tscn" id="4_cnkgm"]
+[ext_resource type="PackedScene" path="res://Escenas/Menus/Buttons/button_anim.tscn" id="4_cnkgm"]
 [ext_resource type="Texture2D" uid="uid://dxkx5w2qurkf3" path="res://Escenas/Menus/Buttons/OptionsButton.png" id="4_gf66w"]
 [ext_resource type="Texture2D" uid="uid://c7ru10qr3mnrv" path="res://Escenas/Menus/Buttons/InfoButton.png" id="5_j1sg3"]
 [ext_resource type="PackedScene" uid="uid://dldomgejvinaf" path="res://Escenas/Menus/Buttons/button_play_loquisimo.tscn" id="7_ok2fb"]
@@ -227,5 +227,6 @@ sprite_frames = SubResource("SpriteFrames_2evkp")
 animation = &"Eat"
 frame_progress = 0.409295
 
+[connection signal="sp_start_game" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer" to="." method="_on_h_box_container_sp_start_game"]
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/OptionsButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

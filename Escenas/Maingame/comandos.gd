@@ -8,14 +8,20 @@ load("res://Sprites/Comandos/FlechaIzquierda.png"), \
 load("res://Sprites/Comandos/FlechaDerecha.png") ]
 
 var ultimoInputRegistrado = null
-
+var procesosPausados = false
 @onready var anim = $AnimationPlayer
 @onready var comandoNodos = [$Comando0, $Comando1, $Comando2, $Comando3]
+var errorContinuo = false
+var rachaGanadora = false
 var comandos : Array = []
 var comandosConFlechas : Array = []
 var permitirEntradas = true
 var devices
 func _ready() -> void:
+	#Señales
+	Eventos.nuevoEvento.connect(pausarProcesos)
+	Eventos.finalEvento.connect(reanudarProcesos)
+	
 	# Dependiendo del jugador tiene ciertas teclas para el physic process
 	if jugador == 1:
 		diccionarioInputs[Enums.Arriba] = "ArribaPj1"
@@ -38,6 +44,8 @@ func _ready() -> void:
 		comandoNodos[i].texture = listaTexturas[ultimo]
 
 func _physics_process(_delta: float) -> void:
+	if procesosPausados:
+		return
 	# Input buffering
 	if Input.is_action_just_pressed(diccionarioInputs[Enums.Arriba]):
 		ultimoInputRegistrado = Enums.Arriba
@@ -50,7 +58,7 @@ func _physics_process(_delta: float) -> void:
 	
 	# Si está spameando entonces va mas rápido la animación
 	if ultimoInputRegistrado != null and anim.is_playing() \
-	and anim.assigned_animation == "scroll_izquierda":
+	and anim.assigned_animation == "scroll_izquierda" and rachaGanadora:
 		anim.speed_scale = 4
 	# Si ya no hay buffer vuelve la animación a ser lenta
 	if ultimoInputRegistrado == null and anim.assigned_animation == "scroll_izquierda":
@@ -89,21 +97,29 @@ func actualizar_flechas():
 	anim.play("scroll_izquierda")
 
 func error_flechas():
+	rachaGanadora =false
 	# Lo demora arto si se equivocó de manera greedy
-	if anim.is_playing():
-		anim.speed_scale = 5
-		await anim.animation_finished 
-		anim.speed_scale = 0.3
+	if !errorContinuo:
+		anim.speed_scale = 0.2
 		anim.queue("error_flecha")
+		errorContinuo = true
 	else: # lo demora menos si se equivocó en el mismo
-		anim.speed_scale = 0.7
+		anim.speed_scale = 0.8
 		anim.queue("error_flecha")
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "scroll_izquierda":
 		reemplazarTexturas()
+		errorContinuo = false
+		rachaGanadora = true
 	elif anim_name == "error_flecha":
 		anim.speed_scale = 1
 	permitirEntradas = true
-	
 
+func pausarProcesos():
+	procesosPausados = true
+	visible = false
+
+func reanudarProcesos():
+	procesosPausados = false
+	visible = true

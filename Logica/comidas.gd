@@ -46,6 +46,8 @@ func generarListaRecetas():
 		#ARREGLAR COSO
 		receta1 = recetas1.values()[rng.randi_range(0, recetas1.size() - 1)]
 		receta2 = recetas2.values()[rng.randi_range(0, recetas2.size() - 1)]
+		recetas1.erase(receta1.nombre)
+		recetas2.erase(receta2.nombre)
 		listaRecetasJugador1.append(receta1)
 		listaRecetasJugador2.append(receta2)
 

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://lfe8fvgjkdmc" path="res://Sprites/Fondos/stage.png" id="1_4c6u4"]
 [ext_resource type="Texture2D" uid="uid://bdbodnwg8wmpf" path="res://Sprites/Fondos/cartel.png" id="2_rap1f"]
 [ext_resource type="PackedScene" uid="uid://bbx7yskj14jdm" path="res://Escenas/Maingame/comandos.tscn" id="2_wilsv"]
-[ext_resource type="PackedScene" uid="uid://c76u6u5uvxdgl" path="res://Escenas/Maingame/QuickTimeEvent.tscn" id="3_fvsyg"]
+[ext_resource type="PackedScene" path="res://Escenas/Maingame/QuickTimeEvent.tscn" id="3_fvsyg"]
 [ext_resource type="Texture2D" uid="uid://duybff64j0kpo" path="res://Sprites/Fondos/sillas.png" id="3_ym8q0"]
 [ext_resource type="Texture2D" uid="uid://cpifiwycfnlxs" path="res://Sprites/Fondos/mesa.png" id="4_nod1o"]
 [ext_resource type="Script" path="res://Escenas/Maingame/Camera2D.gd" id="5_864na"]

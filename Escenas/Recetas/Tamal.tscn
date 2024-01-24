@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://coly6q8nef2w0"]
+
+[ext_resource type="Texture2D" uid="uid://b8mu2ol7fhiae" path="res://Sprites/Comidas/Tamal.png" id="1_ka4nc"]
+[ext_resource type="Script" path="res://Logica/Tamal.gd" id="2_myk2b"]
+
+[node name="Tamal" type="Sprite2D"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_ka4nc")
+hframes = 3
+script = ExtResource("2_myk2b")

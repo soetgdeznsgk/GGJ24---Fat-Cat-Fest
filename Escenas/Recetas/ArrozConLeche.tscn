@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b02b22kxe33wt"]
+[gd_scene load_steps=3 format=3 uid="uid://bmavo48du568q"]
 
 [ext_resource type="Texture2D" uid="uid://c1jj1nsn8fb21" path="res://Sprites/Comidas/ArrozconLeche.png" id="1_6bmn3"]
 [ext_resource type="Script" path="res://Logica/Buñuelo.gd" id="2_b88vv"]

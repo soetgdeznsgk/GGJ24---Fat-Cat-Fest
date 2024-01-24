@@ -1,7 +1,8 @@
 extends Node2D
 const recetasString = ["res://Escenas/Recetas/ArrozConLeche.tscn",\
-"res://Escenas/Recetas/Empanada.tscn"]
-const recetasSize=2
+"res://Escenas/Recetas/Empanada.tscn", "res://Escenas/Recetas/Salpicon.tscn",\
+"res://Escenas/Recetas/Tamal.tscn"]
+const recetasSize=4
 #diccionario key: es el nombre de la receta(en la escena) 
 #            value: nodo instanciado de la receta
 var recetas1 :={}

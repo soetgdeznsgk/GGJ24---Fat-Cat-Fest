@@ -12,19 +12,15 @@ var listaRecetasJugador2 =[]
 @onready var recetaPlayer2=get_child(1)
 var recetaActualJugador1
 var recetaActualJugador2
-signal nuevaComida1(comida:Array)
-signal nuevaComida2(comida:Array)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	preloadRecetas()
 	generarListaRecetas()
+	Eventos.comandosAcabados.connect(entradaReceta)
 	entradaReceta(1)
 	entradaReceta(2)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
-		entradaReceta(1)
-	pass
+
 #carga todas las recetas y las coloca en el diccionario pal jugador 1 y 2
 func preloadRecetas():
 	var recetainstanciada
@@ -80,11 +76,7 @@ func salidaReceta():
 	animacion_salida(2)
 	
 func enviar_moveset(numeroJugador,recetamoveset):
-	match numeroJugador:
-		1:
-			nuevaComida1.emit(recetamoveset)
-		2:
-			nuevaComida2.emit(recetamoveset)
+	Eventos.nuevaComida.emit(numeroJugador,recetamoveset)
 	print("enviando moveset --> ",recetamoveset)
 
 func animacion_entrada(numeroJugador):

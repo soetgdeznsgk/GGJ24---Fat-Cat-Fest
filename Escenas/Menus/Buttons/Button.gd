@@ -10,6 +10,7 @@ var forward = false
 
 signal animacion_play(tween: Tween)
 
+@warning_ignore("integer_division")
 @onready var margin_size = get_tree().root.size.x / 5
 
 func _ready() -> void:

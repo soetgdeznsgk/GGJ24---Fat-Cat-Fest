@@ -38,10 +38,10 @@ position = Vector2(681, 384)
 
 [node name="Comandos" parent="." instance=ExtResource("2_wilsv")]
 position = Vector2(658, 504)
+jugador = 2
 
 [node name="Comandos2" parent="." instance=ExtResource("2_wilsv")]
 position = Vector2(209, 504)
-jugador = 2
 
 [node name="Deco" type="Sprite2D" parent="."]
 scale = Vector2(0.712, 0.712)

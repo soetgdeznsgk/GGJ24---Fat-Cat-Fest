@@ -1,8 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bbx7yskj14jdm"]
+[gd_scene load_steps=7 format=3 uid="uid://bbx7yskj14jdm"]
 
 [ext_resource type="Script" path="res://Escenas/Maingame/comandos.gd" id="1_k17g7"]
-[ext_resource type="Texture2D" uid="uid://b7u2syubd446b" path="res://Sprites/Comandos/FlechaAbajo.png" id="2_gyd1x"]
-[ext_resource type="Texture2D" uid="uid://ds5cfarbrgm6r" path="res://Sprites/Comandos/flechaArriba.png" id="3_x3pn3"]
 [ext_resource type="Texture2D" uid="uid://bsfarbyogdekf" path="res://Sprites/Comandos/FlechaDerecha.png" id="4_4hgvy"]
 
 [sub_resource type="Animation" id="Animation_rhm6t"]
@@ -270,17 +268,14 @@ script = ExtResource("1_k17g7")
 [node name="Comando0" type="Sprite2D" parent="."]
 position = Vector2(128, 51)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_gyd1x")
 
 [node name="Comando1" type="Sprite2D" parent="."]
 position = Vector2(256, 51)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_x3pn3")
 
 [node name="Comando2" type="Sprite2D" parent="."]
 position = Vector2(384, 51)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_4hgvy")
 
 [node name="Comando3" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0)

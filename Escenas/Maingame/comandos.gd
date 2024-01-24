@@ -21,6 +21,7 @@ func _ready() -> void:
 	#Señales
 	Eventos.nuevoEvento.connect(pausarProcesos)
 	Eventos.finalEvento.connect(reanudarProcesos)
+	Eventos.nuevaComida.connect(set_comandos)
 	
 	# Dependiendo del jugador tiene ciertas teclas para el physic process
 	if jugador == 1:
@@ -34,13 +35,15 @@ func _ready() -> void:
 		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj2"
 		diccionarioInputs[Enums.Derecha] = "DerechaPj2"
 
-func set_comandos(nuevosComandos : Array):
-	comandos = nuevosComandos
-	comandosConFlechas = comandos.duplicate()
-	# Colocar las primeras 3 flechas que llegan de la comida
-	for i in range(3):
-		var ultimo = comandos.pop_front()
-		comandoNodos[i].texture = listaTexturas[ultimo]
+func set_comandos(numeroJugador, nuevosComandos : Array):
+	#Solo actualiza si es el jugador correcot
+	if numeroJugador == jugador:
+		comandos = nuevosComandos
+		comandosConFlechas = nuevosComandos.duplicate()
+		# Colocar las primeras 3 flechas que llegan de la comida
+		for i in range(3):
+			var ultimo = comandos.pop_front()
+			comandoNodos[i].texture = listaTexturas[ultimo]
 
 func _physics_process(_delta: float) -> void:
 	if procesosPausados:
@@ -54,7 +57,6 @@ func _physics_process(_delta: float) -> void:
 		ultimoInputRegistrado = Enums.Izquierda
 	elif Input.is_action_just_pressed(diccionarioInputs[Enums.Derecha]):
 		ultimoInputRegistrado = Enums.Derecha
-	
 	# Si está spameando entonces va mas rápido la animación
 	if ultimoInputRegistrado != null and anim.is_playing() \
 	and anim.assigned_animation == "scroll_izquierda" and rachaGanadora:
@@ -85,6 +87,10 @@ func reemplazarTexturas():
 	for i in comandoNodos.size():
 		comandoNodos[i].position = Vector2((i+1)*128, 51)
 		comandoNodos[i].self_modulate = Color(1,1,1,1)
+	
+	if comandosConFlechas.size() == 0:
+		# Emitir que ya se comió todo
+		Eventos.comandosAcabados.emit(jugador)
 
 func actualizar_flechas():
 	# le pone textura a la nueva flecha por salir

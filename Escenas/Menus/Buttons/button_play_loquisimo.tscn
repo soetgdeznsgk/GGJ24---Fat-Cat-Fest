@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dldomgejvinaf"]
+[gd_scene load_steps=11 format=3 uid="uid://dldomgejvinaf"]
 
 [ext_resource type="Script" path="res://Escenas/Menus/Buttons/PlayButtonRelay.gd" id="1_262t7"]
 [ext_resource type="FontFile" uid="uid://cs81puvnc10pp" path="res://Escenas/Menus/Fonts/LobsterTwo-Regular.ttf" id="1_8015a"]
 [ext_resource type="Texture2D" uid="uid://x886cltnkwtt" path="res://Escenas/Menus/Buttons/PlayButton.png" id="2_65ics"]
 [ext_resource type="Script" path="res://Escenas/Menus/Buttons/Button.gd" id="3_7m7tc"]
 [ext_resource type="StyleBox" uid="uid://3gjeyh8dsx21" path="res://Escenas/Menus/Buttons/estilo_botones.tres" id="5_hlqpp"]
+[ext_resource type="Script" path="res://Escenas/Menus/Buttons/simple_button.gd" id="6_fxjbn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71wjp"]
 bg_color = Color(0.631373, 0.588235, 0.596078, 0.341176)
@@ -71,7 +72,7 @@ _data = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer"]
-offset_right = 288.0
+offset_right = 647.0
 offset_bottom = 89.0
 size_flags_horizontal = 3
 script = ExtResource("1_262t7")
@@ -118,6 +119,7 @@ text = "sp"
 icon = ExtResource("2_65ics")
 icon_alignment = 2
 expand_icon = true
+script = ExtResource("6_fxjbn")
 
 [node name="MPButton" type="Button" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
@@ -130,11 +132,17 @@ theme_override_styles/focus = ExtResource("5_hlqpp")
 text = "mp"
 icon = ExtResource("2_65ics")
 expand_icon = true
+script = ExtResource("6_fxjbn")
 
+[connection signal="animacion_play" from="MarginContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_animacion_play"]
 [connection signal="focus_entered" from="MarginContainer/HBoxContainer/PlayButton" to="MarginContainer/HBoxContainer/PlayButton" method="_on_focus_entered"]
 [connection signal="focus_exited" from="MarginContainer/HBoxContainer/PlayButton" to="MarginContainer/HBoxContainer/PlayButton" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/PlayButton" to="MarginContainer/HBoxContainer/PlayButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/HBoxContainer/PlayButton" to="MarginContainer/HBoxContainer/PlayButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/PlayButton" to="MarginContainer/HBoxContainer/PlayButton" method="_on_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/SPButton" to="MarginContainer/HBoxContainer/SPButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/HBoxContainer/SPButton" to="MarginContainer/HBoxContainer/SPButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/SPButton" to="." method="_on_sp_button_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/MPButton" to="MarginContainer/HBoxContainer/MPButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/HBoxContainer/MPButton" to="MarginContainer/HBoxContainer/MPButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/MPButton" to="." method="_on_sp_button_pressed"]

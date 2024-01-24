@@ -17,4 +17,5 @@ func showPlayButton():
 	PlayButton.visible = true
 	SPButton.visible = false
 	MPButton.visible = false
+	%PlayButton.margin_size = get_tree().root.size.x / 5
 	

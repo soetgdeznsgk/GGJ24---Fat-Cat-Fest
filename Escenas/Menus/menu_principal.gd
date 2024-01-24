@@ -19,7 +19,7 @@ func _ready():
 
 func deviceChanged():
 	if noMouse:
-		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.PlayButton.grab_focus()
+		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.showPlayButton()
 	else:
 		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.PlayButton.release_focus()
 		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.SPButton.release_focus()

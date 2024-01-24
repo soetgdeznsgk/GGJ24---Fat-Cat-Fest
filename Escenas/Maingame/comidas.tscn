@@ -6,7 +6,7 @@
 script = ExtResource("1_kch2t")
 
 [node name="RecetaPlayer1" type="Node2D" parent="."]
-position = Vector2(-1050, 0)
+position = Vector2(-1050, -10)
 
 [node name="RecetaPlayer2" type="Node2D" parent="."]
-position = Vector2(1050, 0)
+position = Vector2(1050, -10)

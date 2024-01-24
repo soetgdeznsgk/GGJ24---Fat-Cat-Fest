@@ -36,7 +36,6 @@ func preloadRecetas():
 
 func generarListaRecetas():
 	var rng = RandomNumberGenerator.new()
-	var listaRecetas = []
 	print(recetas1)
 	var receta1
 	var receta2
@@ -87,10 +86,10 @@ func animacion_entrada(numeroJugador):
 	match numeroJugador:
 		1:
 			recetaAMover=recetaActualJugador1
-			direccionMov=Vector2(700,0)
+			direccionMov=Vector2(790,0)
 		2:
 			recetaAMover=recetaActualJugador2
-			direccionMov=Vector2(-700,0)
+			direccionMov=Vector2(-790,0)
 	#print(recetaActual.moveset)
 	tween.tween_property(recetaAMover,"position",direccionMov,1)
 	tween.tween_callback(enviar_moveset.bind(numeroJugador,recetaAMover.moveset))

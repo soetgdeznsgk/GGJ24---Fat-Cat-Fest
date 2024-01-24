@@ -33,11 +33,10 @@ func _ready() -> void:
 		diccionarioInputs[Enums.Abajo]  = "AbajoPj2"
 		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj2"
 		diccionarioInputs[Enums.Derecha] = "DerechaPj2"
-		
-	# TODO deberian llegar en la comida
-	comandos = [Enums.Arriba,Enums.Abajo,Enums.Izquierda,Enums.Derecha,Enums.Arriba,Enums.Abajo,Enums.Izquierda,Enums.Derecha,Enums.Arriba,Enums.Abajo,Enums.Izquierda,Enums.Derecha]
+
+func set_comandos(nuevosComandos : Array):
+	comandos = nuevosComandos
 	comandosConFlechas = comandos.duplicate()
-	
 	# Colocar las primeras 3 flechas que llegan de la comida
 	for i in range(3):
 		var ultimo = comandos.pop_front()

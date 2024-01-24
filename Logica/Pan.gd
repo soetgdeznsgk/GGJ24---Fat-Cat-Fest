@@ -1,3 +1,4 @@
-extends Sprite2D
-enum {left, right, up, down}
-var moveset = [left, left, right, down, right, up, up, left, down]
+extends Node
+var nombre= "Empanana"
+var moveset = [Enums.Izquierda, Enums.Izquierda, Enums.Derecha, Enums.Abajo, Enums.Derecha, Enums.Arriba, Enums.Arriba, Enums.Izquierda, Enums.Abajo]
+

@@ -1,50 +1,80 @@
 extends Node2D
-
 enum {LEFT, RIGHT, UP, DOWN}
-const string = "res://Escenas/Recetas/Buñuelo.tscn"
-var receta1=preload(string)
-var nodoinstanciado=receta1.instantiate()
-var nodoinstanciado2=preload("res://Escenas/Recetas/Pan.tscn").instantiate()
-var recetas = {nodoinstanciado: nodoinstanciado.moveset, \
-nodoinstanciado2: nodoinstanciado2.moveset}
-
+const recetasString = ["res://Escenas/Recetas/Buñuelo.tscn",\
+"res://Escenas/Recetas/Empanana.tscn"]
+const recetasSize=2
+#diccionario key: es el nombre de la receta(en la escena) 
+#            value: nodo instanciado de la receta
+var recetas1 :={}
+var recetas2 :={}
+var listaRecetasJugador1 =[]
+var listaRecetasJugador2 =[]
+@onready var recetaPlayer1=get_child(0)
+@onready var recetaPlayer2=get_child(1)
+var recetaActualJugador1 
+var recetaActualJugador2
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#spawnea la receta1 en el nodo 'RecetaPlayer1'
-	var recetaActual = recetas.keys()[randi() % recetas.size()]
-	get_child(1).add_child(recetaActual)
-	#get_child(0).add_child(nodoinstanciado2)
-	
-
+	preloadRecetas()
+	generarListaRecetas()
+	entradaReceta()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	animacion_entrada(1)
+	if Input.is_key_pressed(KEY_SPACE):
+		salidaReceta()
 	pass
-#funcion que cuando se llama se dice si es para el jugador 1 o 2 (0=p1,  1=p2)
-func animacion_entrada(player):
-	var tween=create_tween()
-	var recetaActual
-	var direccionMov=Vector2.ZERO
-	if player==0:
-		recetaActual=get_child(0).get_child(0)
-		direccionMov=Vector2(500,0)
-	else:
-		recetaActual=get_child(1).get_child(0)
-		direccionMov=Vector2(-500,0)
-	print(recetaActual.name)
-	tween.tween_property(recetaActual,"position",direccionMov,0.5)
-	#tween que mueve a la receta actual
+#carga todas las recetas y las coloca en el diccionario pal jugador 1 y 2
+func preloadRecetas():
+	var recetainstanciada
+	var recetainstanciada1
+	var recetainstanciada2
+	for receta in recetasString:
+		recetainstanciada=load(receta)
+		recetainstanciada1=recetainstanciada.instantiate()
+		recetainstanciada2=recetainstanciada.instantiate()
+		recetas1[recetainstanciada1.nombre]=recetainstanciada1
+		recetas2[recetainstanciada2.nombre]=recetainstanciada2
 	
-	#primero va a recetaPlayer1 y despues busca la primera receta que este
 
-#no funciono esta mierda
-#func preloadRecetas():
-	#var recetasDir = "res://Escenas/Recetas"
-	#var dir = DirAccess.open(recetasDir)
-	#if dir:
-		#dir.list_dir_begin()
-		#var filePath = "/" + recetasDir + "/" + dir.get_next()
-		#while filePath != "":
-			#var receta = load(filePath)
-			#recetas[receta] = receta.moveset
-			#filePath = recetasDir + "/" + dir.get_next()
+func generarListaRecetas():
+	var rng = RandomNumberGenerator.new()
+	var listaRecetas = []
+	print(recetas1)
+	var receta1
+	var receta2
+	for i in range(recetasSize):
+		#ARREGLAR COSO
+		receta1 = recetas1.values()[rng.randi_range(0, recetas1.size() - 1)]
+		receta2 = recetas2.values()[rng.randi_range(0, recetas2.size() - 1)]
+		listaRecetasJugador1.append(receta1)
+		listaRecetasJugador2.append(receta2)
+
+func manejarCambioReceta():
+	if recetaPlayer1.get_child_count() == 0:
+		entradaReceta()
+	else:
+		salidaReceta()
+
+func entradaReceta():
+	recetaActualJugador1 = listaRecetasJugador1.pop_back()
+	recetaActualJugador2 = listaRecetasJugador2.pop_back()
+	print(listaRecetasJugador1)
+	recetaPlayer1.add_child(recetaActualJugador1)
+	recetaPlayer2.add_child(recetaActualJugador2)
+	
+	recetaActualJugador1.get_child(0).play("EntrandoP1")
+	recetaActualJugador2.get_child(0).play("EntrandoP2")
+
+# por alguna razon esto no funciona
+func salidaReceta():
+	recetaActualJugador1.getchild(0).play_backwards("EntrandoP1")
+	recetaActualJugador2.getchild(0).play_backwards("EntrandoP2")
+	recetaActualJugador1.getchild(0).animation_finished().connect(prueba1)
+	recetaActualJugador2.getchild(0).animation_finished().connect(prueba2)
+	
+func prueba1():
+	recetaPlayer1.remove_child(recetaActualJugador1)
+
+func prueba2():
+	recetaPlayer2.remove_child(recetaActualJugador2)
+	

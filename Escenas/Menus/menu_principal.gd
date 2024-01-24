@@ -3,6 +3,7 @@ extends Control
 var bg_music := AudioStreamPlayer.new()
 var noMouse = false
 var mousePos : Vector2
+@onready var gatoGif = $MenuPrincipal/HBoxContainer/CenterContainer/GatoGif
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,6 +11,7 @@ func _ready():
 	bg_music.autoplay = true
 	bg_music.bus = "Music"
 	add_child(bg_music)
+	gatoGif.play("Eat")
 	
 #AÑADIR ESTO A CREDITOS EPIC MUSICA
 

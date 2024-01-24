@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://wibtjjyhafg4"]
+[gd_scene load_steps=27 format=3 uid="uid://wibtjjyhafg4"]
 
 [ext_resource type="Script" path="res://Escenas/Menus/menu_principal.gd" id="1_vn785"]
 [ext_resource type="Texture2D" uid="uid://d2skq3dyio1rp" path="res://Escenas/Menus/Imgs/FatCatFestLogo.png" id="2_ijal2"]
@@ -6,8 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://kcqxgo84fi45" path="res://Escenas/Menus/Buttons/button_anim.tscn" id="4_cnkgm"]
 [ext_resource type="Texture2D" uid="uid://dxkx5w2qurkf3" path="res://Escenas/Menus/Buttons/OptionsButton.png" id="4_gf66w"]
 [ext_resource type="Texture2D" uid="uid://c7ru10qr3mnrv" path="res://Escenas/Menus/Buttons/InfoButton.png" id="5_j1sg3"]
-[ext_resource type="Texture2D" uid="uid://2w4i8bs40b7c" path="res://Escenas/Menus/Placeholders/characters.png" id="5_msp6e"]
 [ext_resource type="PackedScene" uid="uid://dldomgejvinaf" path="res://Escenas/Menus/Buttons/button_play_loquisimo.tscn" id="7_ok2fb"]
+[ext_resource type="Texture2D" uid="uid://cm6j5vcnxq6rx" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0000.png" id="8_33lqp"]
+[ext_resource type="Texture2D" uid="uid://ymdvj5rbfrom" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0001.png" id="9_4mylu"]
+[ext_resource type="Texture2D" uid="uid://cko7qdpjm2shp" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0002.png" id="10_lymja"]
+[ext_resource type="Texture2D" uid="uid://b4e8p240jvkcc" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0003.png" id="11_c5trp"]
+[ext_resource type="Texture2D" uid="uid://bjuakr1esl2db" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0004.png" id="12_yvj5k"]
+[ext_resource type="Texture2D" uid="uid://cu8ihu268drfj" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0005.png" id="13_dneix"]
+[ext_resource type="Texture2D" uid="uid://sadnih3iylgi" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0006.png" id="14_t50se"]
+[ext_resource type="Texture2D" uid="uid://blay5roeuvwla" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0007.png" id="15_h1gip"]
+[ext_resource type="Texture2D" uid="uid://sqy5qjj17ad5" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0008.png" id="16_jaw8e"]
+[ext_resource type="Texture2D" uid="uid://jsp1brrwdxu7" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0009.png" id="17_pokp8"]
+[ext_resource type="Texture2D" uid="uid://d0fmw3oywajax" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0010.png" id="18_m2i7m"]
+[ext_resource type="Texture2D" uid="uid://d2scq3mwqpuwh" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0011.png" id="19_uxlfc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_76xur"]
 
@@ -40,6 +51,50 @@ bg_color = Color(0.631373, 0.588235, 0.596078, 0.341176)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dstja"]
 bg_color = Color(0.631373, 0.588235, 0.596078, 0.341176)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_2evkp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_33lqp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4mylu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_lymja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_c5trp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_yvj5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_dneix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_t50se")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_h1gip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_jaw8e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_pokp8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_m2i7m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_uxlfc")
+}],
+"loop": true,
+"name": &"Eat",
+"speed": 20.0
+}]
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -65,14 +120,13 @@ theme_override_constants/margin_bottom = 30
 metadata/_edit_lock_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MenuPrincipal"]
-clip_contents = true
 layout_mode = 2
 theme_override_constants/separation = 32
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
+size_flags_stretch_ratio = 1.39
 alignment = 1
 
 [node name="Logo" type="TextureRect" parent="MenuPrincipal/HBoxContainer/VBoxContainer"]
@@ -165,9 +219,13 @@ icon = ExtResource("5_j1sg3")
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Imagen" type="TextureRect" parent="MenuPrincipal/HBoxContainer/CenterContainer"]
-layout_mode = 2
-texture = ExtResource("5_msp6e")
+[node name="GatoGif" type="AnimatedSprite2D" parent="MenuPrincipal/HBoxContainer/CenterContainer"]
+z_index = -2
+position = Vector2(86, 469)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_2evkp")
+animation = &"Eat"
+frame_progress = 0.409295
 
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/OptionsButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

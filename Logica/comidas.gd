@@ -49,10 +49,7 @@ func generarListaRecetas():
 		listaRecetasJugador2.append(receta2)
 
 func manejarCambioReceta():
-	if recetaPlayer1.get_child_count() == 0:
-		entradaReceta()
-	else:
-		salidaReceta()
+	print("hola")
 
 func entradaReceta():
 	recetaActualJugador1 = listaRecetasJugador1.pop_back()
@@ -70,15 +67,12 @@ func salidaReceta():
 	animacion_salida(1)
 	animacion_salida(2)
 	#animation_finished es una funcion, como se está conectando se pone sin parentesis (para poner la referencia)
-	recetaActualJugador1.get_child(0).animation_finished.connect(prueba1)
-	recetaActualJugador2.get_child(0).animation_finished.connect(prueba2)
+	#recetaActualJugador1.get_child(0).animation_finished.connect(prueba1)
+	#recetaActualJugador2.get_child(0).animation_finished.connect(prueba2)
 	
-func prueba1(_anim_name):
-	recetaActualJugador1.queue_free()
+func prueba(receta):
+	print("HOLA CHAT ESTOY ENTRANDOOOOOOOOOOOOOOO  SOY ",receta)
 
-func prueba2(_anim_name):
-	recetaActualJugador2.queue_free()
-	
 func animacion_entrada(numeroJugador):
 	#tween que mueve a la receta actual
 	var tween=create_tween()
@@ -93,6 +87,9 @@ func animacion_entrada(numeroJugador):
 			direccionMov=Vector2(-700,0)
 	#print(recetaActual.moveset)
 	tween.tween_property(recetaAMover,"position",direccionMov,1)
+	tween.tween_callback(prueba.bind(recetaAMover))
+	tween.tween_callback(queue_free)
+	
 
 func animacion_salida(numeroJugador):
 	var tween=create_tween()
@@ -107,3 +104,4 @@ func animacion_salida(numeroJugador):
 			direccionMov=Vector2(0,0)
 	#print(recetaActual.moveset)
 	tween.tween_property(recetaAMover,"position",direccionMov,1)
+	recetaAMover.queue_free()

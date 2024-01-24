@@ -10,7 +10,7 @@ var listaRecetasJugador1 =[]
 var listaRecetasJugador2 =[]
 @onready var recetaPlayer1=get_child(0)
 @onready var recetaPlayer2=get_child(1)
-var recetaActualJugador1 
+var recetaActualJugador1
 var recetaActualJugador2
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,7 +19,7 @@ func _ready():
 	entradaReceta()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_key_pressed(KEY_SPACE):
+	if Input.is_action_just_pressed("ui_accept"):
 		salidaReceta()
 	pass
 #carga todas las recetas y las coloca en el diccionario pal jugador 1 y 2
@@ -60,20 +60,50 @@ func entradaReceta():
 	print(listaRecetasJugador1)
 	recetaPlayer1.add_child(recetaActualJugador1)
 	recetaPlayer2.add_child(recetaActualJugador2)
-	
-	recetaActualJugador1.get_child(0).play("EntrandoP1")
-	recetaActualJugador2.get_child(0).play("EntrandoP2")
+	animacion_entrada(1)
+	animacion_entrada(2)
 
 # por alguna razon esto no funciona
 func salidaReceta():
-	recetaActualJugador1.getchild(0).play_backwards("EntrandoP1")
-	recetaActualJugador2.getchild(0).play_backwards("EntrandoP2")
-	recetaActualJugador1.getchild(0).animation_finished().connect(prueba1)
-	recetaActualJugador2.getchild(0).animation_finished().connect(prueba2)
+	#recetaActualJugador1.get_child(0).play_backwards("EntrandoP1")
+	#recetaActualJugador2.get_child(0).play_backwards("EntrandoP1")
+	animacion_salida(1)
+	animacion_salida(2)
+	#animation_finished es una funcion, como se está conectando se pone sin parentesis (para poner la referencia)
+	recetaActualJugador1.get_child(0).animation_finished.connect(prueba1)
+	recetaActualJugador2.get_child(0).animation_finished.connect(prueba2)
 	
-func prueba1():
-	recetaPlayer1.remove_child(recetaActualJugador1)
+func prueba1(_anim_name):
+	recetaActualJugador1.queue_free()
 
-func prueba2():
-	recetaPlayer2.remove_child(recetaActualJugador2)
+func prueba2(_anim_name):
+	recetaActualJugador2.queue_free()
 	
+func animacion_entrada(numeroJugador):
+	#tween que mueve a la receta actual
+	var tween=create_tween()
+	var recetaAMover
+	var direccionMov=Vector2.ZERO
+	match numeroJugador:
+		1:
+			recetaAMover=recetaActualJugador1
+			direccionMov=Vector2(700,0)
+		2:
+			recetaAMover=recetaActualJugador2
+			direccionMov=Vector2(-700,0)
+	#print(recetaActual.moveset)
+	tween.tween_property(recetaAMover,"position",direccionMov,1)
+
+func animacion_salida(numeroJugador):
+	var tween=create_tween()
+	var recetaAMover
+	var direccionMov=Vector2.ZERO
+	match numeroJugador:
+		1:
+			recetaAMover=recetaActualJugador1
+			direccionMov=Vector2(0,0)
+		2:
+			recetaAMover=recetaActualJugador2
+			direccionMov=Vector2(0,0)
+	#print(recetaActual.moveset)
+	tween.tween_property(recetaAMover,"position",direccionMov,1)

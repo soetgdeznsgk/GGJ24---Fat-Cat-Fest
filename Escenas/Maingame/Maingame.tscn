@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b4olfp085mokh"]
 
-[ext_resource type="Texture2D" uid="uid://dltesf7slh662" path="res://Sprites/Gatos/image.png" id="1_eo8rj"]
+[ext_resource type="Texture2D" uid="uid://bekyman0ykvud" path="res://Sprites/Gatos/todo-publico.jpg" id="1_byyai"]
 [ext_resource type="PackedScene" uid="uid://bbx7yskj14jdm" path="res://Escenas/Maingame/comandos.tscn" id="2_wilsv"]
 [ext_resource type="PackedScene" uid="uid://c76u6u5uvxdgl" path="res://Escenas/Maingame/QuickTimeEvent.tscn" id="3_fvsyg"]
 [ext_resource type="Script" path="res://Escenas/Maingame/Camera2D.gd" id="5_864na"]
@@ -10,7 +10,7 @@
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(689, 377)
-texture = ExtResource("1_eo8rj")
+texture = ExtResource("1_byyai")
 metadata/_edit_lock_ = true
 
 [node name="Comandos" parent="." instance=ExtResource("2_wilsv")]

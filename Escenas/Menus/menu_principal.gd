@@ -1,5 +1,6 @@
 extends Control
 
+var isDeveloped := false
 var bg_music := AudioStreamPlayer.new()
 var noMouse = false
 var mousePos : Vector2
@@ -36,6 +37,10 @@ func deviceChanged():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if Input.is_action_just_pressed("ui_cancel") and isDeveloped:
+		_undevelop_menu()
+		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.PlayButton.grab_focus()
+		 
 	if Input.is_action_just_pressed("AbajoPj1") and !noMouse:
 		noMouse = true
 		deviceChanged()
@@ -54,10 +59,20 @@ func _process(_delta):
 		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.showPlayButton()
 		
 
+func _undevelop_menu():
+	isDeveloped = false
+	
+	$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer.show()
+	$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.showPlayButton()
+	$MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones.hide()
+	# esconder creditos también
+
 func _on_option_button_pressed():
+	isDeveloped = true
 	sfx_audio.play()
 	$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer.hide()
 	$MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones.show()
+	$MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer/MusicVolumeSlider.grab_focus()
 	
 
 
@@ -71,3 +86,4 @@ func _on_h_box_container_sp_start_game(): # iniciar juego sp
 
 func _on_credits_button_pressed() -> void:
 	sfx_audio.play()
+	isDeveloped = true

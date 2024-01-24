@@ -1,8 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://wibtjjyhafg4"]
+[gd_scene load_steps=28 format=3 uid="uid://wibtjjyhafg4"]
 
 [ext_resource type="Script" path="res://Escenas/Menus/menu_principal.gd" id="1_vn785"]
 [ext_resource type="Texture2D" uid="uid://d2skq3dyio1rp" path="res://Escenas/Menus/Imgs/FatCatFestLogo.png" id="2_ijal2"]
 [ext_resource type="Script" path="res://Escenas/Menus/Buttons/VolumeManager.gd" id="3_nccfq"]
+[ext_resource type="StyleBox" uid="uid://3gjeyh8dsx21" path="res://Escenas/Menus/Buttons/estilo_botones.tres" id="4_6o6po"]
 [ext_resource type="PackedScene" uid="uid://kcqxgo84fi45" path="res://Escenas/Menus/Buttons/button_anim.tscn" id="4_cnkgm"]
 [ext_resource type="Texture2D" uid="uid://dxkx5w2qurkf3" path="res://Escenas/Menus/Buttons/OptionsButton.png" id="4_gf66w"]
 [ext_resource type="Texture2D" uid="uid://c7ru10qr3mnrv" path="res://Escenas/Menus/Buttons/InfoButton.png" id="5_j1sg3"]
@@ -184,6 +185,14 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Idioma"
 
+[node name="Button" type="Button" parent="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_6o6po")
+theme_override_styles/hover = ExtResource("4_6o6po")
+theme_override_styles/focus = ExtResource("4_6o6po")
+text = "volver"
+alignment = 0
+
 [node name="MainVBoxContainer" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -227,6 +236,7 @@ sprite_frames = SubResource("SpriteFrames_2evkp")
 animation = &"Eat"
 frame_progress = 0.409295
 
+[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer/Button" to="." method="_undevelop_menu"]
 [connection signal="sp_start_game" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer" to="." method="_on_h_box_container_sp_start_game"]
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/OptionsButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

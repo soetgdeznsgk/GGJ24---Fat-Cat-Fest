@@ -120,7 +120,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1012, 375), Vector2(212, 375)]
 }

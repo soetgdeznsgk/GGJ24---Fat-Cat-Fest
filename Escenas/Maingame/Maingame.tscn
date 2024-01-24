@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4olfp085mokh"]
+[gd_scene load_steps=6 format=3 uid="uid://b4olfp085mokh"]
 
 [ext_resource type="Texture2D" uid="uid://dltesf7slh662" path="res://Sprites/Gatos/image.png" id="1_eo8rj"]
 [ext_resource type="PackedScene" uid="uid://bbx7yskj14jdm" path="res://Escenas/Maingame/comandos.tscn" id="2_wilsv"]
 [ext_resource type="PackedScene" uid="uid://c76u6u5uvxdgl" path="res://Escenas/Maingame/QuickTimeEvent.tscn" id="3_fvsyg"]
 [ext_resource type="Script" path="res://Escenas/Maingame/Camera2D.gd" id="5_864na"]
+[ext_resource type="PackedScene" uid="uid://bcrmlxmuoakqy" path="res://Escenas/Maingame/comidas.tscn" id="5_on172"]
 
 [node name="Maingame" type="Node2D"]
 
@@ -26,3 +27,6 @@ position = Vector2(681, 386)
 process_callback = 0
 script = ExtResource("5_864na")
 zoomFinal = Vector2(1.5, 1.5)
+
+[node name="comidas" parent="." instance=ExtResource("5_on172")]
+position = Vector2(681, 384)

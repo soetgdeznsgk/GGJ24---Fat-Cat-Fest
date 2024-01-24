@@ -1,8 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://b02b22kxe33wt"]
 
-[ext_resource type="Texture2D" uid="uid://cr6oimsr4j7no" path="res://Sprites/Comidas/pngtree-simple-breadloaf-vector-illustration-on-white-background-png-image_2013485.jpg" id="1_xxpkr"]
+[ext_resource type="Texture2D" uid="uid://df3vm61vtcfyl" path="res://Sprites/Comidas/Buñuelo.png" id="1_b34ia"]
 [ext_resource type="Script" path="res://Logica/Buñuelo.gd" id="2_b88vv"]
 
 [node name="Buñuelo" type="Sprite2D"]
-texture = ExtResource("1_xxpkr")
+texture = ExtResource("1_b34ia")
 script = ExtResource("2_b88vv")

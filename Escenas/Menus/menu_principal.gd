@@ -19,11 +19,13 @@ func _ready():
 
 func deviceChanged():
 	if noMouse:
-		$MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer/PlayButton.grab_focus()
+		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.PlayButton.grab_focus()
 	else:
-		$MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer/PlayButton.release_focus()
-		$MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer/PlayButton2.release_focus()
-		$MenuPrincipal/HBoxContainer/VBoxContainer/VBoxContainer/PlayButton3.release_focus()
+		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.PlayButton.release_focus()
+		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.SPButton.release_focus()
+		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.MPButton.release_focus()
+		%OptionsButton.release_focus()
+		%CreditsButton.release_focus()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -41,40 +43,18 @@ func _process(delta):
 	if mousePos.distance_squared_to(get_global_mouse_position()) > 200 and noMouse:
 		noMouse = false
 		deviceChanged()
-
-func _on_play_button_pressed():
-	get_tree().change_scene_to_file("res://Escenas/Maingame/Maingame.tscn")
-
-func _on_play_button_mouse_entered():
-	pass # Replace with function body.
-
-
-func _on_play_button_mouse_exited():
-	pass # Replace with function body.
-
+	if %OptionsButton.has_focus() or %CreditsButton.has_focus():
+		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.showPlayButton()
+		
 
 func _on_option_button_pressed():
 	$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer.hide()
 	$MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones.show()
-	pass
 
 
-func _on_option_button_mouse_entered():
+func _on_h_box_container_mp_start_game(): # iniciar juego mp
 	pass # Replace with function body.
 
 
-func _on_option_button_mouse_exited():
-	pass # Replace with function body.
-
-
-func _on_credits_button_pressed():
-	pass # Replace with function body.
-
-
-func _on_credits_button_mouse_entered():
-	pass # Replace with function body.
-
-
-func _on_credits_button_mouse_exited():
-	pass # Replace with function body.
-
+func _on_h_box_container_sp_start_game(): # iniciar juego sp
+	get_tree().change_scene_to_file("res://Escenas/Maingame/Maingame.tscn")

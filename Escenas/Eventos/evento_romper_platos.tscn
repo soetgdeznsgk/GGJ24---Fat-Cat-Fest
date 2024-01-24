@@ -1,19 +1,227 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxwff3nt01gul"]
+[gd_scene load_steps=15 format=3 uid="uid://cxwff3nt01gul"]
 
 [ext_resource type="Script" path="res://Escenas/Eventos/evento_romper_platos.gd" id="1_6r5rn"]
+[ext_resource type="Script" path="res://Escenas/Eventos/Martillo.gd" id="2_krrne"]
 [ext_resource type="Texture2D" uid="uid://bu28dchsfp4dn" path="res://Sprites/QuickTimeEvent/patas.jpg" id="2_ldjf1"]
+[ext_resource type="Texture2D" uid="uid://dqtsl3p2axvdr" path="res://Sprites/QuickTimeEvent/patasPlato.png" id="3_0p7wu"]
+[ext_resource type="Texture2D" uid="uid://bx3cy2letyw00" path="res://Sprites/QuickTimeEvent/patasMartillando.jpg" id="4_23d6d"]
+[ext_resource type="Script" path="res://Escenas/Eventos/Plato.gd" id="5_2sp3d"]
+[ext_resource type="Texture2D" uid="uid://ys48us78ixh7" path="res://Sprites/QuickTimeEvent/numeros.jpg" id="7_qmnmu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tblx1"]
+size = Vector2(140, 140)
+
+[sub_resource type="Animation" id="Animation_oiywi"]
+resource_name = "Martillando"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_ldjf1"), ExtResource("4_23d6d"), ExtResource("2_ldjf1")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"set_golpeando"
+}, {
+"args": [false],
+"method": &"set_golpeando"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_7diyl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_ldjf1")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uv3c1"]
+_data = {
+"Martillando": SubResource("Animation_oiywi"),
+"RESET": SubResource("Animation_7diyl")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k42g4"]
+radius = 100.02
+
+[sub_resource type="Animation" id="Animation_dq3ws"]
+resource_name = "pop_numeros"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SprNumeros:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SprNumeros:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 1, 1.2, 1.4, 1.5, 1.7, 1.9),
+"transitions": PackedFloat32Array(1.56917, 1, 1, 1.56917, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SprNumeros:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 0, 9]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"cambiar_roles"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s1r55"]
+_data = {
+"pop_numeros": SubResource("Animation_dq3ws")
+}
 
 [node name="EventoRomperPlatos" type="Node2D"]
 script = ExtResource("1_6r5rn")
 
 [node name="TimerFinalEvento" type="Timer" parent="."]
 process_callback = 0
-wait_time = 8.0
+wait_time = 10.0
 one_shot = true
 autostart = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(685, 386)
+[node name="TimerCambiarRoles" type="Timer" parent="."]
+process_callback = 0
+wait_time = 25.0
+one_shot = true
+autostart = true
+
+[node name="Martillo" type="Area2D" parent="."]
+z_index = 1
+position = Vector2(197, 555)
+script = ExtResource("2_krrne")
+speed = 650
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Martillo"]
 texture = ExtResource("2_ldjf1")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Martillo"]
+position = Vector2(159, -99)
+shape = SubResource("RectangleShape2D_tblx1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Martillo"]
+libraries = {
+"": SubResource("AnimationLibrary_uv3c1")
+}
+
+[node name="Label" type="Label" parent="Martillo"]
+offset_left = -84.0
+offset_top = -263.0
+offset_right = 76.0
+offset_bottom = -218.0
+theme_override_font_sizes/font_size = 32
+text = "PLAYER : X"
+
+[node name="Plato" type="Area2D" parent="."]
+position = Vector2(1076, 319)
+script = ExtResource("5_2sp3d")
+speed = 650
+metadata/_edit_group_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Plato"]
+texture = ExtResource("3_0p7wu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plato"]
+position = Vector2(25, 115)
+shape = SubResource("CircleShape2D_k42g4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plato"]
+
+[node name="Label" type="Label" parent="Plato"]
+offset_left = -100.0
+offset_top = -306.0
+offset_right = 60.0
+offset_bottom = -261.0
+theme_override_font_sizes/font_size = 32
+text = "PLAYER : X"
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(84, 72)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(1146, 72)
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(1168, 672)
+
+[node name="Marker2D4" type="Marker2D" parent="."]
+position = Vector2(132, 684)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_s1r55")
+}
+
+[node name="SprNumeros" type="Sprite2D" parent="."]
+visible = false
+z_index = 6
+z_as_relative = false
+position = Vector2(666, 385)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("7_qmnmu")
+hframes = 5
+vframes = 2
+frame = 9
+
 [connection signal="timeout" from="TimerFinalEvento" to="." method="_on_timer_final_evento_timeout"]
+[connection signal="timeout" from="TimerCambiarRoles" to="." method="cambiar_roles"]
+[connection signal="area_entered" from="Martillo" to="Martillo" method="_on_area_entered"]
+[connection signal="area_exited" from="Martillo" to="Martillo" method="_on_area_exited"]

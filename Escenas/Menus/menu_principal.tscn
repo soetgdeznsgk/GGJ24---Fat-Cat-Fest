@@ -1,12 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://wibtjjyhafg4"]
+[gd_scene load_steps=15 format=3 uid="uid://wibtjjyhafg4"]
 
 [ext_resource type="Script" path="res://Escenas/Menus/menu_principal.gd" id="1_vn785"]
 [ext_resource type="Texture2D" uid="uid://d2skq3dyio1rp" path="res://Escenas/Menus/Imgs/FatCatFestLogo.png" id="2_ijal2"]
 [ext_resource type="Script" path="res://Escenas/Menus/Buttons/VolumeManager.gd" id="3_nccfq"]
-[ext_resource type="PackedScene" uid="uid://kcqxgo84fi45" path="res://button_anim.tscn" id="4_cnkgm"]
+[ext_resource type="PackedScene" uid="uid://kcqxgo84fi45" path="res://Escenas/Menus/Buttons/button_anim.tscn" id="4_cnkgm"]
 [ext_resource type="Texture2D" uid="uid://dxkx5w2qurkf3" path="res://Escenas/Menus/Buttons/OptionsButton.png" id="4_gf66w"]
 [ext_resource type="Texture2D" uid="uid://c7ru10qr3mnrv" path="res://Escenas/Menus/Buttons/InfoButton.png" id="5_j1sg3"]
 [ext_resource type="Texture2D" uid="uid://2w4i8bs40b7c" path="res://Escenas/Menus/Placeholders/characters.png" id="5_msp6e"]
+[ext_resource type="PackedScene" uid="uid://dldomgejvinaf" path="res://Escenas/Menus/Buttons/button_play_loquisimo.tscn" id="7_ok2fb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_76xur"]
 
@@ -57,15 +58,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 40
+theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 40
+theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 30
 metadata/_edit_lock_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MenuPrincipal"]
 clip_contents = true
 layout_mode = 2
+theme_override_constants/separation = 32
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer"]
 layout_mode = 2
@@ -76,6 +78,7 @@ alignment = 1
 [node name="Logo" type="TextureRect" parent="MenuPrincipal/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 1.15
 texture = ExtResource("2_ijal2")
 expand_mode = 1
 stretch_mode = 5
@@ -113,14 +116,14 @@ theme_override_font_sizes/font_size = 40
 text = "SFX
 "
 
-[node name="MusicVolumeSlider2" type="HSlider" parent="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer"]
+[node name="SFXVolumeSlider" type="HSlider" parent="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
 step = 0.0
 value = 1.0
 script = ExtResource("3_nccfq")
-bus_name = "Music"
+bus_name = "SFX"
 
 [node name="Label3" type="Label" parent="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer"]
 layout_mode = 2
@@ -134,10 +137,12 @@ size_flags_vertical = 3
 theme_override_constants/separation = 10
 alignment = 2
 
-[node name="PlayButton" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer" instance=ExtResource("4_cnkgm")]
+[node name="HBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer" instance=ExtResource("7_ok2fb")]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="OptionsButton" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer" instance=ExtResource("4_cnkgm")]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_xaxoe")
 theme_override_styles/hover = SubResource("StyleBoxFlat_xaxoe")
@@ -147,6 +152,7 @@ text = "Options
 icon = ExtResource("4_gf66w")
 
 [node name="CreditsButton" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer" instance=ExtResource("4_cnkgm")]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_dstja")
 theme_override_styles/hover = SubResource("StyleBoxFlat_dstja")
@@ -163,6 +169,5 @@ size_flags_horizontal = 3
 layout_mode = 2
 texture = ExtResource("5_msp6e")
 
-[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/OptionsButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

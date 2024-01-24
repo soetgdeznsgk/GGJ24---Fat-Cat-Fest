@@ -17,6 +17,7 @@ var comandos : Array = []
 var comandosConFlechas : Array = []
 var permitirEntradas = true
 var devices
+var numeroMitadComida
 func _ready() -> void:
 	#Señales
 	Eventos.nuevoEvento.connect(pausarProcesos)
@@ -40,6 +41,7 @@ func set_comandos(numeroJugador, nuevosComandos : Array):
 	if numeroJugador == jugador:
 		comandos = nuevosComandos
 		comandosConFlechas = nuevosComandos.duplicate()
+		numeroMitadComida = ceili(nuevosComandos.size() / 2)
 		# Colocar las primeras 3 flechas que llegan de la comida
 		for i in range(3):
 			var ultimo = comandos.pop_front()
@@ -91,6 +93,11 @@ func reemplazarTexturas():
 	if comandosConFlechas.size() == 0:
 		# Emitir que ya se comió todo
 		Eventos.comandosAcabados.emit(jugador)
+	if comandosConFlechas.size() == numeroMitadComida:
+		Eventos.mediaComida.emit(jugador)
+	if comandosConFlechas.size() <= 3:
+		Eventos.comidaAPuntoDeTerminar.emit(jugador)
+		
 
 func actualizar_flechas():
 	# le pone textura a la nueva flecha por salir

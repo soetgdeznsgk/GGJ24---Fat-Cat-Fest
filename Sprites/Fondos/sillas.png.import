@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://df3vm61vtcfyl"
-path="res://.godot/imported/Buñuelo.png-f44b2a97442c9563037f261f74acc597.ctex"
+uid="uid://duybff64j0kpo"
+path="res://.godot/imported/sillas.png-d263fe78bc42c5f9b0fcfdc71e29e966.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Comidas/Buñuelo.png"
-dest_files=["res://.godot/imported/Buñuelo.png-f44b2a97442c9563037f261f74acc597.ctex"]
+source_file="res://Sprites/Fondos/sillas.png"
+dest_files=["res://.godot/imported/sillas.png-d263fe78bc42c5f9b0fcfdc71e29e966.ctex"]
 
 [params]
 

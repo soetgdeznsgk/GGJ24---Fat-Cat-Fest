@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bybowq4jl4v8o"]
+
+[ext_resource type="Texture2D" uid="uid://0ji2j53y2u8y" path="res://Sprites/Comidas/Empanada.png" id="1_vv8dq"]
+[ext_resource type="Script" path="res://Logica/Pan.gd" id="2_5cgpa"]
+
+[node name="Empanada" type="Sprite2D"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_vv8dq")
+hframes = 3
+script = ExtResource("2_5cgpa")

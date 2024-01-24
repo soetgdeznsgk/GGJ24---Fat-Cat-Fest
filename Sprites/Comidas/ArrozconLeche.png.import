@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dltesf7slh662"
-path="res://.godot/imported/image.png-7503ac284ce765969b2c771f7747b69a.ctex"
+uid="uid://c1jj1nsn8fb21"
+path="res://.godot/imported/ArrozconLeche.png-d6073692420e9c94182e42ae2c04462a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Gatos/image.png"
-dest_files=["res://.godot/imported/image.png-7503ac284ce765969b2c771f7747b69a.ctex"]
+source_file="res://Sprites/Comidas/ArrozconLeche.png"
+dest_files=["res://.godot/imported/ArrozconLeche.png-d6073692420e9c94182e42ae2c04462a.ctex"]
 
 [params]
 

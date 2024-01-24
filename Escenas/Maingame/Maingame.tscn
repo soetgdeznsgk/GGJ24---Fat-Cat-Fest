@@ -1,24 +1,52 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4olfp085mokh"]
+[gd_scene load_steps=10 format=3 uid="uid://b4olfp085mokh"]
 
-[ext_resource type="Texture2D" uid="uid://bekyman0ykvud" path="res://Sprites/Gatos/todo-publico.jpg" id="1_byyai"]
+[ext_resource type="Texture2D" uid="uid://lfe8fvgjkdmc" path="res://Sprites/Fondos/stage.png" id="1_4c6u4"]
+[ext_resource type="Texture2D" uid="uid://bdbodnwg8wmpf" path="res://Sprites/Fondos/cartel.png" id="2_rap1f"]
 [ext_resource type="PackedScene" uid="uid://bbx7yskj14jdm" path="res://Escenas/Maingame/comandos.tscn" id="2_wilsv"]
 [ext_resource type="PackedScene" uid="uid://c76u6u5uvxdgl" path="res://Escenas/Maingame/QuickTimeEvent.tscn" id="3_fvsyg"]
+[ext_resource type="Texture2D" uid="uid://duybff64j0kpo" path="res://Sprites/Fondos/sillas.png" id="3_ym8q0"]
+[ext_resource type="Texture2D" uid="uid://cpifiwycfnlxs" path="res://Sprites/Fondos/mesa.png" id="4_nod1o"]
 [ext_resource type="Script" path="res://Escenas/Maingame/Camera2D.gd" id="5_864na"]
 [ext_resource type="PackedScene" uid="uid://bcrmlxmuoakqy" path="res://Escenas/Maingame/comidas.tscn" id="5_on172"]
+[ext_resource type="Texture2D" uid="uid://dvijscjapkitb" path="res://Sprites/Fondos/deco.png" id="9_q0gs3"]
 
 [node name="Maingame" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(689, 377)
-texture = ExtResource("1_byyai")
-metadata/_edit_lock_ = true
+[node name="Stage" type="Sprite2D" parent="."]
+scale = Vector2(0.712, 0.712)
+texture = ExtResource("1_4c6u4")
+centered = false
+
+[node name="Cartel" type="Sprite2D" parent="."]
+scale = Vector2(0.712, 0.712)
+texture = ExtResource("2_rap1f")
+centered = false
+
+[node name="Sillas" type="Sprite2D" parent="."]
+scale = Vector2(0.712, 0.712)
+texture = ExtResource("3_ym8q0")
+centered = false
+
+[node name="Mesa" type="Sprite2D" parent="."]
+position = Vector2(-3, 14)
+scale = Vector2(0.712, 0.712)
+texture = ExtResource("4_nod1o")
+centered = false
+
+[node name="comidas" parent="." instance=ExtResource("5_on172")]
+position = Vector2(681, 384)
 
 [node name="Comandos" parent="." instance=ExtResource("2_wilsv")]
-position = Vector2(650, 469)
+position = Vector2(658, 504)
 
 [node name="Comandos2" parent="." instance=ExtResource("2_wilsv")]
-position = Vector2(226, 479)
+position = Vector2(209, 504)
 jugador = 2
+
+[node name="Deco" type="Sprite2D" parent="."]
+scale = Vector2(0.712, 0.712)
+texture = ExtResource("9_q0gs3")
+centered = false
 
 [node name="QuickTimeEvent" parent="." instance=ExtResource("3_fvsyg")]
 
@@ -27,6 +55,3 @@ position = Vector2(681, 386)
 process_callback = 0
 script = ExtResource("5_864na")
 zoomFinal = Vector2(1.5, 1.5)
-
-[node name="comidas" parent="." instance=ExtResource("5_on172")]
-position = Vector2(681, 384)

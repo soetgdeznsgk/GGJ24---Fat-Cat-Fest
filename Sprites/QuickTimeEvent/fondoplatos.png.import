@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bekyman0ykvud"
-path="res://.godot/imported/todo-publico.jpg-0aaec8813d84f34a9df33b6322924c3e.ctex"
+uid="uid://cnftvrj7wfr42"
+path="res://.godot/imported/fondoplatos.png-121554d4a2ff51aed278f62e7621a51d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Gatos/todo-publico.jpg"
-dest_files=["res://.godot/imported/todo-publico.jpg-0aaec8813d84f34a9df33b6322924c3e.ctex"]
+source_file="res://Sprites/QuickTimeEvent/fondoplatos.png"
+dest_files=["res://.godot/imported/fondoplatos.png-121554d4a2ff51aed278f62e7621a51d.ctex"]
 
 [params]
 

@@ -1,8 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://b02b22kxe33wt"]
 
-[ext_resource type="Texture2D" uid="uid://df3vm61vtcfyl" path="res://Sprites/Comidas/Buñuelo.png" id="1_b34ia"]
+[ext_resource type="Texture2D" uid="uid://c1jj1nsn8fb21" path="res://Sprites/Comidas/ArrozconLeche.png" id="1_6bmn3"]
 [ext_resource type="Script" path="res://Logica/Buñuelo.gd" id="2_b88vv"]
 
 [node name="Buñuelo" type="Sprite2D"]
-texture = ExtResource("1_b34ia")
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_6bmn3")
+hframes = 3
 script = ExtResource("2_b88vv")

@@ -1,6 +1,7 @@
 extends Node2D
-const recetasString = ["res://Escenas/Recetas/Buñuelo.tscn",\
-"res://Escenas/Recetas/Empanana.tscn"]
+const recetasString = [
+"res://Escenas/Recetas/ArrozConLeche.tscn",
+"res://Escenas/Recetas/Empanada.tscn"]
 const recetasSize=2
 #diccionario key: es el nombre de la receta(en la escena) 
 #            value: nodo instanciado de la receta
@@ -87,10 +88,10 @@ func animacion_entrada(numeroJugador):
 	match numeroJugador:
 		1:
 			recetaAMover=recetaActualJugador1
-			direccionMov=Vector2(700,0)
+			direccionMov=Vector2(825,0)
 		2:
 			recetaAMover=recetaActualJugador2
-			direccionMov=Vector2(-700,0)
+			direccionMov=Vector2(-825,0)
 	#print(recetaActual.moveset)
 	tween.tween_property(recetaAMover,"position",direccionMov,1)
 

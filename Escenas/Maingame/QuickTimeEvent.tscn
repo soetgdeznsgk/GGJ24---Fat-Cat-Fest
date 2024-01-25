@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://c76u6u5uvxdgl"]
 
 [ext_resource type="Script" path="res://Escenas/Maingame/QuickTimeEvent.gd" id="1_8vw6l"]
-[ext_resource type="Texture2D" uid="uid://2hmgl1bkff0a" path="res://Sprites/QuickTimeEvent/telon.jpg" id="2_0aqlg"]
+[ext_resource type="Texture2D" uid="uid://c1vd6327w5erl" path="res://Sprites/QuickTimeEvent/telon.png" id="2_636br"]
 [ext_resource type="Texture2D" uid="uid://cpe1wx0owdbkl" path="res://icon.svg" id="2_io61r"]
 [ext_resource type="Texture2D" uid="uid://ys48us78ixh7" path="res://Sprites/QuickTimeEvent/numeros.jpg" id="3_mvi23"]
 
@@ -115,10 +115,22 @@ tracks/8/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("AudioStreamPlayer:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_8qd0x"]
 resource_name = "final_evento"
-length = 2.5
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -126,7 +138,7 @@ tracks/0/path = NodePath("Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 2.1, 2.4),
+"times": PackedFloat32Array(0, 0.3, 2.7, 3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(688, -470), Vector2(688, 386), Vector2(688, 386), Vector2(688, -470)]
@@ -166,6 +178,32 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 1.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"set_sfx_random_anuncia"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_xxmq6"]
@@ -255,7 +293,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.3, 4.7, 5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(688, -470), Vector2(688, 386), Vector2(688, 386), Vector2(688, -470)]
+"values": [Vector2(688, -470), Vector2(688, 386), Vector2(688, 386), Vector2(688, -480)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -268,6 +306,55 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioStreamPlayer:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.3, 2, 2.8, 3.6, 4.24),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, true, true, true]
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(4.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"set_sfx_random_go"
+}]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.2, 1.9, 2.7, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"set_sfx_random_campana"
+}, {
+"args": [],
+"method": &"set_sfx_random_count"
+}, {
+"args": [],
+"method": &"set_sfx_random_count"
+}, {
+"args": [],
+"method": &"set_sfx_random_count"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uy0b7"]
@@ -288,8 +375,7 @@ visible = false
 z_index = 5
 z_as_relative = false
 position = Vector2(688, -398)
-scale = Vector2(5, 5)
-texture = ExtResource("2_0aqlg")
+texture = ExtResource("2_636br")
 
 [node name="SprEvento" type="Sprite2D" parent="."]
 visible = false
@@ -332,5 +418,9 @@ vertical_alignment = 1
 autowrap_mode = 2
 visible_characters = 0
 visible_ratio = 0.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+max_polyphony = 2
+bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

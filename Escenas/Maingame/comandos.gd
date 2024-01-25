@@ -141,5 +141,6 @@ func pausarProcesos():
 	visible = false
 
 func reanudarProcesos(ganador):
+	await get_tree().create_timer(3).timeout
 	procesosPausados = false
 	visible = true

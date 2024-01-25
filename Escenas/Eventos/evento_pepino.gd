@@ -3,11 +3,10 @@ extends Node2D
 @onready var anim = $AnimationPlayer
 var bombPos = null
 enum {LEFT,RIGHT}
-var speed = 0.8
+var speed = 0.6
 
 func _ready():
-	# el evento dura aleatorio entre 7 y 11 segundos discretos
-	$TimerFinalEvento.start(randi_range(7,11))
+	$TimerFinalEvento.start(randi_range(8,15))
 	if randf() < 0.5:
 		# Play your animation
 		anim.play("spawn_left")

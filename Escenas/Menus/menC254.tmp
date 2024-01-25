@@ -334,7 +334,6 @@ animation = &"Eat"
 frame_progress = 0.409295
 
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer/BackButton" to="." method="_undevelop_menu"]
-[connection signal="mp_start_game" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer" to="." method="_on_h_box_container_mp_start_game"]
 [connection signal="sp_start_game" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer" to="." method="_on_h_box_container_sp_start_game"]
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/OptionsButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

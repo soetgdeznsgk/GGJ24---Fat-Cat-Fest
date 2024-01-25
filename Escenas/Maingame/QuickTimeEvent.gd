@@ -18,7 +18,7 @@ func _ready():
 	generarNuevoEvento()
 	Eventos.finalEvento.connect(final_evento)
 	
-func tiempoAleatorio():
+func tiempoAleatorio(): # TODO restaurar temporizador random
 	return 2#randi_range(10,20) + randi_range(10,20)
 
 func generarNuevoEvento():

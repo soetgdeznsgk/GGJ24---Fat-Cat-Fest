@@ -18,7 +18,10 @@ var comandosConFlechas : Array = []
 var permitirEntradas = true
 var devices
 var numeroMitadComida
+var sfx_comer := AudioStreamPlayer.new()
 func _ready() -> void:
+	sfx_comer.bus = "SFX"
+	add_child(sfx_comer)
 	#Señales
 	Eventos.nuevoEvento.connect(pausarProcesos)
 	Eventos.finalEvento.connect(reanudarProcesos)
@@ -76,8 +79,12 @@ func _physics_process(_delta: float) -> void:
 
 func verificarCorrecta(Direccion):
 	if comandosConFlechas[0] == Direccion:
+		sfx_comer.stream = load("res://Escenas/Maingame/sfx/potatoñam.mp3")
+		sfx_comer.play()
 		actualizar_flechas()
 	else:
+		sfx_comer.stream = load("res://Escenas/Maingame/sfx/buzzer.mp3")
+		sfx_comer.play()
 		error_flechas()
 
 func reemplazarTexturas():
@@ -134,5 +141,6 @@ func pausarProcesos():
 	visible = false
 
 func reanudarProcesos(ganador):
+	await get_tree().create_timer(3).timeout
 	procesosPausados = false
 	visible = true

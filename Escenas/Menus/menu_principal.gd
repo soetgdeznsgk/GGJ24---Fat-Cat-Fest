@@ -5,7 +5,8 @@ var bg_music := AudioStreamPlayer.new()
 var noMouse = false
 var mousePos : Vector2
 @onready var gatoGif = $MenuPrincipal/HBoxContainer/CenterContainer/GatoGif
-@onready var sfx_audio := AudioStreamPlayer.new()
+@onready var button_standard_audio := AudioStreamPlayer.new()
+@onready var return_button_audio := AudioStreamPlayer.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,11 +14,16 @@ func _ready():
 	bg_music.autoplay = true
 	bg_music.bus = "Music"
 	add_child(bg_music)
-	sfx_audio.bus = "SFX"
-	sfx_audio.stream = load("res://Escenas/Menus/sfx/click.mp3")
-	self.add_child(sfx_audio)
-	gatoGif.play("Eat")
 	
+	button_standard_audio.bus = "SFX"
+	return_button_audio.bus = "SFX"
+	button_standard_audio.stream = load("res://Escenas/Menus/sfx/button_standard.wav")
+	return_button_audio.stream = load("res://Escenas/Menus/sfx/back_button_sfx.wav")
+	add_child(button_standard_audio)
+	add_child(return_button_audio)
+	
+	gatoGif.play("Eat")
+
 #AÑADIR ESTO A CREDITOS EPIC MUSICA
 
 #"Warped Alien Band"
@@ -26,8 +32,13 @@ func _ready():
 
 func deviceChanged():
 	if noMouse:
-		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.showPlayButton()
-		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.PlayButton.grab_focus()
+		if !isDeveloped: # menu principal
+			$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.showPlayButton()
+			$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.PlayButton.grab_focus()
+		elif $MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones.visible: #menu config
+			$MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer/MusicVolumeSlider.grab_focus()
+		else: # creditos
+			$MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox/HBoxContainer2/HBoxContainer/BackButton.grab_focus()
 	else:
 		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.PlayButton.release_focus()
 		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.SPButton.release_focus()
@@ -40,7 +51,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel") and isDeveloped:
 		_undevelop_menu()
 		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.PlayButton.grab_focus()
-		 
+
 	if Input.is_action_just_pressed("AbajoPj1") and !noMouse:
 		noMouse = true
 		deviceChanged()
@@ -55,35 +66,42 @@ func _process(_delta):
 	if mousePos.distance_squared_to(get_global_mouse_position()) > 200 and noMouse:
 		noMouse = false
 		deviceChanged()
-	if (%OptionsButton.has_focus() or %CreditsButton.has_focus()) and $MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.isDeveloped: 
+	if (%OptionsButton.has_focus() or %CreditsButton.has_focus()) and $MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.isDeveloped:
 		$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.showPlayButton()
-		
+
 
 func _undevelop_menu():
+	return_button_audio.play()
 	isDeveloped = false
-	
+
 	$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer.show()
 	$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.showPlayButton()
+	$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.PlayButton.grab_focus()
 	$MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones.hide()
+	$MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer.hide()
 	# esconder creditos también
 
 func _on_option_button_pressed():
 	isDeveloped = true
-	sfx_audio.play()
+	button_standard_audio.play()
 	$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer.hide()
 	$MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones.show()
 	$MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer/MusicVolumeSlider.grab_focus()
-	
+
 
 
 func _on_h_box_container_mp_start_game(): # iniciar juego mp
-	pass # Replace with function body.
+	button_standard_audio.play()
 
 
 func _on_h_box_container_sp_start_game(): # iniciar juego sp
+	button_standard_audio.play()
 	get_tree().change_scene_to_file("res://Escenas/Maingame/Maingame.tscn")
 
 
 func _on_credits_button_pressed() -> void:
-	sfx_audio.play()
+	button_standard_audio.play()
+	$MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox/HBoxContainer2/HBoxContainer/BackButton.grab_focus()
 	isDeveloped = true
+	$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer.hide()
+	$MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer.show()

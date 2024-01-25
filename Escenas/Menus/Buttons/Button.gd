@@ -15,7 +15,7 @@ signal animacion_play(tween: Tween)
 
 func _ready() -> void:
 	sfx_audio.bus = "SFX"
-	sfx_audio.stream = load("res://Escenas/Menus/sfx/click.mp3")
+	sfx_audio.stream = load("res://Escenas/Menus/sfx/button_standard.wav")
 	self.add_child(sfx_audio)
 
 # TODO corregir que la S parpadea con la animación

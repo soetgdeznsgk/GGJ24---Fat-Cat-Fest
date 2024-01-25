@@ -21,9 +21,21 @@ func _ready():
 	Eventos.mediaComida.connect(cambiarSpriteMediaComida)
 	Eventos.comidaAPuntoDeTerminar.connect(cambiarSpriteFinal)
 	Eventos.comandosAcabados.connect(entradaReceta)
+	Eventos.nuevoEvento.connect(pausarProcesos)
+	Eventos.finalEvento.connect(reanudarProcesos)
 	entradaReceta(1)
 	entradaReceta(2)
 	
+func pausarProcesos():
+	recetaActualJugador1.visible = false
+	recetaActualJugador2.visible = false
+	
+
+func reanudarProcesos(_ganador):
+	await get_tree().create_timer(3).timeout
+	recetaActualJugador1.visible = true
+	recetaActualJugador2.visible = true
+
 func cambiarSpriteMediaComida(numeroJugadorActual):
 	match numeroJugadorActual:
 		1:

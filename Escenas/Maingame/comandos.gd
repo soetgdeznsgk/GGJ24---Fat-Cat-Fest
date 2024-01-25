@@ -95,7 +95,7 @@ func reemplazarTexturas():
 		Eventos.comandosAcabados.emit(jugador)
 	if comandosConFlechas.size() == numeroMitadComida:
 		Eventos.mediaComida.emit(jugador)
-	if comandosConFlechas.size() <= 3:
+	if comandosConFlechas.size() <= 1:
 		Eventos.comidaAPuntoDeTerminar.emit(jugador)
 		
 

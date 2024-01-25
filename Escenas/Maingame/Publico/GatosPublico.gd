@@ -37,7 +37,7 @@ func instantiateRandomCats() -> void:
 		catInstance.position.x = catXPositions[i]
 
 		# Generate a random Y position within the range of -5 to 5 from a base Y position
-		catInstance.position.y = randi_range(763, 771)
+		catInstance.position.y = randi_range(770, 780)
 
 		# Add the cat to the scene
 		add_child(catInstance)

@@ -6,3 +6,9 @@ enum {
 	Izquierda,
 	Derecha
 }
+
+enum MiniJuegos {
+	RomperPlatos,
+	Pepino,
+	DarseDuro
+}

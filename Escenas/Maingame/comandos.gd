@@ -136,7 +136,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		anim.speed_scale = 1
 	permitirEntradas = true
 
-func pausarProcesos():
+func pausarProcesos(cache):
 	procesosPausados = true
 	visible = false
 

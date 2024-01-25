@@ -1,16 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://c76u6u5uvxdgl"]
+[gd_scene load_steps=16 format=3 uid="uid://c76u6u5uvxdgl"]
 
 [ext_resource type="Script" path="res://Escenas/Maingame/QuickTimeEvent.gd" id="1_8vw6l"]
 [ext_resource type="Texture2D" uid="uid://c1vd6327w5erl" path="res://Sprites/QuickTimeEvent/telon.png" id="2_636br"]
-[ext_resource type="Texture2D" uid="uid://cpe1wx0owdbkl" path="res://icon.svg" id="2_io61r"]
-[ext_resource type="Texture2D" uid="uid://ys48us78ixh7" path="res://Sprites/QuickTimeEvent/numeros.jpg" id="3_mvi23"]
+[ext_resource type="Texture2D" uid="uid://bg30bn41i635a" path="res://Sprites/QuickTimeEvent/Bell 2.png" id="3_18j6d"]
+[ext_resource type="Texture2D" uid="uid://d0aqaq5kn2w08" path="res://Sprites/QuickTimeEvent/3.png" id="4_6gotv"]
+[ext_resource type="Texture2D" uid="uid://b1ya6ni4v2vly" path="res://Sprites/QuickTimeEvent/Surprise.png" id="4_cpnpn"]
+[ext_resource type="Texture2D" uid="uid://d1sa3ql83f6nf" path="res://Sprites/QuickTimeEvent/2.png" id="5_35vqh"]
+[ext_resource type="Texture2D" uid="uid://cpwig8pnlt1pg" path="res://Sprites/QuickTimeEvent/1.png" id="6_5akyw"]
+[ext_resource type="Texture2D" uid="uid://6p1tfoa04b18" path="res://Sprites/QuickTimeEvent/Go.png" id="7_njbai"]
+[ext_resource type="Texture2D" uid="uid://c0gjss7gqml2y" path="res://Sprites/QuickTimeEvent/Bell 1.png" id="9_ns7tk"]
 
 [sub_resource type="Animation" id="Animation_sye8r"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SprEvento:visible")
+tracks/0/path = NodePath("SprCampana:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -22,7 +27,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SprEvento:scale")
+tracks/1/path = NodePath("SprCampana:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -58,79 +63,115 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("SprNumeros:frame")
+tracks/4/path = NodePath("Sprite2D:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
+"update": 0,
+"values": [Vector2(688, -398)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Sprite2D:position")
+tracks/5/path = NodePath("Sprite2D:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(688, -398)]
+"update": 1,
+"values": [false]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Sprite2D:visible")
+tracks/6/path = NodePath("Label:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Label:visible")
+tracks/7/path = NodePath("Label:visible_ratio")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [0.0]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Label:visible_ratio")
+tracks/8/path = NodePath("AudioStreamPlayer:playing")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"update": 1,
+"values": [false]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("AudioStreamPlayer:playing")
+tracks/9/path = NodePath("SprNumeros:texture")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [ExtResource("4_6gotv")]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SprSurprise:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("SprSurprise:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("SprCampana:texture")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_18j6d")]
 }
 
 [sub_resource type="Animation" id="Animation_8qd0x"]
 resource_name = "final_evento"
-length = 3.0
+length = 3.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -138,7 +179,7 @@ tracks/0/path = NodePath("Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 2.7, 3),
+"times": PackedFloat32Array(0, 0.3, 2.9, 3.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(688, -470), Vector2(688, 386), Vector2(688, 386), Vector2(688, -470)]
@@ -174,7 +215,7 @@ tracks/3/path = NodePath("Label:visible_ratio")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.3, 0.6, 1.9, 2.1),
+"times": PackedFloat32Array(0.3, 0.8, 2.3, 2.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 1.0, 0.0]
@@ -198,11 +239,29 @@ tracks/5/path = NodePath(".")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.2, 0.5, 0.6, 0.8, 1, 1.2, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [],
 "method": &"set_sfx_random_anuncia"
+}, {
+"args": [0.7],
+"method": &"cheer"
+}, {
+"args": [0.7],
+"method": &"cheer"
+}, {
+"args": [0.7],
+"method": &"cheer"
+}, {
+"args": [0.7],
+"method": &"cheer"
+}, {
+"args": [0.7],
+"method": &"cheer"
+}, {
+"args": [0.15],
+"method": &"cheer"
 }]
 }
 
@@ -212,11 +271,11 @@ length = 5.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SprEvento:visible")
+tracks/0/path = NodePath("SprCampana:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.2, 1.8),
+"times": PackedFloat32Array(0.2, 1.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -224,14 +283,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SprEvento:scale")
+tracks/1/path = NodePath("SprCampana:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.2, 0.4, 0.5, 0.6, 1.5, 1.8),
+"times": PackedFloat32Array(0.2, 0.4, 0.5, 0.6, 1.3, 1.6),
 "transitions": PackedFloat32Array(1, 0.5, 3, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(2, 2), Vector2(1.6, 1.6), Vector2(2.2, 2.2), Vector2(2.2, 2.2), Vector2(1e-05, 1e-05)]
+"values": [Vector2(1e-05, 1e-05), Vector2(2, 2), Vector2(1.6, 1.6), Vector2(2, 2), Vector2(2, 2), Vector2(1e-05, 1e-05)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -240,7 +299,7 @@ tracks/2/path = NodePath("SprNumeros:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.2, 1.9, 4.8),
+"times": PackedFloat32Array(0.2, 1.7, 4.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -252,72 +311,80 @@ tracks/3/path = NodePath("SprNumeros:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(1.9, 2.2, 2.5, 2.7, 3, 3.3, 3.5, 3.8, 4.1, 4.2, 4.3, 4.6, 4.8),
+"times": PackedFloat32Array(1.7, 2, 2.3, 2.5, 2.8, 3.1, 3.3, 3.6, 3.9, 4, 4.1, 4.4, 4.6),
 "transitions": PackedFloat32Array(1.56917, 1, 1, 1.56917, 1, 1, 1.56917, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
+"values": [Vector2(1e-05, 1e-05), Vector2(0.7, 0.7), Vector2(0.7, 0.7), Vector2(1e-05, 1e-05), Vector2(0.7, 0.7), Vector2(0.7, 0.7), Vector2(1e-05, 1e-05), Vector2(0.7, 0.7), Vector2(0.7, 0.7), Vector2(0, 0), Vector2(0.9, 0.9), Vector2(1, 1), Vector2(0, 0)]
 }
-tracks/4/type = "value"
+tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("SprNumeros:frame")
+tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(1.9, 2.7, 3.5, 4.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [2, 1, 0, 9]
-}
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(4.4),
+"times": PackedFloat32Array(4.2),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"finAnimacion"
 }]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Sprite2D:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.3, 4.7, 5),
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3, 4.5, 4.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(688, -470), Vector2(688, 386), Vector2(688, 386), Vector2(688, -330)]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Sprite2D:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("AudioStreamPlayer:playing")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0.3, 2, 2.8, 3.6, 4.24),
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.4, 1.8, 2.6, 3.4, 4.1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [true, true, true, true, true]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.3, 0.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [0.25],
+"method": &"cheer"
+}, {
+"args": [0.25],
+"method": &"cheer"
+}, {
+"args": [],
+"method": &"set_sfx_random_go"
+}]
 }
 tracks/9/type = "method"
 tracks/9/imported = false
@@ -326,21 +393,7 @@ tracks/9/path = NodePath(".")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(4.2),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"set_sfx_random_go"
-}]
-}
-tracks/10/type = "method"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath(".")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0.2, 1.9, 2.7, 3.5),
+"times": PackedFloat32Array(0.2, 1.7, 2.5, 3.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "values": [{
 "args": [],
@@ -356,6 +409,54 @@ tracks/10/keys = {
 "method": &"set_sfx_random_count"
 }]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SprNumeros:texture")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(1.7, 2.5, 3.3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_6gotv"), ExtResource("5_35vqh"), ExtResource("6_5akyw"), ExtResource("7_njbai")]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("SprSurprise:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.2, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("SprSurprise:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.2, 0.4, 0.5, 0.6, 1.3, 1.6),
+"transitions": PackedFloat32Array(1, 0.5, 3, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(2, 2), Vector2(1.6, 1.6), Vector2(2, 2), Vector2(2, 2), Vector2(0, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("SprCampana:texture")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_18j6d"), ExtResource("9_ns7tk"), ExtResource("3_18j6d"), ExtResource("9_ns7tk")]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uy0b7"]
 _data = {
@@ -364,8 +465,18 @@ _data = {
 "pop_up": SubResource("Animation_xxmq6")
 }
 
+[sub_resource type="FontVariation" id="FontVariation_g5wtb"]
+spacing_glyph = 6
+
 [sub_resource type="LabelSettings" id="LabelSettings_roo42"]
+line_spacing = 0.0
+font = SubResource("FontVariation_g5wtb")
 font_size = 64
+font_color = Color(0.898039, 0.807843, 0.431373, 1)
+outline_size = 16
+outline_color = Color(0.141176, 0.141176, 0.141176, 1)
+shadow_size = 24
+shadow_color = Color(0.858824, 0.717647, 0.627451, 1)
 
 [node name="QuickTimeEvent" type="Node2D"]
 script = ExtResource("1_8vw6l")
@@ -378,13 +489,20 @@ position = Vector2(688, -398)
 scale = Vector2(0.71, 0.71)
 texture = ExtResource("2_636br")
 
-[node name="SprEvento" type="Sprite2D" parent="."]
+[node name="SprCampana" type="Sprite2D" parent="."]
 visible = false
 z_index = 6
 z_as_relative = false
-position = Vector2(683, 384)
+position = Vector2(727, 360)
 scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("2_io61r")
+texture = ExtResource("3_18j6d")
+
+[node name="SprSurprise" type="Sprite2D" parent="."]
+z_index = 6
+z_as_relative = false
+position = Vector2(678, 381)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("4_cpnpn")
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
@@ -400,19 +518,25 @@ z_index = 6
 z_as_relative = false
 position = Vector2(666, 385)
 scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("3_mvi23")
-hframes = 5
-vframes = 2
-frame = 2
+texture = ExtResource("4_6gotv")
 
 [node name="Label" type="Label" parent="."]
 z_index = 5
-offset_left = 326.0
-offset_top = 300.0
-offset_right = 1058.0
-offset_bottom = 388.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 7.0
+offset_top = -3.0
+offset_right = 1366.0
+offset_bottom = 760.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 6
 text = "GANADOR:
-tENgoHambreWe"
+Chonky Cat"
 label_settings = SubResource("LabelSettings_roo42")
 horizontal_alignment = 1
 vertical_alignment = 1

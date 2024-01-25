@@ -23,15 +23,17 @@ func _ready():
 	Eventos.finalEvento.connect(final_evento)
 	
 func tiempoAleatorio():
-	return 2# randi_range(10,20) + randi_range(10,20) #return 2
+	return 10# randi_range(10,20) + randi_range(10,20) #return 2
 
 func generarNuevoEvento():
 	timer.start(tiempoAleatorio())
 
 func _on_timer_timeout():
 	anim.play("pop_up")
-	# TODO acá cambiar el frame o textura de la campanita segun el evento
 	Eventos.nuevoEvento.emit()
+
+func cheer(prob : float):
+	Eventos.catCheer.emit(prob)
 
 func finAnimacion():
 	#logica de cambio de evento
@@ -42,8 +44,12 @@ func finAnimacion():
 	add_child(eventoInstanciado)
 	
 func final_evento(ganador):
-	# TODO usar nombres de jugadores
-	$Label.text = "Winner:\n" + "TENGO HAMBRE WEE"
+	var texto = "Winner:\n"
+	if ganador == 1:
+		texto += Names.name_player1
+	else:
+		texto += Names.name_player2
+	$Label.text = texto
 	$AnimationPlayer.play("final_evento")
 	generarNuevoEvento()
 

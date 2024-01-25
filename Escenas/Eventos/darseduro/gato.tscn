@@ -9,7 +9,7 @@
 size = Vector2(100, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rswb3"]
-size = Vector2(80, 80)
+size = Vector2(40, 40)
 
 [node name="Gato" type="Node2D"]
 script = ExtResource("2_ketnl")
@@ -31,6 +31,7 @@ metadata/_edit_group_ = true
 texture = ExtResource("2_m7ben")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sprPadre/Cabeza"]
+position = Vector2(0, 27)
 shape = SubResource("RectangleShape2D_5a1ld")
 
 [node name="SprCuerpo" type="Sprite2D" parent="sprPadre"]
@@ -56,5 +57,11 @@ shape = SubResource("RectangleShape2D_rswb3")
 [node name="Marker2D2" type="Marker2D" parent="sprPadre"]
 position = Vector2(0, 57)
 
+[node name="TimerCooldown" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.12
+one_shot = true
+
 [connection signal="area_entered" from="sprPadre/Cabeza" to="." method="_on_cabeza_area_entered"]
 [connection signal="area_exited" from="sprPadre/Cabeza" to="." method="_on_cabeza_area_exited"]
+[connection signal="timeout" from="TimerCooldown" to="." method="_on_timer_cooldown_timeout"]

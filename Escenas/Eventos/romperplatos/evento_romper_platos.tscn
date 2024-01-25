@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cxwff3nt01gul"]
+[gd_scene load_steps=20 format=3 uid="uid://cxwff3nt01gul"]
 
 [ext_resource type="Script" path="res://Escenas/Eventos/romperplatos/evento_romper_platos.gd" id="1_6r5rn"]
 [ext_resource type="Texture2D" uid="uid://cnftvrj7wfr42" path="res://Sprites/QuickTimeEvent/fondoplatos.png" id="2_6owar"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dqtsl3p2axvdr" path="res://Sprites/QuickTimeEvent/patasPlato.png" id="3_0p7wu"]
 [ext_resource type="Script" path="res://Escenas/Eventos/romperplatos/Plato.gd" id="5_2sp3d"]
 [ext_resource type="Texture2D" uid="uid://6pjo7u5mdui8" path="res://Sprites/QuickTimeEvent/brazomartillo2.png" id="6_5l500"]
-[ext_resource type="Texture2D" uid="uid://ys48us78ixh7" path="res://Sprites/QuickTimeEvent/numeros.jpg" id="7_qmnmu"]
+[ext_resource type="Texture2D" uid="uid://d1sa3ql83f6nf" path="res://Sprites/QuickTimeEvent/2.png" id="8_1phx8"]
+[ext_resource type="Texture2D" uid="uid://cpwig8pnlt1pg" path="res://Sprites/QuickTimeEvent/1.png" id="9_ffqqa"]
+[ext_resource type="Texture2D" uid="uid://6p1tfoa04b18" path="res://Sprites/QuickTimeEvent/Go.png" id="10_5ke27"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tblx1"]
 size = Vector2(140, 140)
@@ -99,25 +101,13 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
 }
-tracks/2/type = "value"
+tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SprNumeros:frame")
+tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.7, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [1, 0, 9]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(1.9),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -125,9 +115,37 @@ tracks/3/keys = {
 "method": &"cambiar_roles"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SprNumeros:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("8_1phx8"), ExtResource("9_ffqqa"), ExtResource("10_5ke27")]
+}
+
+[sub_resource type="Animation" id="Animation_ow0fn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SprNumeros:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_1phx8")]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s1r55"]
 _data = {
+"RESET": SubResource("Animation_ow0fn"),
 "pop_numeros": SubResource("Animation_dq3ws")
 }
 
@@ -136,7 +154,7 @@ script = ExtResource("1_6r5rn")
 
 [node name="TimerFinalEvento" type="Timer" parent="."]
 process_callback = 0
-wait_time = 10.0
+wait_time = 20.0
 one_shot = true
 autostart = true
 
@@ -151,22 +169,23 @@ position = Vector2(0, -20)
 scale = Vector2(0.712, 0.742593)
 texture = ExtResource("2_6owar")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="Martillo" type="Area2D" parent="."]
 z_index = 1
-position = Vector2(264, 573)
+position = Vector2(87, 90)
 script = ExtResource("2_krrne")
-speed = 650
+speed = 500
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Martillo"]
-position = Vector2(-737, -159)
+position = Vector2(-754, -2)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_ldjf1")
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Martillo"]
-position = Vector2(159, -99)
+position = Vector2(159, 92)
 shape = SubResource("RectangleShape2D_tblx1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Martillo"]
@@ -175,10 +194,10 @@ libraries = {
 }
 
 [node name="Label" type="Label" parent="Martillo"]
-offset_left = -181.0
-offset_top = -257.0
-offset_right = 183.0
-offset_bottom = -212.0
+offset_left = -402.0
+offset_top = 99.0
+offset_right = -38.0
+offset_bottom = 144.0
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_h12on")
 text = "PLAYER : X"
@@ -186,41 +205,45 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Plato" type="Area2D" parent="."]
-position = Vector2(1144, 464)
+position = Vector2(1168, 620)
 script = ExtResource("5_2sp3d")
-speed = 650
+speed = 600
 metadata/_edit_group_ = true
 
 [node name="Sprite2D2" type="Sprite2D" parent="Plato"]
-position = Vector2(841, 120)
+position = Vector2(815, -5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_0p7wu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plato"]
-position = Vector2(25, 115)
+position = Vector2(-8, -6)
 shape = SubResource("CircleShape2D_k42g4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Plato"]
 
 [node name="Label" type="Label" parent="Plato"]
-offset_left = -50.0
-offset_top = -144.0
-offset_right = 110.0
-offset_bottom = -99.0
+offset_left = 11.0
+offset_top = 177.0
+offset_right = 171.0
+offset_bottom = 222.0
 theme_override_font_sizes/font_size = 32
 text = "PLAYER : X"
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(84, 72)
+position = Vector2(109, 116)
+metadata/_edit_lock_ = true
 
 [node name="Marker2D2" type="Marker2D" parent="."]
-position = Vector2(1146, 72)
+position = Vector2(1198, 115)
+metadata/_edit_lock_ = true
 
 [node name="Marker2D3" type="Marker2D" parent="."]
-position = Vector2(1168, 672)
+position = Vector2(1168, 608)
+metadata/_edit_lock_ = true
 
 [node name="Marker2D4" type="Marker2D" parent="."]
-position = Vector2(132, 684)
+position = Vector2(132, 631)
+metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -233,10 +256,7 @@ z_index = 6
 z_as_relative = false
 position = Vector2(666, 385)
 scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("7_qmnmu")
-hframes = 5
-vframes = 2
-frame = 9
+texture = ExtResource("8_1phx8")
 
 [connection signal="timeout" from="TimerFinalEvento" to="." method="_on_timer_final_evento_timeout"]
 [connection signal="timeout" from="TimerCambiarRoles" to="." method="cambiar_roles"]

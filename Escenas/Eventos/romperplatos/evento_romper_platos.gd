@@ -22,6 +22,7 @@ func _ready() -> void:
 	$Martillo.cambiar_rol()
 	$Plato.cambiar_rol()
 	reiniciar_pos()
+	
 
 func reiniciar_pos():
 	var posDup = posicionesPosibles.duplicate()

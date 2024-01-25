@@ -16,7 +16,6 @@ var recetaActualJugador2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
 	preloadRecetas()
 	generarListaRecetas()
 	Eventos.mediaComida.connect(cambiarSpriteMediaComida)
@@ -24,12 +23,14 @@ func _ready():
 	Eventos.comandosAcabados.connect(entradaReceta)
 	entradaReceta(1)
 	entradaReceta(2)
+	
 func cambiarSpriteMediaComida(numeroJugadorActual):
 	match numeroJugadorActual:
 		1:
 			recetaActualJugador1.set_frame(1)
 		2:
 			recetaActualJugador2.set_frame(1)
+
 func cambiarSpriteFinal(numeroJugadorActual):
 	match numeroJugadorActual:
 		1:
@@ -39,7 +40,6 @@ func cambiarSpriteFinal(numeroJugadorActual):
 
 #carga todas las recetas y las coloca en el diccionario pal jugador 1 y 2
 func preloadRecetas():
-
 	var recetainstanciada
 	var recetainstanciada1
 	var recetainstanciada2
@@ -50,7 +50,6 @@ func preloadRecetas():
 		recetas1[recetainstanciada1.nombre]=recetainstanciada1
 		recetas2[recetainstanciada2.nombre]=recetainstanciada2
 	
-
 func generarListaRecetas():
 	var rng = RandomNumberGenerator.new()
 	var receta1
@@ -72,27 +71,29 @@ func entradaReceta(numeroJugador):
 			recetaActualJugador1 = listaRecetasJugador1.pop_back()
 			if recetaActualJugador1!=null:
 				recetaPlayer1.add_child(recetaActualJugador1)
+				print(recetaActualJugador1.frame)
 				animacion_entrada(1)
 			else:
 				print("aca se manda a que el P1 gane el juego")
 		2:
 			if recetaActualJugador2!=null:
 				animacion_salida(2)
+		
 			recetaActualJugador2 = listaRecetasJugador2.pop_back()
-			
 			if recetaActualJugador2!=null:
 				recetaPlayer2.add_child(recetaActualJugador2)
+				
 				animacion_entrada(2)
 			else:
 				print("aca se manda a que el P2 gane el juego")
 
 func enviar_moveset(numeroJugador,recetamoveset):
 	Eventos.nuevaComida.emit(numeroJugador,recetamoveset)
-func cambiarframe():
-	recetaActualJugador1.set_frame(0)
+	
 func animacion_entrada(numeroJugador):
 	#tween que mueve a la receta actual
 	var tween=create_tween()
+	tween.set_ease(Tween.EASE_IN)
 	var recetaAMover
 	var direccionMov=Vector2.ZERO
 	match numeroJugador:
@@ -104,14 +105,14 @@ func animacion_entrada(numeroJugador):
 			direccionMov=Vector2(-790,0)
 	#print(recetaActual.moveset)
 	
-	tween.tween_property(recetaAMover,"position",direccionMov,1)
+	tween.tween_property(recetaAMover,"position",direccionMov,.5)
 	tween.tween_callback(enviar_moveset.bind(numeroJugador,recetaAMover.moveset))
-	tween.tween_callback(cambiarframe)
 	#tween.tween_callback(prueba.bind(recetaAMover))
 	
 
 func animacion_salida(numeroJugador):
 	var tween=create_tween()
+	tween.set_ease(Tween.EASE_OUT)
 	var recetaAMover
 	var direccionMov=Vector2.ZERO
 	match numeroJugador:
@@ -121,5 +122,5 @@ func animacion_salida(numeroJugador):
 		2:
 			recetaAMover=recetaActualJugador2
 			direccionMov=Vector2(0,0)
-	tween.tween_property(recetaAMover,"position",direccionMov,1)
+	tween.tween_property(recetaAMover,"position",direccionMov,.5)
 	tween.tween_callback(recetaAMover.queue_free)

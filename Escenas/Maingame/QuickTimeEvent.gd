@@ -2,7 +2,11 @@ extends Node2D
 
 @onready var anim = $AnimationPlayer
 @onready var timer = $Timer
-@onready var listaEventos : Array = [load("res://Escenas/Eventos/evento_romper_platos.tscn"), load("res://Escenas/Eventos/evento_pepino.tscn")]
+@onready var listaEventos : Array = [
+load("res://Escenas/Eventos/romperplatos/evento_romper_platos.tscn"),
+load("res://Escenas/Eventos/pepino/evento_pepino.tscn"),
+load("res://Escenas/Eventos/darseduro/evento_darse_duro.tscn")
+]
 
 var lista_random_sfx_go = [load("res://Escenas/Eventos/SFX/miauGo.mp3"), load("res://Escenas/Eventos/SFX/gouu.mp3"),\
  load("res://Escenas/Eventos/SFX/miauugo.mp3")]

@@ -8,6 +8,7 @@ var mousePos : Vector2
 @onready var button_standard_audio := AudioStreamPlayer.new()
 @onready var return_button_audio := AudioStreamPlayer.new()
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	bg_music.stream = load("res://Escenas/Menus/Musik/Warped-Alien-Band_Looping.mp3")
@@ -96,6 +97,8 @@ func _on_h_box_container_mp_start_game(): # iniciar juego mp
 
 func _on_h_box_container_sp_start_game(): # iniciar juego sp
 	button_standard_audio.play()
+	Names.name_player1 = Names.nameinitial.pick_random() + " " + Names.namefinal.pick_random()
+	Names.name_player2 = Names.nameinitial.pick_random() + " " + Names.namefinal.pick_random()
 	get_tree().change_scene_to_file("res://Escenas/Maingame/Maingame.tscn")
 
 

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cp85xfjdi08u2"]
+
+[ext_resource type="Script" path="res://Escenas/Maingame/Publico/GatosPublico.gd" id="1_opjnt"]
+
+[node name="GatosPublico" type="Node2D"]
+position = Vector2(-2, -2)
+script = ExtResource("1_opjnt")

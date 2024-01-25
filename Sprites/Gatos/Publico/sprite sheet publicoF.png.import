@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8pt1e0e08wsp"
-path="res://.godot/imported/sprite sheet publicoF.png-38d9b3578106fc9e7d5fba605d6eebbd.ctex"
+uid="uid://bdpt1304dx3rs"
+path="res://.godot/imported/sprite sheet publicoF.png-d40a85cb795b580889f67b82807f5713.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/sprite sheet publicoF.png"
-dest_files=["res://.godot/imported/sprite sheet publicoF.png-38d9b3578106fc9e7d5fba605d6eebbd.ctex"]
+source_file="res://Sprites/Gatos/Publico/sprite sheet publicoF.png"
+dest_files=["res://.godot/imported/sprite sheet publicoF.png-d40a85cb795b580889f67b82807f5713.ctex"]
 
 [params]
 

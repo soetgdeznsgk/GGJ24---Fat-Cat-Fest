@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Enums="*res://Logica/Globales/enums.gd"
 Eventos="*res://Logica/Globales/Eventos.gd"
+Names="*res://Escenas/Maingame/names.gd"
 
 [display]
 

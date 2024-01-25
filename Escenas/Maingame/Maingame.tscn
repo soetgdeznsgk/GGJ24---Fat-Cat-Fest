@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4olfp085mokh"]
+[gd_scene load_steps=15 format=3 uid="uid://b4olfp085mokh"]
 
 [ext_resource type="Texture2D" uid="uid://lfe8fvgjkdmc" path="res://Sprites/Fondos/stage.png" id="1_4c6u4"]
 [ext_resource type="Script" path="res://Escenas/Maingame/Maingame.gd" id="1_bpnxe"]
@@ -10,6 +10,11 @@
 [ext_resource type="Script" path="res://Escenas/Maingame/Camera2D.gd" id="5_864na"]
 [ext_resource type="PackedScene" uid="uid://bcrmlxmuoakqy" path="res://Escenas/Maingame/comidas.tscn" id="5_on172"]
 [ext_resource type="Texture2D" uid="uid://dvijscjapkitb" path="res://Sprites/Fondos/deco.png" id="9_q0gs3"]
+[ext_resource type="FontFile" uid="uid://cs81puvnc10pp" path="res://Escenas/Menus/Fonts/LobsterTwo-Regular.ttf" id="10_jnr23"]
+[ext_resource type="Script" path="res://Escenas/Maingame/NamePlayer1.gd" id="11_ecigq"]
+[ext_resource type="Script" path="res://Escenas/Maingame/NamePlayer2.gd" id="12_gw84n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eb0r4"]
 
 [node name="Maingame" type="Node2D"]
 script = ExtResource("1_bpnxe")
@@ -61,3 +66,29 @@ position = Vector2(681, 386)
 process_callback = 0
 script = ExtResource("5_864na")
 zoomFinal = Vector2(1.5, 1.5)
+
+[node name="NamePlayer1" type="Label" parent="."]
+offset_left = 253.0
+offset_top = 449.0
+offset_right = 633.0
+offset_bottom = 490.0
+theme_override_fonts/font = ExtResource("10_jnr23")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("StyleBoxFlat_eb0r4")
+text = "nombre largo que coloco"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("11_ecigq")
+
+[node name="NamePlayer2" type="Label" parent="."]
+offset_left = 730.0
+offset_top = 449.0
+offset_right = 1110.0
+offset_bottom = 490.0
+theme_override_fonts/font = ExtResource("10_jnr23")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("StyleBoxFlat_eb0r4")
+text = "nombre largo que coloco"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("12_gw84n")

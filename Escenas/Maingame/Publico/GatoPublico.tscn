@@ -1,0 +1,98 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdwsliw2xh10j"]
+
+[ext_resource type="Script" path="res://Escenas/Maingame/Publico/GatoPublico.gd" id="1_ekp2j"]
+[ext_resource type="Texture2D" uid="uid://bdpt1304dx3rs" path="res://Sprites/Gatos/Publico/sprite sheet publicoF.png" id="2_v1lea"]
+
+[sub_resource type="Animation" id="Animation_ywjxw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_70goy"]
+resource_name = "cheer"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(-2, -0.5, -2, 2, -2, 1),
+"update": 0,
+"values": [Vector2(0, -122), Vector2(0, -102), Vector2(0, -128), Vector2(-3, -102), Vector2(0, -130), Vector2(0, -122)]
+}
+
+[sub_resource type="Animation" id="Animation_g6s0d"]
+resource_name = "idle_appear"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7),
+"transitions": PackedFloat32Array(0.5, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -129), Vector2(0, -122)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ut0b0"]
+_data = {
+"RESET": SubResource("Animation_ywjxw"),
+"cheer": SubResource("Animation_70goy"),
+"idle_appear": SubResource("Animation_g6s0d")
+}
+
+[node name="GatoPublico" type="Node2D"]
+script = ExtResource("1_ekp2j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_v1lea")
+centered = false
+hframes = 10
+vframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_ut0b0")
+}

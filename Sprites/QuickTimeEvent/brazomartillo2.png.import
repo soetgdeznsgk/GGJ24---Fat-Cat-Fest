@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu28dchsfp4dn"
-path="res://.godot/imported/patas.jpg-16e02491335af07ae1e65fdbfd066025.ctex"
+uid="uid://6pjo7u5mdui8"
+path="res://.godot/imported/brazomartillo2.png-0d544345ec1168a07242b93928d2c23a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/QuickTimeEvent/patas.jpg"
-dest_files=["res://.godot/imported/patas.jpg-16e02491335af07ae1e65fdbfd066025.ctex"]
+source_file="res://Sprites/QuickTimeEvent/brazomartillo2.png"
+dest_files=["res://.godot/imported/brazomartillo2.png-0d544345ec1168a07242b93928d2c23a.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd5tk7sgu1i7q"
-path="res://.godot/imported/gatoTranquilo.png-6b16e5855b8d5cde1f8b8a175f305479.ctex"
+uid="uid://ul6v7ibnq4v3"
+path="res://.godot/imported/gatoCabeza.png-740276d3ddafa32652c204238b758d7a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/QuickTimeEvent/gatoTranquilo.png"
-dest_files=["res://.godot/imported/gatoTranquilo.png-6b16e5855b8d5cde1f8b8a175f305479.ctex"]
+source_file="res://Sprites/QuickTimeEvent/gatoCabeza.png"
+dest_files=["res://.godot/imported/gatoCabeza.png-740276d3ddafa32652c204238b758d7a.ctex"]
 
 [params]
 

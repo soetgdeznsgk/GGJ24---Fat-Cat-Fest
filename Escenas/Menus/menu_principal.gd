@@ -108,6 +108,8 @@ func _on_h_box_container_sp_start_game(): # iniciar juego sp
 	root.remove_child(root.get_child(root.get_child_count() - 1))
 	root.add_child(Juego)
 	
+	Names.name_player1 = Names.nameinitial.pick_random() + " " + Names.namefinal.pick_random()
+	Names.name_player2 = Names.nameinitial.pick_random() + " " + Names.namefinal.pick_random()
 
 
 func _on_credits_button_pressed() -> void:

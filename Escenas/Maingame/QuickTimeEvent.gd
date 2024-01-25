@@ -2,7 +2,11 @@ extends Node2D
 
 @onready var anim = $AnimationPlayer
 @onready var timer = $Timer
-@onready var listaEventos : Array = [load("res://Escenas/Eventos/evento_romper_platos.tscn"), load("res://Escenas/Eventos/evento_pepino.tscn")]
+@onready var listaEventos : Array = [ # CRITICAL no cambiar el orden de los eventos, el enum Eventos.MiniJuegos está ordenado igual
+load("res://Escenas/Eventos/romperplatos/evento_romper_platos.tscn"),
+load("res://Escenas/Eventos/pepino/evento_pepino.tscn"),
+load("res://Escenas/Eventos/darseduro/evento_darse_duro.tscn")
+]
 
 var lista_random_sfx_go = [load("res://Escenas/Eventos/SFX/miauGo.mp3"), load("res://Escenas/Eventos/SFX/gouu.mp3"),\
  load("res://Escenas/Eventos/SFX/miauugo.mp3")]
@@ -27,21 +31,22 @@ func generarNuevoEvento():
 func _on_timer_timeout():
 	anim.play("pop_up")
 	# TODO acá cambiar el frame o textura de la campanita segun el evento
-	Eventos.nuevoEvento.emit()
 
 func finAnimacion():
 	#logica de cambio de evento
-	#var eventoSeleccionado = listaEventos.pick_random()
+	var selection = randi_range(0, listaEventos.size() - 1)
 	# para testing usar el de abajo
-	var eventoSeleccionado = listaEventos[1]
-	var eventoInstanciado = eventoSeleccionado.instantiate()
+	#var eventoSeleccionado = listaEventos[1]
+	var eventoInstanciado = listaEventos[selection].instantiate()
 	add_child(eventoInstanciado)
+	Eventos.nuevoEvento.emit(selection) # ésto es lo que le dice a la CPU
 	
 func final_evento(ganador):
 	# TODO usar nombres de jugadores
 	$Label.text = "Winner:\n" + "TENGO HAMBRE WEE"
 	$AnimationPlayer.play("final_evento")
 	generarNuevoEvento()
+	Eventos.finalEvento.emit(ganador)
 
 func set_sfx_random_go():
 	select_random_sfx_from_pool($AudioStreamPlayer, lista_random_sfx_go)

@@ -1,80 +1,18 @@
 [gd_scene load_steps=7 format=3 uid="uid://fkqmi5o8tqo5"]
 
-[ext_resource type="Texture2D" uid="uid://dtodomssm1j1v" path="res://Sprites/QuickTimeEvent/gatoPegando.png" id="1_pb4i6"]
 [ext_resource type="Script" path="res://Escenas/Eventos/darseduro/Sprite2D.gd" id="2_ketnl"]
-[ext_resource type="Texture2D" uid="uid://bd5tk7sgu1i7q" path="res://Sprites/QuickTimeEvent/gatoTranquilo.png" id="3_sh35l"]
+[ext_resource type="Texture2D" uid="uid://ul6v7ibnq4v3" path="res://Sprites/QuickTimeEvent/gatoCabeza.png" id="2_m7ben"]
+[ext_resource type="Texture2D" uid="uid://36do2trpwuiy" path="res://Sprites/QuickTimeEvent/gatoCuerpo.png" id="3_1nceb"]
+[ext_resource type="Texture2D" uid="uid://bb2rt4ccdlfwl" path="res://Sprites/QuickTimeEvent/gatopatagolpeadora.png" id="4_lg8pl"]
 
-[sub_resource type="Animation" id="Animation_v545y"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Gato:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_sh35l")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Gato:puedeGolpear")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5a1ld"]
+size = Vector2(100, 100)
 
-[sub_resource type="Animation" id="Animation_uk336"]
-resource_name = "golpeando"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Gato:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("1_pb4i6"), ExtResource("3_sh35l")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Gato:puedeGolpear")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rswb3"]
+size = Vector2(80, 80)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vvv1g"]
-_data = {
-"RESET": SubResource("Animation_v545y"),
-"golpeando": SubResource("Animation_uk336")
-}
-
-[node name="Gato" type="Sprite2D"]
-position = Vector2(775, 351)
-texture = ExtResource("3_sh35l")
+[node name="Gato" type="Node2D"]
 script = ExtResource("2_ketnl")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_vvv1g")
-}
 
 [node name="Label" type="Label" parent="."]
 offset_left = -36.0
@@ -82,3 +20,41 @@ offset_top = -168.0
 offset_right = 36.0
 offset_bottom = -145.0
 text = "PLAYER X"
+
+[node name="sprPadre" type="Sprite2D" parent="."]
+
+[node name="Cabeza" type="Area2D" parent="sprPadre"]
+position = Vector2(0, 9)
+metadata/_edit_group_ = true
+
+[node name="SprCabeza" type="Sprite2D" parent="sprPadre/Cabeza"]
+texture = ExtResource("2_m7ben")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sprPadre/Cabeza"]
+shape = SubResource("RectangleShape2D_5a1ld")
+
+[node name="SprCuerpo" type="Sprite2D" parent="sprPadre"]
+position = Vector2(-13, 116)
+texture = ExtResource("3_1nceb")
+
+[node name="MarkerFinalPAta" type="Marker2D" parent="sprPadre"]
+position = Vector2(206, 37)
+
+[node name="MarkerMediaPAta" type="Marker2D" parent="sprPadre"]
+position = Vector2(159, -87)
+
+[node name="Pata" type="Area2D" parent="sprPadre"]
+position = Vector2(-94, -71)
+metadata/_edit_group_ = true
+
+[node name="SprPata" type="Sprite2D" parent="sprPadre/Pata"]
+texture = ExtResource("4_lg8pl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sprPadre/Pata"]
+shape = SubResource("RectangleShape2D_rswb3")
+
+[node name="Marker2D2" type="Marker2D" parent="sprPadre"]
+position = Vector2(0, 57)
+
+[connection signal="area_entered" from="sprPadre/Cabeza" to="." method="_on_cabeza_area_entered"]
+[connection signal="area_exited" from="sprPadre/Cabeza" to="." method="_on_cabeza_area_exited"]

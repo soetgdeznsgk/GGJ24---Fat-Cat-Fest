@@ -19,7 +19,9 @@ var permitirEntradas = true
 var devices
 var numeroMitadComida
 var sfx_comer := AudioStreamPlayer.new()
+var comer_flag
 func _ready() -> void:
+	comer_flag = false
 	sfx_comer.bus = "SFX"
 	add_child(sfx_comer)
 	#Señales
@@ -84,6 +86,12 @@ func _physics_process(_delta: float) -> void:
 func verificarCorrecta(Direccion):
 	if comandosConFlechas[0] == Direccion:
 		sfx_comer.stream = load("res://Escenas/Maingame/sfx/potatoñam.mp3")
+		if comer_flag == false:
+			$Gato1.texture = load("res://Sprites/Gatos/GatoGame/ñamñam/corte-de-las-animaciones_0000s_0002_bocetos-de-animacion-pana-miguel0005.png")
+			comer_flag = true
+		else:
+			$Gato1.texture = load("res://Sprites/Gatos/GatoGame/ñamñam/corte-de-las-animaciones_0000s_0003_bocetos-de-animacion-pana-miguel0004.png")
+			comer_flag = false
 		sfx_comer.play()
 		actualizar_flechas()
 	else:
@@ -108,6 +116,7 @@ func reemplazarTexturas():
 		Eventos.comidaAPuntoDeTerminar.emit(jugador)
 	elif comandosConFlechas.size() == 0:
 		# Emitir que ya se comió todo
+		$Gato1.texture = load("res://Sprites/Gatos/GatoGame/ñamñam/corte-de-las-animaciones_0000s_0000_bocetos-de-animacion-pana-miguel0012.png")
 		Eventos.comandosAcabados.emit(jugador)
 		
 

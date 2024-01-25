@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbx7yskj14jdm"]
+[gd_scene load_steps=8 format=3 uid="uid://bbx7yskj14jdm"]
 
 [ext_resource type="Script" path="res://Escenas/Maingame/comandos.gd" id="1_k17g7"]
+[ext_resource type="Texture2D" uid="uid://bfplax5tvhd73" path="res://Sprites/Gatos/GatoGame/idle/corte-de-las-animaciones_0000s_0000_bocetos-de-animacion-pana-miguel0034.png" id="3_mvrgd"]
+[ext_resource type="Texture2D" uid="uid://bsfarbyogdekf" path="res://Sprites/Comandos/FlechaDerecha.png" id="4_4hgvy"]
 
 [sub_resource type="Animation" id="Animation_rhm6t"]
 length = 0.001
@@ -273,5 +275,12 @@ scale = Vector2(0.25, 0.25)
 libraries = {
 "": SubResource("AnimationLibrary_6k4li")
 }
+
+[node name="Gato1" type="Sprite2D" parent="."]
+z_index = 1
+z_as_relative = false
+position = Vector2(250, -227)
+scale = Vector2(0.748224, 0.748224)
+texture = ExtResource("3_mvrgd")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

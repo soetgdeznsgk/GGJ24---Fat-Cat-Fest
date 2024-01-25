@@ -1,0 +1,59 @@
+[gd_scene load_steps=13 format=3 uid="uid://dg7rmgv2dq5h7"]
+
+[ext_resource type="Texture2D" uid="uid://dx7uis8jda7ap" path="res://Sprites/Comidas/1Pla.png" id="1_h3igk"]
+[ext_resource type="Texture2D" uid="uid://0bvht6hr3spr" path="res://Sprites/Comidas/2Pla.png" id="2_ljvsd"]
+[ext_resource type="Texture2D" uid="uid://cirw8axeuwckb" path="res://Sprites/Comidas/3Pla.png" id="3_kb3ga"]
+[ext_resource type="Texture2D" uid="uid://coegn5p0gvs3r" path="res://Sprites/Comidas/4Pla.png" id="4_susho"]
+[ext_resource type="Texture2D" uid="uid://pwdu2te4is4b" path="res://Sprites/Comidas/5Pla.png" id="5_y25cm"]
+[ext_resource type="Texture2D" uid="uid://cm15tkb6sip4v" path="res://Sprites/Comidas/6Pla.png" id="6_vrchu"]
+[ext_resource type="Texture2D" uid="uid://cv7y23ffcev2m" path="res://Sprites/Comidas/7Pla.png" id="7_7m208"]
+[ext_resource type="Texture2D" uid="uid://dveyibsiypr1g" path="res://Sprites/Comidas/10Pla.png" id="8_8sny8"]
+[ext_resource type="Texture2D" uid="uid://dv2jjrsvfwsm7" path="res://Sprites/Comidas/9Pla.png" id="9_q7nqd"]
+[ext_resource type="Texture2D" uid="uid://dqakbbt8fnjtp" path="res://Sprites/Comidas/8Pla.png" id="10_jmxcb"]
+[ext_resource type="Texture2D" uid="uid://bprnaxgpelklv" path="res://Sprites/Comidas/11Pla.png" id="11_b0uo4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dyvao"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_h3igk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ljvsd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kb3ga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_susho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y25cm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vrchu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7m208")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8sny8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_q7nqd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_jmxcb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_b0uo4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+position = Vector2(-5, -184)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_dyvao")

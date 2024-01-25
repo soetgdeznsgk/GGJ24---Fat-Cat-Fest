@@ -2,13 +2,20 @@ extends Node2D
 const recetasString = ["res://Escenas/Recetas/ArrozConLeche.tscn",\
 "res://Escenas/Recetas/Empanada.tscn", "res://Escenas/Recetas/Salpicon.tscn",\
 "res://Escenas/Recetas/Tamal.tscn", "res://Escenas/Recetas/BuñueloyNatilla.tscn"]
-const recetasSize=5
+var stackPlatos
+var stackPlatos1
+var stackPlatos2
+
 #diccionario key: es el nombre de la receta(en la escena) 
 #            value: nodo instanciado de la receta
 var recetas1 :={}
 var recetas2 :={}
 var listaRecetasJugador1 =[]
 var listaRecetasJugador2 =[]
+var frameActualStackJugador1 = 0
+var frameActualStackJugador2 = 0
+var primerPlatoStack1 = true
+var primerPlatoStack2 = true
 @onready var recetaPlayer1=get_child(0)
 @onready var recetaPlayer2=get_child(1)
 var recetaActualJugador1
@@ -18,6 +25,7 @@ var recetaActualJugador2
 func _ready():
 	preloadRecetas()
 	generarListaRecetas()
+	stackPlatos = preload("res://Escenas/Recetas/Plato.tscn")
 	Eventos.mediaComida.connect(cambiarSpriteMediaComida)
 	Eventos.comidaAPuntoDeTerminar.connect(cambiarSpriteFinal)
 	Eventos.comandosAcabados.connect(entradaReceta)
@@ -50,6 +58,25 @@ func cambiarSpriteFinal(numeroJugadorActual):
 		2:
 			recetaActualJugador2.set_frame(2)
 
+func cambiar_sprite_stack(numeroJugadorActual):
+	match numeroJugadorActual:
+		1:
+			if primerPlatoStack1:
+				stackPlatos1 = stackPlatos.instantiate()
+				stackPlatos1.set_position(Vector2(-90,-100))
+				primerPlatoStack1 = false
+				add_child(stackPlatos1)
+				
+			stackPlatos1.set_frame(frameActualStackJugador1)
+			frameActualStackJugador1 += 1
+		2:
+			if primerPlatoStack2:
+				stackPlatos2 = stackPlatos.instantiate()
+				stackPlatos2.set_position(Vector2(90,-100))
+				primerPlatoStack2 = false
+				add_child(stackPlatos2)				
+			stackPlatos2.set_frame(frameActualStackJugador2)
+			frameActualStackJugador2 += 1
 #carga todas las recetas y las coloca en el diccionario pal jugador 1 y 2
 func preloadRecetas():
 	var recetainstanciada
@@ -66,8 +93,7 @@ func generarListaRecetas():
 	var rng = RandomNumberGenerator.new()
 	var receta1
 	var receta2
-	for i in range(recetasSize):
-		#ARREGLAR COSO
+	for i in range(recetasString.size()):
 		receta1 = recetas1.values()[rng.randi() % recetas1.size()]
 		receta2 = recetas2.values()[rng.randi() % recetas2.size()]
 		recetas1.erase(receta1.nombre)
@@ -136,3 +162,5 @@ func animacion_salida(numeroJugador):
 			direccionMov=Vector2(0,0)
 	tween.tween_property(recetaAMover,"position",direccionMov,.5)
 	tween.tween_callback(recetaAMover.queue_free)
+	tween.tween_callback(cambiar_sprite_stack.bind(numeroJugador))
+

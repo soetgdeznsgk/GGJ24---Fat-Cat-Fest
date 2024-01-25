@@ -1,15 +1,16 @@
-[gd_scene load_steps=28 format=3 uid="uid://wibtjjyhafg4"]
+[gd_scene load_steps=30 format=3 uid="uid://wibtjjyhafg4"]
 
 [ext_resource type="Script" path="res://Escenas/Menus/menu_principal.gd" id="1_vn785"]
 [ext_resource type="Texture2D" uid="uid://d2skq3dyio1rp" path="res://Escenas/Menus/Imgs/FatCatFestLogo.png" id="2_ijal2"]
 [ext_resource type="Script" path="res://Escenas/Menus/Buttons/VolumeManager.gd" id="3_nccfq"]
-[ext_resource type="StyleBox" uid="uid://3gjeyh8dsx21" path="res://Escenas/Menus/Buttons/estilo_botones.tres" id="4_6o6po"]
 [ext_resource type="PackedScene" uid="uid://kcqxgo84fi45" path="res://Escenas/Menus/Buttons/button_anim.tscn" id="4_cnkgm"]
 [ext_resource type="Texture2D" uid="uid://dxkx5w2qurkf3" path="res://Escenas/Menus/Buttons/OptionsButton.png" id="4_gf66w"]
 [ext_resource type="Texture2D" uid="uid://c7ru10qr3mnrv" path="res://Escenas/Menus/Buttons/InfoButton.png" id="5_j1sg3"]
+[ext_resource type="Texture2D" uid="uid://b0dta51u42vwn" path="res://Escenas/Menus/Buttons/BackButton.png" id="5_vsw83"]
 [ext_resource type="PackedScene" uid="uid://dldomgejvinaf" path="res://Escenas/Menus/Buttons/button_play_loquisimo.tscn" id="7_ok2fb"]
 [ext_resource type="Texture2D" uid="uid://cm6j5vcnxq6rx" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0000.png" id="8_33lqp"]
 [ext_resource type="Texture2D" uid="uid://ymdvj5rbfrom" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0001.png" id="9_4mylu"]
+[ext_resource type="Script" path="res://Escenas/Menus/Buttons/simple_button.gd" id="9_xmcnb"]
 [ext_resource type="Texture2D" uid="uid://cko7qdpjm2shp" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0002.png" id="10_lymja"]
 [ext_resource type="Texture2D" uid="uid://b4e8p240jvkcc" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0003.png" id="11_c5trp"]
 [ext_resource type="Texture2D" uid="uid://bjuakr1esl2db" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0004.png" id="12_yvj5k"]
@@ -51,6 +52,14 @@ bg_color = Color(0.631373, 0.588235, 0.596078, 0.341176)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dstja"]
 bg_color = Color(0.631373, 0.588235, 0.596078, 0.341176)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y85il"]
+bg_color = Color(0.921569, 0.807843, 0.611765, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.780392, 0.47451, 0.270588, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2evkp"]
 animations = [{
@@ -126,17 +135,18 @@ theme_override_constants/separation = 32
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.39
 alignment = 1
 
 [node name="Logo" type="TextureRect" parent="MenuPrincipal/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(717, 376)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.15
 texture = ExtResource("2_ijal2")
 expand_mode = 1
 stretch_mode = 5
+metadata/_edit_lock_ = true
 
 [node name="ContenedorOpciones" type="MarginContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer"]
 visible = false
@@ -185,13 +195,15 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Idioma"
 
-[node name="Button" type="Button" parent="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer"]
+[node name="BackButton" parent="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer" instance=ExtResource("4_cnkgm")]
 layout_mode = 2
-theme_override_styles/normal = ExtResource("4_6o6po")
-theme_override_styles/hover = ExtResource("4_6o6po")
-theme_override_styles/focus = ExtResource("4_6o6po")
-text = "volver"
-alignment = 0
+theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
+text = "Back "
+icon = ExtResource("5_vsw83")
+flat = true
+alignment = 2
+icon_alignment = 2
+script = ExtResource("9_xmcnb")
 
 [node name="MainVBoxContainer" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -224,19 +236,105 @@ text = "Credits
 "
 icon = ExtResource("5_j1sg3")
 
+[node name="MarginContainer" type="MarginContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer"]
+layout_mode = 2
+
+[node name="CreditsContainer" type="PanelContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_y85il")
+
+[node name="CreditsVBox" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer"]
+layout_direction = 1
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox"]
+layout_mode = 2
+theme_override_constants/separation = 300
+alignment = 1
+
+[node name="Label3" type="Label" parent="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
+theme_override_font_sizes/font_size = 15
+text = "Artists:							
+-
+-
+-
+-
+-"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
+theme_override_font_sizes/font_size = 10
+text = "Programmers:
+-
+-
+-
+-
+-
+-
+-"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox"]
+layout_mode = 2
+theme_override_constants/separation = 300
+alignment = 1
+
+[node name="Label3" type="Label" parent="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
+theme_override_font_sizes/font_size = 15
+text = "Assets Used:							
+-
+-
+-
+-
+-"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
+theme_override_font_sizes/font_size = 15
+text = "This game was developed 
+for the Global Game Jam 2024, 
+in the Colombian 
+Tan Grande y Jugando Site"
+horizontal_alignment = 1
+
+[node name="BackButton" parent="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox/HBoxContainer2/HBoxContainer" instance=ExtResource("4_cnkgm")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
+text = "Back "
+icon = ExtResource("5_vsw83")
+flat = true
+alignment = 2
+icon_alignment = 2
+script = ExtResource("9_xmcnb")
+
 [node name="CenterContainer" type="CenterContainer" parent="MenuPrincipal/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+metadata/_edit_lock_ = true
 
 [node name="GatoGif" type="AnimatedSprite2D" parent="MenuPrincipal/HBoxContainer/CenterContainer"]
 z_index = -2
-position = Vector2(86, 469)
+position = Vector2(85, 491)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_2evkp")
 animation = &"Eat"
 frame_progress = 0.409295
 
-[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer/Button" to="." method="_undevelop_menu"]
+[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer/BackButton" to="." method="_undevelop_menu"]
 [connection signal="sp_start_game" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer" to="." method="_on_h_box_container_sp_start_game"]
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/OptionsButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox/HBoxContainer2/HBoxContainer/BackButton" to="." method="_undevelop_menu"]

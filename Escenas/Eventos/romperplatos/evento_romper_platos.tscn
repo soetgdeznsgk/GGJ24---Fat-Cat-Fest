@@ -1,12 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://cxwff3nt01gul"]
+[gd_scene load_steps=17 format=3 uid="uid://cxwff3nt01gul"]
 
 [ext_resource type="Script" path="res://Escenas/Eventos/romperplatos/evento_romper_platos.gd" id="1_6r5rn"]
 [ext_resource type="Texture2D" uid="uid://cnftvrj7wfr42" path="res://Sprites/QuickTimeEvent/fondoplatos.png" id="2_6owar"]
 [ext_resource type="Script" path="res://Escenas/Eventos/romperplatos/Martillo.gd" id="2_krrne"]
-[ext_resource type="Texture2D" uid="uid://bu28dchsfp4dn" path="res://Sprites/QuickTimeEvent/patas.jpg" id="2_ldjf1"]
+[ext_resource type="Texture2D" uid="uid://c32f5861vb4ns" path="res://Sprites/QuickTimeEvent/brazomartillo1.png" id="2_ldjf1"]
 [ext_resource type="Texture2D" uid="uid://dqtsl3p2axvdr" path="res://Sprites/QuickTimeEvent/patasPlato.png" id="3_0p7wu"]
-[ext_resource type="Texture2D" uid="uid://bx3cy2letyw00" path="res://Sprites/QuickTimeEvent/patasMartillando.jpg" id="4_23d6d"]
 [ext_resource type="Script" path="res://Escenas/Eventos/romperplatos/Plato.gd" id="5_2sp3d"]
+[ext_resource type="Texture2D" uid="uid://6pjo7u5mdui8" path="res://Sprites/QuickTimeEvent/brazomartillo2.png" id="6_5l500"]
 [ext_resource type="Texture2D" uid="uid://ys48us78ixh7" path="res://Sprites/QuickTimeEvent/numeros.jpg" id="7_qmnmu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tblx1"]
@@ -26,7 +26,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_ldjf1"), ExtResource("4_23d6d"), ExtResource("2_ldjf1")]
+"values": [ExtResource("2_ldjf1"), ExtResource("6_5l500"), ExtResource("2_ldjf1")]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -66,6 +66,8 @@ _data = {
 "Martillando": SubResource("Animation_oiywi"),
 "RESET": SubResource("Animation_7diyl")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h12on"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k42g4"]
 radius = 100.02
@@ -158,7 +160,10 @@ speed = 650
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Martillo"]
+position = Vector2(-737, -159)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_ldjf1")
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Martillo"]
 position = Vector2(159, -99)
@@ -170,12 +175,15 @@ libraries = {
 }
 
 [node name="Label" type="Label" parent="Martillo"]
-offset_left = -84.0
-offset_top = -263.0
-offset_right = 76.0
-offset_bottom = -218.0
+offset_left = -181.0
+offset_top = -257.0
+offset_right = 183.0
+offset_bottom = -212.0
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_h12on")
 text = "PLAYER : X"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Plato" type="Area2D" parent="."]
 position = Vector2(1144, 464)

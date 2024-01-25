@@ -5,8 +5,8 @@
 [node name="EventoDarseDuro" type="Node2D"]
 
 [node name="Gato" parent="." instance=ExtResource("1_k6i8i")]
-position = Vector2(538, 351)
+position = Vector2(605, 335)
 
 [node name="Gato2" parent="." instance=ExtResource("1_k6i8i")]
-position = Vector2(794, 348)
+position = Vector2(779, 337)
 jugador = 2

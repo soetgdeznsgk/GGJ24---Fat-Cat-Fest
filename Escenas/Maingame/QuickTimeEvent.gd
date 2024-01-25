@@ -23,7 +23,7 @@ func _ready():
 	Eventos.finalEvento.connect(final_evento)
 	
 func tiempoAleatorio():
-	return randi_range(10,20) + randi_range(10,20) #return 2
+	return 2# randi_range(10,20) + randi_range(10,20) #return 2
 
 func generarNuevoEvento():
 	timer.start(tiempoAleatorio())

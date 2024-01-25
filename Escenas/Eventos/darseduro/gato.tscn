@@ -15,11 +15,14 @@ size = Vector2(40, 40)
 script = ExtResource("2_ketnl")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -36.0
-offset_top = -168.0
-offset_right = 36.0
-offset_bottom = -145.0
+offset_left = -77.0
+offset_top = -151.0
+offset_right = 78.0
+offset_bottom = -128.0
 text = "PLAYER X"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="sprPadre" type="Sprite2D" parent="."]
 

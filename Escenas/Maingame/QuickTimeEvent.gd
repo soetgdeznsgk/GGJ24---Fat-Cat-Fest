@@ -37,17 +37,19 @@ func cheer(prob : float):
 
 func finAnimacion():
 	#logica de cambio de evento
-	#var eventoSeleccionado = listaEventos.pick_random()
+	var eventoSeleccionado = listaEventos.pick_random()
 	# para testing usar el de abajo
-	var eventoSeleccionado = listaEventos[1]
+	#var eventoSeleccionado = listaEventos[1]
 	var eventoInstanciado = eventoSeleccionado.instantiate()
 	add_child(eventoInstanciado)
 	
 func final_evento(ganador):
 	var texto = "Winner:\n"
-	if ganador == 1:
+	if ganador == 0:
+		texto = "None, GIT GUD"
+	elif ganador == 1:
 		texto += Names.name_player1
-	else:
+	elif ganador == 2:
 		texto += Names.name_player2
 	$Label.text = texto
 	$AnimationPlayer.play("final_evento")

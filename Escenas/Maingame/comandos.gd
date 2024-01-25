@@ -6,7 +6,7 @@ var listaTexturas = [ load("res://Sprites/Comandos/flechaArriba.png"), \
 load("res://Sprites/Comandos/FlechaAbajo.png"), \
 load("res://Sprites/Comandos/FlechaIzquierda.png"), \
 load("res://Sprites/Comandos/FlechaDerecha.png") ]
-
+@export var duracionStun = 2
 var ultimoInputRegistrado = null
 var procesosPausados = false
 @onready var anim = $AnimationPlayer
@@ -33,11 +33,15 @@ func _ready() -> void:
 		diccionarioInputs[Enums.Abajo]  = "AbajoPj2"
 		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj2"
 		diccionarioInputs[Enums.Derecha] = "DerechaPj2"
+		for i in comandoNodos:
+			i.modulate = Color("#F2DF6F")
 	else:
 		diccionarioInputs[Enums.Arriba] = "ArribaPj1"
 		diccionarioInputs[Enums.Abajo] = "AbajoPj1"
 		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj1"
 		diccionarioInputs[Enums.Derecha] = "DerechaPj1"
+		for i in comandoNodos:
+			i.modulate = Color("#88D662")
 
 func set_comandos(numeroJugador, nuevosComandos : Array):
 	#Solo actualiza si es el jugador correcot
@@ -141,6 +145,14 @@ func pausarProcesos():
 	visible = false
 
 func reanudarProcesos(ganador):
+	# Esperar que el telon se vaya
 	await get_tree().create_timer(3).timeout
-	procesosPausados = false
-	visible = true
+	#Si se stunea:
+	if ganador == jugador or ganador == 0:
+		procesosPausados = false
+		visible = true
+	else:
+		await get_tree().create_timer(duracionStun).timeout
+		# TODO poner animacion de gato stuneado
+		procesosPausados = false
+		visible = true

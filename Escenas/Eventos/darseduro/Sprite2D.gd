@@ -23,7 +23,7 @@ func _ready() -> void:
 		$Label.text = Names.name_player2
 		$sprPadre.scale.x = -1
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if !puedeGolpear:
 		return
 	if Input.is_action_just_pressed(diccionarioInputs[Enums.Arriba]):
@@ -45,14 +45,14 @@ func _physics_process(delta: float) -> void:
 			$TimerCooldown.start(0.1)
 			
 
-func _on_cabeza_area_entered(area: Area2D) -> void:
+func _on_cabeza_area_entered(_area: Area2D) -> void:
 	#Recibe golpe
 	conteoGolpesRecibidos += 1
 	var tweenCabeza = get_tree().create_tween()
 	tweenCabeza.set_ease(Tween.EASE_IN)
 	tweenCabeza.tween_property(cabeza,"position", markerCabeza, 0.12)
 
-func _on_cabeza_area_exited(area: Area2D) -> void:
+func _on_cabeza_area_exited(_area: Area2D) -> void:
 	var tweenCabeza = get_tree().create_tween()
 	tweenCabeza.tween_property(cabeza,"position", cabezaPosInicial, 0.1)
 

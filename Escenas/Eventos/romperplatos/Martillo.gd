@@ -17,13 +17,13 @@ func cambiar_rol():
 		diccionarioInputs[Enums.Abajo] = "AbajoPj1"
 		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj1"
 		diccionarioInputs[Enums.Derecha] = "DerechaPj1"
-		$Label.text = "Player 1"
+		$Label.text = Names.name_player1
 	else:
 		diccionarioInputs[Enums.Arriba] = "ArribaPj2"
 		diccionarioInputs[Enums.Abajo]  = "AbajoPj2"
 		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj2"
 		diccionarioInputs[Enums.Derecha] = "DerechaPj2"
-		$Label.text = "Player 2"
+		$Label.text = Names.name_player2
 	golpeando = false
 	platoAqui = false
 	anim.play("Martillando")
@@ -32,10 +32,10 @@ func _physics_process(delta: float) -> void:
 	if !canMove:
 		return
 	if Input.is_action_pressed(diccionarioInputs[Enums.Arriba]):
-		if position.y > 100:
+		if position.y > 50:
 			position.y -= speed * delta
 	if Input.is_action_pressed(diccionarioInputs[Enums.Abajo]):
-		if position.y < 700:
+		if position.y < 620:
 			position.y += speed * delta
 	if Input.is_action_pressed(diccionarioInputs[Enums.Izquierda]):
 		if position.x > 100:

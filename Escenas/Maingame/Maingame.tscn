@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cpifiwycfnlxs" path="res://Sprites/Fondos/mesa.png" id="4_nod1o"]
 [ext_resource type="Script" path="res://Escenas/Maingame/Camera2D.gd" id="5_864na"]
 [ext_resource type="PackedScene" uid="uid://bcrmlxmuoakqy" path="res://Escenas/Maingame/comidas.tscn" id="5_on172"]
+[ext_resource type="PackedScene" uid="uid://cp85xfjdi08u2" path="res://Escenas/Maingame/Publico/GatosPublico.tscn" id="8_5t0gr"]
 [ext_resource type="Texture2D" uid="uid://dvijscjapkitb" path="res://Sprites/Fondos/deco.png" id="9_q0gs3"]
 [ext_resource type="FontFile" uid="uid://cs81puvnc10pp" path="res://Escenas/Menus/Fonts/LobsterTwo-Regular.ttf" id="10_jnr23"]
 [ext_resource type="Script" path="res://Escenas/Maingame/NamePlayer1.gd" id="11_ecigq"]
@@ -60,6 +61,10 @@ centered = false
 
 [node name="QuickTimeEvent" parent="." instance=ExtResource("3_fvsyg")]
 metadata/_edit_lock_ = true
+
+[node name="GatosPublico" parent="." instance=ExtResource("8_5t0gr")]
+z_index = 10
+z_as_relative = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(681, 386)

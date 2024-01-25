@@ -31,6 +31,10 @@ func generarNuevoEvento():
 func _on_timer_timeout():
 	anim.play("pop_up")
 	# TODO acá cambiar el frame o textura de la campanita segun el evento
+	Eventos.nuevoEvento.emit()
+
+func cheer(prob : float):
+	Eventos.catCheer.emit(prob)
 
 func finAnimacion():
 	#logica de cambio de evento
@@ -42,8 +46,12 @@ func finAnimacion():
 	Eventos.nuevoEvento.emit(selection) # ésto es lo que le dice a la CPU
 	
 func final_evento(ganador):
-	# TODO usar nombres de jugadores
-	$Label.text = "Winner:\n" + "TENGO HAMBRE WEE"
+	var texto = "Winner:\n"
+	if ganador == 1:
+		texto += Names.name_player1
+	else:
+		texto += Names.name_player2
+	$Label.text = texto
 	$AnimationPlayer.play("final_evento")
 	generarNuevoEvento()
 	Eventos.finalEvento.emit(ganador)

@@ -10,6 +10,7 @@ var catInstances: Array = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	instantiateRandomCats()
+	Eventos.catCheer.connect(triggerRandomCheer)
 
 func _process(delta: float) -> void:
 	# Check if the Enter key is pressed
@@ -45,10 +46,10 @@ func instantiateRandomCats() -> void:
 		catInstances.append(catInstance)
 
 # Function to trigger a cheer animation randomly for some cats
-func triggerRandomCheer() -> void:
+func triggerRandomCheer(prob : float = 0.5) -> void:
 	for cat in catInstances:
 		# Generate a random number to determine if the cat cheers (50% chance)
-		if randf() < 0.5:
+		if randf() < prob:
 			# Access the AnimationPlayer in each cat and play the cheer animation
 			var animPlayer = cat.get_node("AnimationPlayer")
 			if animPlayer != null:

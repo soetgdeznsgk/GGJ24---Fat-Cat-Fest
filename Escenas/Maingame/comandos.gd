@@ -29,15 +29,15 @@ func _ready() -> void:
 	
 	# Dependiendo del jugador tiene ciertas teclas para el physic process
 	if jugador == 1:
-		diccionarioInputs[Enums.Arriba] = "ArribaPj1"
-		diccionarioInputs[Enums.Abajo] = "AbajoPj1"
-		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj1"
-		diccionarioInputs[Enums.Derecha] = "DerechaPj1"
-	else:
 		diccionarioInputs[Enums.Arriba] = "ArribaPj2"
 		diccionarioInputs[Enums.Abajo]  = "AbajoPj2"
 		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj2"
 		diccionarioInputs[Enums.Derecha] = "DerechaPj2"
+	else:
+		diccionarioInputs[Enums.Arriba] = "ArribaPj1"
+		diccionarioInputs[Enums.Abajo] = "AbajoPj1"
+		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj1"
+		diccionarioInputs[Enums.Derecha] = "DerechaPj1"
 
 func set_comandos(numeroJugador, nuevosComandos : Array):
 	#Solo actualiza si es el jugador correcot

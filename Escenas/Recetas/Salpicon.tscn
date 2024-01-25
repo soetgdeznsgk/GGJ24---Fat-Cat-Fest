@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://gd03ibyhfgq7"]
+
+[ext_resource type="Texture2D" uid="uid://dvd20fim58of4" path="res://Sprites/Comidas/Salpicon.png" id="1_yxqlv"]
+[ext_resource type="Script" path="res://Logica/Salpicon.gd" id="2_q0ocw"]
+
+[node name="Salpicon" type="Sprite2D"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_yxqlv")
+hframes = 3
+script = ExtResource("2_q0ocw")

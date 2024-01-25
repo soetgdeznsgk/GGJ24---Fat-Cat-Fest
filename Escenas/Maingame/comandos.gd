@@ -97,13 +97,14 @@ func reemplazarTexturas():
 		comandoNodos[i].position = Vector2((i+1)*128, 51)
 		comandoNodos[i].self_modulate = Color(1,1,1,1)
 	
-	if comandosConFlechas.size() == 0:
-		# Emitir que ya se comió todo
-		Eventos.comandosAcabados.emit(jugador)
+
 	if comandosConFlechas.size() == numeroMitadComida:
 		Eventos.mediaComida.emit(jugador)
-	if comandosConFlechas.size() <= 3:
+	elif comandosConFlechas.size() == 3:
 		Eventos.comidaAPuntoDeTerminar.emit(jugador)
+	elif comandosConFlechas.size() == 0:
+		# Emitir que ya se comió todo
+		Eventos.comandosAcabados.emit(jugador)
 		
 
 func actualizar_flechas():

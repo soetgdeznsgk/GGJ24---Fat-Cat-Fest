@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx6vyeeod0lx4"]
+
+[ext_resource type="Texture2D" uid="uid://dese2x2xusi1m" path="res://Sprites/Comidas/BuñueloyNatilla.png" id="1_6uqg5"]
+[ext_resource type="Script" path="res://Logica/BuñueloYNatilla.gd" id="2_7jofp"]
+
+[node name="BuñueloyNatilla" type="Sprite2D"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_6uqg5")
+hframes = 3
+script = ExtResource("2_7jofp")

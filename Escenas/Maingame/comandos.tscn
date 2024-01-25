@@ -256,20 +256,20 @@ script = ExtResource("1_k17g7")
 
 [node name="Comando0" type="Sprite2D" parent="."]
 position = Vector2(128, 51)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.22, 0.22)
 
 [node name="Comando1" type="Sprite2D" parent="."]
 position = Vector2(256, 51)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.22, 0.22)
 
 [node name="Comando2" type="Sprite2D" parent="."]
 position = Vector2(384, 51)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.22, 0.22)
 
 [node name="Comando3" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 position = Vector2(512, 51)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.22, 0.22)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

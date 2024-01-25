@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://wibtjjyhafg4"]
+[gd_scene load_steps=31 format=3 uid="uid://wibtjjyhafg4"]
 
 [ext_resource type="Script" path="res://Escenas/Menus/menu_principal.gd" id="1_vn785"]
 [ext_resource type="Texture2D" uid="uid://d2skq3dyio1rp" path="res://Escenas/Menus/Imgs/FatCatFestLogo.png" id="2_ijal2"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://jsp1brrwdxu7" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0009.png" id="17_pokp8"]
 [ext_resource type="Texture2D" uid="uid://d0fmw3oywajax" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0010.png" id="18_m2i7m"]
 [ext_resource type="Texture2D" uid="uid://d2scq3mwqpuwh" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0011.png" id="19_uxlfc"]
+[ext_resource type="Texture2D" uid="uid://carqk0dmab0md" path="res://Sprites/Fondos/fondo.jpg" id="22_tfwu6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_76xur"]
 
@@ -48,10 +49,10 @@ HSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_rl27y")
 HSlider/styles/slider = SubResource("StyleBoxFlat_maygy")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xaxoe"]
-bg_color = Color(0.631373, 0.588235, 0.596078, 0.341176)
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dstja"]
-bg_color = Color(0.631373, 0.588235, 0.596078, 0.341176)
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y85il"]
 bg_color = Color(0.921569, 0.807843, 0.611765, 1)
@@ -164,7 +165,7 @@ theme_override_constants/separation = 10
 [node name="Label" type="Label" parent="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Musica"
+text = "Music"
 
 [node name="MusicVolumeSlider" type="HSlider" parent="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer"]
 layout_mode = 2
@@ -178,8 +179,7 @@ bus_name = "Music"
 [node name="Label2" type="Label" parent="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "SFX
-"
+text = "Sound Effects"
 
 [node name="SFXVolumeSlider" type="HSlider" parent="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer"]
 layout_mode = 2
@@ -193,7 +193,7 @@ bus_name = "SFX"
 [node name="Label3" type="Label" parent="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Idioma"
+text = "Language"
 
 [node name="BackButton" parent="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer" instance=ExtResource("4_cnkgm")]
 layout_mode = 2
@@ -201,8 +201,6 @@ theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
 text = "Back "
 icon = ExtResource("5_vsw83")
 flat = true
-alignment = 2
-icon_alignment = 2
 script = ExtResource("9_xmcnb")
 
 [node name="MainVBoxContainer" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer"]
@@ -242,15 +240,18 @@ layout_mode = 2
 [node name="CreditsContainer" type="PanelContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_y85il")
 
 [node name="CreditsVBox" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer"]
 layout_direction = 1
 layout_mode = 2
+size_flags_stretch_ratio = 3.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/separation = 300
 alignment = 1
 
@@ -282,6 +283,7 @@ horizontal_alignment = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/separation = 300
 alignment = 1
 
@@ -317,7 +319,6 @@ text = "Back "
 icon = ExtResource("5_vsw83")
 flat = true
 alignment = 2
-icon_alignment = 2
 script = ExtResource("9_xmcnb")
 
 [node name="CenterContainer" type="CenterContainer" parent="MenuPrincipal/HBoxContainer"]
@@ -332,6 +333,24 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_2evkp")
 animation = &"Eat"
 frame_progress = 0.409295
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.756863, 0.756863, 0.756863, 0.882353)
+z_index = -5
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -91.0
+offset_top = -32.0
+offset_right = 140.0
+offset_bottom = 109.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("22_tfwu6")
+expand_mode = 1
 
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer/BackButton" to="." method="_undevelop_menu"]
 [connection signal="sp_start_game" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer" to="." method="_on_h_box_container_sp_start_game"]

@@ -1,7 +1,6 @@
 extends Node2D
 
-
-func _on_timer_final_evento_timeout() -> void:
+func _on_timer_finalizar_evento_timeout() -> void:
 	if $Gato.conteoGolpesRecibidos == $Gato2.conteoGolpesRecibidos:
 		Eventos.finalEvento.emit(0)
 	elif $Gato.conteoGolpesRecibidos > $Gato2.conteoGolpesRecibidos:

@@ -6,3 +6,8 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	release_focus()
+	
+func _on_focus_entered():
+	pass
+func _on_focus_exited():
+	pass

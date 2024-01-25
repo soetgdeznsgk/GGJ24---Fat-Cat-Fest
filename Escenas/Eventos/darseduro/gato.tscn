@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=3 uid="uid://fkqmi5o8tqo5"]
+
+[ext_resource type="Texture2D" uid="uid://dtodomssm1j1v" path="res://Sprites/QuickTimeEvent/gatoPegando.png" id="1_pb4i6"]
+[ext_resource type="Script" path="res://Escenas/Eventos/darseduro/Sprite2D.gd" id="2_ketnl"]
+[ext_resource type="Texture2D" uid="uid://bd5tk7sgu1i7q" path="res://Sprites/QuickTimeEvent/gatoTranquilo.png" id="3_sh35l"]
+
+[sub_resource type="Animation" id="Animation_v545y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gato:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_sh35l")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gato:puedeGolpear")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_uk336"]
+resource_name = "golpeando"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gato:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("1_pb4i6"), ExtResource("3_sh35l")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gato:puedeGolpear")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vvv1g"]
+_data = {
+"RESET": SubResource("Animation_v545y"),
+"golpeando": SubResource("Animation_uk336")
+}
+
+[node name="Gato" type="Sprite2D"]
+position = Vector2(775, 351)
+texture = ExtResource("3_sh35l")
+script = ExtResource("2_ketnl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_vvv1g")
+}
+
+[node name="Label" type="Label" parent="."]
+offset_left = -36.0
+offset_top = -168.0
+offset_right = 36.0
+offset_bottom = -145.0
+text = "PLAYER X"

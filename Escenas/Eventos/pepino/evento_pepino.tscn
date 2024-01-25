@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://c6s322jcilwwp"]
 
-[ext_resource type="Script" path="res://Escenas/Eventos/evento_pepino.gd" id="1_8qjqu"]
+[ext_resource type="Script" path="res://Escenas/Eventos/pepino/evento_pepino.gd" id="1_8qjqu"]
 [ext_resource type="Texture2D" uid="uid://bwiga5soldwi" path="res://Sprites/QuickTimeEvent/PepinoBomba.png" id="2_874eh"]
 [ext_resource type="Texture2D" uid="uid://bsfarbyogdekf" path="res://Sprites/Comandos/FlechaDerecha.png" id="3_i6pxy"]
 [ext_resource type="Texture2D" uid="uid://8ghf3slrnybo" path="res://Sprites/Comandos/FlechaIzquierda.png" id="4_4vkfi"]

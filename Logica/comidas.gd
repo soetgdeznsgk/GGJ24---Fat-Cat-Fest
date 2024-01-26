@@ -40,12 +40,15 @@ func _ready():
 func pausarProcesos(_cache):
 	recetaActualJugador1.visible = false
 	recetaActualJugador2.visible = false
+	if stackPlatos1: stackPlatos1.visible = false
+	if stackPlatos2: stackPlatos2.visible = false
 	
 func reanudarProcesos(_ganador):
 	await get_tree().create_timer(3).timeout
 	recetaActualJugador1.visible = true
 	recetaActualJugador2.visible = true
-
+	if stackPlatos1: stackPlatos1.visible = true
+	if stackPlatos2: stackPlatos2.visible = true
 func cambiarSpriteMediaComida(numeroJugadorActual):
 	match numeroJugadorActual:
 		1:

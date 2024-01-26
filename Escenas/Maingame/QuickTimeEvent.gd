@@ -21,6 +21,10 @@ var lista_gato_anuncia = [preload("res://Escenas/Eventos/SFX/gatoanunciagrave.mp
 func _ready():
 	generarNuevoEvento()
 	Eventos.finalEvento.connect(final_evento)
+	Eventos.ganadorFestival.connect(finJuego)
+
+func finJuego(_ganador):
+	anim.play("fin_juego")
 	
 func tiempoAleatorio():
 	return randi_range(15,20) + randi_range(15,20) #return 2

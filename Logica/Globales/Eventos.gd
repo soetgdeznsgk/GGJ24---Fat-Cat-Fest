@@ -1,6 +1,7 @@
 extends Node
 
 var singleplayer : bool
+var ganador = 0
 
 signal nuevoEvento(evento)
 signal finalPopUp
@@ -10,3 +11,4 @@ signal comandosAcabados(jugador)
 signal mediaComida(jugador)
 signal comidaAPuntoDeTerminar(jugador)
 signal catCheer(prob)
+signal ganadorFestival(ganador)

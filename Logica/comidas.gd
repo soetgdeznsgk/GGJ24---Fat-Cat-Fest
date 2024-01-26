@@ -1,7 +1,5 @@
 extends Node2D
-const recetasString = ["res://Escenas/Recetas/ArrozConLeche.tscn",\
-"res://Escenas/Recetas/Empanada.tscn", "res://Escenas/Recetas/Salpicon.tscn",\
-"res://Escenas/Recetas/Tamal.tscn", "res://Escenas/Recetas/BuñueloyNatilla.tscn"]
+const recetasString = ["res://Escenas/Recetas/ArrozConLeche.tscn"]
 var stackPlatos
 var stackPlatos1
 var stackPlatos2
@@ -117,7 +115,7 @@ func entradaReceta(numeroJugador):
 				animacion_entrada(1)
 				#animacion_entrada_brazo(1)
 			else:
-				print("aca se manda a que el P1 gane el juego")
+				Eventos.ganadorFestival.emit(numeroJugador)
 		2:
 			sacar_siguiente_receta(numeroJugador)	
 			#
@@ -126,7 +124,7 @@ func entradaReceta(numeroJugador):
 				brazoP2.add_child(recetaActualJugador2)
 				animacion_entrada(2)
 			else:
-				print("aca se manda a que el P2 gane el juego")
+				Eventos.ganadorFestival.emit(numeroJugador)
 
 func enviar_moveset(numeroJugador,recetamoveset):
 	Eventos.nuevaComida.emit(numeroJugador,recetamoveset)

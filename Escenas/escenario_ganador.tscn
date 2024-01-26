@@ -1,0 +1,286 @@
+[gd_scene load_steps=17 format=3 uid="uid://s1ik5fweunn7"]
+
+[ext_resource type="Script" path="res://Escenas/escenario_ganador.gd" id="1_b6hkr"]
+[ext_resource type="Texture2D" uid="uid://lfe8fvgjkdmc" path="res://Sprites/Fondos/stage.png" id="2_tdgrl"]
+[ext_resource type="Texture2D" uid="uid://cm6j5vcnxq6rx" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0000.png" id="3_e3jdy"]
+[ext_resource type="Texture2D" uid="uid://c1vd6327w5erl" path="res://Sprites/QuickTimeEvent/telon.png" id="4_68s83"]
+[ext_resource type="Texture2D" uid="uid://bdbodnwg8wmpf" path="res://Sprites/Fondos/cartel.png" id="4_cwu8u"]
+[ext_resource type="Texture2D" uid="uid://cpifiwycfnlxs" path="res://Sprites/Fondos/mesa.png" id="6_ef82o"]
+[ext_resource type="Texture2D" uid="uid://d2scq3mwqpuwh" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0011.png" id="6_gsnv5"]
+[ext_resource type="Texture2D" uid="uid://pwdu2te4is4b" path="res://Sprites/Comidas/5Pla.png" id="7_t76n8"]
+[ext_resource type="Texture2D" uid="uid://0bvht6hr3spr" path="res://Sprites/Comidas/2Pla.png" id="8_vjk00"]
+[ext_resource type="Texture2D" uid="uid://coegn5p0gvs3r" path="res://Sprites/Comidas/4Pla.png" id="9_krila"]
+[ext_resource type="Texture2D" uid="uid://dx7uis8jda7ap" path="res://Sprites/Comidas/1Pla.png" id="9_lshxh"]
+[ext_resource type="Texture2D" uid="uid://cirw8axeuwckb" path="res://Sprites/Comidas/3Pla.png" id="10_c287q"]
+[ext_resource type="PackedScene" uid="uid://cp85xfjdi08u2" path="res://Escenas/Maingame/Publico/GatosPublico.tscn" id="13_jnlqr"]
+
+[sub_resource type="Animation" id="Animation_2qs12"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Telon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(688, 386)]
+}
+
+[sub_resource type="Animation" id="Animation_b6irt"]
+resource_name = "mostrar_ganador"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Telon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.9, 3.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(688, 386), Vector2(688, -470)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Telon:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:visible_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3, 0.8, 1.3, 2.3, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.8, 1.0, 1.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.2, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"set_sfx_random_anuncia"
+}, {
+"args": [0.7],
+"method": &"cheer"
+}, {
+"args": [0.7],
+"method": &"cheer"
+}, {
+"args": [0.7],
+"method": &"cheer"
+}, {
+"args": [0.7],
+"method": &"cheer"
+}, {
+"args": [0.7],
+"method": &"cheer"
+}, {
+"args": [0.7],
+"method": &"cheer"
+}, {
+"args": [0.7],
+"method": &"cheer"
+}, {
+"args": [0.7],
+"method": &"cheer"
+}, {
+"args": [0.7],
+"method": &"cheer"
+}, {
+"args": [0.7],
+"method": &"cheer"
+}, {
+"args": [0.15],
+"method": &"cheer"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Button:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1lp07"]
+_data = {
+"RESET": SubResource("Animation_2qs12"),
+"mostrar_ganador": SubResource("Animation_b6irt")
+}
+
+[node name="EscenarioGanador" type="Node2D"]
+script = ExtResource("1_b6hkr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1lp07")
+}
+
+[node name="Telon" type="Sprite2D" parent="."]
+z_index = 6
+position = Vector2(688, 386)
+scale = Vector2(0.677778, 0.677778)
+texture = ExtResource("4_68s83")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+max_polyphony = 2
+bus = &"SFX"
+
+[node name="Stage" type="Sprite2D" parent="."]
+scale = Vector2(0.712, 0.712)
+texture = ExtResource("2_tdgrl")
+centered = false
+
+[node name="Cartel" type="Sprite2D" parent="."]
+scale = Vector2(0.712, 0.712)
+texture = ExtResource("4_cwu8u")
+centered = false
+
+[node name="Gato Ganador" type="Sprite2D" parent="."]
+position = Vector2(462, 356)
+scale = Vector2(0.45, 0.4)
+texture = ExtResource("3_e3jdy")
+
+[node name="Gato Ganador2" type="Sprite2D" parent="."]
+position = Vector2(809, 370)
+scale = Vector2(0.28, 0.34)
+texture = ExtResource("6_gsnv5")
+
+[node name="Mesa2" type="Sprite2D" parent="."]
+position = Vector2(-9, 125)
+scale = Vector2(0.712, 0.6)
+texture = ExtResource("6_ef82o")
+centered = false
+
+[node name="Label" type="Label" parent="."]
+visible = false
+z_index = 7
+z_as_relative = false
+offset_left = 267.0
+offset_top = 333.0
+offset_right = 1125.0
+offset_bottom = 512.0
+theme_override_font_sizes/font_size = 64
+text = "xasd"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+justification_flags = 0
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Button" type="Button" parent="."]
+visible = false
+offset_left = 364.0
+offset_top = 32.0
+offset_right = 976.0
+offset_bottom = 173.0
+text = "PLAY AGAIN"
+
+[node name="platos3" type="Sprite2D" parent="."]
+position = Vector2(301, 336)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_vjk00")
+
+[node name="platos5" type="Sprite2D" parent="."]
+position = Vector2(1054, 327)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("9_lshxh")
+
+[node name="platos6" type="Sprite2D" parent="."]
+position = Vector2(1012, 327)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_vjk00")
+
+[node name="platos" type="Sprite2D" parent="."]
+position = Vector2(340, 336)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("9_krila")
+
+[node name="platos4" type="Sprite2D" parent="."]
+position = Vector2(425, 335)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("10_c287q")
+
+[node name="platos2" type="Sprite2D" parent="."]
+position = Vector2(384, 333)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_t76n8")
+
+[node name="LabelNombre" type="Label" parent="."]
+offset_left = 447.0
+offset_top = 478.0
+offset_right = 888.0
+offset_bottom = 540.0
+theme_override_font_sizes/font_size = 32
+text = "NOMBRE LARGO QUE COLOCO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GatosPublico" parent="." instance=ExtResource("13_jnlqr")]
+z_index = 20
+z_as_relative = false
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,7 +1,6 @@
 extends Node2D
-const recetasString = ["res://Escenas/Recetas/ArrozConLeche.tscn",\
-"res://Escenas/Recetas/Empanada.tscn", "res://Escenas/Recetas/Salpicon.tscn",\
-"res://Escenas/Recetas/Tamal.tscn", "res://Escenas/Recetas/BuñueloyNatilla.tscn"]
+const recetasString = ["res://Escenas/Recetas/Empanada.tscn", "res://Escenas/Recetas/Salpicon.tscn",\
+"res://Escenas/Recetas/Tamal.tscn", "res://Escenas/Recetas/BuñueloyNatilla.tscn","res://Escenas/Recetas/ArrozConLeche.tscn"]
 var stackPlatos
 var stackPlatos1
 var stackPlatos2
@@ -117,15 +116,17 @@ func entradaReceta(numeroJugador):
 				animacion_entrada(1)
 				#animacion_entrada_brazo(1)
 			else:
+				#print("ganoel1")
 				Eventos.ganadorFestival.emit(numeroJugador)
 		2:
 			sacar_siguiente_receta(numeroJugador)	
 			#
 			if recetaActualJugador2!=null:
-				recetaActualJugador2.position=Vector2(915,-300)
+				recetaActualJugador2.position=Vector2(-915,-300)
 				brazoP2.add_child(recetaActualJugador2)
 				animacion_entrada(2)
 			else:
+				#print("ganoel2")
 				Eventos.ganadorFestival.emit(numeroJugador)
 
 func enviar_moveset(numeroJugador,recetamoveset):
@@ -145,10 +146,10 @@ func animacion_entrada(numeroJugador):
 	match numeroJugador:
 		1:
 			brazoamover=brazoP1
-			direccionMov=Vector2(-125,300)
+			direccionMov=Vector2(-130,300)
 		2:
 			brazoamover=brazoP2
-			direccionMov=Vector2(125,300)
+			direccionMov=Vector2(130,300)
 	tween.tween_property(brazoamover,"position",direccionMov,0.5)
 	#tween.tween_property(recetaAMover,"position",direccionMov,.5)
 	var recetahija=brazoamover.get_child(0)
@@ -169,14 +170,14 @@ func animacion_salida(numeroJugador):
 			hijoMesa=brazoP1.get_child(0)
 			brazoP1.remove_child(hijoMesa)
 			recetaPlayer1.add_child(hijoMesa)
-			hijoMesa.position=Vector2(790,0)
+			hijoMesa.position=Vector2(830,0)
 			brazoamover=brazoP1
 			direccionMov=Vector2(-650,300)
 		2:
 			hijoMesa=brazoP2.get_child(0)
 			brazoP2.remove_child(hijoMesa)
 			recetaPlayer2.add_child(hijoMesa)
-			hijoMesa.position=Vector2(-790,0)
+			hijoMesa.position=Vector2(-830,0)
 			brazoamover=brazoP2
 			direccionMov=Vector2(650,300)
 	

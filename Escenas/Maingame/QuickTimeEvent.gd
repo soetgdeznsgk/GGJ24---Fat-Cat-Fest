@@ -23,7 +23,7 @@ func _ready():
 	Eventos.finalEvento.connect(final_evento)
 	
 func tiempoAleatorio(): # TODO restaurar temporizador random
-	return 2#randi_range(10,20) + randi_range(10,20)
+	return randi_range(10,20) + randi_range(10,20)
 
 func generarNuevoEvento():
 	timer.start(tiempoAleatorio())
@@ -31,16 +31,15 @@ func generarNuevoEvento():
 func _on_timer_timeout():
 	anim.play("pop_up")
 	# TODO acá cambiar el frame o textura de la campanita segun el evento
-	Eventos.nuevoEvento.emit()
 
 func cheer(prob : float):
 	Eventos.catCheer.emit(prob)
 
 func finAnimacion():
 	#logica de cambio de evento
-	var selection = randi_range(0, listaEventos.size() - 1)
+	var selection = randi_range(0,0)#, listaEventos.size() - 1)
 	# para testing usar el de abajo
-	#var eventoSeleccionado = listaEventos[1]
+	#var selection = listaEventos[0]
 	var eventoInstanciado = listaEventos[selection].instantiate()
 	add_child(eventoInstanciado)
 	Eventos.nuevoEvento.emit(selection) # ésto es lo que le dice a la CPU
@@ -54,7 +53,6 @@ func final_evento(ganador):
 	$Label.text = texto
 	$AnimationPlayer.play("final_evento")
 	generarNuevoEvento()
-	Eventos.finalEvento.emit(ganador)
 
 func set_sfx_random_go():
 	select_random_sfx_from_pool($AudioStreamPlayer, lista_random_sfx_go)

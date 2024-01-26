@@ -194,7 +194,7 @@ centered = false
 visible = false
 z_index = 6
 position = Vector2(688, 386)
-scale = Vector2(0.677778, 0.677778)
+scale = Vector2(0.73, 0.73)
 texture = ExtResource("4_68s83")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

@@ -587,7 +587,7 @@ visible = false
 z_index = 5
 z_as_relative = false
 position = Vector2(688, -398)
-scale = Vector2(0.71, 0.71)
+scale = Vector2(0.73, 0.73)
 texture = ExtResource("2_636br")
 
 [node name="SprCampana" type="Sprite2D" parent="."]

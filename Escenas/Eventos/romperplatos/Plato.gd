@@ -14,17 +14,17 @@ func _ready() -> void:
 func cambiar_rol():
 	vida = 3
 	$Sprite2D2.texture = load("res://Sprites/QuickTimeEvent/patasPlato.png")
-	if jugador == 1:
-		diccionarioInputs[Enums.Arriba] = "ArribaPj1"
-		diccionarioInputs[Enums.Abajo] = "AbajoPj1"
-		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj1"
-		diccionarioInputs[Enums.Derecha] = "DerechaPj1"
-		$Label.text = Names.name_player1
-	else:
+	if jugador == 2:
 		diccionarioInputs[Enums.Arriba] = "ArribaPj2"
-		diccionarioInputs[Enums.Abajo]  = "AbajoPj2"
+		diccionarioInputs[Enums.Abajo] = "AbajoPj2"
 		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj2"
 		diccionarioInputs[Enums.Derecha] = "DerechaPj2"
+		$Label.text = Names.name_player1
+	else:
+		diccionarioInputs[Enums.Arriba] = "ArribaPj1"
+		diccionarioInputs[Enums.Abajo]  = "AbajoPj1"
+		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj1"
+		diccionarioInputs[Enums.Derecha] = "DerechaPj1"
 		$Label.text = Names.name_player2
 
 func _physics_process(delta: float) -> void:

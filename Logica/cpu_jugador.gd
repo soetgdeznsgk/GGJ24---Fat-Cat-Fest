@@ -7,10 +7,10 @@ enum States{
 	Pepineando
 }
 var Inputs := {
-	0 : "ArribaPj1",
-	1 : "AbajoPj1",
-	2 : "IzquierdaPj1",
-	3 : "DerechaPj1"
+	0 : "ArribaPj2",
+	1 : "AbajoPj2",
+	2 : "IzquierdaPj2",
+	3 : "DerechaPj2"
 }
 
 var bufferedInput : String

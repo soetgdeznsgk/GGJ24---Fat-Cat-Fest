@@ -1,5 +1,6 @@
 extends Area2D
 
+signal is_p2_hammer(bool)
 var golpeando = false
 var platoAqui = false
 @export var jugador = 1
@@ -19,13 +20,15 @@ func cambiar_rol():
 		diccionarioInputs[Enums.Derecha] = "DerechaPj2"
 		$Label.text = Names.name_player1
 		$Label.modulate = Color("#F2DF6F")
+		is_p2_hammer.emit(true)
 	else:
 		diccionarioInputs[Enums.Arriba] = "ArribaPj1"
 		diccionarioInputs[Enums.Abajo]  = "AbajoPj1"
 		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj1"
 		diccionarioInputs[Enums.Derecha] = "DerechaPj1"
-		$Label.text = Names.name_player2
+		$Label.text = Names.name_player1
 		$Label.modulate = Color("#88D662")
+		is_p2_hammer.emit(false)
 	golpeando = false
 	platoAqui = false
 	anim.play("Martillando")

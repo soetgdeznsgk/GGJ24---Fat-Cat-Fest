@@ -25,7 +25,7 @@ func cambiar_rol():
 		diccionarioInputs[Enums.Abajo]  = "AbajoPj1"
 		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj1"
 		diccionarioInputs[Enums.Derecha] = "DerechaPj1"
-		$Label.text = Names.name_player2
+		$Label.text = Names.name_player1
 
 func _physics_process(delta: float) -> void:
 	if !canMove:

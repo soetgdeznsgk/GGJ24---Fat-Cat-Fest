@@ -1,5 +1,6 @@
 extends Node2D
 
+signal is_p2_hammer(bool)
 @onready var posicionesPosibles = [$Marker2D.position, $Marker2D2.position, \
 $Marker2D3.position, $Marker2D4.position]
 # El atacante puede ser el jugador 1 o el 2, luego cambian
@@ -65,3 +66,6 @@ func _on_timer_final_evento_timeout() -> void:
 	elif puntajePj1 < puntajePj2:
 		Eventos.finalEvento.emit(2)
 	queue_free()
+	
+func relay_p2_position(b : bool) -> void:
+	is_p2_hammer.emit(b)

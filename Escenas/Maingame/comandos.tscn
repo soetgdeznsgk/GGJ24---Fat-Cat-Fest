@@ -531,8 +531,7 @@ z_as_relative = false
 position = Vector2(255, -234)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_i500e")
-animation = &"loop_comer"
-frame_progress = 0.11064
+animation = &"loop_stun"
 
 [node name="Comando0" type="Sprite2D" parent="."]
 z_index = 1

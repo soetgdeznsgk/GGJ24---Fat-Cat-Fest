@@ -18,7 +18,6 @@ func _ready() -> void:
 	sfx_audio.stream = load("res://Escenas/Menus/sfx/button_standard.wav")
 	self.add_child(sfx_audio)
 
-# TODO corregir que la S parpadea con la animación
 func _on_mouse_entered():
 	super._on_mouse_entered()
 	if anim.is_playing():

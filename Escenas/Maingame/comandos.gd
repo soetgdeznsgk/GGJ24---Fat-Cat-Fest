@@ -174,7 +174,9 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 func pausarProcesos(_cache):
 	procesosPausados = true
-	visible = false
+	$Gato1.visible = false
+	for i in comandoNodos:
+		i.visible = false
 
 func reanudarProcesos(ganador):
 	# Esperar que el telon se vaya
@@ -182,9 +184,14 @@ func reanudarProcesos(ganador):
 	#Si se stunea:
 	if ganador == jugador or ganador == 0:
 		procesosPausados = false
-		visible = true
+		$Gato1.visible = true
+		for i in comandoNodos:
+			i.visible = true
 	else:
+		$Gato1.visible = true
+		# Aca animar gato stun
 		await get_tree().create_timer(duracionStun).timeout
 		# TODO poner animacion de gato stuneado
 		procesosPausados = false
-		visible = true
+		for i in comandoNodos:
+			i.visible = true

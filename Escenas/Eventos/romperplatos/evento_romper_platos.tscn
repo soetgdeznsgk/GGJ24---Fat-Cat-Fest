@@ -201,6 +201,7 @@ theme = ExtResource("6_2dsyk")
 text = "PLAYER : X"
 horizontal_alignment = 1
 vertical_alignment = 1
+justification_flags = 0
 
 [node name="Plato" type="Area2D" parent="."]
 position = Vector2(1168, 620)
@@ -226,6 +227,9 @@ offset_right = 171.0
 offset_bottom = 222.0
 theme = ExtResource("6_2dsyk")
 text = "PLAYER : X"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 0
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(109, 116)

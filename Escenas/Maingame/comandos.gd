@@ -21,6 +21,8 @@ var procesosPausados = false
 @onready var anim = $AnimationPlayer
 @onready var comandoNodos = [$Comando0, $Comando1, $Comando2, $Comando3]
 @onready var spriteGato = $Gato
+@onready var tmrSacarJeta = $TmrSacarJeta
+var sacarJeta = true
 var errorContinuo = false
 var rachaGanadora = false
 var comandos : Array = []
@@ -36,13 +38,13 @@ func _ready() -> void:
 	sfx_comer.bus = "SFX"
 	add_child(sfx_comer)
 	#Señales
-	Eventos.nuevoEvento.connect(pausarProcesos)
+	Eventos.bajarTelon.connect(pausarProcesos)
 	Eventos.finalEvento.connect(reanudarProcesos)
 	Eventos.nuevaComida.connect(set_comandos)
 	spriteGato.play("idle")
 	
 	# Dependiendo del jugador tiene ciertas teclas para el physic process
-	if jugador == 1:
+	if jugador == 2:
 		diccionarioInputs[Enums.Arriba] = "ArribaPj2"
 		diccionarioInputs[Enums.Abajo]  = "AbajoPj2"
 		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj2"
@@ -114,17 +116,16 @@ func verificarCorrecta(Direccion : int): #ésta función no se está llamando si
 			ultimoAcabarPlato = sfxRand
 			
 		# Spam
-		if rachaGanadora:
+		if !sacarJeta:
 			spriteGato.play("comer_fast")
+			tmrSacarJeta.start(0.3)
 		else:
 			spriteGato.play("comer_normal")
+			tmrSacarJeta.start(0.3)
+			sacarJeta = false
 			
 		sfx_comer.play()
 		actualizar_flechas()
-		await get_tree().create_timer(.4).timeout
-		
-		if !rachaGanadora:
-			spriteGato.play("loop_comer")
 	else:
 		sfx_comer.stream = load("res://Escenas/Maingame/sfx/buzzer.mp3")
 		spriteGato.play("choke")
@@ -181,7 +182,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		anim.speed_scale = 1
 	permitirEntradas = true
 
-func pausarProcesos(_cache):
+func pausarProcesos():
 	procesosPausados = true
 	spriteGato.visible = false
 	for i in comandoNodos:
@@ -206,3 +207,8 @@ func reanudarProcesos(ganador):
 		procesosPausados = false
 		for i in comandoNodos.size()-1:
 			comandoNodos[i].visible = true
+
+
+func _on_tmr_sacar_jeta_timeout() -> void:
+	sacarJeta = true
+	spriteGato.play("loop_comer")

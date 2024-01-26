@@ -4,6 +4,7 @@ var singleplayer : bool
 var ganador = 0
 
 signal nuevoEvento(evento)
+signal bajarTelon
 signal finalPopUp
 signal finalEvento(ganador)
 signal nuevaComida(jugador, comida:Array )

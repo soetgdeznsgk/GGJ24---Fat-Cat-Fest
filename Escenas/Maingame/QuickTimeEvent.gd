@@ -18,6 +18,8 @@ var lista_campana = [preload("res://Escenas/Eventos/SFX/campanita.mp3"), preload
 
 var lista_gato_anuncia = [preload("res://Escenas/Eventos/SFX/gatoanunciagrave.mp3"), preload("res://Escenas/Eventos/SFX/randomGatoAnuncia.mp3")]
 
+var ultimoEvento 
+
 func _ready():
 	generarNuevoEvento()
 	Eventos.finalEvento.connect(final_evento)
@@ -27,23 +29,27 @@ func finJuego(_ganador):
 	anim.play("fin_juego")
 	
 func tiempoAleatorio():
-	return 10# randi_range(15,20) + randi_range(15,20) #return 2
+	return 10#randi_range(15,25) + randi_range(15,25) #return 2
 
 func generarNuevoEvento():
 	timer.start(tiempoAleatorio())
 
 func _on_timer_timeout():
 	anim.play("pop_up")
+	Eventos.bajarTelon.emit()
 
 func cheer(prob : float):
 	Eventos.catCheer.emit(prob)
 
 func finAnimacion():
 	#logica de cambio de evento
-	var selection = listaEventos.size() - 1
+	var selection = randi_range(0,listaEventos.size() - 1)
+	if selection == ultimoEvento:
+		selection -= 1
 	# para testing usar el de abajo
 	#var selection = listaEventos[0]
 	var eventoInstanciado = listaEventos[selection].instantiate()
+	ultimoEvento = selection 
 	add_child(eventoInstanciado)
 	Eventos.nuevoEvento.emit(selection) # ésto es lo que le dice a la CPU
 	

@@ -560,4 +560,10 @@ libraries = {
 "": SubResource("AnimationLibrary_6k4li")
 }
 
+[node name="TmrSacarJeta" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.2
+one_shot = true
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="TmrSacarJeta" to="." method="_on_tmr_sacar_jeta_timeout"]

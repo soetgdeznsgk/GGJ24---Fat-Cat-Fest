@@ -96,17 +96,13 @@ func _on_option_button_pressed():
 
 func _on_h_box_container_mp_start_game(): # iniciar juego mp
 	button_standard_audio.play()
-	var Juego = preload("res://Escenas/Maingame/Maingame.tscn").instantiate()
-	Juego.is_sp(false)
-	root.remove_child(root.get_child(root.get_child_count() - 1))
-	root.add_child(Juego)
+	Eventos.singleplayer = false
+	get_tree().change_scene_to_file("res://Escenas/Maingame/Maingame.tscn")
 
 func _on_h_box_container_sp_start_game(): # iniciar juego sp
 	button_standard_audio.play()
-	var Juego = preload("res://Escenas/Maingame/Maingame.tscn").instantiate()
-	Juego.is_sp(true)
-	root.remove_child(root.get_child(root.get_child_count() - 1))
-	root.add_child(Juego)
+	Eventos.singleplayer = true
+	get_tree().change_scene_to_file("res://Escenas/Maingame/Maingame.tscn")
 	
 	Names.name_player1 = Names.nameinitial.pick_random() + " " + Names.namefinal.pick_random()
 	Names.name_player2 = Names.nameinitial.pick_random() + " " + Names.namefinal.pick_random()

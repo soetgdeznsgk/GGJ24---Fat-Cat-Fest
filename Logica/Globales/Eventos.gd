@@ -1,4 +1,7 @@
 extends Node
+
+var singleplayer : bool
+
 signal nuevoEvento(evento)
 signal finalPopUp
 signal finalEvento(ganador)

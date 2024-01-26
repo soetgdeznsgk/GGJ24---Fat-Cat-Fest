@@ -20,7 +20,7 @@ var referencia_comandos = NodePath("../Comandos") #esto funciona xq cpu se insta
 
 func set_difficulty():
 	currDifficulty = randi_range(1, 3)
-	$Timer.wait_time = 2.7 - sqrt(currDifficulty) # easy: 1.7 s, med: 1.3 s, hard: 1 s
+	$Timer.wait_time = 2.5 - (currDifficulty / 2) # easy: 2 s, med: 1.5 s, hard: 1 s
 
 func _enter_tree():
 	print("cpu instanciada")

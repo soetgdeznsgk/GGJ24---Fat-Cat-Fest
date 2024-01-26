@@ -1,5 +1,5 @@
 extends Node
-signal nuevoEvento
+signal nuevoEvento(evento)
 signal finalPopUp
 signal finalEvento(ganador)
 signal nuevaComida(jugador, comida:Array )

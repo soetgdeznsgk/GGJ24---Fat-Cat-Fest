@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://qhfteyitsa8m"]
+
+[ext_resource type="Script" path="res://Logica/cpu_jugador.gd" id="1_el7wj"]
+
+[node name="CPUJugador" type="Node"]
+script = ExtResource("1_el7wj")

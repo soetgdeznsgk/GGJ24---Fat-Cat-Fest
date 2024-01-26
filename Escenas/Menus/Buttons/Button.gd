@@ -65,9 +65,11 @@ func _on_pressed() -> void: # intentar moverlo con el margen y no con el size
 	animacion_play.emit(tween)
 	tween_margins_forcefully(tween)
 	
-func tween_margins_forcefully(tween : Tween):
+func tween_margins_forcefully(tween : Tween): # CODIGO RADIOACTIVO
 	if tween.is_running():
 		$"../..".add_theme_constant_override("margin_left", margin_size)
 		$"../..".add_theme_constant_override("margin_right", margin_size)
-		await get_tree().create_timer(0.01).timeout
-		tween_margins_forcefully(tween)
+		if get_tree(): # si se elimina éste se caga encima la secuencia de cambio a maingame
+			#if get_tree().get_root().get_child(get_tree().get_root().get_child_count() - 1).name == "Control":
+			await get_tree().create_timer(0.01).timeout
+			tween_margins_forcefully(tween)

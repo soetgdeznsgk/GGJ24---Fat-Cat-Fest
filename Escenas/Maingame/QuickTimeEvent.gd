@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var anim = $AnimationPlayer
 @onready var timer = $Timer
-@onready var listaEventos : Array = [
+@onready var listaEventos : Array = [ # CRITICAL no cambiar el orden de los eventos, el enum Eventos.MiniJuegos está ordenado igual
 load("res://Escenas/Eventos/romperplatos/evento_romper_platos.tscn"),
 load("res://Escenas/Eventos/pepino/evento_pepino.tscn"),
 load("res://Escenas/Eventos/darseduro/evento_darse_duro.tscn")
@@ -30,18 +30,18 @@ func generarNuevoEvento():
 
 func _on_timer_timeout():
 	anim.play("pop_up")
-	Eventos.nuevoEvento.emit()
 
 func cheer(prob : float):
 	Eventos.catCheer.emit(prob)
 
 func finAnimacion():
 	#logica de cambio de evento
-	var eventoSeleccionado = listaEventos.pick_random()
+	var selection = randi_range(0, listaEventos.size() - 1)
 	# para testing usar el de abajo
 	#var eventoSeleccionado = listaEventos[1]
-	var eventoInstanciado = eventoSeleccionado.instantiate()
+	var eventoInstanciado = listaEventos[selection].instantiate()
 	add_child(eventoInstanciado)
+	Eventos.nuevoEvento.emit(selection) # ésto es lo que le dice a la CPU
 	
 func final_evento(ganador):
 	var texto = "Winner:\n"
@@ -54,6 +54,7 @@ func final_evento(ganador):
 	$Label.text = texto
 	$AnimationPlayer.play("final_evento")
 	generarNuevoEvento()
+	Eventos.finalEvento.emit(ganador)
 
 func set_sfx_random_go():
 	select_random_sfx_from_pool($AudioStreamPlayer, lista_random_sfx_go)

@@ -13,25 +13,26 @@ var Inputs := {
 	3 : "DerechaPj1"
 }
 
-var currState := States.Eating
-var currDifficulty : int # va de 1 a 3, en 0 no hace nada
+var bufferedInput : String
+var currState := States.Eating # por ahora no hace nada pero
+var currDifficulty : int # va de 1 a 3
 
-var referencia_comandos = NodePath("../Comandos") #esto funciona xq cpu se instancia después de que Maingame esté ready
+var referencia_comandos := NodePath("../Comandos") #esto funciona xq cpu se instancia después de que Maingame esté ready
 
-func set_difficulty():
+func set_difficulty() -> void:
 	currDifficulty = randi_range(1, 3)
-	$Timer.wait_time = 2.5 - (currDifficulty / 2) # easy: 2 s, med: 1.5 s, hard: 1 s
+	$Timer.wait_time = 2 - (currDifficulty / 2) # easy: 1.5 s, med: 1 s, hard: 0.5 s
 
-func _enter_tree():
+func _enter_tree() -> void:
 	print("cpu instanciada")
 	Eventos.nuevoEvento.connect(minigame_entered)
 	Eventos.finalEvento.connect(eat)
-	eat(1)
 	set_difficulty()
+	eat(1)
 	print(currDifficulty)
 	
 	
-func minigame_entered(activity : int):
+func minigame_entered(activity : int) -> void:
 	match activity:
 		Enums.MiniJuegos.RomperPlatos:
 			currState = States.RompiendoPlatos
@@ -40,17 +41,14 @@ func minigame_entered(activity : int):
 		Enums.MiniJuegos.Pepino: 
 			currState = States.Pepineando
 
-func eat(cache):
-	if randf() < 0.7 - (currDifficulty / 10) : #facil: 60% de chance que la cague, med: 50%, dif: 40%
-		Input.action_press(Inputs.get(randi_range(0, 3)))
-		
+func eat(cache) -> void: # cache solo es necesario para que pueda ser llamado con la señal finalEvento(ganador)
+	if get_node(referencia_comandos).comandosConFlechas.size() == 0 or randf() < 0.7 - (currDifficulty / 10) : #facil: 60% de chance que la cague, med: 50%, dif: 40%
+		bufferedInput = Inputs.get(randi_range(0, 3))
+		Input.action_press(bufferedInput)
 	else:
-		if get_node(referencia_comandos).comandosConFlechas:
-			Input.action_press(Inputs.get(get_node(referencia_comandos).comandosConFlechas[0]))
-		pass
+		#get_node(referencia_comandos).comandosConFlechas
+		bufferedInput = Inputs.get(get_node(referencia_comandos).comandosConFlechas[0])
+		Input.action_press(bufferedInput)
+	Input.action_release(bufferedInput)
 	await $Timer.timeout
-	Input.action_release(Inputs.get(get_node(referencia_comandos).comandosConFlechas[0]))
 	eat(cache)
-	
-func _process(_delta):
-	pass

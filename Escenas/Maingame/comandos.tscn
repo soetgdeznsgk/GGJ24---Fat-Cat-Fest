@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbx7yskj14jdm"]
+[gd_scene load_steps=7 format=3 uid="uid://bbx7yskj14jdm"]
 
 [ext_resource type="Script" path="res://Escenas/Maingame/comandos.gd" id="1_k17g7"]
 [ext_resource type="Texture2D" uid="uid://bfplax5tvhd73" path="res://Sprites/Gatos/GatoGame/idle/corte-de-las-animaciones_0000s_0000_bocetos-de-animacion-pana-miguel0034.png" id="3_mvrgd"]
-[ext_resource type="Texture2D" uid="uid://bsfarbyogdekf" path="res://Sprites/Comandos/FlechaDerecha.png" id="4_4hgvy"]
 
 [sub_resource type="Animation" id="Animation_rhm6t"]
 length = 0.001

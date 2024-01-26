@@ -6,6 +6,15 @@ var listaTexturas = [ load("res://Sprites/Comandos/flechaArriba.png"), \
 load("res://Sprites/Comandos/FlechaAbajo.png"), \
 load("res://Sprites/Comandos/FlechaIzquierda.png"), \
 load("res://Sprites/Comandos/FlechaDerecha.png") ]
+var listaSfxComer = [load("res://SFX/nom1.mp3"),load("res://SFX/nom2.mp3"),\
+load("res://SFX/nom3.mp3"),load("res://SFX/nom4.mp3"),\
+load("res://SFX/nom5.mp3"),load("res://SFX/nom6.mp3"),
+load("res://SFX/nom7.mp3")]
+var listaSfxAcabarPlato = [load("res://SFX/finalComida1.mp3"), load("res://SFX/finalComida2.mp3"),\
+load("res://SFX/finalComida3.mp3"), load("res://SFX/finalComida4.mp3")]
+var ultimoNom
+var ultimoAcabarPlato
+
 @export var duracionStun = 2
 var ultimoInputRegistrado = null
 var procesosPausados = false
@@ -85,7 +94,19 @@ func _physics_process(_delta: float) -> void:
 
 func verificarCorrecta(Direccion):
 	if comandosConFlechas[0] == Direccion:
-		sfx_comer.stream = load("res://Escenas/Maingame/sfx/potatoñam.mp3")
+		var sfxRand
+		if comandosConFlechas.size() > 1:
+			sfxRand = listaSfxComer.pick_random()
+			while sfxRand == ultimoNom:
+				sfxRand = listaSfxComer.pick_random()
+			sfx_comer.stream = sfxRand
+			ultimoNom = sfxRand
+		else:
+			sfxRand = listaSfxAcabarPlato.pick_random()
+			while sfxRand == ultimoAcabarPlato:
+				sfxRand = listaSfxAcabarPlato.pick_random()
+			sfx_comer.stream = sfxRand
+			ultimoAcabarPlato = sfxRand
 		if comer_flag == false:
 			$Gato1.texture = load("res://Sprites/Gatos/GatoGame/ñamñam/corte-de-las-animaciones_0000s_0002_bocetos-de-animacion-pana-miguel0005.png")
 			comer_flag = true
@@ -118,6 +139,7 @@ func reemplazarTexturas():
 		# Emitir que ya se comió todo
 		$Gato1.texture = load("res://Sprites/Gatos/GatoGame/ñamñam/corte-de-las-animaciones_0000s_0000_bocetos-de-animacion-pana-miguel0012.png")
 		Eventos.comandosAcabados.emit(jugador)
+		
 		
 
 func actualizar_flechas():

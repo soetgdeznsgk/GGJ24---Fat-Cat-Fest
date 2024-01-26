@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckkr4o70aiv3i"]
+
+[ext_resource type="Texture2D" uid="uid://djigu8lrvu8ok" path="res://Sprites/Comidas/brazoright.png" id="1_3tchj"]
+
+[node name="BrazoP2" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_3tchj")

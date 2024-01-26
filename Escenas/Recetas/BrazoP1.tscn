@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvky3j2w3lkt"]
+
+[ext_resource type="Texture2D" uid="uid://dvep8ni2bwd7l" path="res://Sprites/Comidas/brazoleft.png" id="1_60ssm"]
+
+[node name="BrazoP1" type="Sprite2D"]
+texture = ExtResource("1_60ssm")

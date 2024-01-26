@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dc7gc2it1hogw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ecphq"]
+bg_color = Color(0, 0, 0, 0.545098)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[resource]
+default_font_size = 22
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 4
+Label/fonts/font = null
+Label/styles/normal = SubResource("StyleBoxFlat_ecphq")

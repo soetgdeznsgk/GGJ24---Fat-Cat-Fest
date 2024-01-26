@@ -1,5 +1,7 @@
 extends Node2D
-const recetasString = ["res://Escenas/Recetas/ArrozConLeche.tscn"]
+const recetasString = ["res://Escenas/Recetas/ArrozConLeche.tscn",\
+"res://Escenas/Recetas/Empanada.tscn", "res://Escenas/Recetas/Salpicon.tscn",\
+"res://Escenas/Recetas/Tamal.tscn", "res://Escenas/Recetas/BuñueloyNatilla.tscn"]
 var stackPlatos
 var stackPlatos1
 var stackPlatos2

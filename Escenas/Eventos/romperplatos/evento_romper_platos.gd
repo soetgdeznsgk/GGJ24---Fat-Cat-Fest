@@ -45,6 +45,7 @@ func cambiar_roles():
 	reiniciar_pos()
 	$Martillo.canMove = true
 	$Plato.canMove = true
+	$TimerCambiarRoles.stop()
 	
 
 func perderVidaPlato():

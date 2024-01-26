@@ -7,8 +7,8 @@ func _ready():
 	Eventos.nuevoEvento.connect(pausarProcesos)
 	Eventos.finalEvento.connect(reanudarProcesos)
 
-func pausarProcesos():
+func pausarProcesos(_arg):
 	visible = false
 
-func reanudarProcesos():
+func reanudarProcesos(_arg):
 	visible = true

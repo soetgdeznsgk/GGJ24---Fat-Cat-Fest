@@ -47,6 +47,7 @@ func _ready() -> void:
 		diccionarioInputs[Enums.Abajo]  = "AbajoPj2"
 		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj2"
 		diccionarioInputs[Enums.Derecha] = "DerechaPj2"
+		$NamePlayer.modulate = Color("#F2DF6F")
 		for i in comandoNodos:
 			i.modulate = Color("#F2DF6F")
 	else:
@@ -54,6 +55,7 @@ func _ready() -> void:
 		diccionarioInputs[Enums.Abajo] = "AbajoPj1"
 		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj1"
 		diccionarioInputs[Enums.Derecha] = "DerechaPj1"
+		$NamePlayer.modulate = Color("#88D662")
 		for i in comandoNodos:
 			i.modulate = Color("#88D662")
 
@@ -184,8 +186,8 @@ func reanudarProcesos(ganador):
 	if ganador == jugador or ganador == 0:
 		procesosPausados = false
 		spriteGato.visible = true
-		for i in comandoNodos:
-			i.visible = true
+		for i in comandoNodos.size()-1:
+			comandoNodos[i].visible = true
 	else:
 		spriteGato.visible = true
 		spriteGato.play("begin_stun")
@@ -194,5 +196,5 @@ func reanudarProcesos(ganador):
 		await get_tree().create_timer(duracionStun).timeout
 		spriteGato.play("idle")
 		procesosPausados = false
-		for i in comandoNodos:
-			i.visible = true
+		for i in comandoNodos.size()-1:
+			comandoNodos[i].visible = true

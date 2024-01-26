@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b4olfp085mokh"]
+[gd_scene load_steps=15 format=3 uid="uid://b4olfp085mokh"]
 
 [ext_resource type="Texture2D" uid="uid://lfe8fvgjkdmc" path="res://Sprites/Fondos/stage.png" id="1_4c6u4"]
 [ext_resource type="Script" path="res://Escenas/Maingame/Maingame.gd" id="1_bpnxe"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cpifiwycfnlxs" path="res://Sprites/Fondos/mesa.png" id="4_nod1o"]
 [ext_resource type="Script" path="res://Escenas/Maingame/Camera2D.gd" id="5_864na"]
 [ext_resource type="PackedScene" uid="uid://bcrmlxmuoakqy" path="res://Escenas/Maingame/comidas.tscn" id="5_on172"]
+[ext_resource type="Theme" uid="uid://dc7gc2it1hogw" path="res://Escenas/Maingame/themeNameTags.tres" id="8_3c2xy"]
 [ext_resource type="PackedScene" uid="uid://cp85xfjdi08u2" path="res://Escenas/Maingame/Publico/GatosPublico.tscn" id="8_5t0gr"]
 [ext_resource type="Texture2D" uid="uid://dvijscjapkitb" path="res://Sprites/Fondos/deco.png" id="9_q0gs3"]
 [ext_resource type="Script" path="res://Escenas/Maingame/NamePlayer1.gd" id="11_ecigq"]
@@ -50,9 +51,33 @@ metadata/_edit_lock_ = true
 position = Vector2(640, 502)
 jugador = 2
 
+[node name="NamePlayer" type="Label" parent="Comandos"]
+offset_left = 66.0
+offset_top = -53.0
+offset_right = 446.0
+offset_bottom = -12.0
+theme = ExtResource("8_3c2xy")
+text = "nombre largo que coloco"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+justification_flags = 0
+script = ExtResource("12_gw84n")
+
 [node name="Comandos2" parent="." groups=["comandos_nodo_to_cpu"] instance=ExtResource("2_wilsv")]
 position = Vector2(209, 504)
 metadata/_edit_lock_ = true
+
+[node name="NamePlayer" type="Label" parent="Comandos2"]
+offset_left = 44.0
+offset_top = -55.0
+offset_right = 424.0
+offset_bottom = -14.0
+theme = ExtResource("8_3c2xy")
+text = "nombre largo que coloco"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("11_ecigq")
 
 [node name="Deco" type="Sprite2D" parent="."]
 scale = Vector2(0.712, 0.712)
@@ -73,29 +98,3 @@ position = Vector2(681, 386)
 process_callback = 0
 script = ExtResource("5_864na")
 zoomFinal = Vector2(1.5, 1.5)
-
-[node name="NamePlayer1" type="Label" parent="."]
-z_index = 1
-offset_left = 253.0
-offset_top = 449.0
-offset_right = 633.0
-offset_bottom = 490.0
-theme_override_font_sizes/font_size = 27
-text = "nombre largo que coloco"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("11_ecigq")
-
-[node name="NamePlayer2" type="Label" parent="."]
-z_index = 1
-offset_left = 730.0
-offset_top = 449.0
-offset_right = 1110.0
-offset_bottom = 490.0
-theme_override_font_sizes/font_size = 27
-text = "nombre largo que coloco"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-justification_flags = 0
-script = ExtResource("12_gw84n")

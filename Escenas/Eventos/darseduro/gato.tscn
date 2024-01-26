@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://fkqmi5o8tqo5"]
+[gd_scene load_steps=8 format=3 uid="uid://fkqmi5o8tqo5"]
 
 [ext_resource type="Script" path="res://Escenas/Eventos/darseduro/Sprite2D.gd" id="2_ketnl"]
 [ext_resource type="Texture2D" uid="uid://ul6v7ibnq4v3" path="res://Sprites/QuickTimeEvent/gatoCabeza.png" id="2_m7ben"]
+[ext_resource type="Theme" uid="uid://dc7gc2it1hogw" path="res://Escenas/Maingame/themeNameTags.tres" id="2_no4kq"]
 [ext_resource type="Texture2D" uid="uid://36do2trpwuiy" path="res://Sprites/QuickTimeEvent/gatoCuerpo.png" id="3_1nceb"]
 [ext_resource type="Texture2D" uid="uid://bb2rt4ccdlfwl" path="res://Sprites/QuickTimeEvent/gatopatagolpeadora.png" id="4_lg8pl"]
 
@@ -19,6 +20,7 @@ offset_left = -77.0
 offset_top = -151.0
 offset_right = 78.0
 offset_bottom = -128.0
+theme = ExtResource("2_no4kq")
 text = "PLAYER X"
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -37,6 +37,7 @@ func _ready() -> void:
 	Eventos.nuevoEvento.connect(pausarProcesos)
 	Eventos.finalEvento.connect(reanudarProcesos)
 	Eventos.nuevaComida.connect(set_comandos)
+	Node2D.print_orphan_nodes()
 	
 	# Dependiendo del jugador tiene ciertas teclas para el physic process
 	if jugador == 1:

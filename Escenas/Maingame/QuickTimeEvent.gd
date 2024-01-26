@@ -3,20 +3,20 @@ extends Node2D
 @onready var anim = $AnimationPlayer
 @onready var timer = $Timer
 @onready var listaEventos : Array = [ # CRITICAL no cambiar el orden de los eventos, el enum Eventos.MiniJuegos está ordenado igual
-load("res://Escenas/Eventos/romperplatos/evento_romper_platos.tscn"),
-load("res://Escenas/Eventos/pepino/evento_pepino.tscn"),
-load("res://Escenas/Eventos/darseduro/evento_darse_duro.tscn")
+preload("res://Escenas/Eventos/romperplatos/evento_romper_platos.tscn"),
+preload("res://Escenas/Eventos/pepino/evento_pepino.tscn"),
+preload("res://Escenas/Eventos/darseduro/evento_darse_duro.tscn")
 ]
 
-var lista_random_sfx_go = [load("res://Escenas/Eventos/SFX/miauGo.mp3"), load("res://Escenas/Eventos/SFX/gouu.mp3"),\
- load("res://Escenas/Eventos/SFX/miauugo.mp3")]
+var lista_random_sfx_go = [preload("res://Escenas/Eventos/SFX/miauGo.mp3"), preload("res://Escenas/Eventos/SFX/gouu.mp3"),\
+ preload("res://Escenas/Eventos/SFX/miauugo.mp3")]
 
-var lista_random_count = [load("res://Escenas/Eventos/SFX/miauth1.mp3"), load("res://Escenas/Eventos/SFX/miauth2.mp3"),\
-load("res://Escenas/Eventos/SFX/miau3th.mp3"), load("res://Escenas/Eventos/SFX/miauGrave.mp3")]
+var lista_random_count = [preload("res://Escenas/Eventos/SFX/miauth1.mp3"), preload("res://Escenas/Eventos/SFX/miauth2.mp3"),\
+preload("res://Escenas/Eventos/SFX/miau3th.mp3"), preload("res://Escenas/Eventos/SFX/miauGrave.mp3")]
 
-var lista_campana = [load("res://Escenas/Eventos/SFX/campanita.mp3"), load("res://Escenas/Eventos/SFX/campanita2.mp3")]
+var lista_campana = [preload("res://Escenas/Eventos/SFX/campanita.mp3"), preload("res://Escenas/Eventos/SFX/campanita2.mp3")]
 
-var lista_gato_anuncia = [load("res://Escenas/Eventos/SFX/gatoanunciagrave.mp3"), load("res://Escenas/Eventos/SFX/randomGatoAnuncia.mp3")]
+var lista_gato_anuncia = [preload("res://Escenas/Eventos/SFX/gatoanunciagrave.mp3"), preload("res://Escenas/Eventos/SFX/randomGatoAnuncia.mp3")]
 
 func _ready():
 	generarNuevoEvento()

@@ -182,7 +182,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0.2, 1.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, false]
+"values": [false, false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -194,7 +194,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0.2, 0.4, 0.5, 0.6, 1.3, 1.6),
 "transitions": PackedFloat32Array(1, 0.5, 3, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(2, 2), Vector2(1.6, 1.6), Vector2(2, 2), Vector2(2, 2), Vector2(1e-05, 1e-05)]
+"values": [Vector2(0, 0), Vector2(0.9, 0.9), Vector2(0.5, 0.5), Vector2(0.9, 0.9), Vector2(0.9, 0.9), Vector2(1e-05, 1e-05)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -263,10 +263,46 @@ tracks/7/path = NodePath("SprCampana:texture")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0.4, 0.6, 0.8, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
 "update": 1,
-"values": [ExtResource("3_18j6d"), ExtResource("9_ns7tk"), ExtResource("3_18j6d"), ExtResource("9_ns7tk")]
+"values": []
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SprSurprise:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(900, 400)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SprCampana:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(690, 360)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("AudioStreamPlayer:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_8qd0x"]
@@ -557,6 +593,18 @@ tracks/13/keys = {
 "update": 1,
 "values": [ExtResource("3_18j6d"), ExtResource("9_ns7tk"), ExtResource("3_18j6d"), ExtResource("9_ns7tk")]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("SprSurprise:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(750, 400)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uy0b7"]
 _data = {
@@ -594,14 +642,14 @@ texture = ExtResource("2_636br")
 visible = false
 z_index = 6
 z_as_relative = false
-position = Vector2(727, 360)
+position = Vector2(690, 360)
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("3_18j6d")
 
 [node name="SprSurprise" type="Sprite2D" parent="."]
 z_index = 6
 z_as_relative = false
-position = Vector2(678, 381)
+position = Vector2(900, 400)
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("4_cpnpn")
 

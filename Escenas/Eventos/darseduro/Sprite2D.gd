@@ -11,6 +11,8 @@ var diccionarioInputs := {}
 @onready var cabezaPosInicial = cabeza.position
 var conteoGolpesRecibidos = 0
 var enCooldown = false
+var lista_random_punch = [preload("res://Escenas/Eventos/darseduro/sfx/bonk.mp3"), preload("res://Escenas/Eventos/darseduro/sfx/puh.mp3"),\
+preload("res://Escenas/Eventos/darseduro/sfx/thun.mp3")]
 
 func _ready() -> void:
 	if jugador == 2:
@@ -48,6 +50,8 @@ func _physics_process(_delta: float) -> void:
 			
 
 func _on_cabeza_area_entered(_area: Area2D) -> void:
+	$AudioStreamPlayer.stream = lista_random_punch.pick_random()
+	$AudioStreamPlayer.play()
 	#Recibe golpe
 	conteoGolpesRecibidos += 1
 	var tweenCabeza = get_tree().create_tween()

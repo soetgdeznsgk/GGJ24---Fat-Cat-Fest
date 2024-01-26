@@ -127,7 +127,7 @@ func verificarCorrecta(Direccion : int): #ésta función no se está llamando si
 		sfx_comer.play()
 		actualizar_flechas()
 	else:
-		sfx_comer.stream = load("res://Escenas/Maingame/sfx/buzzer.mp3")
+		sfx_comer.stream = load("res://Escenas/Maingame/sfx/buzz1.mp3")
 		spriteGato.play("choke")
 		sfx_comer.play()
 		error_flechas()

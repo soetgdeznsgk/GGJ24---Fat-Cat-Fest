@@ -1,7 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://wibtjjyhafg4"]
+[gd_scene load_steps=33 format=3 uid="uid://wibtjjyhafg4"]
 
+[ext_resource type="Texture2D" uid="uid://xw1nnvfwkcch" path="res://Escenas/Menus/Buttons/Perilla.png" id="1_57c0c"]
 [ext_resource type="Script" path="res://Escenas/Menus/menu_principal.gd" id="1_vn785"]
-[ext_resource type="Texture2D" uid="uid://d2skq3dyio1rp" path="res://Escenas/Menus/Imgs/FatCatFestLogo.png" id="2_ijal2"]
+[ext_resource type="Texture2D" uid="uid://dylsjp6jdvnla" path="res://Escenas/Menus/Buttons/PerillaHighlight.png" id="2_1rvg4"]
+[ext_resource type="Texture2D" uid="uid://bu663bpjbff02" path="res://Escenas/Menus/Imgs/FatCatFestLogoConNombre.png" id="3_3y4pc"]
 [ext_resource type="Script" path="res://Escenas/Menus/Buttons/VolumeManager.gd" id="3_nccfq"]
 [ext_resource type="PackedScene" uid="uid://kcqxgo84fi45" path="res://Escenas/Menus/Buttons/button_anim.tscn" id="4_cnkgm"]
 [ext_resource type="Texture2D" uid="uid://dxkx5w2qurkf3" path="res://Escenas/Menus/Buttons/OptionsButton.png" id="4_gf66w"]
@@ -44,6 +46,8 @@ anti_aliasing_size = 0.01
 
 [sub_resource type="Theme" id="Theme_tlrkq"]
 HSlider/constants/grabber_offset = -5
+HSlider/icons/grabber = ExtResource("1_57c0c")
+HSlider/icons/grabber_highlight = ExtResource("2_1rvg4")
 HSlider/styles/grabber_area = SubResource("StyleBoxEmpty_76xur")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_rl27y")
 HSlider/styles/slider = SubResource("StyleBoxFlat_maygy")
@@ -144,7 +148,7 @@ custom_minimum_size = Vector2(717, 376)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.15
-texture = ExtResource("2_ijal2")
+texture = ExtResource("3_3y4pc")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_lock_ = true

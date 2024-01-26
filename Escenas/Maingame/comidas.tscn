@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bcrmlxmuoakqy"]
 
 [ext_resource type="Script" path="res://Logica/comidas.gd" id="1_kch2t"]
-[ext_resource type="PackedScene" path="res://Escenas/Recetas/BrazoP1.tscn" id="2_lfm41"]
-[ext_resource type="PackedScene" path="res://Escenas/Recetas/BrazoP2.tscn" id="3_3slu5"]
+[ext_resource type="PackedScene" uid="uid://bvky3j2w3lkt" path="res://Escenas/Recetas/BrazoP1.tscn" id="2_lfm41"]
+[ext_resource type="PackedScene" uid="uid://ckkr4o70aiv3i" path="res://Escenas/Recetas/BrazoP2.tscn" id="3_3slu5"]
 
 [node name="comidas" type="Node2D"]
 script = ExtResource("1_kch2t")

@@ -33,6 +33,8 @@ texture = ExtResource("3_ym8q0")
 centered = false
 
 [node name="Mesa" type="Sprite2D" parent="."]
+z_index = 1
+z_as_relative = false
 position = Vector2(-3, 14)
 scale = Vector2(0.712, 0.712)
 texture = ExtResource("4_nod1o")
@@ -58,6 +60,8 @@ texture = ExtResource("9_q0gs3")
 centered = false
 
 [node name="QuickTimeEvent" parent="." instance=ExtResource("3_fvsyg")]
+z_index = 2
+z_as_relative = false
 metadata/_edit_lock_ = true
 
 [node name="GatosPublico" parent="." instance=ExtResource("8_5t0gr")]
@@ -71,6 +75,7 @@ script = ExtResource("5_864na")
 zoomFinal = Vector2(1.5, 1.5)
 
 [node name="NamePlayer1" type="Label" parent="."]
+z_index = 1
 offset_left = 253.0
 offset_top = 449.0
 offset_right = 633.0
@@ -82,6 +87,7 @@ vertical_alignment = 1
 script = ExtResource("11_ecigq")
 
 [node name="NamePlayer2" type="Label" parent="."]
+z_index = 1
 offset_left = 730.0
 offset_top = 449.0
 offset_right = 1110.0

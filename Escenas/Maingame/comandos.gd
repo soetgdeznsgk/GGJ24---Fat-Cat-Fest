@@ -20,6 +20,7 @@ var ultimoInputRegistrado = null
 var procesosPausados = false
 @onready var anim = $AnimationPlayer
 @onready var comandoNodos = [$Comando0, $Comando1, $Comando2, $Comando3]
+@onready var spriteGato = $Gato
 var errorContinuo = false
 var rachaGanadora = false
 var comandos : Array = []
@@ -29,6 +30,8 @@ var devices
 var numeroMitadComida
 var sfx_comer := AudioStreamPlayer.new()
 var comer_flag
+
+
 func _ready() -> void:
 	comer_flag = false
 	sfx_comer.bus = "SFX"
@@ -37,7 +40,7 @@ func _ready() -> void:
 	Eventos.nuevoEvento.connect(pausarProcesos)
 	Eventos.finalEvento.connect(reanudarProcesos)
 	Eventos.nuevaComida.connect(set_comandos)
-	Node2D.print_orphan_nodes()
+	spriteGato.play("idle")
 	
 	# Dependiendo del jugador tiene ciertas teclas para el physic process
 	if jugador == 1:
@@ -108,16 +111,12 @@ func verificarCorrecta(Direccion : int): #ésta función no se está llamando si
 				sfxRand = listaSfxAcabarPlato.pick_random()
 			sfx_comer.stream = sfxRand
 			ultimoAcabarPlato = sfxRand
-		if comer_flag == false:
-			$Gato1.texture = load("res://Sprites/Gatos/GatoGame/ñamñam/corte-de-las-animaciones_0000s_0002_bocetos-de-animacion-pana-miguel0005.png")
-			comer_flag = true
-		else:
-			$Gato1.texture = load("res://Sprites/Gatos/GatoGame/ñamñam/corte-de-las-animaciones_0000s_0003_bocetos-de-animacion-pana-miguel0004.png")
-			comer_flag = false
+		spriteGato.play("comer")
 		sfx_comer.play()
 		actualizar_flechas()
 	else:
 		sfx_comer.stream = load("res://Escenas/Maingame/sfx/buzzer.mp3")
+		spriteGato.play("choke")
 		sfx_comer.play()
 		error_flechas()
 
@@ -130,7 +129,6 @@ func reemplazarTexturas():
 	for i in comandoNodos.size():
 		comandoNodos[i].position = Vector2((i+1)*128, 51)
 		comandoNodos[i].self_modulate = Color(1,1,1,1)
-	
 
 	if comandosConFlechas.size() == numeroMitadComida:
 		Eventos.mediaComida.emit(jugador)
@@ -138,7 +136,7 @@ func reemplazarTexturas():
 		Eventos.comidaAPuntoDeTerminar.emit(jugador)
 	elif comandosConFlechas.size() == 0:
 		# Emitir que ya se comió todo
-		$Gato1.texture = load("res://Sprites/Gatos/GatoGame/ñamñam/corte-de-las-animaciones_0000s_0000_bocetos-de-animacion-pana-miguel0012.png")
+		spriteGato.play("idle")
 		Eventos.comandosAcabados.emit(jugador)
 		
 		
@@ -174,7 +172,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 func pausarProcesos(_cache):
 	procesosPausados = true
-	$Gato1.visible = false
+	spriteGato.visible = false
 	for i in comandoNodos:
 		i.visible = false
 
@@ -183,15 +181,16 @@ func reanudarProcesos(ganador):
 	await get_tree().create_timer(3).timeout
 	#Si se stunea:
 	if ganador == jugador or ganador == 0:
+		spriteGato.play("begin_victoria")
 		procesosPausados = false
-		$Gato1.visible = true
+		spriteGato.visible = true
 		for i in comandoNodos:
 			i.visible = true
 	else:
-		$Gato1.visible = true
+		spriteGato.visible = true
 		# Aca animar gato stun
 		await get_tree().create_timer(duracionStun).timeout
-		# TODO poner animacion de gato stuneado
+		spriteGato.play("loop_stun")
 		procesosPausados = false
 		for i in comandoNodos:
 			i.visible = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://bbx7yskj14jdm"]
+[gd_scene load_steps=50 format=3 uid="uid://bbx7yskj14jdm"]
 
 [ext_resource type="Script" path="res://Escenas/Maingame/comandos.gd" id="1_k17g7"]
 [ext_resource type="Texture2D" uid="uid://be32a7i3firyx" path="res://Sprites/Gatos/Gato Lampara/Derrota/derrota_1.png" id="2_bctrj"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bwluk7h88ijmm" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_4.png" id="13_44pa0"]
 [ext_resource type="Texture2D" uid="uid://dfq2wkotj6art" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_5.png" id="14_ngtsd"]
 [ext_resource type="Texture2D" uid="uid://r71t6pridemb" path="res://Sprites/Gatos/Gato Lampara/Comer/comer_1.png" id="15_r88cn"]
+[ext_resource type="Texture2D" uid="uid://bcr3m6x61eb8j" path="res://Sprites/Gatos/Gato Lampara/Choke/atragantao.png" id="15_w7unk"]
 [ext_resource type="Texture2D" uid="uid://5m388eudxkwj" path="res://Sprites/Gatos/Gato Lampara/Comer/comer_2.png" id="16_b28l5"]
 [ext_resource type="Texture2D" uid="uid://dbp7cvw1mo0lv" path="res://Sprites/Gatos/Gato Lampara/Comer/comer_3.png" id="17_s1jlo"]
 [ext_resource type="Texture2D" uid="uid://5ykh7hut5eup" path="res://Sprites/Gatos/Gato Lampara/Comer/comer_4.png" id="18_c41il"]
@@ -102,7 +103,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_bctrj")
+"texture": ExtResource("15_w7unk")
 }],
 "loop": false,
 "name": &"choke",
@@ -129,7 +130,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"comer",
-"speed": 8.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -183,7 +184,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("31_qcle1")
 }],
-"loop": false,
+"loop": true,
 "name": &"idle",
 "speed": 8.0
 }, {
@@ -498,11 +499,11 @@ script = ExtResource("1_k17g7")
 
 [node name="Gato" type="AnimatedSprite2D" parent="."]
 z_as_relative = false
-position = Vector2(250, -227)
+position = Vector2(255, -234)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_i500e")
-animation = &"idle"
-frame = 16
+animation = &"comer"
+frame = 5
 frame_progress = 1.0
 
 [node name="Comando0" type="Sprite2D" parent="."]

@@ -27,7 +27,7 @@ func finJuego(_ganador):
 	anim.play("fin_juego")
 	
 func tiempoAleatorio():
-	return 5# randi_range(15,20) + randi_range(15,20) #return 2
+	return 10# randi_range(15,20) + randi_range(15,20) #return 2
 
 func generarNuevoEvento():
 	timer.start(tiempoAleatorio())

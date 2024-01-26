@@ -47,7 +47,7 @@ position = Vector2(681, 384)
 metadata/_edit_lock_ = true
 
 [node name="Comandos" parent="." instance=ExtResource("2_wilsv")]
-position = Vector2(664, 502)
+position = Vector2(640, 502)
 jugador = 2
 
 [node name="Comandos2" parent="." groups=["comandos_nodo_to_cpu"] instance=ExtResource("2_wilsv")]

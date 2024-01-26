@@ -31,7 +31,6 @@ var numeroMitadComida
 var sfx_comer := AudioStreamPlayer.new()
 var comer_flag
 
-
 func _ready() -> void:
 	comer_flag = false
 	sfx_comer.bus = "SFX"
@@ -119,6 +118,8 @@ func verificarCorrecta(Direccion : int): #ésta función no se está llamando si
 		spriteGato.play("choke")
 		sfx_comer.play()
 		error_flechas()
+		await get_tree().create_timer(.5).timeout
+		spriteGato.play("idle")
 
 func reemplazarTexturas():
 	comandos.pop_front()
@@ -181,16 +182,17 @@ func reanudarProcesos(ganador):
 	await get_tree().create_timer(3).timeout
 	#Si se stunea:
 	if ganador == jugador or ganador == 0:
-		spriteGato.play("begin_victoria")
 		procesosPausados = false
 		spriteGato.visible = true
 		for i in comandoNodos:
 			i.visible = true
 	else:
 		spriteGato.visible = true
-		# Aca animar gato stun
-		await get_tree().create_timer(duracionStun).timeout
+		spriteGato.play("begin_stun")
+		await get_tree().create_timer(.2).timeout
 		spriteGato.play("loop_stun")
+		await get_tree().create_timer(duracionStun).timeout
+		spriteGato.play("idle")
 		procesosPausados = false
 		for i in comandoNodos:
 			i.visible = true

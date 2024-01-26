@@ -60,6 +60,7 @@ metadata/_edit_lock_ = true
 
 [node name="Comandos" parent="." instance=ExtResource("2_wilsv")]
 position = Vector2(640, 502)
+jugador = 2
 
 [node name="NamePlayer" type="Label" parent="Comandos"]
 offset_left = 66.0
@@ -76,7 +77,6 @@ script = ExtResource("12_gw84n")
 
 [node name="Comandos2" parent="." groups=["comandos_nodo_to_cpu"] instance=ExtResource("2_wilsv")]
 position = Vector2(209, 504)
-jugador = 2
 metadata/_edit_lock_ = true
 
 [node name="NamePlayer" type="Label" parent="Comandos2"]

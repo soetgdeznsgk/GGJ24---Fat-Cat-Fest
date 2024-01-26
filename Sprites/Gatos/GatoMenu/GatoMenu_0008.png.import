@@ -3,19 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://sqy5qjj17ad5"
-path="res://.godot/imported/GatoMenu_0008.png-9dd0da9fb0719dd834338ef2f25f3e5a.ctex"
+path.s3tc="res://.godot/imported/GatoMenu_0008.png-9dd0da9fb0719dd834338ef2f25f3e5a.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://Sprites/Gatos/GatoMenu/GatoMenu_0008.png"
-dest_files=["res://.godot/imported/GatoMenu_0008.png-9dd0da9fb0719dd834338ef2f25f3e5a.ctex"]
+dest_files=["res://.godot/imported/GatoMenu_0008.png-9dd0da9fb0719dd834338ef2f25f3e5a.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

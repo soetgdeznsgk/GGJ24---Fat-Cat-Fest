@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://dldomgejvinaf"]
+[gd_scene load_steps=12 format=3 uid="uid://dldomgejvinaf"]
 
 [ext_resource type="Script" path="res://Escenas/Menus/Buttons/PlayButtonRelay.gd" id="1_262t7"]
-[ext_resource type="FontFile" uid="uid://cs81puvnc10pp" path="res://Escenas/Menus/Fonts/LobsterTwo-Regular.ttf" id="1_8015a"]
 [ext_resource type="Texture2D" uid="uid://x886cltnkwtt" path="res://Escenas/Menus/Buttons/PlayButton.png" id="2_65ics"]
 [ext_resource type="Script" path="res://Escenas/Menus/Buttons/Button.gd" id="3_7m7tc"]
 [ext_resource type="StyleBox" uid="uid://3gjeyh8dsx21" path="res://Escenas/Menus/Buttons/estilo_botones.tres" id="5_hlqpp"]
@@ -93,7 +92,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 0
-theme_override_fonts/font = ExtResource("1_8015a")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_71wjp")
 theme_override_styles/hover = SubResource("StyleBoxFlat_71wjp")

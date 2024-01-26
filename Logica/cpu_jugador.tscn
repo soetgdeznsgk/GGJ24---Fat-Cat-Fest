@@ -4,3 +4,6 @@
 
 [node name="CPUJugador" type="Node"]
 script = ExtResource("1_el7wj")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

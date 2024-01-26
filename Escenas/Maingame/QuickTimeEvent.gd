@@ -36,9 +36,9 @@ func cheer(prob : float):
 
 func finAnimacion():
 	#logica de cambio de evento
-	var selection = randi_range(0, listaEventos.size() - 1)
+	var selection = randi_range(0,0)#, listaEventos.size() - 1)
 	# para testing usar el de abajo
-	#var eventoSeleccionado = listaEventos[1]
+	#var selection = listaEventos[0]
 	var eventoInstanciado = listaEventos[selection].instantiate()
 	add_child(eventoInstanciado)
 	Eventos.nuevoEvento.emit(selection) # ésto es lo que le dice a la CPU
@@ -54,7 +54,6 @@ func final_evento(ganador):
 	$Label.text = texto
 	$AnimationPlayer.play("final_evento")
 	generarNuevoEvento()
-	Eventos.finalEvento.emit(ganador)
 
 func set_sfx_random_go():
 	select_random_sfx_from_pool($AudioStreamPlayer, lista_random_sfx_go)

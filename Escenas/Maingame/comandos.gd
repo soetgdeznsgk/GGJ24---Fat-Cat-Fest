@@ -92,7 +92,7 @@ func _physics_process(_delta: float) -> void:
 			ultimoInputRegistrado = null
 			permitirEntradas = false
 
-func verificarCorrecta(Direccion):
+func verificarCorrecta(Direccion : int): #ésta función no se está llamando siempre que la CPU presiona tecla
 	if comandosConFlechas[0] == Direccion:
 		var sfxRand
 		if comandosConFlechas.size() > 1:
@@ -171,7 +171,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		anim.speed_scale = 1
 	permitirEntradas = true
 
-func pausarProcesos(cache):
+func pausarProcesos(_cache):
 	procesosPausados = true
 	visible = false
 

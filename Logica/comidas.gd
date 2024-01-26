@@ -26,7 +26,7 @@ func _ready():
 	entradaReceta(1)
 	entradaReceta(2)
 	
-func pausarProcesos(cache):
+func pausarProcesos(_cache):
 	recetaActualJugador1.visible = false
 	recetaActualJugador2.visible = false
 	

@@ -95,7 +95,8 @@ func finJuego(ganador):
 	$Comandos.procesosPausados =true
 	$Comandos2.procesosPausados =true
 	Eventos.ganador = ganador
-	get_node("CPUJugador").queue_free()
+	if Eventos.singleplayer:
+		get_node("CPUJugador").queue_free()
 	$Comandos2.queue_free()
 	$Comandos.queue_free()
 	$comidas.queue_free()

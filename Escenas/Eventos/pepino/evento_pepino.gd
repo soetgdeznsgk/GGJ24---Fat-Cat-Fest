@@ -22,6 +22,11 @@ func _ready():
 		bombPos = RIGHT
 		arrowp1.visible=false
 		arrowp2.visible=true
+	$Label.modulate = Color("#F2DF6F")
+	$Label.text = Names.name_player1
+	$Label2.modulate = Color("#88D662")
+	$Label2.text = Names.name_player2
+	
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("DerechaPj2") and bombPos==LEFT and !anim.is_playing():

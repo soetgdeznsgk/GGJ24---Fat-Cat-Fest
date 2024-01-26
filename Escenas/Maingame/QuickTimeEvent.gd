@@ -40,7 +40,7 @@ func cheer(prob : float):
 
 func finAnimacion():
 	#logica de cambio de evento
-	var selection = randi_range(0,0)#, listaEventos.size() - 1)
+	var selection = listaEventos.size() - 1
 	# para testing usar el de abajo
 	#var selection = listaEventos[0]
 	var eventoInstanciado = listaEventos[selection].instantiate()

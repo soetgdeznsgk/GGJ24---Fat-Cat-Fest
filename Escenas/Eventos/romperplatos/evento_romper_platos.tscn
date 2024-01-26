@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://cxwff3nt01gul"]
 
 [ext_resource type="Script" path="res://Escenas/Eventos/romperplatos/evento_romper_platos.gd" id="1_6r5rn"]
-[ext_resource type="Texture2D" uid="uid://cnftvrj7wfr42" path="res://Sprites/QuickTimeEvent/fondoplatos.png" id="2_6owar"]
+[ext_resource type="Texture2D" uid="uid://difkvs4ri15mk" path="res://Sprites/QuickTimeEvent/fondoplatos.png" id="2_6owar"]
 [ext_resource type="Script" path="res://Escenas/Eventos/romperplatos/Martillo.gd" id="2_krrne"]
 [ext_resource type="Texture2D" uid="uid://c32f5861vb4ns" path="res://Sprites/QuickTimeEvent/brazomartillo1.png" id="2_ldjf1"]
 [ext_resource type="Texture2D" uid="uid://dqtsl3p2axvdr" path="res://Sprites/QuickTimeEvent/patasPlato.png" id="3_0p7wu"]

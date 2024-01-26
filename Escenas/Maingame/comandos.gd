@@ -112,9 +112,19 @@ func verificarCorrecta(Direccion : int): #ésta función no se está llamando si
 				sfxRand = listaSfxAcabarPlato.pick_random()
 			sfx_comer.stream = sfxRand
 			ultimoAcabarPlato = sfxRand
-		spriteGato.play("comer")
+			
+		# Spam
+		if rachaGanadora:
+			spriteGato.play("comer_fast")
+		else:
+			spriteGato.play("comer_normal")
+			
 		sfx_comer.play()
 		actualizar_flechas()
+		await get_tree().create_timer(.4).timeout
+		
+		if !rachaGanadora:
+			spriteGato.play("loop_comer")
 	else:
 		sfx_comer.stream = load("res://Escenas/Maingame/sfx/buzzer.mp3")
 		spriteGato.play("choke")
@@ -141,8 +151,6 @@ func reemplazarTexturas():
 		# Emitir que ya se comió todo
 		spriteGato.play("idle")
 		Eventos.comandosAcabados.emit(jugador)
-		
-		
 
 func actualizar_flechas():
 	# le pone textura a la nueva flecha por salir

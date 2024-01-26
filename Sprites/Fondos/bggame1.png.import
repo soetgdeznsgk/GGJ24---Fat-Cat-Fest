@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lfe8fvgjkdmc"
-path.s3tc="res://.godot/imported/stage.png-0ed7127d3675d9cb9d8d655ada6c5406.s3tc.ctex"
+uid="uid://bo1blyw4wxvco"
+path="res://.godot/imported/bggame1.png-9b1399567ac11aade2988e8266e7aaec.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Fondos/stage.png"
-dest_files=["res://.godot/imported/stage.png-0ed7127d3675d9cb9d8d655ada6c5406.s3tc.ctex"]
+source_file="res://Sprites/Fondos/bggame1.png"
+dest_files=["res://.godot/imported/bggame1.png-9b1399567ac11aade2988e8266e7aaec.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

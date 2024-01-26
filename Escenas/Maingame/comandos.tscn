@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://bbx7yskj14jdm"]
+[gd_scene load_steps=51 format=3 uid="uid://bbx7yskj14jdm"]
 
 [ext_resource type="Script" path="res://Escenas/Maingame/comandos.gd" id="1_k17g7"]
 [ext_resource type="Texture2D" uid="uid://be32a7i3firyx" path="res://Sprites/Gatos/Gato Lampara/Derrota/derrota_1.png" id="2_bctrj"]
@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bwluk7h88ijmm" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_4.png" id="13_44pa0"]
 [ext_resource type="Texture2D" uid="uid://dfq2wkotj6art" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_5.png" id="14_ngtsd"]
 [ext_resource type="Texture2D" uid="uid://r71t6pridemb" path="res://Sprites/Gatos/Gato Lampara/Comer/comer_1.png" id="15_r88cn"]
-[ext_resource type="Texture2D" uid="uid://bcr3m6x61eb8j" path="res://Sprites/Gatos/Gato Lampara/Choke/atragantao.png" id="15_w7unk"]
+[ext_resource type="Texture2D" uid="uid://chqp37nhrckdj" path="res://Sprites/Gatos/Gato Lampara/Choke/atragantao.png" id="15_w7unk"]
 [ext_resource type="Texture2D" uid="uid://5m388eudxkwj" path="res://Sprites/Gatos/Gato Lampara/Comer/comer_2.png" id="16_b28l5"]
 [ext_resource type="Texture2D" uid="uid://dbp7cvw1mo0lv" path="res://Sprites/Gatos/Gato Lampara/Comer/comer_3.png" id="17_s1jlo"]
 [ext_resource type="Texture2D" uid="uid://5ykh7hut5eup" path="res://Sprites/Gatos/Gato Lampara/Comer/comer_4.png" id="18_c41il"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://crf42ugsvorbg" path="res://Sprites/Gatos/Gato Lampara/Comer/comer_6.png" id="20_cj14p"]
 [ext_resource type="Texture2D" uid="uid://d134kx03wcrga" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_1.png" id="21_hnvb0"]
 [ext_resource type="Texture2D" uid="uid://d1gv302xw61m1" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_2.png" id="22_ab0ko"]
+[ext_resource type="Texture2D" uid="uid://bg8luqwtrfmrj" path="res://Sprites/Gatos/Gato Lampara/Comer/comer_7.png" id="22_nwvdu"]
 [ext_resource type="Texture2D" uid="uid://bel2o6m0diuru" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_3.png" id="23_6wli8"]
 [ext_resource type="Texture2D" uid="uid://2l0pn6n810b" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_4.png" id="24_1imlo"]
 [ext_resource type="Texture2D" uid="uid://cd6mqxe0of0mn" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_5.png" id="25_hbf1g"]
@@ -111,6 +112,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("17_s1jlo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_c41il")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_s1jlo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_c41il")
+}],
+"loop": true,
+"name": &"comer_fast",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("15_r88cn")
 }, {
 "duration": 1.0,
@@ -129,7 +147,7 @@ animations = [{
 "texture": ExtResource("20_cj14p")
 }],
 "loop": false,
-"name": &"comer",
+"name": &"comer_normal",
 "speed": 16.0
 }, {
 "frames": [{
@@ -186,6 +204,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_nwvdu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_cj14p")
+}],
+"loop": true,
+"name": &"loop_comer",
 "speed": 8.0
 }, {
 "frames": [{
@@ -502,9 +531,8 @@ z_as_relative = false
 position = Vector2(255, -234)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_i500e")
-animation = &"comer"
-frame = 5
-frame_progress = 1.0
+animation = &"loop_comer"
+frame_progress = 0.11064
 
 [node name="Comando0" type="Sprite2D" parent="."]
 z_index = 1

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpifiwycfnlxs"
-path="res://.godot/imported/mesa.png-c10d9394f14a04bdb5432b14eda2c52a.ctex"
+uid="uid://bvcmj27m3cp0i"
+path="res://.godot/imported/bggame5.png-897ba9e40f014b95a49f13bf19d2372a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Fondos/mesa.png"
-dest_files=["res://.godot/imported/mesa.png-c10d9394f14a04bdb5432b14eda2c52a.ctex"]
+source_file="res://Sprites/Fondos/bggame5.png"
+dest_files=["res://.godot/imported/bggame5.png-897ba9e40f014b95a49f13bf19d2372a.ctex"]
 
 [params]
 

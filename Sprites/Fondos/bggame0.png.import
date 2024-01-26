@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdbodnwg8wmpf"
-path="res://.godot/imported/cartel.png-ccf54f8968f13783ccc5896fdc94e0ee.ctex"
+uid="uid://cth80ou0c0vgb"
+path="res://.godot/imported/bggame0.png-2368531c353088b27b5a749b4ae0a319.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Fondos/cartel.png"
-dest_files=["res://.godot/imported/cartel.png-ccf54f8968f13783ccc5896fdc94e0ee.ctex"]
+source_file="res://Sprites/Fondos/bggame0.png"
+dest_files=["res://.godot/imported/bggame0.png-2368531c353088b27b5a749b4ae0a319.ctex"]
 
 [params]
 

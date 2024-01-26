@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duybff64j0kpo"
-path="res://.godot/imported/sillas.png-d263fe78bc42c5f9b0fcfdc71e29e966.ctex"
+uid="uid://bg8luqwtrfmrj"
+path="res://.godot/imported/comer_7.png-7e3a96d5e243ba17829d4a635b18796e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Fondos/sillas.png"
-dest_files=["res://.godot/imported/sillas.png-d263fe78bc42c5f9b0fcfdc71e29e966.ctex"]
+source_file="res://Sprites/Gatos/Gato Lampara/Comer/comer_7.png"
+dest_files=["res://.godot/imported/comer_7.png-7e3a96d5e243ba17829d4a635b18796e.ctex"]
 
 [params]
 

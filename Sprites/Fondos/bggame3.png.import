@@ -2,25 +2,25 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://carqk0dmab0md"
-path="res://.godot/imported/fondo.jpg-831a063e9b08cf20c31991732ece7d20.ctex"
+uid="uid://bjsfpkws15228"
+path="res://.godot/imported/bggame3.png-769ccc71dfcc8f56f55e38ed5db9dee9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Fondos/fondo.jpg"
-dest_files=["res://.godot/imported/fondo.jpg-831a063e9b08cf20c31991732ece7d20.ctex"]
+source_file="res://Sprites/Fondos/bggame3.png"
+dest_files=["res://.godot/imported/bggame3.png-769ccc71dfcc8f56f55e38ed5db9dee9.ctex"]
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
-compress/channel_pack=1
+compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0

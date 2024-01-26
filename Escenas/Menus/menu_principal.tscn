@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://jsp1brrwdxu7" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0009.png" id="17_pokp8"]
 [ext_resource type="Texture2D" uid="uid://d0fmw3oywajax" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0010.png" id="18_m2i7m"]
 [ext_resource type="Texture2D" uid="uid://d2scq3mwqpuwh" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0011.png" id="19_uxlfc"]
-[ext_resource type="Texture2D" uid="uid://carqk0dmab0md" path="res://Sprites/Fondos/fondo.jpg" id="22_tfwu6"]
+[ext_resource type="Texture2D" uid="uid://cth80ou0c0vgb" path="res://Sprites/Fondos/bggame0.png" id="24_uy50r"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_76xur"]
 
@@ -352,7 +352,7 @@ offset_bottom = 109.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("22_tfwu6")
+texture = ExtResource("24_uy50r")
 expand_mode = 1
 
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer/BackButton" to="." method="_undevelop_menu"]

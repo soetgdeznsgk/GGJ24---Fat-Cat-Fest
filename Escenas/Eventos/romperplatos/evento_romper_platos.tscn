@@ -231,17 +231,23 @@ horizontal_alignment = 1
 vertical_alignment = 1
 justification_flags = 0
 
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(141, 174)
+[node name="Marker2DM1" type="Marker2D" parent="."]
+position = Vector2(141, 175)
 
-[node name="Marker2D2" type="Marker2D" parent="."]
-position = Vector2(1151, 145)
+[node name="Marker2DM2" type="Marker2D" parent="."]
+position = Vector2(131, 661)
 
-[node name="Marker2D3" type="Marker2D" parent="."]
+[node name="Marker2DM3" type="Marker2D" parent="."]
+position = Vector2(203, 421)
+
+[node name="Marker2DP1" type="Marker2D" parent="."]
+position = Vector2(1178, 152)
+
+[node name="Marker2DP2" type="Marker2D" parent="."]
 position = Vector2(1152, 642)
 
-[node name="Marker2D4" type="Marker2D" parent="."]
-position = Vector2(131, 661)
+[node name="Marker2DP3" type="Marker2D" parent="."]
+position = Vector2(1093, 415)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -27,7 +27,8 @@ var referencia_pos_hammer := NodePath("../QuickTimeEvent/EventoRomperPlatos/Mart
 var pos_hammer : Vector2
 var referencia_pos_dish := NodePath("../QuickTimeEvent/EventoRomperPlatos/Plato:position")
 var pos_dish : Vector2
-var vectorPenalization : Vector2
+var vectorPenalization := Vector2.ZERO
+var vectorOrtonormal : Vector2
 
 # variables relevantes a pepino
 var referencia_pepino := NodePath("../QuickTimeEvent/evento_pepino")
@@ -37,7 +38,7 @@ var referencia_darseduro := NodePath("../QuickTimeEvent/evento_darse_duro")
 
 
 func set_difficulty() -> void:
-	currDifficulty = randi_range(1, 3)
+	currDifficulty = 3#randi_range(1, 3)
 	
 
 func _enter_tree() -> void:
@@ -87,19 +88,27 @@ func break_dishes(cache) -> void:
 		pos_dish = get_node(referencia_pos_dish).global_position
 		
 		if cache is float:
-			$Timer.wait_time = 2 - (0.5 * currDifficulty) # 1.5 s easy, 1 s mid, 0.5 hard 
+			$Timer.wait_time = 1.1 - (0.2 * currDifficulty) # 0.9 s easy, 0.7 s mid, 0.5 hard 
 			determine_position(get_node(referencia_rompeplatos).p2_started_as_hammer) 
 		else: # Conforme pasan llamadas a break_dishe del minijuego, la CPU va teniendo mejor tiempo de reacción
-			$Timer.wait_time -= 0.1 * get_physics_process_delta_time()
-			#print($Timer.wait_time)
+			$Timer.wait_time -= 0.1 * get_physics_process_delta_time() 
 		if is_hammer:
 			queue_inputs(pos_dish - pos_hammer)
 		else:
-			#if pos_dish.x > :
-			#elif pos_dish <:
-			#if pos_dish.y >:
-			#elif pos_dish :
-			queue_inputs((pos_dish - pos_hammer).orthogonal() + pos_dish - pos_hammer) # no funciona éste vector
+			vectorOrtonormal = (pos_dish - pos_hammer).orthogonal()
+			if pos_dish.x > 1200: 
+				vectorPenalization += (pos_dish - pos_hammer).length() * Vector2.LEFT
+			elif pos_dish.x < 140: 
+				vectorPenalization += (pos_dish - pos_hammer).length() * Vector2.RIGHT
+			if pos_dish.y > 600: 
+				vectorPenalization += (pos_dish - pos_hammer).length() * Vector2.UP
+			elif pos_dish.y < 140: 
+				(pos_dish - pos_hammer).length() * Vector2.DOWN
+				
+			if ((vectorOrtonormal / 3) + pos_dish).x > 1200 or ((vectorOrtonormal / 3) + pos_dish).x < 140 or ((vectorOrtonormal / 3) + pos_dish).y > 600 or ((vectorOrtonormal / 3) + pos_dish).y < 140:
+				vectorOrtonormal = - vectorOrtonormal
+			#print("pen: ", vectorPenalization, " input: ", vectorPenalization + pos_dish - pos_hammer)
+			queue_inputs( (vectorOrtonormal) + vectorPenalization + pos_dish - pos_hammer) # no funciona éste vector
 			vectorPenalization = Vector2.ZERO
 			
 		process_inputs_buffered(Input.action_press)

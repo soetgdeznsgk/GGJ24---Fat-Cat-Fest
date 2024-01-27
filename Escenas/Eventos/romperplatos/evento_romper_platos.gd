@@ -1,8 +1,8 @@
 extends Node2D
 
 signal is_p2_hammer(bool) # la CPU necesita ésta señal para saber quién es
-@onready var posicionesPosibles = [$Marker2D.position, $Marker2D2.position, \
-$Marker2D3.position, $Marker2D4.position]
+@onready var posicionesPosiblesMartillo := [$Marker2DM1.position, $Marker2DM2.position, $Marker2DM3.position]
+@onready var posicionesPosiblesPlato := [$Marker2DP1.position, $Marker2DP2.position, $Marker2DP3.position]
 # El atacante puede ser el jugador 1 o el 2, luego cambian
 var atacante
 var defensor
@@ -26,14 +26,11 @@ func _ready() -> void:
 	reiniciar_pos()
 	
 
-func reiniciar_pos():
-	var posDup = posicionesPosibles.duplicate()
-	posDup.shuffle()
-	
-	$Martillo.position = posDup.pop_front()
-	$Plato.position = posDup.pop_front()
+func reiniciar_pos() -> void:
+	$Martillo.position = posicionesPosiblesMartillo.pick_random()
+	$Plato.position = posicionesPosiblesPlato.pick_random()
 
-func cambiar_roles():
+func cambiar_roles() -> void:
 	if atacante == 1:
 		defensor = 1
 		atacante = 2
@@ -50,10 +47,10 @@ func cambiar_roles():
 	$TimerCambiarRoles.stop()
 	
 
-func perderVidaPlato():
+func perderVidaPlato() -> void:
 	$Plato.perder_vida()
 	
-func pop_timer():
+func pop_timer() -> void:
 	$Martillo.canMove = false
 	$Martillo.anim.play("RESET")
 	$Plato.canMove = false

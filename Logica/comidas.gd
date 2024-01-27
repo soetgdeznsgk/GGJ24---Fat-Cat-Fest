@@ -50,6 +50,7 @@ func reanudarProcesos(_ganador):
 	recetaActualJugador2.visible = true
 	if stackPlatos1: stackPlatos1.visible = true
 	if stackPlatos2: stackPlatos2.visible = true
+	
 func cambiarSpriteMediaComida(numeroJugadorActual):
 	match numeroJugadorActual:
 		1:

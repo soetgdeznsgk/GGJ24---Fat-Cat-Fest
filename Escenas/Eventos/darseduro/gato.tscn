@@ -1,10 +1,31 @@
-[gd_scene load_steps=8 format=3 uid="uid://fkqmi5o8tqo5"]
+[gd_scene load_steps=15 format=3 uid="uid://fkqmi5o8tqo5"]
 
 [ext_resource type="Script" path="res://Escenas/Eventos/darseduro/Sprite2D.gd" id="2_ketnl"]
 [ext_resource type="Texture2D" uid="uid://ul6v7ibnq4v3" path="res://Sprites/QuickTimeEvent/gatoCabeza.png" id="2_m7ben"]
 [ext_resource type="Theme" uid="uid://v28k7lh33uhi" path="res://Escenas/Maingame/themeNameTags.tres" id="2_no4kq"]
 [ext_resource type="Texture2D" uid="uid://36do2trpwuiy" path="res://Sprites/QuickTimeEvent/gatoCuerpo.png" id="3_1nceb"]
 [ext_resource type="Texture2D" uid="uid://bb2rt4ccdlfwl" path="res://Sprites/QuickTimeEvent/gatopatagolpeadora.png" id="4_lg8pl"]
+[ext_resource type="Texture2D" uid="uid://b7u2syubd446b" path="res://Sprites/Comandos/FlechaAbajo.png" id="6_1h6gw"]
+[ext_resource type="Texture2D" uid="uid://ds5cfarbrgm6r" path="res://Sprites/Comandos/flechaArriba.png" id="7_q0gdi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7mixs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_m7ben")
+}],
+"loop": true,
+"name": &"bonk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_m7ben")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5a1ld"]
 size = Vector2(100, 100)
@@ -12,14 +33,97 @@ size = Vector2(100, 100)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rswb3"]
 size = Vector2(40, 40)
 
-[node name="Gato" type="Node2D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_3b2i4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_1h6gw")
+}],
+"loop": false,
+"name": &"down",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_q0gdi")
+}],
+"loop": false,
+"name": &"up",
+"speed": 1.0
+}]
+
+[sub_resource type="Animation" id="Animation_06hjr"]
+resource_name = "shake"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("arrow:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.905826, -0.607375, 0.905826, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("arrow:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4u7nh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("arrow:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("arrow:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3k4kv"]
+_data = {
+"RESET": SubResource("Animation_4u7nh"),
+"shake": SubResource("Animation_06hjr")
+}
+
+[node name="Gato" type="Node2D" node_paths=PackedStringArray("spriteCabeza")]
+scale = Vector2(1.3, 1.3)
 script = ExtResource("2_ketnl")
+spriteCabeza = NodePath("sprPadre/Cabeza/SprCabeza")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -77.0
-offset_top = -151.0
-offset_right = 78.0
-offset_bottom = -128.0
+z_index = 1
+offset_left = -74.6154
+offset_top = 204.615
+offset_right = 80.3846
+offset_bottom = 243.615
 theme = ExtResource("2_no4kq")
 text = "PLAYER X"
 horizontal_alignment = 1
@@ -28,20 +132,21 @@ autowrap_mode = 2
 
 [node name="sprPadre" type="Sprite2D" parent="."]
 
+[node name="SprCuerpo" type="Sprite2D" parent="sprPadre"]
+position = Vector2(-13, 116)
+texture = ExtResource("3_1nceb")
+
 [node name="Cabeza" type="Area2D" parent="sprPadre"]
 position = Vector2(0, 9)
 metadata/_edit_group_ = true
 
-[node name="SprCabeza" type="Sprite2D" parent="sprPadre/Cabeza"]
-texture = ExtResource("2_m7ben")
+[node name="SprCabeza" type="AnimatedSprite2D" parent="sprPadre/Cabeza"]
+sprite_frames = SubResource("SpriteFrames_7mixs")
+animation = &"bonk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sprPadre/Cabeza"]
 position = Vector2(0, 27)
 shape = SubResource("RectangleShape2D_5a1ld")
-
-[node name="SprCuerpo" type="Sprite2D" parent="sprPadre"]
-position = Vector2(-13, 116)
-texture = ExtResource("3_1nceb")
 
 [node name="MarkerFinalPAta" type="Marker2D" parent="sprPadre"]
 position = Vector2(206, 37)
@@ -69,6 +174,17 @@ one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"
+
+[node name="arrow" type="AnimatedSprite2D" parent="."]
+position = Vector2(-180, 44.615)
+scale = Vector2(0.35, 0.34)
+sprite_frames = SubResource("SpriteFrames_3b2i4")
+animation = &"down"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3k4kv")
+}
 
 [connection signal="area_entered" from="sprPadre/Cabeza" to="." method="_on_cabeza_area_entered"]
 [connection signal="area_exited" from="sprPadre/Cabeza" to="." method="_on_cabeza_area_exited"]

@@ -19,7 +19,7 @@ func cambiar_rol():
 		diccionarioInputs[Enums.Abajo] = "AbajoPj2"
 		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj2"
 		diccionarioInputs[Enums.Derecha] = "DerechaPj2"
-		$Label.text = Names.name_player1
+		$Label.text = Names.name_player2
 	else:
 		diccionarioInputs[Enums.Arriba] = "ArribaPj1"
 		diccionarioInputs[Enums.Abajo]  = "AbajoPj1"

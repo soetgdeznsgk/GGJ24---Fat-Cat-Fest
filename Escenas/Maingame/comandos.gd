@@ -30,8 +30,6 @@ var numeroMitadComida
 var sfx_comer := AudioStreamPlayer.new()
 var comer_flag
 
-@export var comerTest : Array[AudioStream]
-
 func _ready() -> void:
 	comer_flag = false
 	sfx_comer.bus = "SFX"

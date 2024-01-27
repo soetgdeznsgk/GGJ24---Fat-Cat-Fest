@@ -6,10 +6,18 @@ func _ready() -> void:
 	if Eventos.ganador == 1:
 		$Label.text = "WINNER OF CAT FAST FEST IS ... " + Names.name_player1
 		$LabelNombre.text = Names.name_player1
+		$Gato1.play("loop_victoria")
+		$Gato2.play("loop_derrota")
 	elif Eventos.ganador == 2:
 		$Label.text = "WINNER OF CAT FAST FEST IS ... " + Names.name_player2
 		$LabelNombre.text = Names.name_player2
-	
+		$Gato1.position = Vector2(902,435)
+		$Gato1.scale = Vector2(0.367,0.367)
+		$Gato2.position = Vector2(677,365)
+		$Gato2.scale = Vector2(0.7,0.7)
+		$Gato1.play("loop_derrota")
+		$Gato2.play("loop_victoria")
+		
 
 func _process(delta: float) -> void:
 	pass

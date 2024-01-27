@@ -232,16 +232,16 @@ vertical_alignment = 1
 justification_flags = 0
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(375, 243)
+position = Vector2(141, 174)
 
 [node name="Marker2D2" type="Marker2D" parent="."]
-position = Vector2(979, 244)
+position = Vector2(1151, 145)
 
 [node name="Marker2D3" type="Marker2D" parent="."]
-position = Vector2(969, 585)
+position = Vector2(1152, 642)
 
 [node name="Marker2D4" type="Marker2D" parent="."]
-position = Vector2(371, 567)
+position = Vector2(131, 661)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

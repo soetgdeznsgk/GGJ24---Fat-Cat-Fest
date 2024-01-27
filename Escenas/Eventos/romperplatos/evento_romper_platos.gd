@@ -1,12 +1,13 @@
 extends Node2D
 
-signal is_p2_hammer(bool)
+signal is_p2_hammer(bool) # la CPU necesita ésta señal para saber quién es
 @onready var posicionesPosibles = [$Marker2D.position, $Marker2D2.position, \
 $Marker2D3.position, $Marker2D4.position]
 # El atacante puede ser el jugador 1 o el 2, luego cambian
 var atacante
 var defensor
 
+var p2_started_as_hammer : bool # necesario para la CPU al inicio de la partida
 var puntajePj1 = 0
 var puntajePj2 = 0
 
@@ -15,8 +16,8 @@ func _ready() -> void:
 		atacante = 1
 		defensor = 2
 	else:
-		# Do something else or don't play the animation
 		atacante = 2
+		p2_started_as_hammer = true
 		defensor = 1
 	$Martillo.jugador = atacante
 	$Plato.jugador = defensor

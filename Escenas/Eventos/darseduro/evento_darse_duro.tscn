@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://qc207m1uyidi"]
+[gd_scene load_steps=9 format=3 uid="uid://qc207m1uyidi"]
 
 [ext_resource type="Script" path="res://Escenas/Eventos/darseduro/evento_darse_duro.gd" id="1_gmxqv"]
 [ext_resource type="PackedScene" uid="uid://fkqmi5o8tqo5" path="res://Escenas/Eventos/darseduro/gato.tscn" id="1_k6i8i"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://f6aq1o2gsg3l" path="res://Sprites/Gatos/Gato Lampara/Pelea/cabeza.png" id="4_e6r0g"]
 [ext_resource type="Texture2D" uid="uid://c5eke5n4jq0fe" path="res://Sprites/Gatos/Gato Lampara/Pelea/Tordo.png" id="5_ara6r"]
 [ext_resource type="Texture2D" uid="uid://06ewbyb62nbi" path="res://Sprites/Gatos/Gato Lampara/Pelea/Puño.png" id="6_35ucf"]
+[ext_resource type="Texture2D" uid="uid://bvcmj27m3cp0i" path="res://Sprites/Fondos/bggame5.png" id="7_48ro4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e1apl"]
 animations = [{
@@ -31,15 +32,23 @@ script = ExtResource("1_gmxqv")
 
 [node name="Gato" parent="." instance=ExtResource("1_k6i8i")]
 z_as_relative = false
-position = Vector2(605, 335)
+position = Vector2(561, 233)
+metadata/_edit_group_ = true
+
+[node name="Label" parent="Gato" index="0"]
+metadata/_edit_use_anchors_ = true
 
 [node name="SprCabeza" parent="Gato/sprPadre/Cabeza" index="0"]
 animation = &"normal"
 
 [node name="Gato2" parent="." instance=ExtResource("1_k6i8i")]
 z_as_relative = false
-position = Vector2(779, 337)
+position = Vector2(817, 232)
 jugador = 2
+metadata/_edit_group_ = true
+
+[node name="Label" parent="Gato2" index="0"]
+metadata/_edit_use_anchors_ = true
 
 [node name="SprCuerpo" parent="Gato2/sprPadre" index="0"]
 scale = Vector2(0.4, 0.4)
@@ -59,6 +68,15 @@ process_callback = 0
 wait_time = 12.0
 one_shot = true
 autostart = true
+
+[node name="Mesa" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+z_as_relative = false
+position = Vector2(-3, 14)
+scale = Vector2(0.712, 0.712)
+texture = ExtResource("7_48ro4")
+centered = false
 
 [connection signal="timeout" from="TimerFinalizarEvento" to="." method="_on_timer_finalizar_evento_timeout"]
 

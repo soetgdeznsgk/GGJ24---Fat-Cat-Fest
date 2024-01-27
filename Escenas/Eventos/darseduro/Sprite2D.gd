@@ -10,10 +10,15 @@ var diccionarioInputs := {}
 @onready var pata = $sprPadre/Pata
 @onready var initialPos = pata.position
 @onready var cabezaPosInicial = cabeza.position
+@onready var sprArrow = $arrow
+@onready var anim = $AnimationPlayer
 var conteoGolpesRecibidos = 0
 var enCooldown = false
+
 var lista_random_punch = [preload("res://Escenas/Eventos/darseduro/sfx/bonk.mp3"), preload("res://Escenas/Eventos/darseduro/sfx/puh.mp3"),\
 preload("res://Escenas/Eventos/darseduro/sfx/thun.mp3")]
+
+@export var sonidosPegar : Array[AudioStream]
 
 func _ready() -> void:
 	if jugador == 2:
@@ -21,6 +26,7 @@ func _ready() -> void:
 		diccionarioInputs[Enums.Abajo] = "AbajoPj2"
 		$Label.text = Names.name_player2
 		$sprPadre.scale.x = -1
+		$arrow.position.x*=-1
 		$Label.modulate = Color("#F2DF6F")
 	else:
 		diccionarioInputs[Enums.Arriba] = "ArribaPj1"
@@ -33,21 +39,29 @@ func _physics_process(_delta: float) -> void:
 		return
 	if Input.is_action_just_pressed(diccionarioInputs[Enums.Arriba]):
 		if golpeando and !enCooldown:
+			sprArrow.play("down")
 			golpeando = false
 			enCooldown = true
 			var tween = create_tween()
 			tween.tween_property(pata,"position",$sprPadre/MarkerMediaPAta.position,0.1)
 			tween.tween_property(pata,"position",initialPos,0.05)
 			$TimerCooldown.start(0.09)
-			
+			sprArrow.visible=false
+		else:
+			anim.play("shake")
+		
 	if Input.is_action_just_pressed(diccionarioInputs[Enums.Abajo]):
 		if !golpeando and !enCooldown:
+			sprArrow.play("up")
 			golpeando = true
 			enCooldown = true
 			var tween = create_tween()
 			tween.tween_property(pata,"position",$sprPadre/MarkerMediaPAta.position,0.1)
 			tween.tween_property(pata,"position",$sprPadre/MarkerFinalPAta.position,0.05)
 			$TimerCooldown.start(0.1)
+			sprArrow.visible=false
+		else:
+			anim.play("shake")
 			
 
 func _on_cabeza_area_entered(_area: Area2D) -> void:
@@ -67,3 +81,4 @@ func _on_cabeza_area_exited(_area: Area2D) -> void:
 
 func _on_timer_cooldown_timeout() -> void:
 	enCooldown = false
+	sprArrow.visible=true

@@ -6,14 +6,11 @@ var listaTexturas = [ load("res://Sprites/Comandos/flechaArriba.png"), \
 load("res://Sprites/Comandos/FlechaAbajo.png"), \
 load("res://Sprites/Comandos/FlechaIzquierda.png"), \
 load("res://Sprites/Comandos/FlechaDerecha.png") ]
-var listaSfxComer = [load("res://SFX/nom1.mp3"),load("res://SFX/nom2.mp3"),\
-load("res://SFX/nom3.mp3"),load("res://SFX/nom4.mp3"),\
-load("res://SFX/nom5.mp3"),load("res://SFX/nom6.mp3"),
-load("res://SFX/nom7.mp3")]
-var listaSfxAcabarPlato = [load("res://SFX/finalComida1.mp3"), load("res://SFX/finalComida2.mp3"),\
-load("res://SFX/finalComida3.mp3"), load("res://SFX/finalComida4.mp3")]
+var listaSfxComer 
+var listaSfxAcabarPlato
 var ultimoNom
 var ultimoAcabarPlato
+var chokesonido
 
 @export var duracionStun = 2
 var ultimoInputRegistrado = null
@@ -45,6 +42,13 @@ func _ready() -> void:
 	
 	# Dependiendo del jugador tiene ciertas teclas para el physic process
 	if jugador == 2:
+		chokesonido= load("res://Escenas/Maingame/sfx/buzz1.mp3")
+		listaSfxComer=[load("res://SFX/nom1.mp3"),load("res://SFX/nom2.mp3"),\
+		load("res://SFX/nom3.mp3"),load("res://SFX/nom4.mp3"),\
+		load("res://SFX/nom5.mp3"),load("res://SFX/nom6.mp3"),
+		load("res://SFX/nom7.mp3")]
+		listaSfxAcabarPlato = [load("res://SFX/finalComida1.mp3"), load("res://SFX/finalComida2.mp3"),\
+		load("res://SFX/finalComida3.mp3"), load("res://SFX/finalComida4.mp3")]		
 		diccionarioInputs[Enums.Arriba] = "ArribaPj2"
 		diccionarioInputs[Enums.Abajo]  = "AbajoPj2"
 		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj2"
@@ -52,7 +56,15 @@ func _ready() -> void:
 		$NamePlayer.modulate = Color("#F2DF6F")
 		for i in comandoNodos:
 			i.modulate = Color("#F2DF6F")
+
 	else:
+		chokesonido= load("res://SFX/GatoProta/choke.mp3")
+		listaSfxComer=[load("res://SFX/GatoProta/ÑAM1.mp3"),load("res://SFX/GatoProta/ñam2.mp3"),\
+		load("res://SFX/GatoProta/ñam3.mp3"),load("res://SFX/GatoProta/ñam4.mp3"),\
+		load("res://SFX/GatoProta/ñam5.mp3")]
+		listaSfxAcabarPlato = [load("res://SFX/GatoProta/terminar1.mp3"), load("res://SFX/GatoProta/terminar2.mp3"),\
+		load("res://SFX/GatoProta/terminar3.mp3"), load("res://SFX/GatoProta/terminar4.mp3"),load("res://SFX/GatoProta/terminar5.mp3"),\
+		load("res://SFX/GatoProta/terminar6.mp3")]
 		diccionarioInputs[Enums.Arriba] = "ArribaPj1"
 		diccionarioInputs[Enums.Abajo] = "AbajoPj1"
 		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj1"
@@ -127,7 +139,7 @@ func verificarCorrecta(Direccion : int): #ésta función no se está llamando si
 		sfx_comer.play()
 		actualizar_flechas()
 	else:
-		sfx_comer.stream = load("res://Escenas/Maingame/sfx/buzz1.mp3")
+		sfx_comer.stream = chokesonido
 		spriteGato.play("choke")
 		sfx_comer.play()
 		error_flechas()

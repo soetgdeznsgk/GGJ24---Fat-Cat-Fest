@@ -29,7 +29,7 @@ func finJuego(_ganador):
 	anim.play("fin_juego")
 	
 func tiempoAleatorio():
-	return 5
+	return 50
 
 func generarNuevoEvento():
 	timer.start(tiempoAleatorio())

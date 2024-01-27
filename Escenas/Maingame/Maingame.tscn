@@ -53,7 +53,6 @@ texture = ExtResource("7_mmh4e")
 centered = false
 
 [node name="comidas" parent="." instance=ExtResource("5_on172")]
-visible = false
 z_index = 2
 z_as_relative = false
 position = Vector2(681, 384)

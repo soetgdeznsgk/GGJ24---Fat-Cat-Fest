@@ -5,6 +5,7 @@ var diccionarioInputs := {}
 @export var puedeGolpear = true
 @onready var markerCabeza = $sprPadre/Marker2D2.position
 @onready var cabeza = $sprPadre/Cabeza
+@export var spriteCabeza : AnimatedSprite2D
 @onready var cuerpo = $sprPadre/SprCuerpo
 @onready var pata = $sprPadre/Pata
 @onready var initialPos = pata.position
@@ -52,6 +53,7 @@ func _physics_process(_delta: float) -> void:
 func _on_cabeza_area_entered(_area: Area2D) -> void:
 	$AudioStreamPlayer.stream = lista_random_punch.pick_random()
 	$AudioStreamPlayer.play()
+	spriteCabeza.play("bonk")
 	#Recibe golpe
 	conteoGolpesRecibidos += 1
 	var tweenCabeza = get_tree().create_tween()
@@ -59,6 +61,7 @@ func _on_cabeza_area_entered(_area: Area2D) -> void:
 	tweenCabeza.tween_property(cabeza,"position", markerCabeza, 0.12)
 
 func _on_cabeza_area_exited(_area: Area2D) -> void:
+	spriteCabeza.play("normal")
 	var tweenCabeza = get_tree().create_tween()
 	tweenCabeza.tween_property(cabeza,"position", cabezaPosInicial, 0.1)
 

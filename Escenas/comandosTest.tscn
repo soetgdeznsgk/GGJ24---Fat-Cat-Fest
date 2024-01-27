@@ -5,5 +5,4 @@
 [node name="Comandos" instance=ExtResource("1_xdhah")]
 
 [node name="Gato" parent="." index="0"]
-animation = &"loop_victoria"
 frame_progress = 0.394632

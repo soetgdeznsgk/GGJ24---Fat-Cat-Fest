@@ -338,6 +338,7 @@ jugador = 2
 [node name="Gato" parent="Comandos" index="0"]
 position = Vector2(249, -220)
 sprite_frames = SubResource("SpriteFrames_1yar0")
+animation = &"comer_fast"
 
 [node name="NamePlayer" type="Label" parent="Comandos"]
 offset_left = 66.0

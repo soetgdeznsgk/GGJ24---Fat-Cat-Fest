@@ -1,0 +1,172 @@
+[gd_scene load_steps=20 format=3 uid="uid://0urut37fsjci"]
+
+[ext_resource type="Script" path="res://Escenas/Maingame/Versus.gd" id="1_4am3t"]
+[ext_resource type="Texture2D" uid="uid://d134kx03wcrga" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_1.png" id="2_2uv23"]
+[ext_resource type="Texture2D" uid="uid://d1gv302xw61m1" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_2.png" id="3_f2e3q"]
+[ext_resource type="Texture2D" uid="uid://bel2o6m0diuru" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_3.png" id="4_4ol2p"]
+[ext_resource type="Texture2D" uid="uid://2l0pn6n810b" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_4.png" id="5_wwa5o"]
+[ext_resource type="Texture2D" uid="uid://cd6mqxe0of0mn" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_5.png" id="6_h745u"]
+[ext_resource type="Texture2D" uid="uid://cse2fj3nt6ayc" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_6.png" id="7_2lg7s"]
+[ext_resource type="Texture2D" uid="uid://dn5fhcwtvdwun" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_7.png" id="8_nw48l"]
+[ext_resource type="Texture2D" uid="uid://im75n6tag7yg" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_8.png" id="9_xffih"]
+[ext_resource type="Texture2D" uid="uid://bfftcxv04s40m" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_9.png" id="10_otc8p"]
+[ext_resource type="Texture2D" uid="uid://b3w1bv578ngg3" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_10.png" id="11_gbyr5"]
+[ext_resource type="Texture2D" uid="uid://druhpvn6xe83i" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_11.png" id="12_fbgal"]
+[ext_resource type="Texture2D" uid="uid://bqq38hbne211l" path="res://Sprites/Versus/bgvs1.png" id="13_81dkm"]
+[ext_resource type="Texture2D" uid="uid://02raxd33yta" path="res://Sprites/Versus/vs.png" id="13_e1mvw"]
+[ext_resource type="Texture2D" uid="uid://bcvg1jjgh8vha" path="res://Sprites/Versus/bgvs2.png" id="14_0vgf6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yog88"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2uv23")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f2e3q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4ol2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wwa5o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_h745u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2lg7s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_nw48l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xffih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_otc8p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_gbyr5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fbgal")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3quny"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2uv23")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f2e3q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4ol2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wwa5o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_h745u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2lg7s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_nw48l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xffih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_otc8p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_gbyr5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fbgal")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2f5hc"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_cob6d"]
+font_size = 40
+
+[node name="Versus" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_4am3t")
+
+[node name="Gato1" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(360, 550)
+scale = Vector2(1.2, 1.2)
+sprite_frames = SubResource("SpriteFrames_yog88")
+animation = &"Idle"
+flip_h = true
+
+[node name="Gato2" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(1000, 550)
+scale = Vector2(1.2, 1.2)
+sprite_frames = SubResource("SpriteFrames_3quny")
+animation = &"Idle"
+
+[node name="VS" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(693, 198)
+scale = Vector2(0.505935, 0.505935)
+texture = ExtResource("13_e1mvw")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="NombreGato1" type="Label" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 157.0
+offset_top = 120.0
+offset_right = 497.0
+offset_bottom = 300.0
+label_settings = SubResource("LabelSettings_2f5hc")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="NombreGato2" type="Label" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 920.0
+offset_top = 120.0
+offset_right = 1260.0
+offset_bottom = 300.0
+label_settings = SubResource("LabelSettings_cob6d")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Fondo1" type="Sprite2D" parent="."]
+position = Vector2(682, 384)
+scale = Vector2(0.712037, 0.712037)
+texture = ExtResource("13_81dkm")
+
+[node name="Fondo2" type="Sprite2D" parent="."]
+position = Vector2(682, 384)
+scale = Vector2(0.712, 0.712)
+texture = ExtResource("14_0vgf6")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

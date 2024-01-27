@@ -1,17 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://0urut37fsjci"]
+[gd_scene load_steps=11 format=3 uid="uid://0urut37fsjci"]
 
 [ext_resource type="Script" path="res://Escenas/Maingame/Versus.gd" id="1_4am3t"]
-[ext_resource type="Texture2D" uid="uid://d134kx03wcrga" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_1.png" id="2_2uv23"]
-[ext_resource type="Texture2D" uid="uid://d1gv302xw61m1" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_2.png" id="3_f2e3q"]
-[ext_resource type="Texture2D" uid="uid://bel2o6m0diuru" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_3.png" id="4_4ol2p"]
-[ext_resource type="Texture2D" uid="uid://2l0pn6n810b" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_4.png" id="5_wwa5o"]
-[ext_resource type="Texture2D" uid="uid://cd6mqxe0of0mn" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_5.png" id="6_h745u"]
-[ext_resource type="Texture2D" uid="uid://cse2fj3nt6ayc" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_6.png" id="7_2lg7s"]
-[ext_resource type="Texture2D" uid="uid://dn5fhcwtvdwun" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_7.png" id="8_nw48l"]
-[ext_resource type="Texture2D" uid="uid://im75n6tag7yg" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_8.png" id="9_xffih"]
-[ext_resource type="Texture2D" uid="uid://bfftcxv04s40m" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_9.png" id="10_otc8p"]
-[ext_resource type="Texture2D" uid="uid://b3w1bv578ngg3" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_10.png" id="11_gbyr5"]
-[ext_resource type="Texture2D" uid="uid://druhpvn6xe83i" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_11.png" id="12_fbgal"]
+[ext_resource type="Texture2D" uid="uid://cmnmlwu86ovk" path="res://Sprites/Versus/pose de pelea 1.png" id="2_5axbq"]
+[ext_resource type="Texture2D" uid="uid://dv264aj7oiker" path="res://Sprites/Versus/pose de pelea 2.png" id="3_obtmw"]
 [ext_resource type="Texture2D" uid="uid://bqq38hbne211l" path="res://Sprites/Versus/bgvs1.png" id="13_81dkm"]
 [ext_resource type="Texture2D" uid="uid://02raxd33yta" path="res://Sprites/Versus/vs.png" id="13_e1mvw"]
 [ext_resource type="Texture2D" uid="uid://bcvg1jjgh8vha" path="res://Sprites/Versus/bgvs2.png" id="14_0vgf6"]
@@ -20,37 +11,10 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_2uv23")
+"texture": ExtResource("2_5axbq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_f2e3q")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_4ol2p")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_wwa5o")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_h745u")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_2lg7s")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_nw48l")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_xffih")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_otc8p")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_gbyr5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_fbgal")
+"texture": ExtResource("3_obtmw")
 }],
 "loop": true,
 "name": &"Idle",
@@ -61,37 +25,10 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_2uv23")
+"texture": ExtResource("2_5axbq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_f2e3q")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_4ol2p")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_wwa5o")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_h745u")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_2lg7s")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_nw48l")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_xffih")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_otc8p")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_gbyr5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_fbgal")
+"texture": ExtResource("3_obtmw")
 }],
 "loop": true,
 "name": &"Idle",

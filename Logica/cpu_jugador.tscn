@@ -6,4 +6,5 @@
 script = ExtResource("1_el7wj")
 
 [node name="Timer" type="Timer" parent="."]
+process_callback = 0
 autostart = true

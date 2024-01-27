@@ -27,6 +27,7 @@ var referencia_pos_hammer := NodePath("../QuickTimeEvent/EventoRomperPlatos/Mart
 var pos_hammer : Vector2
 var referencia_pos_dish := NodePath("../QuickTimeEvent/EventoRomperPlatos/Plato:position")
 var pos_dish : Vector2
+var vectorPenalization : Vector2
 
 # variables relevantes a pepino
 var referencia_pepino := NodePath("../QuickTimeEvent/evento_pepino")
@@ -87,12 +88,19 @@ func break_dishes(cache) -> void:
 		
 		if cache is float:
 			$Timer.wait_time = 2 - (0.5 * currDifficulty) # 1.5 s easy, 1 s mid, 0.5 hard 
-			determine_position(get_node(referencia_rompeplatos).p2_started_as_hammer)
-			
+			determine_position(get_node(referencia_rompeplatos).p2_started_as_hammer) 
+		else: # Conforme pasan llamadas a break_dishe del minijuego, la CPU va teniendo mejor tiempo de reacción
+			$Timer.wait_time -= 0.1 * get_physics_process_delta_time()
+			#print($Timer.wait_time)
 		if is_hammer:
 			queue_inputs(pos_dish - pos_hammer)
 		else:
-			queue_inputs((pos_dish - pos_hammer).orthogonal() + (pos_hammer - pos_dish)) # no funciona éste vector
+			#if pos_dish.x > :
+			#elif pos_dish <:
+			#if pos_dish.y >:
+			#elif pos_dish :
+			queue_inputs((pos_dish - pos_hammer).orthogonal() + pos_dish - pos_hammer) # no funciona éste vector
+			vectorPenalization = Vector2.ZERO
 			
 		process_inputs_buffered(Input.action_press)
 		await $Timer.timeout

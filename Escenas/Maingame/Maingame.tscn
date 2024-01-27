@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b4olfp085mokh"]
+[gd_scene load_steps=61 format=3 uid="uid://b4olfp085mokh"]
 
 [ext_resource type="Script" path="res://Escenas/Maingame/Maingame.gd" id="1_bpnxe"]
 [ext_resource type="Texture2D" uid="uid://cth80ou0c0vgb" path="res://Sprites/Fondos/bggame0.png" id="2_2njl2"]
@@ -11,10 +11,283 @@
 [ext_resource type="Texture2D" uid="uid://6ygmtis46k1w" path="res://Sprites/Fondos/bggame4.png" id="5_spstp"]
 [ext_resource type="Texture2D" uid="uid://bjsfpkws15228" path="res://Sprites/Fondos/bggame3.png" id="6_uffrh"]
 [ext_resource type="Texture2D" uid="uid://bvcmj27m3cp0i" path="res://Sprites/Fondos/bggame5.png" id="7_mmh4e"]
-[ext_resource type="Theme" uid="uid://cmt45b3cka4wi" path="res://Escenas/Maingame/themeNameTags.tres" id="8_3c2xy"]
+[ext_resource type="Theme" uid="uid://v28k7lh33uhi" path="res://Escenas/Maingame/themeNameTags.tres" id="8_3c2xy"]
 [ext_resource type="PackedScene" uid="uid://cp85xfjdi08u2" path="res://Escenas/Maingame/Publico/GatosPublico.tscn" id="8_5t0gr"]
+[ext_resource type="Texture2D" uid="uid://be32a7i3firyx" path="res://Sprites/Gatos/Gato Lampara/Derrota/derrota_1.png" id="10_b0fbt"]
+[ext_resource type="Texture2D" uid="uid://cy6qb0p25ajap" path="res://Sprites/Gatos/Gato Lampara/Derrota/derrota_2.png" id="11_4bhyq"]
 [ext_resource type="Script" path="res://Escenas/Maingame/NamePlayer1.gd" id="11_ecigq"]
+[ext_resource type="Texture2D" uid="uid://bsrtqtu8jglj7" path="res://Sprites/Gatos/Gato Lampara/Derrota/derrota_3.png" id="12_d86bf"]
 [ext_resource type="Script" path="res://Escenas/Maingame/NamePlayer2.gd" id="12_gw84n"]
+[ext_resource type="Texture2D" uid="uid://ift7nin2u23b" path="res://Sprites/Gatos/Gato Lampara/Derrota/derrota_4.png" id="13_eqr0p"]
+[ext_resource type="Texture2D" uid="uid://dlkwth7ficdy6" path="res://Sprites/Gatos/Gato Lampara/Derrota/derrota_5.png" id="14_43502"]
+[ext_resource type="Texture2D" uid="uid://dp62k0b3xsf23" path="res://Sprites/Gatos/Gato Lampara/Derrota/derrota_6.png" id="15_aefu4"]
+[ext_resource type="Texture2D" uid="uid://ddptkdvb0kh03" path="res://Sprites/Gatos/Gato Lampara/Stun/Stund_1.png" id="16_bkq7m"]
+[ext_resource type="Texture2D" uid="uid://d36fxpnwusj2c" path="res://Sprites/Gatos/Gato Lampara/Stun/Stund_2.png" id="17_cky2x"]
+[ext_resource type="Texture2D" uid="uid://b8npns1i2lhse" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_1.png" id="18_uew4k"]
+[ext_resource type="Texture2D" uid="uid://dn2mhwp2s5oba" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_2.png" id="19_ercak"]
+[ext_resource type="Texture2D" uid="uid://dy14n47dsotas" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_3.png" id="20_a5pyx"]
+[ext_resource type="Texture2D" uid="uid://bwluk7h88ijmm" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_4.png" id="21_wp8m4"]
+[ext_resource type="Texture2D" uid="uid://dfq2wkotj6art" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_5.png" id="22_vfttn"]
+[ext_resource type="Texture2D" uid="uid://chqp37nhrckdj" path="res://Sprites/Gatos/Gato Lampara/Choke/atragantao.png" id="23_jlbxw"]
+[ext_resource type="Texture2D" uid="uid://dbp7cvw1mo0lv" path="res://Sprites/Gatos/Gato Lampara/Comer/comer_3.png" id="24_k8k6x"]
+[ext_resource type="Texture2D" uid="uid://5ykh7hut5eup" path="res://Sprites/Gatos/Gato Lampara/Comer/comer_4.png" id="25_2gq73"]
+[ext_resource type="Texture2D" uid="uid://r71t6pridemb" path="res://Sprites/Gatos/Gato Lampara/Comer/comer_1.png" id="26_2056y"]
+[ext_resource type="Texture2D" uid="uid://5m388eudxkwj" path="res://Sprites/Gatos/Gato Lampara/Comer/comer_2.png" id="27_wppnc"]
+[ext_resource type="Texture2D" uid="uid://cciglemuc30nh" path="res://Sprites/Gatos/Gato Lampara/Comer/comer_5.png" id="28_dummu"]
+[ext_resource type="Texture2D" uid="uid://crf42ugsvorbg" path="res://Sprites/Gatos/Gato Lampara/Comer/comer_6.png" id="29_0jr37"]
+[ext_resource type="Texture2D" uid="uid://d134kx03wcrga" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_1.png" id="30_kubpa"]
+[ext_resource type="Texture2D" uid="uid://d1gv302xw61m1" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_2.png" id="31_sjdyf"]
+[ext_resource type="Texture2D" uid="uid://bel2o6m0diuru" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_3.png" id="32_umiop"]
+[ext_resource type="Texture2D" uid="uid://2l0pn6n810b" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_4.png" id="33_uemiq"]
+[ext_resource type="Texture2D" uid="uid://cd6mqxe0of0mn" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_5.png" id="34_aqkun"]
+[ext_resource type="Texture2D" uid="uid://cse2fj3nt6ayc" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_6.png" id="35_qmjdb"]
+[ext_resource type="Texture2D" uid="uid://dn5fhcwtvdwun" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_7.png" id="36_q5i15"]
+[ext_resource type="Texture2D" uid="uid://im75n6tag7yg" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_8.png" id="37_ojr5m"]
+[ext_resource type="Texture2D" uid="uid://bfftcxv04s40m" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_9.png" id="38_htevi"]
+[ext_resource type="Texture2D" uid="uid://b3w1bv578ngg3" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_10.png" id="39_hqu5k"]
+[ext_resource type="Texture2D" uid="uid://druhpvn6xe83i" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_11.png" id="40_1nkka"]
+[ext_resource type="Texture2D" uid="uid://bg8luqwtrfmrj" path="res://Sprites/Gatos/Gato Lampara/Comer/comer_7.png" id="41_gcycj"]
+[ext_resource type="Texture2D" uid="uid://b6dmmudhog1do" path="res://Sprites/Gatos/Gato Lampara/Stun/Stund_3.png" id="42_h0jrt"]
+[ext_resource type="Texture2D" uid="uid://dmqoiw08i8agm" path="res://Sprites/Gatos/Gato Lampara/Stun/Stund_4.png" id="43_yfmei"]
+[ext_resource type="Texture2D" uid="uid://dookewrfjdlr4" path="res://Sprites/Gatos/Gato Lampara/Stun/Stund_5.png" id="44_g00jk"]
+[ext_resource type="Texture2D" uid="uid://dswvfekk6m27n" path="res://Sprites/Gatos/Gato Lampara/Stun/Stund_6.png" id="45_i4edg"]
+[ext_resource type="Texture2D" uid="uid://c8vrr32x4p2h8" path="res://Sprites/Gatos/Gato Lampara/Stun/Stund_7.png" id="46_eamvo"]
+[ext_resource type="Texture2D" uid="uid://bp82jcncwvv17" path="res://Sprites/Gatos/Gato Lampara/Stun/Stund_8.png" id="47_ed8xu"]
+[ext_resource type="Texture2D" uid="uid://bjrq1pwo3hv67" path="res://Sprites/Gatos/Gato Lampara/Stun/Stund_9.png" id="48_bxmpd"]
+[ext_resource type="Texture2D" uid="uid://b4miys3efwmj5" path="res://Sprites/Gatos/Gato Lampara/Stun/Stund_10.png" id="49_bussr"]
+[ext_resource type="Texture2D" uid="uid://cn43n7wn3c0pi" path="res://Sprites/Gatos/Gato Lampara/Stun/Stund_11.png" id="50_tpuit"]
+[ext_resource type="Texture2D" uid="uid://di726ju43had" path="res://Sprites/Gatos/Gato Lampara/Stun/Stund_12.png" id="51_rg8hi"]
+[ext_resource type="Texture2D" uid="uid://c6ivbsns74sna" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_6.png" id="52_8igfr"]
+[ext_resource type="Texture2D" uid="uid://cnfax4kkp1e5v" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_7.png" id="53_dyoi3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1yar0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_b0fbt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4bhyq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_d86bf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_eqr0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_43502")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_aefu4")
+}],
+"loop": false,
+"name": &"begin_derrota",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_bkq7m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_cky2x")
+}],
+"loop": false,
+"name": &"begin_stun",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_uew4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ercak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_a5pyx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_wp8m4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_vfttn")
+}],
+"loop": false,
+"name": &"begin_victoria",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_jlbxw")
+}],
+"loop": false,
+"name": &"choke",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_k8k6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_2gq73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_k8k6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_2gq73")
+}],
+"loop": true,
+"name": &"comer_fast",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_2056y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_wppnc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_k8k6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_2gq73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_dummu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_0jr37")
+}],
+"loop": false,
+"name": &"comer_normal",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("30_kubpa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_sjdyf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_kubpa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_sjdyf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_kubpa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_sjdyf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_kubpa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_sjdyf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_umiop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_uemiq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_aqkun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_qmjdb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_q5i15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_ojr5m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_htevi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_hqu5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_1nkka")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("41_gcycj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_0jr37")
+}],
+"loop": true,
+"name": &"loop_comer",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_43502")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_aefu4")
+}],
+"loop": true,
+"name": &"loop_derrota",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("42_h0jrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_yfmei")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_g00jk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_i4edg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_eamvo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_ed8xu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_bxmpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_bussr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_tpuit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_rg8hi")
+}],
+"loop": true,
+"name": &"loop_stun",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("52_8igfr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_dyoi3")
+}],
+"loop": true,
+"name": &"loop_victoria",
+"speed": 8.0
+}]
 
 [node name="Maingame" type="Node2D"]
 script = ExtResource("1_bpnxe")
@@ -62,6 +335,11 @@ metadata/_edit_lock_ = true
 position = Vector2(640, 502)
 jugador = 2
 
+[node name="Gato" parent="Comandos" index="0"]
+sprite_frames = SubResource("SpriteFrames_1yar0")
+animation = &"comer_fast"
+frame_progress = 0.0
+
 [node name="NamePlayer" type="Label" parent="Comandos"]
 offset_left = 66.0
 offset_top = -53.0
@@ -78,6 +356,11 @@ script = ExtResource("12_gw84n")
 [node name="Comandos2" parent="." groups=["comandos_nodo_to_cpu"] instance=ExtResource("2_wilsv")]
 position = Vector2(209, 504)
 metadata/_edit_lock_ = true
+
+[node name="Gato" parent="Comandos2" index="0"]
+position = Vector2(276, -146)
+scale = Vector2(0.587113, 0.611574)
+frame_progress = 0.0
 
 [node name="NamePlayer" type="Label" parent="Comandos2"]
 offset_left = 44.0
@@ -104,3 +387,6 @@ position = Vector2(681, 386)
 process_callback = 0
 script = ExtResource("5_864na")
 zoomFinal = Vector2(1.5, 1.5)
+
+[editable path="Comandos"]
+[editable path="Comandos2"]

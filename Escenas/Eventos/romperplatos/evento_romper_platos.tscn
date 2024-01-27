@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c32f5861vb4ns" path="res://Sprites/QuickTimeEvent/brazomartillo1.png" id="2_ldjf1"]
 [ext_resource type="Texture2D" uid="uid://dqtsl3p2axvdr" path="res://Sprites/QuickTimeEvent/patasPlato.png" id="3_0p7wu"]
 [ext_resource type="Script" path="res://Escenas/Eventos/romperplatos/Plato.gd" id="5_2sp3d"]
-[ext_resource type="Theme" uid="uid://dc7gc2it1hogw" path="res://Escenas/Maingame/themeNameTags.tres" id="6_2dsyk"]
+[ext_resource type="Theme" uid="uid://v28k7lh33uhi" path="res://Escenas/Maingame/themeNameTags.tres" id="6_2dsyk"]
 [ext_resource type="Texture2D" uid="uid://6pjo7u5mdui8" path="res://Sprites/QuickTimeEvent/brazomartillo2.png" id="6_5l500"]
 [ext_resource type="Texture2D" uid="uid://d1sa3ql83f6nf" path="res://Sprites/QuickTimeEvent/2.png" id="8_1phx8"]
 [ext_resource type="Texture2D" uid="uid://cpwig8pnlt1pg" path="res://Sprites/QuickTimeEvent/1.png" id="9_ffqqa"]

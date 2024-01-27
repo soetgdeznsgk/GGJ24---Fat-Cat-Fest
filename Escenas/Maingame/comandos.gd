@@ -17,7 +17,7 @@ var ultimoInputRegistrado = null
 var procesosPausados = false
 @onready var anim = $AnimationPlayer
 @onready var comandoNodos = [$Comando0, $Comando1, $Comando2, $Comando3]
-@onready var spriteGato = $Gato
+@export var spriteGato : AnimatedSprite2D  
 @onready var tmrSacarJeta = $TmrSacarJeta
 var sacarJeta = true
 var errorContinuo = false
@@ -30,6 +30,8 @@ var numeroMitadComida
 var sfx_comer := AudioStreamPlayer.new()
 var comer_flag
 
+@export var comerTest : Array[AudioStream]
+
 func _ready() -> void:
 	comer_flag = false
 	sfx_comer.bus = "SFX"
@@ -41,6 +43,11 @@ func _ready() -> void:
 	spriteGato.play("idle")
 	
 	# Dependiendo del jugador tiene ciertas teclas para el physic process
+	diccionarioInputs[Enums.Arriba] = "ArribaPj" + str(jugador)
+	diccionarioInputs[Enums.Abajo]  = "AbajoPj" + str(jugador)
+	diccionarioInputs[Enums.Izquierda] = "IzquierdaPj" + str(jugador)
+	diccionarioInputs[Enums.Derecha] = "DerechaPj" + str(jugador)
+	
 	if jugador == 2:
 		chokesonido= load("res://Escenas/Maingame/sfx/buzz1.mp3")
 		listaSfxComer=[load("res://SFX/nom1.mp3"),load("res://SFX/nom2.mp3"),\
@@ -49,10 +56,6 @@ func _ready() -> void:
 		load("res://SFX/nom7.mp3")]
 		listaSfxAcabarPlato = [load("res://SFX/finalComida1.mp3"), load("res://SFX/finalComida2.mp3"),\
 		load("res://SFX/finalComida3.mp3"), load("res://SFX/finalComida4.mp3")]		
-		diccionarioInputs[Enums.Arriba] = "ArribaPj2"
-		diccionarioInputs[Enums.Abajo]  = "AbajoPj2"
-		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj2"
-		diccionarioInputs[Enums.Derecha] = "DerechaPj2"
 		$NamePlayer.modulate = Color("#F2DF6F")
 		for i in comandoNodos:
 			i.modulate = Color("#F2DF6F")
@@ -65,10 +68,6 @@ func _ready() -> void:
 		listaSfxAcabarPlato = [load("res://SFX/GatoProta/terminar1.mp3"), load("res://SFX/GatoProta/terminar2.mp3"),\
 		load("res://SFX/GatoProta/terminar3.mp3"), load("res://SFX/GatoProta/terminar4.mp3"),load("res://SFX/GatoProta/terminar5.mp3"),\
 		load("res://SFX/GatoProta/terminar6.mp3")]
-		diccionarioInputs[Enums.Arriba] = "ArribaPj1"
-		diccionarioInputs[Enums.Abajo] = "AbajoPj1"
-		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj1"
-		diccionarioInputs[Enums.Derecha] = "DerechaPj1"
 		$NamePlayer.modulate = Color("#88D662")
 		for i in comandoNodos:
 			i.modulate = Color("#88D662")

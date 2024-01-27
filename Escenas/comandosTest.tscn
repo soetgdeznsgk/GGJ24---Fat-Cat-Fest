@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://jj47yqs7ao04"]
+
+[ext_resource type="PackedScene" uid="uid://bbx7yskj14jdm" path="res://Escenas/Maingame/comandos.tscn" id="1_xdhah"]
+
+[node name="Comandos" instance=ExtResource("1_xdhah")]
+
+[node name="Gato" parent="." index="0"]
+animation = &"loop_victoria"
+frame_progress = 0.394632

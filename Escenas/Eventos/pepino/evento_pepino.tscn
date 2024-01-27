@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bwiga5soldwi" path="res://Sprites/QuickTimeEvent/PepinoBomba.png" id="2_874eh"]
 [ext_resource type="Texture2D" uid="uid://bsfarbyogdekf" path="res://Sprites/Comandos/FlechaDerecha.png" id="3_i6pxy"]
 [ext_resource type="Texture2D" uid="uid://8ghf3slrnybo" path="res://Sprites/Comandos/FlechaIzquierda.png" id="4_4vkfi"]
-[ext_resource type="Theme" uid="uid://dc7gc2it1hogw" path="res://Escenas/Maingame/themeNameTags.tres" id="6_22ykq"]
+[ext_resource type="Theme" uid="uid://v28k7lh33uhi" path="res://Escenas/Maingame/themeNameTags.tres" id="6_22ykq"]
 
 [sub_resource type="Animation" id="Animation_d3t1v"]
 length = 0.001

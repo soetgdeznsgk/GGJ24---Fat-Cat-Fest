@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Escenas/Eventos/darseduro/Sprite2D.gd" id="2_ketnl"]
 [ext_resource type="Texture2D" uid="uid://ul6v7ibnq4v3" path="res://Sprites/QuickTimeEvent/gatoCabeza.png" id="2_m7ben"]
-[ext_resource type="Theme" uid="uid://cmt45b3cka4wi" path="res://Escenas/Maingame/themeNameTags.tres" id="2_no4kq"]
+[ext_resource type="Theme" uid="uid://v28k7lh33uhi" path="res://Escenas/Maingame/themeNameTags.tres" id="2_no4kq"]
 [ext_resource type="Texture2D" uid="uid://36do2trpwuiy" path="res://Sprites/QuickTimeEvent/gatoCuerpo.png" id="3_1nceb"]
 [ext_resource type="Texture2D" uid="uid://bb2rt4ccdlfwl" path="res://Sprites/QuickTimeEvent/gatopatagolpeadora.png" id="4_lg8pl"]
 

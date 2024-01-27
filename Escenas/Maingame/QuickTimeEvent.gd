@@ -43,7 +43,7 @@ func cheer(prob : float):
 
 func finAnimacion():
 	#logica de cambio de evento
-	var selection = 0#randi_range(0,listaEventos.size() - 1)
+	var selection = 2#randi_range(0,listaEventos.size() - 1)
 	if selection == ultimoEvento:
 		selection -= 1
 	# para testing usar el de abajo

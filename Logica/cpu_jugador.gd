@@ -34,11 +34,12 @@ var vectorOrtonormal : Vector2
 var referencia_pepino := NodePath("../QuickTimeEvent/evento_pepino")
 
 # variables relevantes a darseduro
-var referencia_darseduro := NodePath("../QuickTimeEvent/evento_darse_duro")
+var referencia_darseduro := NodePath("../QuickTimeEvent/EventoDarseDuro")
+var can_play := true
 
 
 func set_difficulty() -> void:
-	currDifficulty = 3#randi_range(1, 3)
+	currDifficulty = randi_range(1, 3)
 	
 
 func _enter_tree() -> void:
@@ -55,12 +56,14 @@ func minigame_entered(activity : int) -> void:
 		Enums.MiniJuegos.RomperPlatos:
 			currState = States.RompiendoPlatos
 			get_node(referencia_rompeplatos).is_p2_hammer.connect(determine_position)
-			
 			break_dishes(1.0)
 		Enums.MiniJuegos.DarseDuro: 
 			currState = States.DandoseDuro
+			get_node(referencia_darseduro).p2_can_hit.connect(set_attack_state)
+			fist_fight(1.0)
 		Enums.MiniJuegos.Pepino: 
 			currState = States.Pepineando
+			cucumber(1.0)
 
 #region Behavior Pattern TODO pepino, darseduro
 
@@ -80,14 +83,15 @@ func eat(cache) -> void:
 		Input.action_release(bufferedInputs[0])
 		bufferedInputs.clear()
 		await $Timer.timeout
-		eat(0) #funciona?
+		eat(0)
+#region Rompeplatos Behavior Pattern
 
 func break_dishes(cache) -> void:
 	if currState == States.RompiendoPlatos:
 		pos_hammer = get_node(referencia_pos_hammer).global_position
 		pos_dish = get_node(referencia_pos_dish).global_position
 		
-		if cache is float:
+		if cache is float: # osea si es la primera instancia de la recurisón
 			$Timer.wait_time = 1.1 - (0.2 * currDifficulty) # 0.9 s easy, 0.7 s mid, 0.5 hard 
 			determine_position(get_node(referencia_rompeplatos).p2_started_as_hammer) 
 		else: # Conforme pasan llamadas a break_dishe del minijuego, la CPU va teniendo mejor tiempo de reacción
@@ -132,12 +136,40 @@ func process_inputs_buffered(metodo : Callable) -> void:
 	for i in range(0, bufferedInputs.size() ):
 		metodo.call(bufferedInputs[i])
 		
+#endregion
+#region Pepino Behavior Pattern
 func cucumber(cache) -> void:
 	pass
 	
+#endregion
+#region DarseDuro Behavior Pattern
 func fist_fight(cache) -> void:
-	pass
-	
+	if currState == States.DandoseDuro: 
+		# hard 0.2-0.4 s, med 0.3-0.6 s, easy 0.5-0.9
+		$Timer.wait_time = (10 / ( (9 * currDifficulty) + 5.4) ) + randf_range( - (0.25 - (currDifficulty * 0.05) ), 0.25 - (currDifficulty * 0.05))
+		if cache is float:
+			bufferedInputs.clear()
+			bufferedInputs.append(Inputs.get(Enums.Arriba))
+			can_play = true
+		if can_play:
+			if bufferedInputs[0] == Inputs.get(Enums.Abajo):
+				bufferedInputs[0] = Inputs.get(Enums.Arriba)
+			elif bufferedInputs[0] == Inputs.get(Enums.Arriba):
+				bufferedInputs[0] = Inputs.get(Enums.Abajo)
+			await $Timer.timeout
+			Input.action_press(bufferedInputs[0])
+			
+			can_play = false
+		
+		$Timer.wait_time = 0.01 * get_process_delta_time()
+		await $Timer.timeout
+		if bufferedInputs.size() != 0: # el await puede hacer que se salga del evento y bufferedInputs sea limpiado afuera de la función antes de llegar acá
+			Input.action_release(bufferedInputs[0])
+		fist_fight(0)
+
+func set_attack_state() -> void:
+	can_play = true
+#endregion
 #endregion
 
 func set_idle() -> void:

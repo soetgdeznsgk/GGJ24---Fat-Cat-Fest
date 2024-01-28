@@ -14,7 +14,7 @@ func _enter_tree():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	bg_music.stream = load("res://Escenas/Menus/Musik/Warped-Alien-Band_Looping.mp3")
+	bg_music.stream = load("res://Musica/tfcf_menu.wav")
 	bg_music.autoplay = true
 	bg_music.bus = "Music"
 	add_child(bg_music)

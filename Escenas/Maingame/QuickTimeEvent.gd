@@ -47,7 +47,7 @@ func finAnimacion():
 	#if selection == ultimoEvento: TODO encontrar una manera en que se depreque el ultimoEvento QUE NO SEA ESTA por que éste codigo no funciona como debería 
 		#selection -= 1 # esta vaina hace que, si se repite el primer evento, señale nuevoEvento(-1) y eso rompe a la CPU
 	# TESTING: 
-	#selection = 1
+	selection = 1
 	var eventoInstanciado = listaEventos[selection].instantiate()
 	ultimoEvento = selection 
 	add_child(eventoInstanciado)

@@ -1,20 +1,20 @@
 [gd_scene load_steps=35 format=3 uid="uid://c6s322jcilwwp"]
 
 [ext_resource type="Script" path="res://Escenas/Eventos/pepino/evento_pepino.gd" id="1_8qjqu"]
-[ext_resource type="Texture2D" uid="uid://bjsfpkws15228" path="res://Sprites/Fondos/bggame3.png" id="2_mqa73"]
+[ext_resource type="Texture2D" uid="uid://b7e25smbbpiqf" path="res://Sprites/Gatos/Gato Lampara/Pepino/pepino_3.png" id="3_cq0ls"]
 [ext_resource type="Texture2D" uid="uid://bsfarbyogdekf" path="res://Sprites/Comandos/FlechaDerecha.png" id="3_i6pxy"]
-[ext_resource type="Texture2D" uid="uid://bjx7n857j806f" path="res://Sprites/Gatos/Gato Lampara/Pepino/Pepino1.png" id="3_i52fg"]
 [ext_resource type="Texture2D" uid="uid://8ghf3slrnybo" path="res://Sprites/Comandos/FlechaIzquierda.png" id="4_4vkfi"]
-[ext_resource type="Texture2D" uid="uid://bx3p6vq1rcgid" path="res://Sprites/Gatos/Gato Lampara/Pepino/Pepino2.png" id="4_k7sxx"]
-[ext_resource type="Texture2D" uid="uid://dp2eq4r7iek00" path="res://Sprites/Gatos/Gato Lampara/Pepino/Pepino3.png" id="5_53lho"]
-[ext_resource type="Texture2D" uid="uid://be5gn8cqws42j" path="res://Sprites/Gatos/Gato Lampara/Pepino/Pepino4.png" id="6_7idb4"]
+[ext_resource type="Texture2D" uid="uid://kwhljgcvqhu4" path="res://Sprites/Gatos/Gato Lampara/Pepino/pepino_4.png" id="4_jlh8x"]
+[ext_resource type="Texture2D" uid="uid://biu3cvs1f0mc0" path="res://Sprites/Gatos/Gato Lampara/Pepino/pepino_5.png" id="5_bdb3i"]
 [ext_resource type="Theme" uid="uid://v28k7lh33uhi" path="res://Escenas/Maingame/themeNameTags.tres" id="6_22ykq"]
-[ext_resource type="Texture2D" uid="uid://dcdv2stosmck6" path="res://Sprites/Gatos/Gato Lampara/Pepino/Pepino5.png" id="7_45bvb"]
-[ext_resource type="Texture2D" uid="uid://dd5pesjg30ysg" path="res://Sprites/Gatos/Gato Lampara/Pepino/Pepino6.png" id="8_ltk3x"]
-[ext_resource type="Texture2D" uid="uid://u044idpi5d0w" path="res://Sprites/Gatos/Gato Lampara/Pepino/Pepino11.png" id="9_v7gn3"]
-[ext_resource type="Texture2D" uid="uid://b4jwo33v260o0" path="res://Sprites/Gatos/Gato Lampara/Pepino/Pepino7.png" id="10_2l2yg"]
-[ext_resource type="Texture2D" uid="uid://dyu8uignw5aui" path="res://Sprites/Gatos/Gato Lampara/Pepino/Pepino8.png" id="11_63ijy"]
-[ext_resource type="Texture2D" uid="uid://ct0bs2ybbxwor" path="res://Sprites/Gatos/Gato Lampara/Pepino/Pepino9.png" id="12_v83s2"]
+[ext_resource type="Texture2D" uid="uid://pemccwwhuaw6" path="res://Sprites/Gatos/Gato Lampara/Pepino/pepino_6.png" id="6_80a8w"]
+[ext_resource type="Texture2D" uid="uid://lmathp48qf0r" path="res://Sprites/Gatos/Gato Lampara/Pepino/pepino_10.png" id="7_ypwl7"]
+[ext_resource type="Texture2D" uid="uid://ce84f865joy07" path="res://Sprites/Gatos/Gato Lampara/Pepino/pepino_11.png" id="8_ut3n3"]
+[ext_resource type="Texture2D" uid="uid://5saiibvr0oee" path="res://Sprites/Gatos/Gato Lampara/Pepino/pepino_1.png" id="9_5y45x"]
+[ext_resource type="Texture2D" uid="uid://dgobnga4k050j" path="res://Sprites/Gatos/Gato Lampara/Pepino/pepino_2.png" id="10_iqo31"]
+[ext_resource type="Texture2D" uid="uid://ny8ivla01si6" path="res://Sprites/Gatos/Gato Lampara/Pepino/pepino_9.png" id="11_d63ry"]
+[ext_resource type="Texture2D" uid="uid://dppexot0eraam" path="res://Sprites/Gatos/Gato Lampara/Pepino/pepino_7.png" id="12_ed6yc"]
+[ext_resource type="Texture2D" uid="uid://b8guf4l8sx0p3" path="res://Sprites/Gatos/Gato Lampara/Pepino/pepino_8.png" id="13_v5hmj"]
 [ext_resource type="Texture2D" uid="uid://clrtd08suvir6" path="res://Sprites/QuickTimeEvent/Pepino/Pepino10.png" id="14_np27c"]
 [ext_resource type="Texture2D" uid="uid://c12p8dw8d325g" path="res://Sprites/QuickTimeEvent/Pepino/pepibomb1.png" id="14_xrbfh"]
 [ext_resource type="Texture2D" uid="uid://ey5882q2d0ii" path="res://Sprites/QuickTimeEvent/Pepino/pepibomb2.png" id="15_am3c0"]
@@ -31,22 +31,16 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_i52fg")
+"texture": ExtResource("3_cq0ls")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_k7sxx")
+"texture": ExtResource("4_jlh8x")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_53lho")
+"texture": ExtResource("5_bdb3i")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_7idb4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_45bvb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_ltk3x")
+"texture": ExtResource("6_80a8w")
 }],
 "loop": false,
 "name": &"arriveth",
@@ -54,18 +48,21 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_v7gn3")
+"texture": ExtResource("7_ypwl7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ut3n3")
 }],
 "loop": true,
 "name": &"bomba",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_i52fg")
+"texture": ExtResource("9_5y45x")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_k7sxx")
+"texture": ExtResource("10_iqo31")
 }],
 "loop": true,
 "name": &"idle_loop",
@@ -73,13 +70,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_2l2yg")
+"texture": ExtResource("11_d63ry")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_63ijy")
+"texture": ExtResource("12_ed6yc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_v83s2")
+"texture": ExtResource("13_v5hmj")
 }],
 "loop": false,
 "name": &"leaveth",
@@ -278,20 +275,14 @@ _data = {
 [node name="EventoPepino" type="Node2D"]
 script = ExtResource("1_8qjqu")
 
-[node name="Sillas" type="Sprite2D" parent="."]
-position = Vector2(3.05176e-05, 0)
-scale = Vector2(0.712, 0.712)
-texture = ExtResource("2_mqa73")
-centered = false
-
 [node name="Gato" type="AnimatedSprite2D" parent="."]
-position = Vector2(466, 295)
+position = Vector2(460, 258)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_tmqid")
 animation = &"arriveth"
 
 [node name="Gato2" type="AnimatedSprite2D" parent="."]
-position = Vector2(916, 295)
+position = Vector2(913, 258)
 scale = Vector2(-0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_tmqid")
 animation = &"arriveth"

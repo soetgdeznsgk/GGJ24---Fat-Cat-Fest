@@ -1,12 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://cxwff3nt01gul"]
+[gd_scene load_steps=23 format=3 uid="uid://cxwff3nt01gul"]
 
 [ext_resource type="Script" path="res://Escenas/Eventos/romperplatos/evento_romper_platos.gd" id="1_6r5rn"]
 [ext_resource type="Texture2D" uid="uid://difkvs4ri15mk" path="res://Sprites/QuickTimeEvent/fondoplatos.png" id="2_6owar"]
 [ext_resource type="Script" path="res://Escenas/Eventos/romperplatos/Martillo.gd" id="2_krrne"]
-[ext_resource type="Texture2D" uid="uid://c32f5861vb4ns" path="res://Sprites/QuickTimeEvent/brazomartillo1.png" id="2_ldjf1"]
+[ext_resource type="Texture2D" uid="uid://m1icc5x7rlub" path="res://Sprites/QuickTimeEvent/brazomarpj1-1.png" id="2_ldjf1"]
 [ext_resource type="Texture2D" uid="uid://dqtsl3p2axvdr" path="res://Sprites/QuickTimeEvent/patasPlato.png" id="3_0p7wu"]
 [ext_resource type="Script" path="res://Escenas/Eventos/romperplatos/Plato.gd" id="5_2sp3d"]
-[ext_resource type="Texture2D" uid="uid://m1icc5x7rlub" path="res://Sprites/QuickTimeEvent/brazomarpj1-1.png" id="5_csnme"]
 [ext_resource type="Theme" uid="uid://v28k7lh33uhi" path="res://Escenas/Maingame/themeNameTags.tres" id="6_2dsyk"]
 [ext_resource type="Texture2D" uid="uid://dgtakk4w7t5yb" path="res://Sprites/QuickTimeEvent/brazomarpj1-2.png" id="6_141ws"]
 [ext_resource type="Texture2D" uid="uid://b4rtbvcjkyc4j" path="res://Sprites/QuickTimeEvent/brazomarpj2-1.png" id="7_3ras2"]
@@ -32,7 +31,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("5_csnme"), ExtResource("6_141ws"), ExtResource("5_csnme")]
+"values": [ExtResource("2_ldjf1"), ExtResource("6_141ws"), ExtResource("2_ldjf1")]
 }
 tracks/1/type = "method"
 tracks/1/imported = false

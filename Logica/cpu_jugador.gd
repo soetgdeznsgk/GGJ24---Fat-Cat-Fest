@@ -75,7 +75,7 @@ func eat(cache) -> void:
 		if cache is float: # la primera vez que se llama eat() tras un cambio de estado, es siempre mediante eat(1.0)
 			$Timer.wait_time = 2
 			await $Timer.timeout
-			$Timer.wait_time = 1.8 - ((currDifficulty + 1 ) / 2) # easy: 1.5 s, med: 1 s, hard: 0.5 s 
+			#$Timer.wait_time = 1.8 - ((currDifficulty + 1 ) / 2) # easy: 1.5 s, med: 1 s, hard: 0.5 s 
 			
 		if randf() < 0.18 - (currDifficulty / 30) and get_node(referencia_comandos).rachaGanadora: #facil: 60% de chance que la cague, med: 50%, dif: 40%
 			inp = randi_range(0, 3)
@@ -168,7 +168,6 @@ func cucumber(cache) -> void:
 			bufferedInputs.append(Inputs.get(Enums.Izquierda))
 		$Timer.wait_time = currDifficulty / 10 + randf_range(0, .4)
 		Input.action_press(bufferedInputs[0])
-		print(bufferedInputs[0])
 		await $Timer.timeout
 		Input.action_release(bufferedInputs[0])
 		cucumber(0)

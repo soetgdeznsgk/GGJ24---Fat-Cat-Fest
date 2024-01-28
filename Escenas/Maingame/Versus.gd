@@ -29,7 +29,6 @@ func _on_audio_player_finished():
 	$AudioPlayer.play()
 
 func _on_animated_sprite_2d_frame_changed():
-	print ("augh")
 	if switch:
 		$Gato1/AnimatedSprite2D.set_scale(Vector2(-0.6, 0.6))
 		switch = true

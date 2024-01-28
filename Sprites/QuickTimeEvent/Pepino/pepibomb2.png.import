@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwiga5soldwi"
-path="res://.godot/imported/PepinoBomba.png-da4d9f6d58a6a19998500ea872824241.ctex"
+uid="uid://ey5882q2d0ii"
+path="res://.godot/imported/pepibomb2.png-029e5643e49af77fb80393c751031576.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/QuickTimeEvent/PepinoBomba.png"
-dest_files=["res://.godot/imported/PepinoBomba.png-da4d9f6d58a6a19998500ea872824241.ctex"]
+source_file="res://Sprites/QuickTimeEvent/Pepino/pepibomb2.png"
+dest_files=["res://.godot/imported/pepibomb2.png-029e5643e49af77fb80393c751031576.ctex"]
 
 [params]
 

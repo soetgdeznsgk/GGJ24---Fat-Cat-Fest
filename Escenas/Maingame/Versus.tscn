@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://0urut37fsjci"]
+[gd_scene load_steps=14 format=3 uid="uid://0urut37fsjci"]
 
 [ext_resource type="Script" path="res://Escenas/Maingame/Versus.gd" id="1_4am3t"]
 [ext_resource type="Texture2D" uid="uid://cmnmlwu86ovk" path="res://Sprites/Versus/pose de pelea 1.png" id="2_5axbq"]
 [ext_resource type="Texture2D" uid="uid://c0y8a8dqm8l5" path="res://Sprites/Versus/timmy vs 01.png" id="2_mrj2d"]
 [ext_resource type="Texture2D" uid="uid://drup06abu4g1i" path="res://Sprites/Versus/timmy vs 02.png" id="3_cp6mv"]
 [ext_resource type="Texture2D" uid="uid://dv264aj7oiker" path="res://Sprites/Versus/pose de pelea 2.png" id="3_obtmw"]
+[ext_resource type="Theme" uid="uid://v28k7lh33uhi" path="res://Escenas/Maingame/themeNameTags.tres" id="4_dswoe"]
 [ext_resource type="Texture2D" uid="uid://bqq38hbne211l" path="res://Sprites/Versus/bgvs1.png" id="13_81dkm"]
 [ext_resource type="Texture2D" uid="uid://02raxd33yta" path="res://Sprites/Versus/vs.png" id="13_e1mvw"]
 [ext_resource type="Texture2D" uid="uid://bcvg1jjgh8vha" path="res://Sprites/Versus/bgvs2.png" id="14_0vgf6"]
@@ -46,6 +47,7 @@ font_size = 40
 [node name="Versus" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+theme = ExtResource("4_dswoe")
 script = ExtResource("1_4am3t")
 
 [node name="Gato1" type="Node2D" parent="."]
@@ -58,7 +60,6 @@ scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_yog88")
 animation = &"Idle"
 frame_progress = 0.109849
-flip_h = true
 
 [node name="NombreGato1" type="Label" parent="Gato1"]
 unique_name_in_owner = true
@@ -67,6 +68,7 @@ offset_left = 157.0
 offset_top = 120.0
 offset_right = 497.0
 offset_bottom = 300.0
+theme = ExtResource("4_dswoe")
 label_settings = SubResource("LabelSettings_2f5hc")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -91,6 +93,7 @@ offset_left = 920.0
 offset_top = 120.0
 offset_right = 1260.0
 offset_bottom = 300.0
+theme = ExtResource("4_dswoe")
 label_settings = SubResource("LabelSettings_cob6d")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -124,6 +127,7 @@ metadata/_edit_lock_ = true
 unique_name_in_owner = true
 bus = &"SFX"
 
+[connection signal="frame_changed" from="Gato1/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="finished" from="AudioPlayer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="finished" from="AudioPlayer" to="." method="_on_audio_player_finished"]

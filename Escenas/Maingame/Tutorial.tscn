@@ -1,0 +1,150 @@
+[gd_scene load_steps=21 format=3 uid="uid://dgvq5ox5urfs1"]
+
+[ext_resource type="Script" path="res://Escenas/Maingame/Tutorial.gd" id="1_nxb07"]
+[ext_resource type="Texture2D" uid="uid://cth80ou0c0vgb" path="res://Sprites/Fondos/bggame0.png" id="2_8k71y"]
+[ext_resource type="Texture2D" uid="uid://bo1blyw4wxvco" path="res://Sprites/Fondos/bggame1.png" id="3_xdfnt"]
+[ext_resource type="Texture2D" uid="uid://br1n14m8wh2p" path="res://Sprites/Fondos/bggame2.png" id="4_04rjw"]
+[ext_resource type="Texture2D" uid="uid://6ygmtis46k1w" path="res://Sprites/Fondos/bggame4.png" id="5_xyl73"]
+[ext_resource type="Texture2D" uid="uid://bjsfpkws15228" path="res://Sprites/Fondos/bggame3.png" id="6_txrmg"]
+[ext_resource type="Texture2D" uid="uid://bvcmj27m3cp0i" path="res://Sprites/Fondos/bggame5.png" id="7_tr2wy"]
+[ext_resource type="Texture2D" uid="uid://dffv5pexrts7s" path="res://Sprites/Tutorial/tutomulti0.png" id="9_oc8o3"]
+[ext_resource type="Texture2D" uid="uid://dnqyuwlha5q5y" path="res://Sprites/Tutorial/tutomulti1.png" id="10_jp8nr"]
+[ext_resource type="Texture2D" uid="uid://dnluclbudf8c8" path="res://Sprites/Tutorial/tutomulti2.png" id="11_3b8v1"]
+[ext_resource type="Texture2D" uid="uid://c2u3363gowwtp" path="res://Sprites/Tutorial/tutomulti3.png" id="12_anpep"]
+[ext_resource type="Texture2D" uid="uid://cgmvmqv1rnhx4" path="res://Sprites/Tutorial/tutomulti4.png" id="13_53vti"]
+[ext_resource type="Texture2D" uid="uid://dn37swknis57g" path="res://Sprites/Tutorial/tutomulti5.png" id="14_lp1y1"]
+[ext_resource type="Texture2D" uid="uid://bkun3og03fy1r" path="res://Sprites/Tutorial/tutomulti6.png" id="15_6xxaq"]
+[ext_resource type="Texture2D" uid="uid://l1vwh8aovvjb" path="res://Sprites/Tutorial/tutomulti7.png" id="16_vvcb1"]
+[ext_resource type="Script" path="res://Escenas/Maingame/Camera2D.gd" id="59_6xxjd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_632lu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_oc8o3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_jp8nr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_3b8v1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_anpep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_53vti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_lp1y1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_6xxaq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_vvcb1")
+}],
+"loop": true,
+"name": &"MultiPlayer",
+"speed": 2.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"SinglePlayer",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_vnvjy"]
+resource_name = "tutorialprogamer"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pantalla:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(689, -389), Vector2(689, 385)]
+}
+
+[sub_resource type="Animation" id="Animation_yy188"]
+resource_name = "adios_tutorialprogamer"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pantalla:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(689, 385), Vector2(689, -389)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7r6k6"]
+_data = {
+"adios_tutorialprogamer": SubResource("Animation_yy188"),
+"tutorialprogamer": SubResource("Animation_vnvjy")
+}
+
+[node name="Tutorial" type="Node2D" node_paths=PackedStringArray("animationPlayador", "pantallprogamerproooo")]
+script = ExtResource("1_nxb07")
+animationPlayador = NodePath("AnimationPlayer")
+pantallprogamerproooo = NodePath("pantalla")
+
+[node name="Fondo" type="Sprite2D" parent="."]
+scale = Vector2(0.712, 0.712)
+texture = ExtResource("2_8k71y")
+centered = false
+
+[node name="Deco" type="Sprite2D" parent="."]
+scale = Vector2(0.712, 0.712)
+texture = ExtResource("3_xdfnt")
+centered = false
+
+[node name="Stage" type="Sprite2D" parent="."]
+scale = Vector2(0.712, 0.712)
+texture = ExtResource("4_04rjw")
+centered = false
+
+[node name="Cartel" type="Sprite2D" parent="."]
+scale = Vector2(0.712, 0.712)
+texture = ExtResource("5_xyl73")
+centered = false
+
+[node name="Sillas" type="Sprite2D" parent="."]
+scale = Vector2(0.712, 0.712)
+texture = ExtResource("6_txrmg")
+centered = false
+
+[node name="Mesa" type="Sprite2D" parent="."]
+z_index = 1
+z_as_relative = false
+position = Vector2(-3, 14)
+scale = Vector2(0.712, 0.712)
+texture = ExtResource("7_tr2wy")
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(681, 386)
+process_callback = 0
+script = ExtResource("59_6xxjd")
+zoomFinal = Vector2(1.5, 1.5)
+
+[node name="pantalla" type="AnimatedSprite2D" parent="."]
+z_index = 5
+position = Vector2(689, -389)
+scale = Vector2(0.712037, 0.712037)
+sprite_frames = SubResource("SpriteFrames_632lu")
+animation = &"MultiPlayer"
+frame_progress = 0.304142
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7r6k6")
+}

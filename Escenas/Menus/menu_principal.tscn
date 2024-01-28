@@ -195,6 +195,7 @@ script = ExtResource("3_nccfq")
 bus_name = "SFX"
 
 [node name="Label3" type="Label" parent="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Language"

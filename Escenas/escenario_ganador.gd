@@ -23,8 +23,6 @@ func _ready() -> void:
 		await get_tree().create_timer(.2).timeout
 		$Gato1.play("loop_derrota")
 		$Gato2.play("loop_victoria")
-		
-
 func _process(delta: float) -> void:
 	pass
 

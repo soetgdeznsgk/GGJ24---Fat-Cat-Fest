@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://c1chhpmxmfbcs"]
+[gd_scene load_steps=49 format=3 uid="uid://c1chhpmxmfbcs"]
 
 [ext_resource type="Script" path="res://Escenas/escenario_ganador.gd" id="1_b6hkr"]
 [ext_resource type="Texture2D" uid="uid://cth80ou0c0vgb" path="res://Sprites/Fondos/bggame0.png" id="2_htofk"]
@@ -13,21 +13,28 @@
 [ext_resource type="Texture2D" uid="uid://dx7uis8jda7ap" path="res://Sprites/Comidas/1Pla.png" id="9_lshxh"]
 [ext_resource type="Texture2D" uid="uid://bvcmj27m3cp0i" path="res://Sprites/Fondos/bggame5.png" id="9_uko8v"]
 [ext_resource type="Texture2D" uid="uid://cirw8axeuwckb" path="res://Sprites/Comidas/3Pla.png" id="10_c287q"]
-[ext_resource type="Texture2D" uid="uid://cpe1wx0owdbkl" path="res://icon.svg" id="15_qcgdv"]
+[ext_resource type="Texture2D" uid="uid://bkiqmc3oh8ydq" path="res://Sprites/Gatos/Gato Timmy/derrota/derrota1.png" id="15_sa425"]
 [ext_resource type="Texture2D" uid="uid://pyph7c3rg6jm" path="res://Sprites/Gatos/Gato Timmy/victoria/victoria1.png" id="16_k7dxt"]
 [ext_resource type="Texture2D" uid="uid://cn18euyk0fcym" path="res://Sprites/QuickTimeEvent/winner.png" id="16_l8rl6"]
 [ext_resource type="Texture2D" uid="uid://uo43intr8xu7" path="res://Sprites/Gatos/Gato Timmy/victoria/victoria2.png" id="17_mhc5u"]
+[ext_resource type="Texture2D" uid="uid://d4cuhvetknew5" path="res://Sprites/Gatos/Gato Timmy/derrota/derrota2.png" id="17_xds4e"]
 [ext_resource type="Texture2D" uid="uid://b8npns1i2lhse" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_1.png" id="17_xnm2q"]
 [ext_resource type="Texture2D" uid="uid://dn2mhwp2s5oba" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_2.png" id="18_6t15u"]
 [ext_resource type="Texture2D" uid="uid://y8vsm8pc3u2n" path="res://Sprites/Gatos/Gato Timmy/victoria/victoria3.png" id="18_wfa8p"]
+[ext_resource type="Texture2D" uid="uid://b6f5kb052fkye" path="res://Sprites/Gatos/Gato Timmy/derrota/derrota3.png" id="18_xs8go"]
+[ext_resource type="Texture2D" uid="uid://4nq7lw1tawi6" path="res://Sprites/Gatos/Gato Timmy/derrota/derrota4.png" id="19_dskka"]
 [ext_resource type="Texture2D" uid="uid://dy14n47dsotas" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_3.png" id="19_kaupv"]
 [ext_resource type="Texture2D" uid="uid://dgygt2uv0ifwg" path="res://Sprites/Gatos/Gato Timmy/victoria/victoria4.png" id="19_up0x3"]
 [ext_resource type="Texture2D" uid="uid://bwluk7h88ijmm" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_4.png" id="20_erjxh"]
+[ext_resource type="Texture2D" uid="uid://d3oyjnul6eido" path="res://Sprites/Gatos/Gato Timmy/derrota/derrota5.png" id="20_hjdun"]
 [ext_resource type="Texture2D" uid="uid://8see8pijg274" path="res://Sprites/Gatos/Gato Timmy/victoria/victoria5.png" id="20_rmap5"]
 [ext_resource type="Texture2D" uid="uid://dfq2wkotj6art" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_5.png" id="21_6wuum"]
+[ext_resource type="Texture2D" uid="uid://baul25vg51g4l" path="res://Sprites/Gatos/Gato Timmy/derrota/derrota6.png" id="21_r25k5"]
 [ext_resource type="Texture2D" uid="uid://ce5rpbg317fq1" path="res://Sprites/Gatos/Gato Timmy/victoria/victoria6.png" id="21_rop58"]
 [ext_resource type="Texture2D" uid="uid://c6ivbsns74sna" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_6.png" id="22_4hsrj"]
 [ext_resource type="Texture2D" uid="uid://b5yvu0wd6shpr" path="res://Sprites/Gatos/Gato Timmy/victoria/victoria7.png" id="22_6ctg6"]
+[ext_resource type="Texture2D" uid="uid://2rqphutlp1pa" path="res://Sprites/Gatos/Gato Timmy/derrota/derrota7.png" id="22_53bjs"]
+[ext_resource type="Texture2D" uid="uid://q3mi2in2q3p2" path="res://Sprites/Gatos/Gato Timmy/derrota/derrota8.png" id="23_0f6ui"]
 [ext_resource type="Texture2D" uid="uid://cnfax4kkp1e5v" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_7.png" id="23_o1di2"]
 [ext_resource type="Texture2D" uid="uid://blboo6wdxq3oh" path="res://Sprites/Gatos/Gato Timmy/victoria/victoria8.png" id="23_tf2to"]
 [ext_resource type="Texture2D" uid="uid://be32a7i3firyx" path="res://Sprites/Gatos/Gato Lampara/Derrota/derrota_1.png" id="24_gxa6e"]
@@ -197,7 +204,7 @@ _data = {
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("15_qcgdv")
+"texture": ExtResource("15_sa425")
 }],
 "loop": false,
 "name": &"begin_derrota",
@@ -213,16 +220,34 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("15_qcgdv")
+"texture": ExtResource("17_xds4e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_xs8go")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_dskka")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_hjdun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_r25k5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_53bjs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_0f6ui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_sa425")
 }],
 "loop": true,
 "name": &"loop_derrota",
 "speed": 8.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("16_k7dxt")
-}, {
 "duration": 1.0,
 "texture": ExtResource("17_mhc5u")
 }, {
@@ -243,6 +268,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("23_tf2to")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_k7dxt")
 }],
 "loop": true,
 "name": &"loop_victoria",
@@ -251,19 +279,6 @@ animations = [{
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oo45w"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("15_qcgdv")
-}],
-"loop": false,
-"name": &"begin_derrota",
-"speed": 8.0
-}, {
-"frames": [],
-"loop": false,
-"name": &"begin_victoria",
-"speed": 8.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("24_gxa6e")
@@ -276,15 +291,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("27_2ctb2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("28_fljuv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("29_xwsta")
 }],
-"loop": true,
-"name": &"loop_derrota",
+"loop": false,
+"name": &"begin_derrota",
 "speed": 8.0
 }, {
 "frames": [{
@@ -302,7 +311,23 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("21_6wuum")
+}],
+"loop": false,
+"name": &"begin_victoria",
+"speed": 8.0
 }, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_fljuv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_xwsta")
+}],
+"loop": true,
+"name": &"loop_derrota",
+"speed": 8.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": ExtResource("22_4hsrj")
 }, {
@@ -438,13 +463,14 @@ z_as_relative = false
 position = Vector2(677, 425)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_rid53")
-animation = &"loop_victoria"
+animation = &"begin_derrota"
+frame_progress = 1.0
 
 [node name="Gato2" type="AnimatedSprite2D" parent="."]
 z_as_relative = false
 position = Vector2(902, 435)
 scale = Vector2(0.36701, 0.36701)
 sprite_frames = SubResource("SpriteFrames_oo45w")
-animation = &"loop_derrota"
+animation = &"loop_victoria"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

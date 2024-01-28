@@ -105,8 +105,7 @@ func _on_h_box_container_sp_start_game(): # iniciar juego sp
 	button_standard_audio.play()
 	Eventos.singleplayer = true
 	get_tree().change_scene_to_file("res://Escenas/Maingame/Versus.tscn")
-	Names.name_player1 = Names.nameinitial.pick_random() + " " + Names.namefinal.pick_random()
-	Names.name_player2 = Names.nameinitial.pick_random() + " " + Names.namefinal.pick_random() + " (CPU)"
+	Names.name_player2 += " (CPU)"
 
 
 func _on_credits_button_pressed() -> void:

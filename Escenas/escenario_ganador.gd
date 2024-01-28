@@ -6,6 +6,9 @@ func _ready() -> void:
 	if Eventos.ganador == 1:
 		$Label.text = "WINNER OF CAT FAST FEST IS ... " + Names.name_player1
 		$LabelNombre.text = Names.name_player1
+		$Gato1.play("begin_victoria")
+		$Gato2.play("begin_derrota")
+		await get_tree().create_timer(.2).timeout
 		$Gato1.play("loop_victoria")
 		$Gato2.play("loop_derrota")
 	elif Eventos.ganador == 2:
@@ -15,6 +18,9 @@ func _ready() -> void:
 		$Gato1.scale = Vector2(0.367,0.367)
 		$Gato2.position = Vector2(677,365)
 		$Gato2.scale = Vector2(0.7,0.7)
+		$Gato1.play("begin_derrota")
+		$Gato2.play("begin_victoria")
+		await get_tree().create_timer(.2).timeout
 		$Gato1.play("loop_derrota")
 		$Gato2.play("loop_victoria")
 		

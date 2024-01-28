@@ -21,6 +21,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_2f5hc"]
+font_size = 40
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_3quny"]
 animations = [{
 "frames": [{
@@ -35,9 +38,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="LabelSettings" id="LabelSettings_2f5hc"]
-font_size = 40
-
 [sub_resource type="LabelSettings" id="LabelSettings_cob6d"]
 font_size = 40
 
@@ -46,7 +46,10 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_4am3t")
 
-[node name="Gato1" type="AnimatedSprite2D" parent="."]
+[node name="Gato1" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Gato1"]
 z_index = 1
 position = Vector2(360, 550)
 scale = Vector2(1.2, 1.2)
@@ -54,27 +57,9 @@ sprite_frames = SubResource("SpriteFrames_yog88")
 animation = &"Idle"
 flip_h = true
 
-[node name="Gato2" type="AnimatedSprite2D" parent="."]
+[node name="NombreGato1" type="Label" parent="Gato1"]
+unique_name_in_owner = true
 z_index = 1
-position = Vector2(1000, 550)
-scale = Vector2(1.2, 1.2)
-sprite_frames = SubResource("SpriteFrames_3quny")
-animation = &"Idle"
-
-[node name="VS" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(693, 198)
-scale = Vector2(0.505935, 0.505935)
-texture = ExtResource("13_e1mvw")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-autostart = true
-
-[node name="NombreGato1" type="Label" parent="."]
-z_index = 1
-layout_mode = 0
 offset_left = 157.0
 offset_top = 120.0
 offset_right = 497.0
@@ -84,9 +69,19 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="NombreGato2" type="Label" parent="."]
+[node name="Gato2" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Gato2"]
 z_index = 1
-layout_mode = 0
+position = Vector2(1000, 550)
+scale = Vector2(1.2, 1.2)
+sprite_frames = SubResource("SpriteFrames_3quny")
+animation = &"Idle"
+
+[node name="NombreGato2" type="Label" parent="Gato2"]
+unique_name_in_owner = true
+z_index = 1
 offset_left = 920.0
 offset_top = 120.0
 offset_right = 1260.0
@@ -95,6 +90,17 @@ label_settings = SubResource("LabelSettings_cob6d")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
+
+[node name="VS" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(693, 198)
+scale = Vector2(0.505935, 0.505935)
+texture = ExtResource("13_e1mvw")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
 
 [node name="Fondo1" type="Sprite2D" parent="."]
 position = Vector2(682, 384)

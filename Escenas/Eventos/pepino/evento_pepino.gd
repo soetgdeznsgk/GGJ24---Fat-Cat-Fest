@@ -39,9 +39,7 @@ func _ready():
 
 func _physics_process(_delta: float) -> void:
 	if !finished:
-		if bombPos==LEFT and !anim.is_playing() and \
-		(Input.is_action_just_pressed("DerechaPj2") or \
-		(Eventos.singleplayer and Input.is_action_pressed("DerechaPj2") ) ) : # multijugador
+		if bombPos==LEFT and !anim.is_playing() and Input.is_action_just_pressed("DerechaPj1"):
 			anim.play("swipe_right", -1 ,randf_range(0,1) + speed)
 			sprGato1.play("leaveth")
 			bombPos=RIGHT
@@ -50,7 +48,7 @@ func _physics_process(_delta: float) -> void:
 			arrowp2.visible=true
 			sprBomba.speed_scale = randi_range(1,4)
 			sprBomba.play("default")
-		if Input.is_action_just_pressed("IzquierdaPj2") and bombPos==RIGHT and !anim.is_playing():
+		if (Input.is_action_just_pressed("IzquierdaPj2") or (Eventos.singleplayer and Input.is_action_pressed("IzquierdaPj2") ) )  and bombPos==RIGHT and !anim.is_playing():
 			anim.play("swipe_left" ,-1 ,randf_range(0,1) + speed)
 			sprGato2.play("leaveth")
 			bombPos=LEFT

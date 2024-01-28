@@ -29,7 +29,7 @@ func finJuego(_ganador):
 	anim.play("fin_juego")
 	
 func tiempoAleatorio():
-	return 5#randi_range(15,25) # randi_range(15,25) #return 2
+	return 2#randi_range(15,25) # randi_range(15,25) #return 2
 
 func generarNuevoEvento():
 	timer.start(tiempoAleatorio())
@@ -43,7 +43,7 @@ func cheer(prob : float):
 
 func finAnimacion():
 	#logica de cambio de evento
-	var selection = randi_range(0,listaEventos.size() - 1)
+	var selection = 1#randi_range(0,listaEventos.size() - 1)
 	#if selection == ultimoEvento: TODO encontrar una manera en que se depreque el ultimoEvento QUE NO SEA ESTA por que éste codigo no funciona como debería 
 		#selection -= 1 # esta vaina hace que, si se repite el primer evento, señale nuevoEvento(-1) y eso rompe a la CPU
 	# TESTING: 

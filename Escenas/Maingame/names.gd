@@ -11,7 +11,7 @@ var dirAudioFinal1
 var dirAudioInitial2
 var dirAudioFinal2
 var nameinitial : Array = ["Silly", "Tiny", "Huge", "The", "Cute", "Nonsensical", "Addictive", "Smol", "Sad", "Baby", "Eepy", "Anxious", "Crazy", "Golden", "Ex-convict","Skibidi"]
-var namefinal : Array = ["Car", "Kitty", "WAR CRIMINAL", "Chonker", "Purrer", "Bingus", "Microplastic Enjoyer", "Mulch", "Yippie", "Nyan", "Hobo", "Karen Adopted", "Paw Sniffer", "Jacob"]
+var namefinal : Array = ["Car", "Kitty", "WAR CRIMINAL", "Chonker", "Purrer", "Bingus", "Microplastic Enjoyer", "Mulch", "Yippie", "Nyan", "Hobo", "Karen Adopted", "Paw Sniffer"]
 
 # Al iniciarse el singleton toma un nombre random, tambien al darle play al juego
 # lo pongo aca para que no se rompa al probar escenas solitas

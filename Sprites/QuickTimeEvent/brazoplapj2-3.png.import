@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://36do2trpwuiy"
-path="res://.godot/imported/gatoCuerpo.png-32922a3e1cb484fe9fd33b3ba5016198.ctex"
+uid="uid://bcf2nk3kp3d3h"
+path="res://.godot/imported/brazoplapj2-3.png-5da065056e7dfc636229a80635091781.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/QuickTimeEvent/gatoCuerpo.png"
-dest_files=["res://.godot/imported/gatoCuerpo.png-32922a3e1cb484fe9fd33b3ba5016198.ctex"]
+source_file="res://Sprites/QuickTimeEvent/brazoplapj2-3.png"
+dest_files=["res://.godot/imported/brazoplapj2-3.png-5da065056e7dfc636229a80635091781.ctex"]
 
 [params]
 

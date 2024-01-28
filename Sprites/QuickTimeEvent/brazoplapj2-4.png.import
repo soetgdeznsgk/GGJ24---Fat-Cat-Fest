@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ys48us78ixh7"
-path="res://.godot/imported/numeros.jpg-8d57266a5cf66bf374d0a61ad64a6249.ctex"
+uid="uid://dwv8gv4g3otjh"
+path="res://.godot/imported/brazoplapj2-4.png-36b6a596ecd68cb6038ecab42cded7f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/QuickTimeEvent/numeros.jpg"
-dest_files=["res://.godot/imported/numeros.jpg-8d57266a5cf66bf374d0a61ad64a6249.ctex"]
+source_file="res://Sprites/QuickTimeEvent/brazoplapj2-4.png"
+dest_files=["res://.godot/imported/brazoplapj2-4.png-36b6a596ecd68cb6038ecab42cded7f9.ctex"]
 
 [params]
 

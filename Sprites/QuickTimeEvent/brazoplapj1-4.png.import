@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cf45svq4v8j4d"
-path="res://.godot/imported/golpesboceto.png-50862c1cff0aa293d8da9a669f88030e.ctex"
+uid="uid://cj3qb0r5a6flm"
+path="res://.godot/imported/brazoplapj1-4.png-d6c363914b7bd86ae0fd0dcedf73aee9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/QuickTimeEvent/golpesboceto.png"
-dest_files=["res://.godot/imported/golpesboceto.png-50862c1cff0aa293d8da9a669f88030e.ctex"]
+source_file="res://Sprites/QuickTimeEvent/brazoplapj1-4.png"
+dest_files=["res://.godot/imported/brazoplapj1-4.png-d6c363914b7bd86ae0fd0dcedf73aee9.ctex"]
 
 [params]
 

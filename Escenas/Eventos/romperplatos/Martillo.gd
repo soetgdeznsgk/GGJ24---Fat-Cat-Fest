@@ -24,6 +24,7 @@ func cambiar_rol():
 		$Label.text = Names.name_player2
 		$Label.modulate = Color("#F2DF6F")
 		is_p2_hammer.emit(true)
+		anim.play("MartillandoP2")
 	else:
 		diccionarioInputs[Enums.Arriba] = "ArribaPj1"
 		diccionarioInputs[Enums.Abajo]  = "AbajoPj1"
@@ -32,9 +33,11 @@ func cambiar_rol():
 		$Label.text = Names.name_player1
 		$Label.modulate = Color("#88D662")
 		is_p2_hammer.emit(false)
+		anim.play("MartillandoP1")
 	golpeando = false
 	platoAqui = false
-	anim.play("Martillando")
+	
+	
 
 func _physics_process(delta: float) -> void:
 	if !canMove:

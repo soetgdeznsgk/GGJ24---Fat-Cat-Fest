@@ -13,7 +13,11 @@ func _ready() -> void:
 	
 func cambiar_rol():
 	vida = 3
-	$Sprite2D2.texture = load("res://Sprites/QuickTimeEvent/patasPlato.png")
+	$Sprite2D2.texture = \
+	load("res://Sprites/QuickTimeEvent/brazoplapj1-1.png") \
+	if jugador==1 else \
+	load("res://Sprites/QuickTimeEvent/brazoplapj2-1.png")
+	
 	if jugador == 2:
 		diccionarioInputs[Enums.Arriba] = "ArribaPj2"
 		diccionarioInputs[Enums.Abajo] = "AbajoPj2"
@@ -48,13 +52,22 @@ func perder_vida():
 		return
 	vida -= 1
 	if vida == 2:
-		$Sprite2D2.texture = load("res://Sprites/QuickTimeEvent/patasPlatoGrieta1.png")
+		$Sprite2D2.texture = \
+		load("res://Sprites/QuickTimeEvent/brazoplapj1-2.png") \
+		if jugador==1 else \
+		load("res://Sprites/QuickTimeEvent/brazoplapj2-2.png")
 		get_parent().reiniciar_pos()
 	elif vida == 1:
-		$Sprite2D2.texture = load("res://Sprites/QuickTimeEvent/patasPlatoGrieta2.png")
+		$Sprite2D2.texture = \
+		load("res://Sprites/QuickTimeEvent/brazoplapj1-3.png") \
+		if jugador==1 else \
+		load("res://Sprites/QuickTimeEvent/brazoplapj2-3.png")
 		get_parent().reiniciar_pos()
 	if vida <= 0:
-		$Sprite2D2.texture = load("res://Sprites/QuickTimeEvent/patasPlatoRoto.png")
+		$Sprite2D2.texture = \
+		load("res://Sprites/QuickTimeEvent/brazoplapj1-4.png") \
+		if jugador==1 else \
+		load("res://Sprites/QuickTimeEvent/brazoplapj2-4.png")
 		if jugador == 2:
 			get_parent().puntajePj1 += 1
 		else:

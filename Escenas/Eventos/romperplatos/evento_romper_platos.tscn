@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cxwff3nt01gul"]
+[gd_scene load_steps=24 format=3 uid="uid://cxwff3nt01gul"]
 
 [ext_resource type="Script" path="res://Escenas/Eventos/romperplatos/evento_romper_platos.gd" id="1_6r5rn"]
 [ext_resource type="Texture2D" uid="uid://difkvs4ri15mk" path="res://Sprites/QuickTimeEvent/fondoplatos.png" id="2_6owar"]
@@ -6,9 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://c32f5861vb4ns" path="res://Sprites/QuickTimeEvent/brazomartillo1.png" id="2_ldjf1"]
 [ext_resource type="Texture2D" uid="uid://dqtsl3p2axvdr" path="res://Sprites/QuickTimeEvent/patasPlato.png" id="3_0p7wu"]
 [ext_resource type="Script" path="res://Escenas/Eventos/romperplatos/Plato.gd" id="5_2sp3d"]
+[ext_resource type="Texture2D" uid="uid://m1icc5x7rlub" path="res://Sprites/QuickTimeEvent/brazomarpj1-1.png" id="5_csnme"]
 [ext_resource type="Theme" uid="uid://v28k7lh33uhi" path="res://Escenas/Maingame/themeNameTags.tres" id="6_2dsyk"]
-[ext_resource type="Texture2D" uid="uid://6pjo7u5mdui8" path="res://Sprites/QuickTimeEvent/brazomartillo2.png" id="6_5l500"]
+[ext_resource type="Texture2D" uid="uid://dgtakk4w7t5yb" path="res://Sprites/QuickTimeEvent/brazomarpj1-2.png" id="6_141ws"]
+[ext_resource type="Texture2D" uid="uid://b4rtbvcjkyc4j" path="res://Sprites/QuickTimeEvent/brazomarpj2-1.png" id="7_3ras2"]
 [ext_resource type="Texture2D" uid="uid://d1sa3ql83f6nf" path="res://Sprites/QuickTimeEvent/2.png" id="8_1phx8"]
+[ext_resource type="Texture2D" uid="uid://wun40n2i3h41" path="res://Sprites/QuickTimeEvent/brazomarpj2-2.png" id="8_itf0f"]
 [ext_resource type="Texture2D" uid="uid://cpwig8pnlt1pg" path="res://Sprites/QuickTimeEvent/1.png" id="9_ffqqa"]
 [ext_resource type="Texture2D" uid="uid://6p1tfoa04b18" path="res://Sprites/QuickTimeEvent/Go.png" id="10_5ke27"]
 
@@ -29,7 +32,41 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_ldjf1"), ExtResource("6_5l500"), ExtResource("2_ldjf1")]
+"values": [ExtResource("5_csnme"), ExtResource("6_141ws"), ExtResource("5_csnme")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"set_golpeando"
+}, {
+"args": [false],
+"method": &"set_golpeando"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_3x2d6"]
+resource_name = "MartillandoP2"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_3ras2"), ExtResource("8_itf0f"), ExtResource("7_3ras2")]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -66,7 +103,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uv3c1"]
 _data = {
-"Martillando": SubResource("Animation_oiywi"),
+"MartillandoP1": SubResource("Animation_oiywi"),
+"MartillandoP2": SubResource("Animation_3x2d6"),
 "RESET": SubResource("Animation_7diyl")
 }
 
@@ -174,7 +212,7 @@ metadata/_edit_lock_ = true
 z_index = 1
 position = Vector2(87, 90)
 script = ExtResource("2_krrne")
-speed = 555
+speed = 500
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Martillo"]

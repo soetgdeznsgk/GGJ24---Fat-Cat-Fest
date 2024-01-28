@@ -29,7 +29,7 @@ func finJuego(_ganador):
 	anim.play("fin_juego")
 	
 func tiempoAleatorio():
-	return 15 #randi_range(15,25) # randi_range(15,25) #return 2
+	return 6 #randi_range(15,25) # randi_range(15,25) #return 2
 
 func generarNuevoEvento():
 	timer.start(tiempoAleatorio())
@@ -51,7 +51,7 @@ func finAnimacion():
 			selection = 0
 	print("seleccion del evento: ", selection) # pa comprobar que no de por fuera de lo usual y no rompa la pcu
 	# TESTING: 
-	selection = 2
+	selection = 0
 	var eventoInstanciado = listaEventos[selection].instantiate()
 	ultimoEvento = selection 
 	add_child(eventoInstanciado)

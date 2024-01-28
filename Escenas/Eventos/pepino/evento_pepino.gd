@@ -7,6 +7,9 @@ extends Node2D
 @onready var sprGato2 = $Gato2
 @onready var sprBomba = $SprBomba
 
+var lista_random_sfx_boom = [preload("res://Escenas/Eventos/pepino/sfx/explosion1.mp3"), preload("res://Escenas/Eventos/pepino/sfx/explosion2.mp3"),\
+ preload("res://Escenas/Eventos/pepino/sfx/explosion3.mp3")]
+
 var ganador
 var finished = false
 
@@ -73,6 +76,8 @@ func _on_timer_final_evento_timeout():
 	queue_free()	
 
 func _on_timer_explosion_timeout():
+	$AudioStreamPlayer.stream = lista_random_sfx_boom.pick_random()
+	$AudioStreamPlayer.play()
 	$TimerFinalEvento.start(3)
 	finished = true 
 	sprBomba.play("boom")
@@ -95,3 +100,4 @@ func _on_gato_animation_finished():
 func _on_gato_2_animation_finished():
 	if !finished and sprGato2.animation!="idle_loop":
 		sprGato2.play("idle_loop")
+

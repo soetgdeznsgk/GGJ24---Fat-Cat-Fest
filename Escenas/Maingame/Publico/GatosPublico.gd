@@ -2,15 +2,21 @@ extends Node2D
 
 # An array of different cat X positions
 var catXPositions: Array = [ -10, 140, 290, 440, 590, 740, 890, 1040, 1190 ]
+var end=false
 
 # Array to store references to the instantiated cat instances
 var catInstances: Array = []
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	instantiateRandomCats()
 	Eventos.catCheer.connect(triggerRandomCheer)
+	Eventos.ganadorFestival.connect(triggerEnd)
+	if (end):
+		triggerRandomCheer(.9)
+	
+func triggerEnd(_ganador) ->void:
+	end=true
 
 func _process(delta: float) -> void:
 	# Check if the Enter key is pressed

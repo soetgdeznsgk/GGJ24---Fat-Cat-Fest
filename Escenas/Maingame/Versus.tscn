@@ -120,8 +120,10 @@ scale = Vector2(0.712, 0.712)
 texture = ExtResource("14_0vgf6")
 metadata/_edit_lock_ = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
 bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="finished" from="AudioPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="finished" from="AudioPlayer" to="." method="_on_audio_player_finished"]

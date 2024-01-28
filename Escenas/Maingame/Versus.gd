@@ -14,13 +14,13 @@ func _ready():
 	soundQueue.append(sfxVS)
 	soundQueue.append(load(Names.dirAudioInitial2))
 	soundQueue.append(load(Names.dirAudioFinal2))
-	
-	$AudioStreamPlayer.stream = soundQueue.pop_front()
-	$AudioStreamPlayer.play()
+	$AudioPlayer.stream = soundQueue.pop_front()
+	$AudioPlayer.play()
 
-func _on_audio_stream_player_finished():
+
+func _on_audio_player_finished():
 	if soundQueue.front() == null:
 		get_tree().change_scene_to_file("res://Escenas/Maingame/Maingame.tscn")
-	$AudioStreamPlayer.stream = soundQueue.pop_front()
-	$AudioStreamPlayer.play()	
-	
+	$AudioPlayer.stream = soundQueue.pop_front()
+	$AudioPlayer.play()
+	pass # Replace with function body.

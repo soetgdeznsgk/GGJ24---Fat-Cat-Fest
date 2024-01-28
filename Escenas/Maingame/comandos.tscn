@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bbx7yskj14jdm"]
+[gd_scene load_steps=42 format=3 uid="uid://bbx7yskj14jdm"]
 
 [ext_resource type="Script" path="res://Escenas/Maingame/comandos.gd" id="1_k17g7"]
 [ext_resource type="Texture2D" uid="uid://cpe1wx0owdbkl" path="res://icon.svg" id="2_l2mk4"]
@@ -21,13 +21,21 @@
 [ext_resource type="Texture2D" uid="uid://cu4t00shn5ys8" path="res://Sprites/Gatos/Gato Timmy/idle/idle6.png" id="19_5knux"]
 [ext_resource type="Texture2D" uid="uid://cvn2m3kvpr0a5" path="res://Sprites/Gatos/Gato Timmy/idle/idle7.png" id="20_ikh67"]
 [ext_resource type="Texture2D" uid="uid://km2r3x214c6" path="res://Sprites/Gatos/Gato Timmy/idle/idle8.png" id="21_j4h34"]
+[ext_resource type="Texture2D" uid="uid://d38qus6xe8y3d" path="res://Sprites/Gatos/Gato Timmy/stun/s_0000_1.png" id="22_vi2yy"]
 [ext_resource type="Texture2D" uid="uid://uo43intr8xu7" path="res://Sprites/Gatos/Gato Timmy/victoria/victoria2.png" id="22_y3krw"]
 [ext_resource type="Texture2D" uid="uid://y8vsm8pc3u2n" path="res://Sprites/Gatos/Gato Timmy/victoria/victoria3.png" id="23_4d7pc"]
+[ext_resource type="Texture2D" uid="uid://cwfj8xjpdlil7" path="res://Sprites/Gatos/Gato Timmy/stun/s_0001_2.png" id="23_hwmeb"]
+[ext_resource type="Texture2D" uid="uid://5nxg0rlbdtkd" path="res://Sprites/Gatos/Gato Timmy/stun/s_0002_3.png" id="24_rc3p3"]
 [ext_resource type="Texture2D" uid="uid://dgygt2uv0ifwg" path="res://Sprites/Gatos/Gato Timmy/victoria/victoria4.png" id="24_yh1yt"]
+[ext_resource type="Texture2D" uid="uid://dx08ayokc51hp" path="res://Sprites/Gatos/Gato Timmy/stun/s_0003_4.png" id="25_mbwns"]
 [ext_resource type="Texture2D" uid="uid://8see8pijg274" path="res://Sprites/Gatos/Gato Timmy/victoria/victoria5.png" id="25_n7vyl"]
+[ext_resource type="Texture2D" uid="uid://r1h52vl71iqb" path="res://Sprites/Gatos/Gato Timmy/stun/s_0004_5.png" id="26_cuevm"]
 [ext_resource type="Texture2D" uid="uid://ce5rpbg317fq1" path="res://Sprites/Gatos/Gato Timmy/victoria/victoria6.png" id="26_f2s4p"]
 [ext_resource type="Texture2D" uid="uid://b5yvu0wd6shpr" path="res://Sprites/Gatos/Gato Timmy/victoria/victoria7.png" id="27_n7kqv"]
+[ext_resource type="Texture2D" uid="uid://c7ps8igj47t4m" path="res://Sprites/Gatos/Gato Timmy/stun/s_0005_6.png" id="27_t75vh"]
+[ext_resource type="Texture2D" uid="uid://4tjkfegabadw" path="res://Sprites/Gatos/Gato Timmy/stun/s_0006_7.png" id="28_paadd"]
 [ext_resource type="Texture2D" uid="uid://blboo6wdxq3oh" path="res://Sprites/Gatos/Gato Timmy/victoria/victoria8.png" id="28_yigdc"]
+[ext_resource type="Texture2D" uid="uid://bjbndasat3j1m" path="res://Sprites/Gatos/Gato Timmy/stun/s_0007_8.png" id="29_iuf53"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i500e"]
 animations = [{
@@ -153,7 +161,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_l2mk4")
+"texture": ExtResource("22_vi2yy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_hwmeb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_rc3p3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_mbwns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_cuevm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_t75vh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_paadd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_iuf53")
 }],
 "loop": true,
 "name": &"loop_stun",
@@ -446,7 +475,7 @@ z_as_relative = false
 position = Vector2(255, -234)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_i500e")
-animation = &"loop_victoria"
+animation = &"loop_stun"
 
 [node name="Comando0" type="Sprite2D" parent="."]
 z_index = 1

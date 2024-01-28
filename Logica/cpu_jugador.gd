@@ -81,8 +81,8 @@ func eat(cache) -> void:
 			if get_node(referencia_comandos).comandosConFlechas.size() == 0:
 				await get_tree().create_timer(0.7).timeout # CRITICAL ENCONTRAR UNA ALTERNATIVA A COMANDOSCONFLECHAS QUE EN TODOS LOS FRAMES TENGA ELEMENTOS O UNA SEÑAL QUE INDIQUE QUE LLEGAN
 			bufferedInputs.append(Inputs.get(get_node(referencia_comandos).comandosConFlechas[0])) # crashea al salir de un minijuego 
-		
-		print(bufferedInputs[0])
+		#TEST
+		#print("Inputs de la cpu ", bufferedInputs[0])
 		Input.action_press(bufferedInputs[0])
 		await $Timer.timeout
 		Input.action_release(bufferedInputs[0])
@@ -115,6 +115,7 @@ func break_dishes(cache) -> void:
 				
 			if ((vectorOrtonormal / 3) + pos_dish).x > 1200 or ((vectorOrtonormal / 3) + pos_dish).x < 140 or ((vectorOrtonormal / 3) + pos_dish).y > 600 or ((vectorOrtonormal / 3) + pos_dish).y < 140:
 				vectorOrtonormal = - vectorOrtonormal
+			#TEST
 			#print("pen: ", vectorPenalization, " input: ", vectorPenalization + pos_dish - pos_hammer)
 			queue_inputs( (vectorOrtonormal) + vectorPenalization + pos_dish - pos_hammer) # no funciona éste vector
 			vectorPenalization = Vector2.ZERO

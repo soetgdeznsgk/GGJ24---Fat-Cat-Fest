@@ -174,7 +174,7 @@ metadata/_edit_lock_ = true
 z_index = 1
 position = Vector2(87, 90)
 script = ExtResource("2_krrne")
-speed = 500
+speed = 555
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Martillo"]

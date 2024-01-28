@@ -85,13 +85,13 @@ func _physics_process(_delta: float) -> void:
 	if procesosPausados:
 		return
 	# Input buffering
-	if Input.is_action_just_pressed(diccionarioInputs[Enums.Arriba]) or (jugador == 2 and Input.is_action_pressed(diccionarioInputs[Enums.Arriba]) and Eventos.singleplayer):
+	if Input.is_action_just_pressed(diccionarioInputs[Enums.Arriba]):# or (jugador == 2 and Input.is_action_pressed(diccionarioInputs[Enums.Arriba]) and Eventos.singleplayer):
 		ultimoInputRegistrado = Enums.Arriba
-	elif Input.is_action_just_pressed(diccionarioInputs[Enums.Abajo]) or (jugador == 2 and Input.is_action_pressed(diccionarioInputs[Enums.Abajo]) and Eventos.singleplayer):
+	elif Input.is_action_just_pressed(diccionarioInputs[Enums.Abajo]):# or (jugador == 2 and Input.is_action_pressed(diccionarioInputs[Enums.Abajo]) and Eventos.singleplayer):
 		ultimoInputRegistrado = Enums.Abajo
-	elif Input.is_action_just_pressed(diccionarioInputs[Enums.Izquierda]) or (jugador == 2 and Input.is_action_pressed(diccionarioInputs[Enums.Izquierda]) and Eventos.singleplayer):
+	elif Input.is_action_just_pressed(diccionarioInputs[Enums.Izquierda]):# or (jugador == 2 and Input.is_action_pressed(diccionarioInputs[Enums.Izquierda]) and Eventos.singleplayer):
 		ultimoInputRegistrado = Enums.Izquierda
-	elif Input.is_action_just_pressed(diccionarioInputs[Enums.Derecha]) or (jugador == 2 and Input.is_action_pressed(diccionarioInputs[Enums.Derecha]) and Eventos.singleplayer):
+	elif Input.is_action_just_pressed(diccionarioInputs[Enums.Derecha]):# or (jugador == 2 and Input.is_action_pressed(diccionarioInputs[Enums.Derecha]) and Eventos.singleplayer):
 		ultimoInputRegistrado = Enums.Derecha
 	# Si está spameando entonces va mas rápido la animación
 	if ultimoInputRegistrado != null and anim.is_playing() \

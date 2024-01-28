@@ -66,29 +66,47 @@ func minigame_entered(activity : int) -> void:
 			cucumber(1.0)
 
 #region Behavior Pattern TODO pepino, darseduro
-
+var canEat = true
 # Funcionamiento regular, LAS FUNCIONES SON SIMILARES, ésta sirve de ejemplo
 func eat(cache) -> void:
-	if currState == States.Eating: # ésto es lo que interrumpirá la recursión
+	#if currState == States.Eating: # ésto es lo que interrumpirá la recursión
+		canEat = false
+		var inp 
 		if cache is float: # la primera vez que se llama eat() tras un cambio de estado, es siempre mediante eat(1.0)
-			$Timer.wait_time = 0.5
+			$Timer.wait_time = 2
 			await $Timer.timeout
-			$Timer.wait_time = 2 - (currDifficulty / 2) # easy: 1.5 s, med: 1 s, hard: 0.5 s 
+			$Timer.wait_time = 1.8 - ((currDifficulty + 1 ) / 2) # easy: 1.5 s, med: 1 s, hard: 0.5 s 
 			
-		if false:#TODO restaurar esto (encontrar una funcion que baje las chances): get_node(referencia_comandos).comandosConFlechas.size() == 0 or randf() < 0.7 - (currDifficulty / 10) : #facil: 60% de chance que la cague, med: 50%, dif: 40%
-			bufferedInputs.append(Inputs.get(randi_range(0, 3)))
+		if randf() < 0.18 - (currDifficulty / 30) and get_node(referencia_comandos).rachaGanadora: #facil: 60% de chance que la cague, med: 50%, dif: 40%
+			inp = randi_range(0, 3)
 		else:
 			if get_node(referencia_comandos).comandosConFlechas.size() == 0:
-				await get_tree().create_timer(0.7).timeout # CRITICAL ENCONTRAR UNA ALTERNATIVA A COMANDOSCONFLECHAS QUE EN TODOS LOS FRAMES TENGA ELEMENTOS O UNA SEÑAL QUE INDIQUE QUE LLEGAN
-			bufferedInputs.append(Inputs.get(get_node(referencia_comandos).comandosConFlechas[0])) # crashea al salir de un minijuego 
+				pass#await get_tree().create_timer(0.7).timeout # CRITICAL ENCONTRAR UNA ALTERNATIVA A COMANDOSCONFLECHAS QUE EN TODOS LOS FRAMES TENGA ELEMENTOS O UNA SEÑAL QUE INDIQUE QUE LLEGAN
+			elif get_node(referencia_comandos).permitirEntradas:
+				inp = get_node(referencia_comandos).comandosConFlechas[0]
+				
 		#TEST
-		#print("Inputs de la cpu ", bufferedInputs[0])
-		Input.action_press(bufferedInputs[0])
-		await $Timer.timeout
-		Input.action_release(bufferedInputs[0])
-		bufferedInputs.clear()
-		eat(0)
+		#print("Inputs de la cpu ", inp)
+		
+		if inp != null: # Solo manda inputs SI tiene un input, para evitar q se rompa por null
+			get_node(referencia_comandos).ultimoInputRegistrado = inp
+			#bufferedInputs.clear()
+		#eat(0)
+		var taim = 1.6
+		if currDifficulty == 1:
+			taim = 1.2
+		if currDifficulty == 2:
+			taim = 0.6
+		if currDifficulty == 3:
+			taim = 0.15
+		
+		await get_tree().create_timer(taim).timeout
+		canEat = true
 #region Rompeplatos Behavior Pattern
+
+func _physics_process(delta):
+	if currState == States.Eating and canEat: # ésto es lo que interrumpirá la recursión
+		eat(0)
 
 func break_dishes(cache) -> void:
 	if currState == States.RompiendoPlatos:

@@ -114,4 +114,8 @@ position = Vector2(682, 384)
 scale = Vector2(0.712, 0.712)
 texture = ExtResource("14_0vgf6")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

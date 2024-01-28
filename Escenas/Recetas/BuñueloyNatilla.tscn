@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dx6vyeeod0lx4"]
+[gd_scene load_steps=3 format=3 uid="uid://qgatbh04g532"]
 
 [ext_resource type="Texture2D" uid="uid://dese2x2xusi1m" path="res://Sprites/Comidas/BuñueloyNatilla.png" id="1_6uqg5"]
 [ext_resource type="Script" path="res://Logica/BuñueloYNatilla.gd" id="2_7jofp"]

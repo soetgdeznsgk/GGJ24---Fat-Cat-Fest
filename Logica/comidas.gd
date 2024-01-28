@@ -1,8 +1,8 @@
 extends Node2D
-const recetasString = ["res://Escenas/Recetas/Empanada.tscn", "res://Escenas/Recetas/Salpicon.tscn",\
-"res://Escenas/Recetas/Tamal.tscn", "res://Escenas/Recetas/BuñueloyNatilla.tscn","res://Escenas/Recetas/ArrozConLeche.tscn"]
-#para testear la pantalla de ganar
-#const recetasString = ["res://Escenas/Recetas/Empanada.tscn"]
+#const recetasString = ["res://Escenas/Recetas/Empanada.tscn", "res://Escenas/Recetas/Salpicon.tscn",\
+#"res://Escenas/Recetas/Tamal.tscn", "res://Escenas/Recetas/BuñueloyNatilla.tscn","res://Escenas/Recetas/ArrozConLeche.tscn"]
+#TEST para testear la pantalla de ganar o receta especifico
+const recetasString = ["res://Escenas/Recetas/Aguapanela.tscn"]
 var stackPlatos
 var stackPlatos1
 var stackPlatos2

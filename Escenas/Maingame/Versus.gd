@@ -19,8 +19,9 @@ func _ready():
 
 
 func _on_audio_player_finished():
-	if soundQueue.front() == null:
+	var currentSound = soundQueue.pop_front()
+	if !currentSound:
 		get_tree().change_scene_to_file("res://Escenas/Maingame/Maingame.tscn")
-	$AudioPlayer.stream = soundQueue.pop_front()
+	$AudioPlayer.stream = currentSound
 	$AudioPlayer.play()
 	pass # Replace with function body.

@@ -471,6 +471,9 @@ justification_flags = 0
 
 [node name="TimerExplosion" type="Timer" parent="."]
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
 [connection signal="animation_finished" from="Gato" to="." method="_on_gato_animation_finished"]
 [connection signal="animation_finished" from="Gato2" to="." method="_on_gato_2_animation_finished"]
 [connection signal="timeout" from="TimerFinalEvento" to="." method="_on_timer_final_evento_timeout"]

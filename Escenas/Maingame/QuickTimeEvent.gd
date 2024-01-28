@@ -50,8 +50,7 @@ func finAnimacion():
 		elif selection == 2:
 			selection = 0
 	print("seleccion del evento: ", selection) # pa comprobar que no de por fuera de lo usual y no rompa la pcu
-	# TESTING: 
-	#selection = 1
+	# TESTING: selection = 1
 	var eventoInstanciado = listaEventos[selection].instantiate()
 	ultimoEvento = selection 
 	add_child(eventoInstanciado)

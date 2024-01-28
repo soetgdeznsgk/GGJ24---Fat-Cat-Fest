@@ -14,7 +14,6 @@ func _enter_tree():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	bg_music.stream = load("res://Musica/tfcf_menu_v2.wav")
 	bg_music.autoplay = true
 	bg_music.bus = "Music"
@@ -28,12 +27,6 @@ func _ready():
 	add_child(return_button_audio)
 	
 	gatoGif.play("Eat")
-
-#AÑADIR ESTO A CREDITOS EPIC MUSICA
-
-#"Warped Alien Band"
-#by Eric Matyas
-#www.soundimage.org
 
 func deviceChanged():
 	if noMouse:

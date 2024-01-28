@@ -397,7 +397,6 @@ offset_left = 357.0
 offset_top = 529.0
 offset_right = 969.0
 offset_bottom = 670.0
-text = "PLAY AGAIN"
 
 [node name="platos3" type="Sprite2D" parent="."]
 position = Vector2(301, 336)

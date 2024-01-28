@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://c76u6u5uvxdgl"]
+[gd_scene load_steps=19 format=3 uid="uid://c76u6u5uvxdgl"]
 
 [ext_resource type="Script" path="res://Escenas/Maingame/QuickTimeEvent.gd" id="1_8vw6l"]
 [ext_resource type="Texture2D" uid="uid://c1vd6327w5erl" path="res://Sprites/QuickTimeEvent/telon.png" id="2_636br"]
 [ext_resource type="Texture2D" uid="uid://bg30bn41i635a" path="res://Sprites/QuickTimeEvent/Bell 2.png" id="3_18j6d"]
+[ext_resource type="Texture2D" uid="uid://b6fxonla2nwn0" path="res://Sprites/EscenaGanador/Trofeo1.png" id="3_vedar"]
 [ext_resource type="Texture2D" uid="uid://d0aqaq5kn2w08" path="res://Sprites/QuickTimeEvent/3.png" id="4_6gotv"]
 [ext_resource type="Texture2D" uid="uid://b1ya6ni4v2vly" path="res://Sprites/QuickTimeEvent/Surprise.png" id="4_cpnpn"]
 [ext_resource type="Texture2D" uid="uid://d1sa3ql83f6nf" path="res://Sprites/QuickTimeEvent/2.png" id="5_35vqh"]
@@ -264,10 +265,10 @@ tracks/7/path = NodePath("SprCampana:texture")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(-0.2, 0),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": []
+"values": [null, ExtResource("3_vedar")]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -652,6 +653,7 @@ scale = Vector2(0.73, 0.73)
 texture = ExtResource("2_636br")
 
 [node name="SprCampana" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 visible = false
 z_index = 6
 z_as_relative = false

@@ -1,4 +1,7 @@
 extends Node2D
+
+signal p2_can_hit # señal para la IA
+
 var diccionarioInputs := {}
 @export var jugador = 1
 @export var golpeando = false
@@ -17,6 +20,7 @@ var enCooldown = false
 
 var lista_random_punch = [preload("res://Escenas/Eventos/darseduro/sfx/bonk.mp3"), preload("res://Escenas/Eventos/darseduro/sfx/puh.mp3"),\
 preload("res://Escenas/Eventos/darseduro/sfx/thun.mp3")]
+var random_offset : float
 
 @export var sonidosPegar : Array[AudioStream]
 
@@ -37,28 +41,30 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if !puedeGolpear:
 		return
-	if Input.is_action_just_pressed(diccionarioInputs[Enums.Arriba]):
+	
+	if Input.is_action_just_pressed(diccionarioInputs[Enums.Arriba]) or (jugador == 2 and Eventos.singleplayer and Input.is_action_pressed(diccionarioInputs[Enums.Arriba])):
+		random_offset = randf_range(0, +0.3) # TODO ajustar offset a lo que diga el testeo
 		if golpeando and !enCooldown:
 			sprArrow.play("down")
 			golpeando = false
 			enCooldown = true
 			var tween = create_tween()
-			tween.tween_property(pata,"position",$sprPadre/MarkerMediaPAta.position,0.1)
-			tween.tween_property(pata,"position",initialPos,0.05)
-			$TimerCooldown.start(0.09)
-			sprArrow.visible=false
+			tween.tween_property(pata,"position",$sprPadre/MarkerMediaPAta.position,0.1 + random_offset)
+			tween.tween_property(pata,"position",initialPos,0.05 + (random_offset / 2))
+			$TimerCooldown.start(0.09 + random_offset)
 		else:
 			anim.play("shake")
-		
-	if Input.is_action_just_pressed(diccionarioInputs[Enums.Abajo]):
+			sprArrow.visible=false
+			
+	if Input.is_action_just_pressed(diccionarioInputs[Enums.Abajo]) or (jugador == 2 and Eventos.singleplayer and Input.is_action_pressed(diccionarioInputs[Enums.Abajo])):
 		if !golpeando and !enCooldown:
 			sprArrow.play("up")
 			golpeando = true
 			enCooldown = true
 			var tween = create_tween()
-			tween.tween_property(pata,"position",$sprPadre/MarkerMediaPAta.position,0.1)
+			tween.tween_property(pata,"position",$sprPadre/MarkerMediaPAta.position,0.15)
 			tween.tween_property(pata,"position",$sprPadre/MarkerFinalPAta.position,0.05)
-			$TimerCooldown.start(0.1)
+			$TimerCooldown.start(0.15)
 			sprArrow.visible=false
 		else:
 			anim.play("shake")
@@ -81,4 +87,6 @@ func _on_cabeza_area_exited(_area: Area2D) -> void:
 
 func _on_timer_cooldown_timeout() -> void:
 	enCooldown = false
+	if jugador == 2:
+		p2_can_hit.emit()
 	sprArrow.visible=true

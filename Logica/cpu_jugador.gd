@@ -61,7 +61,7 @@ func minigame_entered(activity : int) -> void:
 			currState = States.DandoseDuro
 			get_node(referencia_darseduro).p2_can_hit.connect(set_attack_state)
 			fist_fight(1.0)
-		Enums.MiniJuegos.Pepino: 
+		Enums.MiniJuegos.Pepino:
 			currState = States.Pepineando
 			cucumber(1.0)
 
@@ -146,9 +146,10 @@ func cucumber(cache) -> void:
 	if currState == States.Pepineando:
 		if cache is float:
 			bufferedInputs.clear()
-			bufferedInputs.append(Inputs.get(Enums.Derecha))
+			bufferedInputs.append(Inputs.get(Enums.Izquierda))
 		$Timer.wait_time = currDifficulty / 10 + randf_range(0, .4)
 		Input.action_press(bufferedInputs[0])
+		print(bufferedInputs[0])
 		await $Timer.timeout
 		Input.action_release(bufferedInputs[0])
 		cucumber(0)

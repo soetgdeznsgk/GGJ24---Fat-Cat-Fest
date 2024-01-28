@@ -24,12 +24,11 @@ func _ready():
 func _on_audio_player_finished():
 	var currentSound = soundQueue.pop_front()
 	if !currentSound:
-		get_tree().change_scene_to_file("res://Escenas/Maingame/Maingame.tscn")
+		get_tree().change_scene_to_file("res://Escenas/Maingame/Tutorial.tscn")
 	$AudioPlayer.stream = currentSound
 	$AudioPlayer.play()
 
 func _on_animated_sprite_2d_frame_changed():
-	print ("augh")
 	if switch:
 		$Gato1/AnimatedSprite2D.set_scale(Vector2(-0.6, 0.6))
 		switch = true

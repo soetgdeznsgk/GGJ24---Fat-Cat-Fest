@@ -43,7 +43,6 @@ func set_sfx_random_anuncia():
 
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Escenas/Menus/menu_principal.tscn")
-	queue_free()
 
 func _on_audio_stream_player_finished():
 	$AudioStreamPlayer.stream = soundQueue.pop_front()

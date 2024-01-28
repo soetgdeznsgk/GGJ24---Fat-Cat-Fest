@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://c1chhpmxmfbcs"]
+[gd_scene load_steps=50 format=3 uid="uid://c1chhpmxmfbcs"]
 
 [ext_resource type="Script" path="res://Escenas/escenario_ganador.gd" id="1_b6hkr"]
 [ext_resource type="Texture2D" uid="uid://cth80ou0c0vgb" path="res://Sprites/Fondos/bggame0.png" id="2_htofk"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://6ygmtis46k1w" path="res://Sprites/Fondos/bggame4.png" id="6_eq25d"]
 [ext_resource type="Texture2D" uid="uid://pwdu2te4is4b" path="res://Sprites/Comidas/5Pla.png" id="7_t76n8"]
 [ext_resource type="Texture2D" uid="uid://0bvht6hr3spr" path="res://Sprites/Comidas/2Pla.png" id="8_vjk00"]
+[ext_resource type="Texture2D" uid="uid://ck2pho23ifqed" path="res://Sprites/EscenaGanador/play again.png" id="9_dkl1p"]
 [ext_resource type="Texture2D" uid="uid://coegn5p0gvs3r" path="res://Sprites/Comidas/4Pla.png" id="9_krila"]
 [ext_resource type="Texture2D" uid="uid://dx7uis8jda7ap" path="res://Sprites/Comidas/1Pla.png" id="9_lshxh"]
 [ext_resource type="Texture2D" uid="uid://bvcmj27m3cp0i" path="res://Sprites/Fondos/bggame5.png" id="9_uko8v"]
@@ -390,13 +391,18 @@ justification_flags = 0
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="TextureButton" parent="."]
 visible = false
 z_index = 1
 offset_left = 357.0
 offset_top = 529.0
 offset_right = 969.0
 offset_bottom = 670.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("9_dkl1p")
+texture_pressed = ExtResource("9_dkl1p")
+texture_hover = ExtResource("9_dkl1p")
+stretch_mode = 0
 
 [node name="platos3" type="Sprite2D" parent="."]
 position = Vector2(301, 336)

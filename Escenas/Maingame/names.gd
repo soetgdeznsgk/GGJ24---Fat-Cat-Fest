@@ -43,6 +43,7 @@ func lookupAudioFile(name: String, opcion: int) -> String:
 			var file_name = dir.get_next()
 			while file_name != "":
 				if file_name.contains(name.to_lower().format(["-"], " ")):
+					file_name = file_name.trim_suffix(".import")
 					return dirString + file_name
 				file_name = dir.get_next()
 		2:
@@ -52,6 +53,7 @@ func lookupAudioFile(name: String, opcion: int) -> String:
 			var file_name = dir.get_next()
 			while file_name != "":
 				if file_name.contains(name.to_lower().format(["-"], " ")):
+					file_name = file_name.trim_suffix(".import")
 					return dirString + file_name
 				file_name = dir.get_next()
 				

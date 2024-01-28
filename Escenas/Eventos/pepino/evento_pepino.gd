@@ -16,22 +16,28 @@ var speed = 0.6
 
 func _ready():
 	$TimerExplosion.start(randi_range(8,15))
+	sprGato1.play("idle_loop")
+	sprGato2.play("idle_loop")
 	if randf() < 0.5:
+		arrowp2.visible=false
+		arrowp1.visible=true
 		# Play your animation
 		anim.play("spawn_left")
+		await get_tree().create_timer(.8).timeout
 		sprGato1.play("arriveth")
 		sprGato2.play("idle_loop")
 		bombPos = LEFT
-		arrowp2.visible=false
-		arrowp1.visible=true
+
 	else:
+		arrowp1.visible=false
+		arrowp2.visible=true
 		# Do something else or don't play the animation
 		anim.play("spawn_right")
+		await get_tree().create_timer(.8).timeout
 		sprGato2.play("arriveth")
 		sprGato1.play("idle_loop")
 		bombPos = RIGHT
-		arrowp1.visible=false
-		arrowp2.visible=true
+
 	$Label.modulate = Color("#F2DF6F")
 	$Label.text = Names.name_player1
 	$Label2.modulate = Color("#88D662")
@@ -40,11 +46,13 @@ func _ready():
 func _physics_process(_delta: float) -> void:
 	if !finished:
 		if bombPos==LEFT and !anim.is_playing() and Input.is_action_just_pressed("DerechaPj1"):
-			anim.play("swipe_right", -1 ,randf_range(0,1) + speed)
+			anim.play("swipe_right", -1 , randf_range(0,1) + speed)
 			sprGato1.play("leaveth")
 			bombPos=RIGHT
 			speed += 0.2 
 			arrowp1.visible=false
+			await get_tree().create_timer(1.5-speed).timeout
+			sprGato2.play("its_here")
 			arrowp2.visible=true
 			sprBomba.speed_scale = randi_range(1,4)
 			sprBomba.play("default")
@@ -54,6 +62,8 @@ func _physics_process(_delta: float) -> void:
 			bombPos=LEFT
 			speed += 0.2
 			arrowp2.visible=false
+			await get_tree().create_timer(1-speed).timeout
+			sprGato1.play("its_here")
 			arrowp1.visible=true
 			sprBomba.speed_scale = randi_range(1,4)
 			sprBomba.play("default")
@@ -66,6 +76,7 @@ func _on_timer_explosion_timeout():
 	$TimerFinalEvento.start(3)
 	finished = true 
 	sprBomba.play("boom")
+	anim.play("explosion")
 	arrowp1.visible=false
 	arrowp2.visible=false
 	
@@ -76,7 +87,6 @@ func _on_timer_explosion_timeout():
 	if bombPos == LEFT:
 		ganador = 2
 		sprGato1.play("bomba")
-
 
 func _on_gato_animation_finished():
 	if !finished and sprGato1.animation!="idle_loop":

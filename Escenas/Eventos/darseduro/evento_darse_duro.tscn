@@ -32,18 +32,21 @@ script = ExtResource("1_gmxqv")
 
 [node name="Gato" parent="." instance=ExtResource("1_k6i8i")]
 z_as_relative = false
-position = Vector2(561, 233)
+position = Vector2(561, 260)
 metadata/_edit_group_ = true
 
 [node name="Label" parent="Gato" index="0"]
 metadata/_edit_use_anchors_ = true
 
-[node name="SprCabeza" parent="Gato/sprPadre/Cabeza" index="0"]
-animation = &"normal"
+[node name="CollisionShape2D" parent="Gato/sprPadre/Cabeza" index="1"]
+position = Vector2(-0.769231, 16.9231)
+
+[node name="SprPata" parent="Gato/sprPadre/Pata" index="0"]
+z_index = 1
 
 [node name="Gato2" parent="." instance=ExtResource("1_k6i8i")]
 z_as_relative = false
-position = Vector2(817, 232)
+position = Vector2(813, 260)
 jugador = 2
 metadata/_edit_group_ = true
 
@@ -51,17 +54,21 @@ metadata/_edit_group_ = true
 metadata/_edit_use_anchors_ = true
 
 [node name="SprCuerpo" parent="Gato2/sprPadre" index="0"]
-scale = Vector2(0.4, 0.4)
 texture = ExtResource("5_ara6r")
 
+[node name="Cabeza" parent="Gato2/sprPadre" index="1"]
+position = Vector2(-20, -15.3846)
+
 [node name="SprCabeza" parent="Gato2/sprPadre/Cabeza" index="0"]
-scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_e1apl")
-animation = &"normal"
 
 [node name="SprPata" parent="Gato2/sprPadre/Pata" index="0"]
+z_index = 1
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("6_35ucf")
+
+[node name="Marker2D2" parent="Gato2/sprPadre" index="5"]
+position = Vector2(-20, 56.1538)
 
 [node name="TimerFinalizarEvento" type="Timer" parent="."]
 process_callback = 0

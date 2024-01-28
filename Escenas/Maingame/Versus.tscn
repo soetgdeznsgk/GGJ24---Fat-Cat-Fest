@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://0urut37fsjci"]
+[gd_scene load_steps=13 format=3 uid="uid://0urut37fsjci"]
 
 [ext_resource type="Script" path="res://Escenas/Maingame/Versus.gd" id="1_4am3t"]
 [ext_resource type="Texture2D" uid="uid://cmnmlwu86ovk" path="res://Sprites/Versus/pose de pelea 1.png" id="2_5axbq"]
+[ext_resource type="Texture2D" uid="uid://c0y8a8dqm8l5" path="res://Sprites/Versus/timmy vs 01.png" id="2_mrj2d"]
+[ext_resource type="Texture2D" uid="uid://drup06abu4g1i" path="res://Sprites/Versus/timmy vs 02.png" id="3_cp6mv"]
 [ext_resource type="Texture2D" uid="uid://dv264aj7oiker" path="res://Sprites/Versus/pose de pelea 2.png" id="3_obtmw"]
 [ext_resource type="Texture2D" uid="uid://bqq38hbne211l" path="res://Sprites/Versus/bgvs1.png" id="13_81dkm"]
 [ext_resource type="Texture2D" uid="uid://02raxd33yta" path="res://Sprites/Versus/vs.png" id="13_e1mvw"]
@@ -11,14 +13,14 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_5axbq")
+"texture": ExtResource("2_mrj2d")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_obtmw")
+"texture": ExtResource("3_cp6mv")
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 5.0
+"speed": 2.0
 }]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2f5hc"]
@@ -51,10 +53,11 @@ unique_name_in_owner = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Gato1"]
 z_index = 1
-position = Vector2(360, 550)
-scale = Vector2(1.2, 1.2)
+position = Vector2(358, 580)
+scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_yog88")
 animation = &"Idle"
+frame_progress = 0.109849
 flip_h = true
 
 [node name="NombreGato1" type="Label" parent="Gato1"]
@@ -79,6 +82,7 @@ position = Vector2(1000, 550)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_3quny")
 animation = &"Idle"
+frame_progress = 0.793002
 
 [node name="NombreGato2" type="Label" parent="Gato2"]
 unique_name_in_owner = true
@@ -108,11 +112,13 @@ autostart = true
 position = Vector2(682, 384)
 scale = Vector2(0.712037, 0.712037)
 texture = ExtResource("13_81dkm")
+metadata/_edit_lock_ = true
 
 [node name="Fondo2" type="Sprite2D" parent="."]
 position = Vector2(682, 384)
 scale = Vector2(0.712, 0.712)
 texture = ExtResource("14_0vgf6")
+metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"

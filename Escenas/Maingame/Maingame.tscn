@@ -338,6 +338,7 @@ jugador = 2
 [node name="Gato" parent="Comandos" index="0"]
 position = Vector2(249, -220)
 sprite_frames = SubResource("SpriteFrames_1yar0")
+animation = &"loop_comer"
 
 [node name="NamePlayer" type="Label" parent="Comandos"]
 offset_left = 66.0
@@ -359,7 +360,6 @@ metadata/_edit_lock_ = true
 [node name="Gato" parent="Comandos2" index="0"]
 position = Vector2(265, -163)
 scale = Vector2(0.587113, 0.611574)
-animation = &"idle"
 
 [node name="NamePlayer" type="Label" parent="Comandos2"]
 offset_left = 44.0

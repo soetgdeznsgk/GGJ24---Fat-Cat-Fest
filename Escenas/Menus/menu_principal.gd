@@ -97,11 +97,13 @@ func _on_option_button_pressed():
 func _on_h_box_container_mp_start_game(): # iniciar juego mp
 	button_standard_audio.play()
 	Eventos.singleplayer = false
+	Names.generar_nombres()
 	get_tree().change_scene_to_file("res://Escenas/Maingame/Versus.tscn")
 
 func _on_h_box_container_sp_start_game(): # iniciar juego sp
 	button_standard_audio.play()
 	Eventos.singleplayer = true
+	Names.generar_nombres()	
 	get_tree().change_scene_to_file("res://Escenas/Maingame/Versus.tscn")
 	Names.name_player2 += " (CPU)"
 

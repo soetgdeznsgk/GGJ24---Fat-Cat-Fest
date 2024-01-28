@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bo1blyw4wxvco" path="res://Sprites/Fondos/bggame1.png" id="3_ifghr"]
 [ext_resource type="Texture2D" uid="uid://c1vd6327w5erl" path="res://Sprites/QuickTimeEvent/telon.png" id="4_68s83"]
 [ext_resource type="Texture2D" uid="uid://br1n14m8wh2p" path="res://Sprites/Fondos/bggame2.png" id="5_u17bd"]
-[ext_resource type="AudioStream" uid="uid://dlw2j0ch3eerj" path="res://SFX/sonidosNoImplementadosSebastian/sonidoAlGanar2.mp3" id="5_y5mei"]
+[ext_resource type="AudioStream" uid="uid://ddshnuc57y832" path="res://SFX/sonidosNoImplementadosSebastian/sonidoAlGanar2.mp3" id="5_y5mei"]
 [ext_resource type="Texture2D" uid="uid://6ygmtis46k1w" path="res://Sprites/Fondos/bggame4.png" id="6_eq25d"]
 [ext_resource type="Texture2D" uid="uid://pwdu2te4is4b" path="res://Sprites/Comidas/5Pla.png" id="7_t76n8"]
 [ext_resource type="Texture2D" uid="uid://0bvht6hr3spr" path="res://Sprites/Comidas/2Pla.png" id="8_vjk00"]

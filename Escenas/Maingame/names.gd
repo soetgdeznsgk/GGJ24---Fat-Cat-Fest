@@ -17,20 +17,7 @@ var namefinal : Array = ["Car", "Kitty", "WAR CRIMINAL", "Chonker", "Purrer", "B
 # lo pongo aca para que no se rompa al probar escenas solitas
 func _ready() -> void:
 	# alerta de radiacion 
-	Names.nameInitial1 = nameinitial.pick_random()
-	Names.nameFinal1 = namefinal.pick_random()
-	Names.nameInitial2 = nameinitial.pick_random()
-	Names.nameFinal2 = namefinal.pick_random()
-	while nameFinal1 == nameFinal2:
-		nameFinal1 = namefinal.pick_random()
-	#☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️
-	Names.dirAudioInitial1 = lookupAudioFile(nameInitial1, 1)
-	Names.dirAudioFinal1 = lookupAudioFile(nameFinal1, 2)
-	Names.dirAudioInitial2 = lookupAudioFile(nameInitial2, 1)
-	Names.dirAudioFinal2 = lookupAudioFile(nameFinal2, 2)
-	Names.name_player1 = nameInitial1 + " " + nameFinal1
-	Names.name_player2 = nameInitial2 + " " + nameFinal2
-	pass
+	generar_nombres()
 
 func lookupAudioFile(name: String, opcion: int) -> String:
 	var dir
@@ -59,3 +46,18 @@ func lookupAudioFile(name: String, opcion: int) -> String:
 				file_name = dir.get_next()
 				
 	return "error"
+
+func generar_nombres():
+	Names.nameInitial1 = nameinitial.pick_random()
+	Names.nameFinal1 = namefinal.pick_random()
+	Names.nameInitial2 = nameinitial.pick_random()
+	Names.nameFinal2 = namefinal.pick_random()
+	while nameFinal1 == nameFinal2:
+		nameFinal1 = namefinal.pick_random()
+	#☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️
+	Names.dirAudioInitial1 = lookupAudioFile(nameInitial1, 1)
+	Names.dirAudioFinal1 = lookupAudioFile(nameFinal1, 2)
+	Names.dirAudioInitial2 = lookupAudioFile(nameInitial2, 1)
+	Names.dirAudioFinal2 = lookupAudioFile(nameFinal2, 2)
+	Names.name_player1 = nameInitial1 + " " + nameFinal1
+	Names.name_player2 = nameInitial2 + " " + nameFinal2

@@ -75,11 +75,14 @@ func eat(cache) -> void:
 			await $Timer.timeout
 			$Timer.wait_time = 2 - (currDifficulty / 2) # easy: 1.5 s, med: 1 s, hard: 0.5 s 
 			
-		if false:#get_node(referencia_comandos).comandosConFlechas.size() == 0 or randf() < 0.7 - (currDifficulty / 10) : #facil: 60% de chance que la cague, med: 50%, dif: 40%
+		if false:#TODO restaurar esto (encontrar una funcion que baje las chances): get_node(referencia_comandos).comandosConFlechas.size() == 0 or randf() < 0.7 - (currDifficulty / 10) : #facil: 60% de chance que la cague, med: 50%, dif: 40%
 			bufferedInputs.append(Inputs.get(randi_range(0, 3)))
 		else:
-			bufferedInputs.append(Inputs.get(get_node(referencia_comandos).comandosConFlechas[0])) # 
+			if get_node(referencia_comandos).comandosConFlechas.size() == 0:
+				await get_tree().create_timer(0.7).timeout # CRITICAL ENCONTRAR UNA ALTERNATIVA A COMANDOSCONFLECHAS QUE EN TODOS LOS FRAMES TENGA ELEMENTOS O UNA SEÑAL QUE INDIQUE QUE LLEGAN
+			bufferedInputs.append(Inputs.get(get_node(referencia_comandos).comandosConFlechas[0])) # crashea al salir de un minijuego 
 		
+		print(bufferedInputs[0])
 		Input.action_press(bufferedInputs[0])
 		await $Timer.timeout
 		Input.action_release(bufferedInputs[0])
@@ -140,7 +143,15 @@ func process_inputs_buffered(metodo : Callable) -> void:
 #endregion
 #region Pepino Behavior Pattern
 func cucumber(cache) -> void:
-	pass
+	if currState == States.Pepineando:
+		if cache is float:
+			bufferedInputs.clear()
+			bufferedInputs.append(Inputs.get(Enums.Derecha))
+		$Timer.wait_time = currDifficulty / 10 + randf_range(0, .4)
+		Input.action_press(bufferedInputs[0])
+		await $Timer.timeout
+		Input.action_release(bufferedInputs[0])
+		cucumber(0)
 	
 #endregion
 #region DarseDuro Behavior Pattern

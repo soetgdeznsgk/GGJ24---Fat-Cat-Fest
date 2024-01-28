@@ -52,12 +52,11 @@ func _physics_process(_delta: float) -> void:
 			tween.tween_property(pata,"position",$sprPadre/MarkerMediaPAta.position,0.1 + random_offset)
 			tween.tween_property(pata,"position",initialPos,0.05 + (random_offset / 2))
 			$TimerCooldown.start(0.09 + random_offset)
-			
-	if Input.is_action_just_pressed(diccionarioInputs[Enums.Abajo]) or (jugador == 2 and Eventos.singleplayer and Input.is_action_pressed(diccionarioInputs[Enums.Abajo])):
-			sprArrow.visible=false
 		else:
 			anim.play("shake")
-		
+			sprArrow.visible=false
+			
+	if Input.is_action_just_pressed(diccionarioInputs[Enums.Abajo]) or (jugador == 2 and Eventos.singleplayer and Input.is_action_pressed(diccionarioInputs[Enums.Abajo])):
 		if !golpeando and !enCooldown:
 			sprArrow.play("up")
 			golpeando = true

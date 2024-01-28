@@ -67,22 +67,23 @@ func minigame_entered(activity : int) -> void:
 
 #region Behavior Pattern TODO pepino, darseduro
 
-# Funcionamiento regular
+# Funcionamiento regular, LAS FUNCIONES SON SIMILARES, ésta sirve de ejemplo
 func eat(cache) -> void:
-	if currState == States.Eating:
-		if cache is float: #mandar eat(i: float) solo cuando comience el estado eating
+	if currState == States.Eating: # ésto es lo que interrumpirá la recursión
+		if cache is float: # la primera vez que se llama eat() tras un cambio de estado, es siempre mediante eat(1.0)
+			$Timer.wait_time = 0.5
+			await $Timer.timeout
 			$Timer.wait_time = 2 - (currDifficulty / 2) # easy: 1.5 s, med: 1 s, hard: 0.5 s 
 			
-		if get_node(referencia_comandos).comandosConFlechas.size() == 0 or randf() < 0.7 - (currDifficulty / 10) : #facil: 60% de chance que la cague, med: 50%, dif: 40%
+		if false:#get_node(referencia_comandos).comandosConFlechas.size() == 0 or randf() < 0.7 - (currDifficulty / 10) : #facil: 60% de chance que la cague, med: 50%, dif: 40%
 			bufferedInputs.append(Inputs.get(randi_range(0, 3)))
 		else:
-			#get_node(referencia_comandos).comandosConFlechas
-			bufferedInputs.append(Inputs.get(get_node(referencia_comandos).comandosConFlechas[0]))
-			
+			bufferedInputs.append(Inputs.get(get_node(referencia_comandos).comandosConFlechas[0])) # 
+		
 		Input.action_press(bufferedInputs[0])
+		await $Timer.timeout
 		Input.action_release(bufferedInputs[0])
 		bufferedInputs.clear()
-		await $Timer.timeout
 		eat(0)
 #region Rompeplatos Behavior Pattern
 

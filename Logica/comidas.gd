@@ -5,7 +5,7 @@ const recetasString = ["res://Escenas/Recetas/Empanada.tscn", "res://Escenas/Rec
 "res://Escenas/Recetas/BandejaPaisa.tscn", "res://Escenas/Recetas/Bocadillo.tscn",\
 "res://Escenas/Recetas/Patacones.tscn"]
 #TEST para testear la pantalla de ganar o receta especifico
-#const recetasString = ["res://Escenas/Recetas/Aguapanela.tscn"]
+#const recetasString = ["res://Escenas/Recetas/BuñueloyNatilla.tscn"]
 var stackPlatos
 var stackPlatos1
 var stackPlatos2

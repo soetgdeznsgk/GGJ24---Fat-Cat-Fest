@@ -14,11 +14,12 @@ func _enter_tree():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	bg_music.stream = load("res://Musica/tfcf_menu.wav")
+	
+	bg_music.stream = load("res://Musica/tfcf_menu_v2.wav")
 	bg_music.autoplay = true
 	bg_music.bus = "Music"
 	add_child(bg_music)
-	
+	$MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer/MusicVolumeSlider.value=0.3
 	button_standard_audio.bus = "SFX"
 	return_button_audio.bus = "SFX"
 	button_standard_audio.stream = load("res://Escenas/Menus/sfx/button_standard.wav")

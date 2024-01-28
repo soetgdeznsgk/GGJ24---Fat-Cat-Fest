@@ -1,6 +1,10 @@
 extends Node2D
-
+var bg_music_game := AudioStreamPlayer.new()
 func _ready() -> void:
+	bg_music_game.stream = load("res://Musica/tfcf_comida_v2.wav")
+	bg_music_game.autoplay = true
+	bg_music_game.bus = "Music"
+	add_child(bg_music_game)
 	if Eventos.singleplayer:
 		var bot = preload("res://Logica/cpu_jugador.tscn").instantiate()
 		add_child(bot)

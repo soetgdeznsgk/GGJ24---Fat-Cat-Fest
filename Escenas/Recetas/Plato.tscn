@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://blinmdqd2m4qn"]
+[gd_scene load_steps=13 format=3 uid="uid://dg7rmgv2dq5h7"]
 
 [ext_resource type="Texture2D" uid="uid://dx7uis8jda7ap" path="res://Sprites/Comidas/1Pla.png" id="1_h3igk"]
 [ext_resource type="Texture2D" uid="uid://0bvht6hr3spr" path="res://Sprites/Comidas/2Pla.png" id="2_ljvsd"]
@@ -37,13 +37,13 @@ animations = [{
 "texture": ExtResource("7_7m208")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_8sny8")
+"texture": ExtResource("10_jmxcb")
 }, {
 "duration": 1.0,
 "texture": ExtResource("9_q7nqd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_jmxcb")
+"texture": ExtResource("8_8sny8")
 }, {
 "duration": 1.0,
 "texture": ExtResource("11_b0uo4")

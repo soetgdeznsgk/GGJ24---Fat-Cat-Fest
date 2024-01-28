@@ -29,7 +29,9 @@ func _ready():
 	
 
 func _physics_process(_delta: float) -> void:
-	if Input.is_action_just_pressed("DerechaPj2") and bombPos==LEFT and !anim.is_playing():
+	if bombPos==LEFT and !anim.is_playing() and \
+	(Input.is_action_just_pressed("DerechaPj2") or \
+	(Eventos.singleplayer and Input.is_action_pressed("DerechaPj2") ) ) : # multijugador
 		anim.play("swipe_right", -1 ,randf_range(0,1) + speed)
 		bombPos=RIGHT
 		speed += 0.2 

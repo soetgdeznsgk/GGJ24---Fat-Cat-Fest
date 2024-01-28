@@ -140,7 +140,15 @@ func process_inputs_buffered(metodo : Callable) -> void:
 #endregion
 #region Pepino Behavior Pattern
 func cucumber(cache) -> void:
-	pass
+	if currState == States.Pepineando:
+		if cache is float:
+			bufferedInputs.clear()
+			bufferedInputs.append(Inputs.get(Enums.Derecha))
+		$Timer.wait_time = currDifficulty / 10 + randf_range(0, .4)
+		Input.action_press(bufferedInputs[0])
+		await $Timer.timeout
+		Input.action_release(bufferedInputs[0])
+		cucumber(0)
 	
 #endregion
 #region DarseDuro Behavior Pattern

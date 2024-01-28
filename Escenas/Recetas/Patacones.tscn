@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3o2h04cprja1"]
+
+[ext_resource type="Texture2D" uid="uid://c4rjkblsv3mht" path="res://Sprites/Comidas/Patacones.png" id="1_88hcm"]
+[ext_resource type="Script" path="res://Escenas/Recetas/Patacones.gd" id="2_n65qe"]
+
+[node name="Patacones" type="Sprite2D"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_88hcm")
+hframes = 3
+script = ExtResource("2_n65qe")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck225gpryf3c1"]
+
+[ext_resource type="Texture2D" uid="uid://bmmwn55fcxy20" path="res://Sprites/Comidas/BandejaPaisa.png" id="1_jdgxo"]
+[ext_resource type="Script" path="res://Escenas/Recetas/BandejaPaisa.gd" id="1_xrc0i"]
+
+[node name="BandejaPaisa" type="Sprite2D"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_jdgxo")
+hframes = 3
+script = ExtResource("1_xrc0i")

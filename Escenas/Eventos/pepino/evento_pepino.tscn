@@ -1,10 +1,133 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6s322jcilwwp"]
+[gd_scene load_steps=35 format=3 uid="uid://c6s322jcilwwp"]
 
 [ext_resource type="Script" path="res://Escenas/Eventos/pepino/evento_pepino.gd" id="1_8qjqu"]
-[ext_resource type="Texture2D" uid="uid://bwiga5soldwi" path="res://Sprites/QuickTimeEvent/PepinoBomba.png" id="2_874eh"]
+[ext_resource type="Texture2D" uid="uid://bjsfpkws15228" path="res://Sprites/Fondos/bggame3.png" id="2_mqa73"]
 [ext_resource type="Texture2D" uid="uid://bsfarbyogdekf" path="res://Sprites/Comandos/FlechaDerecha.png" id="3_i6pxy"]
+[ext_resource type="Texture2D" uid="uid://bjx7n857j806f" path="res://Sprites/Gatos/Gato Lampara/Pepino/Pepino1.png" id="3_i52fg"]
 [ext_resource type="Texture2D" uid="uid://8ghf3slrnybo" path="res://Sprites/Comandos/FlechaIzquierda.png" id="4_4vkfi"]
+[ext_resource type="Texture2D" uid="uid://bx3p6vq1rcgid" path="res://Sprites/Gatos/Gato Lampara/Pepino/Pepino2.png" id="4_k7sxx"]
+[ext_resource type="Texture2D" uid="uid://dp2eq4r7iek00" path="res://Sprites/Gatos/Gato Lampara/Pepino/Pepino3.png" id="5_53lho"]
+[ext_resource type="Texture2D" uid="uid://be5gn8cqws42j" path="res://Sprites/Gatos/Gato Lampara/Pepino/Pepino4.png" id="6_7idb4"]
 [ext_resource type="Theme" uid="uid://v28k7lh33uhi" path="res://Escenas/Maingame/themeNameTags.tres" id="6_22ykq"]
+[ext_resource type="Texture2D" uid="uid://dcdv2stosmck6" path="res://Sprites/Gatos/Gato Lampara/Pepino/Pepino5.png" id="7_45bvb"]
+[ext_resource type="Texture2D" uid="uid://dd5pesjg30ysg" path="res://Sprites/Gatos/Gato Lampara/Pepino/Pepino6.png" id="8_ltk3x"]
+[ext_resource type="Texture2D" uid="uid://u044idpi5d0w" path="res://Sprites/Gatos/Gato Lampara/Pepino/Pepino11.png" id="9_v7gn3"]
+[ext_resource type="Texture2D" uid="uid://b4jwo33v260o0" path="res://Sprites/Gatos/Gato Lampara/Pepino/Pepino7.png" id="10_2l2yg"]
+[ext_resource type="Texture2D" uid="uid://dyu8uignw5aui" path="res://Sprites/Gatos/Gato Lampara/Pepino/Pepino8.png" id="11_63ijy"]
+[ext_resource type="Texture2D" uid="uid://ct0bs2ybbxwor" path="res://Sprites/Gatos/Gato Lampara/Pepino/Pepino9.png" id="12_v83s2"]
+[ext_resource type="Texture2D" uid="uid://clrtd08suvir6" path="res://Sprites/QuickTimeEvent/Pepino/Pepino10.png" id="14_np27c"]
+[ext_resource type="Texture2D" uid="uid://c12p8dw8d325g" path="res://Sprites/QuickTimeEvent/Pepino/pepibomb1.png" id="14_xrbfh"]
+[ext_resource type="Texture2D" uid="uid://ey5882q2d0ii" path="res://Sprites/QuickTimeEvent/Pepino/pepibomb2.png" id="15_am3c0"]
+[ext_resource type="Texture2D" uid="uid://b4mghh0bxjuf8" path="res://Sprites/QuickTimeEvent/Pepino/pepibomb3.png" id="16_0biy1"]
+[ext_resource type="Texture2D" uid="uid://bjolelihlln8o" path="res://Sprites/QuickTimeEvent/Pepino/pepibomb4.png" id="17_g115d"]
+[ext_resource type="Texture2D" uid="uid://bb8xba7631jgk" path="res://Sprites/QuickTimeEvent/Pepino/pepibomb5.png" id="18_eivco"]
+[ext_resource type="Texture2D" uid="uid://snvu1k53oh5w" path="res://Sprites/QuickTimeEvent/Pepino/pepibomb6.png" id="19_oueo4"]
+[ext_resource type="Texture2D" uid="uid://brerjd32xx526" path="res://Sprites/QuickTimeEvent/Pepino/pepibomb7.png" id="20_fqw2v"]
+[ext_resource type="Texture2D" uid="uid://b7e8gbcvmwjih" path="res://Sprites/QuickTimeEvent/Pepino/pepibomb8.png" id="21_d5rui"]
+[ext_resource type="Texture2D" uid="uid://fo68qncllhxv" path="res://Sprites/QuickTimeEvent/Pepino/pepibomb9.png" id="22_4728u"]
+[ext_resource type="Texture2D" uid="uid://bvcmj27m3cp0i" path="res://Sprites/Fondos/bggame5.png" id="47_bl0jf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tmqid"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_i52fg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_k7sxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_53lho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7idb4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_45bvb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ltk3x")
+}],
+"loop": false,
+"name": &"arriveth",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_v7gn3")
+}],
+"loop": true,
+"name": &"bomba",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_i52fg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_k7sxx")
+}],
+"loop": true,
+"name": &"idle_loop",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_2l2yg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_63ijy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_v83s2")
+}],
+"loop": false,
+"name": &"leaveth",
+"speed": 8.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f4tn4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_np27c")
+}],
+"loop": true,
+"name": &"boom",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_xrbfh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_am3c0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_0biy1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_g115d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_eivco")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_oueo4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_fqw2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_d5rui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_4728u")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
 
 [sub_resource type="Animation" id="Animation_d3t1v"]
 length = 0.001
@@ -45,31 +168,31 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.6, 0.8),
 "transitions": PackedFloat32Array(2, 0.1, 1),
 "update": 0,
-"values": [Vector2(419, -61), Vector2(412, 385), Vector2(411, 393)]
+"values": [Vector2(560.141, -61), Vector2(560.141, 430), Vector2(560.141, 410)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SprBomba:scale")
+tracks/1/path = NodePath("SprBomba:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6, 0.8, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 0.804688), Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SprBomba:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SprBomba:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.2, 0.2), Vector2(0.2, 0.2), Vector2(0.2, 0.18), Vector2(0.2, 0.2)]
 }
 
 [sub_resource type="Animation" id="Animation_i2vue"]
@@ -84,7 +207,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.6, 0.8),
 "transitions": PackedFloat32Array(2, 0.1, 1),
 "update": 0,
-"values": [Vector2(935, -61), Vector2(938, 390), Vector2(938, 393)]
+"values": [Vector2(801.971, -61), Vector2(801.971, 430), Vector2(801.971, 410)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -96,7 +219,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.6, 0.8, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 0.804688), Vector2(1, 1)]
+"values": [Vector2(0.2, 0.2), Vector2(0.2, 0.2), Vector2(0.2, 0.18), Vector2(0.2, 0.2)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -124,7 +247,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.7),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector2(935, 393), Vector2(419, 393)]
+"values": [Vector2(801.971, 410), Vector2(560.141, 410)]
 }
 
 [sub_resource type="Animation" id="Animation_hr30r"]
@@ -140,7 +263,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.7),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector2(419, 393), Vector2(935, 393)]
+"values": [Vector2(560.141, 410), Vector2(801.971, 410)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wb75p"]
@@ -155,10 +278,36 @@ _data = {
 [node name="EventoPepino" type="Node2D"]
 script = ExtResource("1_8qjqu")
 
-[node name="SprBomba" type="Sprite2D" parent="."]
+[node name="Sillas" type="Sprite2D" parent="."]
+position = Vector2(3.05176e-05, 0)
+scale = Vector2(0.712, 0.712)
+texture = ExtResource("2_mqa73")
+centered = false
+
+[node name="Gato" type="AnimatedSprite2D" parent="."]
+position = Vector2(466, 295)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_tmqid")
+animation = &"arriveth"
+
+[node name="Gato2" type="AnimatedSprite2D" parent="."]
+position = Vector2(916, 295)
+scale = Vector2(-0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_tmqid")
+animation = &"arriveth"
+
+[node name="Mesa" type="Sprite2D" parent="."]
+position = Vector2(-3, 14)
+scale = Vector2(0.712, 0.712)
+texture = ExtResource("47_bl0jf")
+centered = false
+
+[node name="SprBomba" type="AnimatedSprite2D" parent="."]
 visible = false
+z_index = 1
 position = Vector2(212, 375)
-texture = ExtResource("2_874eh")
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_f4tn4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -170,20 +319,20 @@ process_callback = 0
 one_shot = true
 
 [node name="arrowP1" type="Sprite2D" parent="."]
-position = Vector2(419, 549)
-scale = Vector2(0.2, 0.2)
+position = Vector2(227, 318)
+scale = Vector2(0.35, 0.35)
 texture = ExtResource("3_i6pxy")
 
 [node name="arrowP2" type="Sprite2D" parent="."]
-position = Vector2(935, 544)
-scale = Vector2(0.2, 0.2)
+position = Vector2(1119, 308)
+scale = Vector2(0.35, 0.35)
 texture = ExtResource("4_4vkfi")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 242.0
-offset_top = 614.0
-offset_right = 606.0
-offset_bottom = 659.0
+offset_left = 267.0
+offset_top = 454.0
+offset_right = 631.0
+offset_bottom = 499.0
 theme = ExtResource("6_22ykq")
 text = "PLAYER : X"
 horizontal_alignment = 1
@@ -191,15 +340,19 @@ vertical_alignment = 1
 justification_flags = 0
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 773.0
-offset_top = 614.0
-offset_right = 1137.0
-offset_bottom = 659.0
+offset_left = 731.0
+offset_top = 457.0
+offset_right = 1095.0
+offset_bottom = 502.0
 theme = ExtResource("6_22ykq")
 text = "PLAYER : X"
 horizontal_alignment = 1
 vertical_alignment = 1
 justification_flags = 0
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[node name="TimerExplosion" type="Timer" parent="."]
+
+[connection signal="animation_finished" from="Gato" to="." method="_on_gato_animation_finished"]
+[connection signal="animation_finished" from="Gato2" to="." method="_on_gato_2_animation_finished"]
 [connection signal="timeout" from="TimerFinalEvento" to="." method="_on_timer_final_evento_timeout"]
+[connection signal="timeout" from="TimerExplosion" to="." method="_on_timer_explosion_timeout"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ys01l2l4rgs7"]
+
+[ext_resource type="Script" path="res://Escenas/Recetas/Bocadillo.gd" id="1_00dse"]
+[ext_resource type="Texture2D" uid="uid://bo3atjcenfr6d" path="res://Sprites/Comidas/Bocadillo.png" id="1_bfmcj"]
+
+[node name="Bocadillo" type="Sprite2D"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_bfmcj")
+hframes = 3
+script = ExtResource("1_00dse")

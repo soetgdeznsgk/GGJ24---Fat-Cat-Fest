@@ -17,24 +17,12 @@ var namefinal : Array = ["Car", "Kitty", "WAR CRIMINAL", "Chonker", "Purrer", "B
 # lo pongo aca para que no se rompa al probar escenas solitas
 func _ready() -> void:
 	# alerta de radiacion 
-	Names.name_player1 = Names.nameinitial.pick_random() + " " + Names.namefinal.pick_random()
-	Names.name_player2 = Names.nameinitial.pick_random() + " " + Names.namefinal.pick_random()
-	Names.nameInitial1 = nameinitial[randi() % nameinitial.size()]
-	Names.nameFinal1 = namefinal[randi() % namefinal.size()]
-	Names.nameInitial2 = nameinitial[randi() % nameinitial.size()]
-	Names.nameFinal2 = namefinal[randi() % namefinal.size()]
-	#☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️
-	Names.dirAudioInitial1 = lookupAudioFile(nameInitial1, 1)
-	Names.dirAudioFinal1 = lookupAudioFile(nameFinal1, 2)
-	Names.dirAudioInitial2 = lookupAudioFile(nameInitial2, 1)
-	Names.dirAudioFinal2 = lookupAudioFile(nameFinal2, 2)
-	Names.name_player1 = nameInitial1 + " " + nameFinal1
-	Names.name_player2 = nameInitial2 + " " + nameFinal2
-	pass
+	generar_nombres()
 
 func lookupAudioFile(name: String, opcion: int) -> String:
 	var dir
 	var dirString
+	#☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️
 	match opcion:
 		1:
 			dir = DirAccess.open("res://SFX/Narrador/prefijos")
@@ -43,6 +31,7 @@ func lookupAudioFile(name: String, opcion: int) -> String:
 			var file_name = dir.get_next()
 			while file_name != "":
 				if file_name.contains(name.to_lower().format(["-"], " ")):
+					file_name = file_name.trim_suffix(".import")
 					return dirString + file_name
 				file_name = dir.get_next()
 		2:
@@ -52,7 +41,23 @@ func lookupAudioFile(name: String, opcion: int) -> String:
 			var file_name = dir.get_next()
 			while file_name != "":
 				if file_name.contains(name.to_lower().format(["-"], " ")):
+					file_name = file_name.trim_suffix(".import")
 					return dirString + file_name
 				file_name = dir.get_next()
 				
 	return "error"
+
+func generar_nombres():
+	Names.nameInitial1 = nameinitial.pick_random()
+	Names.nameFinal1 = namefinal.pick_random()
+	Names.nameInitial2 = nameinitial.pick_random()
+	Names.nameFinal2 = namefinal.pick_random()
+	while nameFinal1 == nameFinal2:
+		nameFinal1 = namefinal.pick_random()
+	#☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️
+	Names.dirAudioInitial1 = lookupAudioFile(nameInitial1, 1)
+	Names.dirAudioFinal1 = lookupAudioFile(nameFinal1, 2)
+	Names.dirAudioInitial2 = lookupAudioFile(nameInitial2, 1)
+	Names.dirAudioFinal2 = lookupAudioFile(nameFinal2, 2)
+	Names.name_player1 = nameInitial1 + " " + nameFinal1
+	Names.name_player2 = nameInitial2 + " " + nameFinal2

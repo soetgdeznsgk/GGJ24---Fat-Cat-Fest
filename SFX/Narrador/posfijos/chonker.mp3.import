@@ -2,7 +2,7 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://btecrfcycvgox"
+uid="uid://bbse0f73cscea"
 path="res://.godot/imported/chonker.mp3-ef1c0ce12894145bd01b7d6d5c1e8bfa.mp3str"
 
 [deps]
@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/chonker.mp3-ef1c0ce12894145bd01b7d6d5c1e8bfa.
 [params]
 
 loop=false
-loop_offset=0.0
-bpm=0.0
+loop_offset=0
+bpm=0
 beat_count=0
 bar_beats=4

@@ -19,6 +19,7 @@ var lista_campana = [preload("res://Escenas/Eventos/SFX/campanita.mp3"), preload
 var lista_gato_anuncia = [preload("res://Escenas/Eventos/SFX/gatoanunciagrave.mp3"), preload("res://Escenas/Eventos/SFX/randomGatoAnuncia.mp3")]
 
 var ultimoEvento 
+var selection 
 
 func _ready():
 	generarNuevoEvento()
@@ -34,8 +35,24 @@ func tiempoAleatorio():
 
 func generarNuevoEvento():
 	timer.start(tiempoAleatorio())
+	
 
 func _on_timer_timeout():
+	#logica de cambio de evento
+	selection = randi_range(0,listaEventos.size() - 1)
+	if selection == ultimoEvento:
+		if selection < 2:
+			selection += 1
+		elif selection == 2:
+			selection = 0
+	print("seleccion del evento: ", selection) # pa comprobar que no de por fuera de lo usual y no rompa la pcu
+	match selection:
+		0:
+			$LabelCualEventoEs.text = "Break that Dish"
+		1:
+			$LabelCualEventoEs.text = "Hot Cucumber"
+		2:
+			$LabelCualEventoEs.text = "Cat Fight"
 	anim.play("pop_up")
 	Eventos.bajarTelon.emit()
 
@@ -43,14 +60,6 @@ func cheer(prob : float):
 	Eventos.catCheer.emit(prob)
 
 func finAnimacion():
-	#logica de cambio de evento
-	var selection = randi_range(0,listaEventos.size() - 1)
-	if selection == ultimoEvento:
-		if selection < 2:
-			selection += 1
-		elif selection == 2:
-			selection = 0
-	print("seleccion del evento: ", selection) # pa comprobar que no de por fuera de lo usual y no rompa la pcu
 	# TESTING: selection = 1
 	var eventoInstanciado = listaEventos[selection].instantiate()
 	ultimoEvento = selection 

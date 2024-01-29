@@ -16,7 +16,7 @@ var namefinal : Array = ["Car", "Kitty", "WAR CRIMINAL", "Chonker", "Purrer", "B
 # Al iniciarse el singleton toma un nombre random, tambien al darle play al juego
 # lo pongo aca para que no se rompa al probar escenas solitas
 
-func lookupAudioFile(name: String, opcion: int) -> String:
+func lookupAudioFile(in_name: String, opcion: int) -> String:
 	var dir
 	var dirString
 	#☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️
@@ -27,7 +27,7 @@ func lookupAudioFile(name: String, opcion: int) -> String:
 			dir.list_dir_begin()
 			var file_name = dir.get_next()
 			while file_name != "":
-				if file_name.contains(name.to_lower().format(["-"], " ")):
+				if file_name.contains(in_name.to_lower().format(["-"], " ")):
 					file_name = file_name.trim_suffix(".import")
 					return dirString + file_name
 				file_name = dir.get_next()
@@ -37,7 +37,7 @@ func lookupAudioFile(name: String, opcion: int) -> String:
 			dir.list_dir_begin()
 			var file_name = dir.get_next()
 			while file_name != "":
-				if file_name.contains(name.to_lower().format(["-"], " ")):
+				if file_name.contains(in_name.to_lower().format(["-"], " ")):
 					file_name = file_name.trim_suffix(".import")
 					return dirString + file_name
 				file_name = dir.get_next()

@@ -34,7 +34,9 @@ func _ready() -> void:
 		soundQueue.append(load(Names.dirAudioFinal2))
 		$AudioStreamPlayer.stream = soundQueue.pop_front()
 		$AudioStreamPlayer.play()
-func _process(delta: float) -> void:
+
+#alo
+func _process(_delta: float) -> void:
 	pass
 
 func cheer(prob : float):

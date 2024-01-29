@@ -18,7 +18,7 @@ func _ready():
 func triggerEnd(_ganador) ->void:
 	end=true
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# Check if the Enter key is pressed
 	if Input.is_action_just_pressed("ui_accept"):
 		# Call the triggerRandomCheer function

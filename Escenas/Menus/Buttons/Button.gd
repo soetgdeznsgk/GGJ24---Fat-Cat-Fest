@@ -63,7 +63,7 @@ func _on_pressed() -> void: # intentar moverlo con el margen y no con el size
 	tween.tween_property(self, "margin_size", 0, 0.5)
 	animacion_play.emit(tween)
 	tween_margins_forcefully(tween)
-	
+
 func tween_margins_forcefully(tween : Tween): # CODIGO RADIOACTIVO
 	if tween.is_running():
 		$"../..".add_theme_constant_override("margin_left", margin_size)

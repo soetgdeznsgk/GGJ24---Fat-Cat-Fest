@@ -104,7 +104,7 @@ func eat(cache) -> void:
 		canEat = true
 #region Rompeplatos Behavior Pattern
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if currState == States.Eating and canEat: # ésto es lo que interrumpirá la recursión
 		eat(0)
 
@@ -129,7 +129,8 @@ func break_dishes(cache) -> void:
 			if pos_dish.y > 600: 
 				vectorPenalization += (pos_dish - pos_hammer).length() * Vector2.UP
 			elif pos_dish.y < 140: 
-				(pos_dish - pos_hammer).length() * Vector2.DOWN
+				#pepe ?????????????????????
+				vectorPenalization += (pos_dish - pos_hammer).length() * Vector2.DOWN
 				
 			if ((vectorOrtonormal / 3) + pos_dish).x > 1200 or ((vectorOrtonormal / 3) + pos_dish).x < 140 or ((vectorOrtonormal / 3) + pos_dish).y > 600 or ((vectorOrtonormal / 3) + pos_dish).y < 140:
 				vectorOrtonormal = - vectorOrtonormal
@@ -206,6 +207,6 @@ func set_attack_state() -> void:
 func set_idle() -> void:
 	currState = States.Idle
 	
-func resume_eating(cache) -> void:
+func resume_eating(_cache) -> void:
 	currState = States.Eating
 	eat(1.0)

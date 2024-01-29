@@ -405,7 +405,6 @@ texture_normal = ExtResource("9_dkl1p")
 texture_pressed = ExtResource("9_dkl1p")
 texture_hover = ExtResource("9_dkl1p")
 texture_focused = ExtResource("9_dkl1p")
-stretch_mode = 0
 
 [node name="platos3" type="Sprite2D" parent="."]
 position = Vector2(301, 336)

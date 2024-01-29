@@ -35,10 +35,6 @@ func _ready() -> void:
 		$AudioStreamPlayer.stream = soundQueue.pop_front()
 		$AudioStreamPlayer.play()
 
-#alo
-func _process(_delta: float) -> void:
-	pass
-
 func cheer(prob : float):
 	Eventos.catCheer.emit(prob)
 

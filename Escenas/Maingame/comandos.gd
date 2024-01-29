@@ -57,7 +57,6 @@ func _ready() -> void:
 		load("res://SFX/nom7.mp3")]
 		listaSfxAcabarPlato = [load("res://SFX/finalComida1.mp3"), load("res://SFX/finalComida2.mp3"),\
 		load("res://SFX/finalComida3.mp3"), load("res://SFX/finalComida4.mp3")]
-		stunSonido = load("res://SFX/GatoProta/dizzy.mp3")
 		$NamePlayer.modulate = Color("#F2DF6F")
 		for i in comandoNodos:
 			i.modulate = Color("#F2DF6F")

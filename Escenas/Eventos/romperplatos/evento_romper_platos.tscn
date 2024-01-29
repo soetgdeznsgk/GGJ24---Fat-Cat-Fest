@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cxwff3nt01gul"]
+[gd_scene load_steps=24 format=3 uid="uid://cxwff3nt01gul"]
 
 [ext_resource type="Script" path="res://Escenas/Eventos/romperplatos/evento_romper_platos.gd" id="1_6r5rn"]
 [ext_resource type="Texture2D" uid="uid://difkvs4ri15mk" path="res://Sprites/QuickTimeEvent/fondoplatos.png" id="2_6owar"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b4rtbvcjkyc4j" path="res://Sprites/QuickTimeEvent/brazomarpj2-1.png" id="7_3ras2"]
 [ext_resource type="Texture2D" uid="uid://d1sa3ql83f6nf" path="res://Sprites/QuickTimeEvent/2.png" id="8_1phx8"]
 [ext_resource type="Texture2D" uid="uid://wun40n2i3h41" path="res://Sprites/QuickTimeEvent/brazomarpj2-2.png" id="8_itf0f"]
+[ext_resource type="AudioStream" uid="uid://dq4jf66in0p8" path="res://SFX/boing.mp3" id="9_541f7"]
 [ext_resource type="Texture2D" uid="uid://cpwig8pnlt1pg" path="res://Sprites/QuickTimeEvent/1.png" id="9_ffqqa"]
 [ext_resource type="Texture2D" uid="uid://6p1tfoa04b18" path="res://Sprites/QuickTimeEvent/Go.png" id="10_5ke27"]
 
@@ -50,6 +51,18 @@ tracks/1/keys = {
 "method": &"set_golpeando"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_3x2d6"]
 resource_name = "MartillandoP2"
@@ -84,6 +97,18 @@ tracks/1/keys = {
 "method": &"set_golpeando"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_7diyl"]
 length = 0.001
@@ -98,6 +123,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("2_ldjf1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uv3c1"]
@@ -239,6 +276,9 @@ text = "PLAYER : X"
 horizontal_alignment = 1
 vertical_alignment = 1
 justification_flags = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Martillo"]
+stream = ExtResource("9_541f7")
 
 [node name="Plato" type="Area2D" parent="."]
 position = Vector2(1168, 620)

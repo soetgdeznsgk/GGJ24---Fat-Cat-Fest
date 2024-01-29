@@ -21,6 +21,10 @@ Enums="*res://Logica/Globales/enums.gd"
 Eventos="*res://Logica/Globales/Eventos.gd"
 Names="*res://Escenas/Maingame/names.gd"
 
+[debug]
+
+gdscript/warnings/integer_division=0
+
 [display]
 
 window/size/viewport_width=1366

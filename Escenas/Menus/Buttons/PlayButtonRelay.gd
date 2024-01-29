@@ -22,7 +22,6 @@ func showPlayButton():
 	MPButton.visible = false
 	if sig:
 		sig.stop()
-	@warning_ignore("integer_division")
 	PlayButton.margin_size = get_tree().root.size.x / 5
 	$MarginContainer.add_theme_constant_override("margin_left", 0)
 	$MarginContainer.add_theme_constant_override("margin_right", 0)

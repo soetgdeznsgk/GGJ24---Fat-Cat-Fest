@@ -15,6 +15,9 @@ var namefinal : Array = ["Car", "Kitty", "WAR CRIMINAL", "Chonker", "Purrer", "B
 
 # Al iniciarse el singleton toma un nombre random, tambien al darle play al juego
 # lo pongo aca para que no se rompa al probar escenas solitas
+func _ready() -> void:
+	generar_nombres()
+
 
 func lookupAudioFile(in_name: String, opcion: int) -> String:
 	var dir

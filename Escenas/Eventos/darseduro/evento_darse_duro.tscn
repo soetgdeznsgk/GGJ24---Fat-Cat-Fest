@@ -46,7 +46,7 @@ z_index = 1
 
 [node name="Gato2" parent="." instance=ExtResource("1_k6i8i")]
 z_as_relative = false
-position = Vector2(813, 260)
+position = Vector2(862, 260)
 jugador = 2
 metadata/_edit_group_ = true
 
@@ -72,7 +72,7 @@ position = Vector2(-20, 56.1538)
 
 [node name="TimerFinalizarEvento" type="Timer" parent="."]
 process_callback = 0
-wait_time = 12.0
+wait_time = 18.0
 one_shot = true
 autostart = true
 

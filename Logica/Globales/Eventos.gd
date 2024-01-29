@@ -1,6 +1,8 @@
 extends Node
 
 var singleplayer : bool
+var tutorialSingleplayerHecho: bool
+var tutorialMultiplayerHecho: bool
 var ganador = 0
 
 signal nuevoEvento(evento)

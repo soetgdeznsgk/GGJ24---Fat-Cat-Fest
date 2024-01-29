@@ -27,12 +27,4 @@ func _on_audio_player_finished():
 		get_tree().change_scene_to_file("res://Escenas/Maingame/Tutorial.tscn")
 	$AudioPlayer.stream = currentSound
 	$AudioPlayer.play()
-
-func _on_animated_sprite_2d_frame_changed():
-	if switch:
-		$Gato1/AnimatedSprite2D.set_scale(Vector2(-0.6, 0.6))
-		switch = true
-	else:
-		$Gato1/AnimatedSprite2D.set_scale(Vector2(0.6, 0.6))
-		switch = false
 		

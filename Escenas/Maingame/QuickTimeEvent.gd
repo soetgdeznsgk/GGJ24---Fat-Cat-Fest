@@ -26,6 +26,7 @@ func _ready():
 	Eventos.ganadorFestival.connect(finJuego)
 
 func finJuego(_ganador):
+	timer.stop()
 	anim.play("fin_juego")
 	
 func tiempoAleatorio():

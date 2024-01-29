@@ -7,6 +7,7 @@ func _ready() -> void:
 	if Eventos.ganador == 1:
 		$Label.text = "WINNER OF CAT FAST FEST IS ... " + Names.name_player1
 		$LabelNombre.text = Names.name_player1
+		$LabelNombre.modulate = Color("#88D662")
 		$Gato1.play("begin_victoria")
 		$Gato2.play("begin_derrota")
 		await get_tree().create_timer(.2).timeout
@@ -19,6 +20,7 @@ func _ready() -> void:
 	elif Eventos.ganador == 2:
 		$Label.text = "WINNER OF CAT FAST FEST IS ... " + Names.name_player2
 		$LabelNombre.text = Names.name_player2
+		$LabelNombre.modulate = Color("#F2DF6F")
 		$Gato1.position = Vector2(902,435)
 		$Gato1.scale = Vector2(0.367,0.367)
 		$Gato2.position = Vector2(677,365)
@@ -44,6 +46,7 @@ func set_sfx_random_anuncia():
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Escenas/Menus/menu_principal.tscn")
 	queue_free()
+
 func _on_audio_stream_player_finished():
 	$AudioStreamPlayer.stream = soundQueue.pop_front()
 	$AudioStreamPlayer.play()

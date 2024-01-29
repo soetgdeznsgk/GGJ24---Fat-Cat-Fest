@@ -414,20 +414,11 @@ tracks/5/path = NodePath(".")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.2, 0.5, 0.6, 0.8, 1, 1.2, 2.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.2, 0.4, 0.7, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "values": [{
 "args": [],
 "method": &"set_sfx_random_anuncia"
-}, {
-"args": [0.7],
-"method": &"cheer"
-}, {
-"args": [0.7],
-"method": &"cheer"
-}, {
-"args": [0.7],
-"method": &"cheer"
 }, {
 "args": [0.7],
 "method": &"cheer"
@@ -548,13 +539,10 @@ tracks/8/path = NodePath(".")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0.3, 0.5, 4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
-"args": [0.25],
-"method": &"cheer"
-}, {
-"args": [0.25],
+"args": [0.5],
 "method": &"cheer"
 }, {
 "args": [],
@@ -701,7 +689,7 @@ texture = ExtResource("3_18j6d")
 [node name="SprSurprise" type="Sprite2D" parent="."]
 z_index = 6
 z_as_relative = false
-position = Vector2(680, 400)
+position = Vector2(750, 400)
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("4_cpnpn")
 

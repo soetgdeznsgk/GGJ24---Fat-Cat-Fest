@@ -15,7 +15,7 @@ var finished = false
 
 var bombPos = null
 enum {LEFT,RIGHT}
-var speed = 0.4
+var speed = 0.55
 
 func _ready():
 	var tiempoExplox = randi_range(5,10)
@@ -51,10 +51,10 @@ func _ready():
 func _physics_process(_delta: float) -> void:
 	if !finished:
 		if bombPos==LEFT and !anim.is_playing() and Input.is_action_just_pressed("DerechaPj1"):
-			anim.play("swipe_right", -1 , randf_range(0,0.7) + speed)
+			anim.play("swipe_right", -1 , randf_range(0,0.3) + speed)
 			sprGato1.play("leaveth")
 			bombPos=RIGHT
-			speed += 0.2 
+			speed += 0.13
 			arrowp1.visible=false
 			await get_tree().create_timer(1.5-speed).timeout
 			sprGato2.play("its_here")
@@ -62,10 +62,10 @@ func _physics_process(_delta: float) -> void:
 			sprBomba.speed_scale = randi_range(1,4)
 			sprBomba.play("default")
 		if (Input.is_action_just_pressed("IzquierdaPj2") or (Eventos.singleplayer and Input.is_action_pressed("IzquierdaPj2") ) )  and bombPos==RIGHT and !anim.is_playing():
-			anim.play("swipe_left" ,-1 ,randf_range(0,0.7) + speed)
+			anim.play("swipe_left" ,-1 ,randf_range(0,0.3) + speed)
 			sprGato2.play("leaveth")
 			bombPos=LEFT
-			speed += 0.2
+			speed += 0.13
 			arrowp2.visible=false
 			await get_tree().create_timer(1-speed).timeout
 			sprGato1.play("its_here")

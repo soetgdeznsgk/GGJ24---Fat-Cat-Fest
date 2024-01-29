@@ -45,6 +45,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, -122), Vector2(0, -102), Vector2(0, -128), Vector2(-3, -102), Vector2(0, -130), Vector2(0, -122)]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_yipee"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_g6s0d"]
 resource_name = "idle_appear"
@@ -96,3 +110,8 @@ root_node = NodePath("../Sprite2D")
 libraries = {
 "": SubResource("AnimationLibrary_ut0b0")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -0.1
+max_polyphony = 2
+bus = &"SFX"

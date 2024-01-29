@@ -6,7 +6,7 @@ var end=false
 
 # Array to store references to the instantiated cat instances
 var catInstances: Array = []
-
+@export var yippies : Array[AudioStream] = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	instantiateRandomCats()
@@ -44,7 +44,8 @@ func instantiateRandomCats() -> void:
 
 		# Generate a random Y position within the range of -5 to 5 from a base Y position
 		catInstance.position.y = randi_range(770, 780)
-
+		var yipee = yippies.pick_random()
+		catInstance.yipee = yipee
 		# Add the cat to the scene
 		add_child(catInstance)
 		

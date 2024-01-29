@@ -11,6 +11,7 @@ var listaSfxAcabarPlato
 var ultimoNom
 var ultimoAcabarPlato
 var chokesonido
+var stunSonido
 
 @export var duracionStun = 2
 var ultimoInputRegistrado = null
@@ -30,6 +31,7 @@ var numeroMitadComida
 var sfx_comer := AudioStreamPlayer.new()
 var comer_flag
 
+
 func _ready() -> void:
 	comer_flag = false
 	sfx_comer.bus = "SFX"
@@ -47,18 +49,21 @@ func _ready() -> void:
 	diccionarioInputs[Enums.Derecha] = "DerechaPj" + str(jugador)
 	
 	if jugador == 2:
+		stunSonido = load("res://SFX/sonidosNoImplementadosSebastian/stun1.mp3")
 		chokesonido= load("res://Escenas/Maingame/sfx/buzz1.mp3")
 		listaSfxComer=[load("res://SFX/nom1.mp3"),load("res://SFX/nom2.mp3"),\
 		load("res://SFX/nom3.mp3"),load("res://SFX/nom4.mp3"),\
 		load("res://SFX/nom5.mp3"),load("res://SFX/nom6.mp3"),
 		load("res://SFX/nom7.mp3")]
 		listaSfxAcabarPlato = [load("res://SFX/finalComida1.mp3"), load("res://SFX/finalComida2.mp3"),\
-		load("res://SFX/finalComida3.mp3"), load("res://SFX/finalComida4.mp3")]		
+		load("res://SFX/finalComida3.mp3"), load("res://SFX/finalComida4.mp3")]
+		stunSonido = load("res://SFX/GatoProta/dizzy.mp3")
 		$NamePlayer.modulate = Color("#F2DF6F")
 		for i in comandoNodos:
 			i.modulate = Color("#F2DF6F")
 
 	else:
+		stunSonido = load("res://SFX/GatoProta/dizzy.mp3")
 		chokesonido= load("res://SFX/GatoProta/choke.mp3")
 		listaSfxComer=[load("res://SFX/GatoProta/ÑAM1.mp3"),load("res://SFX/GatoProta/ñam2.mp3"),\
 		load("res://SFX/GatoProta/ñam3.mp3"),load("res://SFX/GatoProta/ñam4.mp3"),\
@@ -208,6 +213,8 @@ func reanudarProcesos(ganador):
 			comandoNodos[i].visible = true
 	else:
 		spriteGato.visible = true
+		sfx_comer.stream = stunSonido
+		sfx_comer.play()
 		spriteGato.play("begin_stun")
 		await get_tree().create_timer(.2).timeout
 		spriteGato.play("loop_stun")

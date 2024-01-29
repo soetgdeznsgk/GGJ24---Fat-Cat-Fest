@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cp85xfjdi08u2"]
+[gd_scene load_steps=10 format=3 uid="uid://cp85xfjdi08u2"]
 
 [ext_resource type="Script" path="res://Escenas/Maingame/Publico/GatosPublico.gd" id="1_opjnt"]
 [ext_resource type="AudioStream" uid="uid://b5glgascqlu4n" path="res://SFX/Yippies/yippie1.mp3" id="2_yl8mc"]
@@ -7,8 +7,10 @@
 [ext_resource type="AudioStream" uid="uid://yw4h1jvwe06q" path="res://SFX/Yippies/yippie4.mp3" id="5_3u2bd"]
 [ext_resource type="AudioStream" uid="uid://waa2w582rbda" path="res://SFX/Yippies/yippie5.mp3" id="6_sklwu"]
 [ext_resource type="AudioStream" uid="uid://dk0txbxqxhuqv" path="res://SFX/Yippies/yippie6.mp3" id="7_7ftf6"]
+[ext_resource type="AudioStream" uid="uid://b542i2ja8me16" path="res://SFX/Yippies/yippie7.mp3" id="8_u78t4"]
+[ext_resource type="AudioStream" uid="uid://uedtwj7usidd" path="res://SFX/Yippies/yippie8.mp3" id="9_lg8cs"]
 
 [node name="GatosPublico" type="Node2D"]
 position = Vector2(-2, -2)
 script = ExtResource("1_opjnt")
-yippies = [ExtResource("2_yl8mc"), ExtResource("3_rhutl"), ExtResource("4_88h5h"), ExtResource("5_3u2bd"), ExtResource("6_sklwu"), ExtResource("7_7ftf6")]
+yippies = Array[AudioStream]([ExtResource("2_yl8mc"), ExtResource("3_rhutl"), ExtResource("4_88h5h"), ExtResource("5_3u2bd"), ExtResource("6_sklwu"), ExtResource("7_7ftf6"), ExtResource("8_u78t4"), ExtResource("9_lg8cs")])

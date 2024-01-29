@@ -39,8 +39,9 @@ func generarNuevoEvento():
 
 func _on_timer_timeout():
 	#logica de cambio de evento
-	#selection = randi_range(0,listaEventos.size() - 1)
-	selection = 2
+	selection = randi_range(0,listaEventos.size() - 1)
+	# TEST
+	#selection = 2
 	if selection == ultimoEvento:
 		if selection < 2:
 			selection += 1
@@ -49,7 +50,7 @@ func _on_timer_timeout():
 	print("seleccion del evento: ", selection) # pa comprobar que no de por fuera de lo usual y no rompa la pcu
 	match selection:
 		0:
-			$LabelCualEventoEs.text = "Break that Dish"
+			$LabelCualEventoEs.text = "Plate Breaker"
 		1:
 			$LabelCualEventoEs.text = "Hot Cucumber"
 		2:

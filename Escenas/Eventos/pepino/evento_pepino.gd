@@ -15,10 +15,12 @@ var finished = false
 
 var bombPos = null
 enum {LEFT,RIGHT}
-var speed = 0.6
+var speed = 0.4
 
 func _ready():
-	$TimerExplosion.start(randi_range(8,15))
+	var tiempoExplox = randi_range(5,10)
+	$TimerExplosion.start(tiempoExplox)
+	$TimerPepinoAudioAcel.start(tiempoExplox - 1.5)
 	sprGato1.play("idle_loop")
 	sprGato2.play("idle_loop")
 	if randf() < 0.5:
@@ -49,7 +51,7 @@ func _ready():
 func _physics_process(_delta: float) -> void:
 	if !finished:
 		if bombPos==LEFT and !anim.is_playing() and Input.is_action_just_pressed("DerechaPj1"):
-			anim.play("swipe_right", -1 , randf_range(0,1) + speed)
+			anim.play("swipe_right", -1 , randf_range(0,0.7) + speed)
 			sprGato1.play("leaveth")
 			bombPos=RIGHT
 			speed += 0.2 
@@ -60,7 +62,7 @@ func _physics_process(_delta: float) -> void:
 			sprBomba.speed_scale = randi_range(1,4)
 			sprBomba.play("default")
 		if (Input.is_action_just_pressed("IzquierdaPj2") or (Eventos.singleplayer and Input.is_action_pressed("IzquierdaPj2") ) )  and bombPos==RIGHT and !anim.is_playing():
-			anim.play("swipe_left" ,-1 ,randf_range(0,1) + speed)
+			anim.play("swipe_left" ,-1 ,randf_range(0,0.7) + speed)
 			sprGato2.play("leaveth")
 			bombPos=LEFT
 			speed += 0.2
@@ -78,6 +80,7 @@ func _on_timer_final_evento_timeout():
 func _on_timer_explosion_timeout():
 	$AudioStreamPlayer.stream = lista_random_sfx_boom.pick_random()
 	$AudioStreamPlayer.play()
+	$piptimer.stop()
 	$TimerFinalEvento.start(3)
 	finished = true 
 	sprBomba.play("boom")
@@ -101,3 +104,10 @@ func _on_gato_2_animation_finished():
 	if !finished and sprGato2.animation!="idle_loop":
 		sprGato2.play("idle_loop")
 
+func _on_timer_pepino_audio_acel_timeout() -> void:
+	$piptimer.wait_time = 0.4
+
+
+func _on_piptimer_timeout() -> void:
+	$PepinoPipipi.play()
+	$piptimer.start()

@@ -39,7 +39,8 @@ func generarNuevoEvento():
 
 func _on_timer_timeout():
 	#logica de cambio de evento
-	selection = randi_range(0,listaEventos.size() - 1)
+	#selection = randi_range(0,listaEventos.size() - 1)
+	selection = 2
 	if selection == ultimoEvento:
 		if selection < 2:
 			selection += 1

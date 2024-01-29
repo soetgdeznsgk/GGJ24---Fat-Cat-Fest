@@ -17,11 +17,11 @@ var diccionarioInputs := {}
 @onready var anim = $AnimationPlayer
 var conteoGolpesRecibidos = 0
 var enCooldown = false
-
+var vida = 10
 var lista_random_punch = [preload("res://Escenas/Eventos/darseduro/sfx/bonk.mp3"), preload("res://Escenas/Eventos/darseduro/sfx/puh.mp3"),\
 preload("res://Escenas/Eventos/darseduro/sfx/thun.mp3")]
 var random_offset : float
-
+var puedoRecibirHit = true
 @export var sonidosPegar : Array[AudioStream]
 
 func _ready() -> void:
@@ -71,19 +71,28 @@ func _physics_process(_delta: float) -> void:
 			
 
 func _on_cabeza_area_entered(_area: Area2D) -> void:
-	$AudioStreamPlayer.stream = lista_random_punch.pick_random()
-	$AudioStreamPlayer.play()
-	spriteCabeza.play("bonk")
-	#Recibe golpe
-	conteoGolpesRecibidos += 1
-	var tweenCabeza = get_tree().create_tween()
-	tweenCabeza.set_ease(Tween.EASE_IN)
-	tweenCabeza.tween_property(cabeza,"position", markerCabeza, 0.12)
+	if puedoRecibirHit:
+		$AudioStreamPlayer.stream = lista_random_punch.pick_random()
+		$AudioStreamPlayer.play()
+		spriteCabeza.play("bonk")
+		#Recibe golpe
+		conteoGolpesRecibidos += 1
+		var tweenCabeza = get_tree().create_tween()
+		tweenCabeza.set_ease(Tween.EASE_IN)
+		tweenCabeza.tween_property(cabeza,"position", markerCabeza, 0.12)
+		
+		vida -= 1
+		$VidaSprite.frame += 1
+		puedoRecibirHit = false
+		if vida == 0:
+			get_parent().set_winner_by_life(jugador)
 
 func _on_cabeza_area_exited(_area: Area2D) -> void:
 	spriteCabeza.play("normal")
 	var tweenCabeza = get_tree().create_tween()
 	tweenCabeza.tween_property(cabeza,"position", cabezaPosInicial, 0.1)
+	await get_tree().create_timer(0.2).timeout
+	puedoRecibirHit = true
 
 func _on_timer_cooldown_timeout() -> void:
 	enCooldown = false

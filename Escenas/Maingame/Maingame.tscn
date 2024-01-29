@@ -342,9 +342,9 @@ animation = &"loop_comer"
 
 [node name="NamePlayer" type="Label" parent="Comandos"]
 offset_left = 66.0
-offset_top = -53.0
+offset_top = -65.0
 offset_right = 446.0
-offset_bottom = -12.0
+offset_bottom = 16.0
 theme = ExtResource("8_3c2xy")
 text = "nombre largo que coloco"
 horizontal_alignment = 1
@@ -363,9 +363,9 @@ scale = Vector2(0.587113, 0.611574)
 
 [node name="NamePlayer" type="Label" parent="Comandos2"]
 offset_left = 44.0
-offset_top = -55.0
+offset_top = -65.0
 offset_right = 424.0
-offset_bottom = -14.0
+offset_bottom = 16.0
 theme = ExtResource("8_3c2xy")
 text = "nombre largo que coloco"
 horizontal_alignment = 1

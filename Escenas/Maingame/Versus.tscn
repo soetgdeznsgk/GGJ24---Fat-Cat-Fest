@@ -65,9 +65,9 @@ frame_progress = 0.109849
 unique_name_in_owner = true
 z_index = 1
 offset_left = 157.0
-offset_top = 120.0
+offset_top = 110.0
 offset_right = 497.0
-offset_bottom = 300.0
+offset_bottom = 290.0
 theme = ExtResource("4_dswoe")
 label_settings = SubResource("LabelSettings_2f5hc")
 horizontal_alignment = 1
@@ -80,7 +80,7 @@ unique_name_in_owner = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Gato2"]
 z_index = 1
-position = Vector2(1000, 550)
+position = Vector2(1000, 580)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_3quny")
 animation = &"Idle"
@@ -89,10 +89,10 @@ frame_progress = 0.793002
 [node name="NombreGato2" type="Label" parent="Gato2"]
 unique_name_in_owner = true
 z_index = 1
-offset_left = 920.0
-offset_top = 120.0
-offset_right = 1260.0
-offset_bottom = 300.0
+offset_left = 900.0
+offset_top = 110.0
+offset_right = 1240.0
+offset_bottom = 290.0
 theme = ExtResource("4_dswoe")
 label_settings = SubResource("LabelSettings_cob6d")
 horizontal_alignment = 1
@@ -129,5 +129,5 @@ bus = &"SFX"
 
 [connection signal="frame_changed" from="Gato1/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="finished" from="AudioPlayer" to="." method="_on_audio_player_finished"]
 [connection signal="finished" from="AudioPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="finished" from="AudioPlayer" to="." method="_on_audio_player_finished"]

@@ -6,15 +6,11 @@ var bg_music_tutorial:= AudioStreamPlayer.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animationPlayador.play("iniciotutorialprogamer")
-	if Eventos.singleplayer && !Eventos.tutorialSingleplayerHecho:
+	if Eventos.singleplayer:
 		pantallprogamerproooo.play("SinglePlayer")
-		Eventos.tutorialSingleplayerHecho=true
-		
 		print("tamos solitos")
-	elif !Eventos.multiplayer && !Eventos.tutorialMultiplayerHecho:
+	else:
 		pantallprogamerproooo.play("MultiPlayer")
-		Eventos.tutorialMultiplayer=true
-		
 		print("tamos no solitos")
 	bg_music_tutorial.stream = load("res://Musica/tfcf_plato_v2.wav")
 	bg_music_tutorial.autoplay = true

@@ -10,6 +10,7 @@ var defensor
 var p2_started_as_hammer : bool # necesario para la CPU al inicio de la partida
 var puntajePj1 = 0
 var puntajePj2 = 0
+var crack = preload("res://Escenas/Eventos/romperplatos/sfx/plato_crack.mp3")
 
 func _ready() -> void:
 	if randf() < 0.5:
@@ -48,6 +49,8 @@ func cambiar_roles() -> void:
 	
 
 func perderVidaPlato() -> void:
+	$AudioStreamPlayer.stream = crack
+	$AudioStreamPlayer.play()
 	$Plato.perder_vida()
 	
 func pop_timer() -> void:

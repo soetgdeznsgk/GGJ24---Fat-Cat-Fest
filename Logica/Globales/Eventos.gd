@@ -5,6 +5,7 @@ var tutorialSingleplayerHecho: bool
 var tutorialMultiplayerHecho: bool
 var ganador = 0
 
+
 signal nuevoEvento(evento)
 signal bajarTelon
 signal finalPopUp

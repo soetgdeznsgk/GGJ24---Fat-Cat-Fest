@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://wibtjjyhafg4"]
+[gd_scene load_steps=34 format=3 uid="uid://wibtjjyhafg4"]
 
 [ext_resource type="Texture2D" uid="uid://xw1nnvfwkcch" path="res://Escenas/Menus/Buttons/Perilla.png" id="1_57c0c"]
 [ext_resource type="Script" path="res://Escenas/Menus/menu_principal.gd" id="1_vn785"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://Escenas/Menus/Buttons/simple_button.gd" id="9_xmcnb"]
 [ext_resource type="Texture2D" uid="uid://cko7qdpjm2shp" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0002.png" id="10_lymja"]
 [ext_resource type="Texture2D" uid="uid://b4e8p240jvkcc" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0003.png" id="11_c5trp"]
+[ext_resource type="Texture2D" uid="uid://bry527snkoxli" path="res://Escenas/Menus/Imgs/Creditos.png" id="12_bgwur"]
 [ext_resource type="Texture2D" uid="uid://bjuakr1esl2db" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0004.png" id="12_yvj5k"]
 [ext_resource type="Texture2D" uid="uid://cu8ihu268drfj" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0005.png" id="13_dneix"]
 [ext_resource type="Texture2D" uid="uid://sadnih3iylgi" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0006.png" id="14_t50se"]
@@ -58,13 +59,8 @@ bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dstja"]
 bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y85il"]
-bg_color = Color(0.921569, 0.807843, 0.611765, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.780392, 0.47451, 0.270588, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nxwv3"]
+texture = ExtResource("12_bgwur")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2evkp"]
 animations = [{
@@ -247,7 +243,7 @@ visible = false
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_y85il")
+theme_override_styles/panel = SubResource("StyleBoxTexture_nxwv3")
 
 [node name="CreditsVBox" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer"]
 layout_direction = 1
@@ -264,26 +260,25 @@ alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
 theme_override_font_sizes/font_size = 15
-text = "Artists:							
--Raccoyaki
--Yukki01
--DarkyBLG
--Crb64
--"
+text = "
+
+"
 horizontal_alignment = 1
 
 [node name="Label4" type="Label" parent="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
 theme_override_font_sizes/font_size = 10
-text = "Programmers:
--Pab10 Suarez
--SantBL
--Matseu
--Tibu
--Ex_Em
--Gugulplex
--"
+text = "  
+
+
+
+
+
+
+
+
+"
 horizontal_alignment = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox"]
@@ -296,12 +291,6 @@ alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
 theme_override_font_sizes/font_size = 15
-text = "Music:							
--lucasarizamanzano
--
--
--
--"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox/HBoxContainer2"]
@@ -311,16 +300,16 @@ layout_mode = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
 theme_override_font_sizes/font_size = 15
-text = "This game was developed 
-for the Global Game Jam 2024, 
-in the Colombian 
-Tan Grande y Jugando Site"
+text = "
+
+
+"
 horizontal_alignment = 1
 
 [node name="BackButton" parent="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox/HBoxContainer2/HBoxContainer" instance=ExtResource("4_cnkgm")]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
-text = "Back "
+text = "Back"
 icon = ExtResource("5_vsw83")
 flat = true
 alignment = 2

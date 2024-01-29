@@ -8,9 +8,13 @@ func _ready():
 	animationPlayador.play("iniciotutorialprogamer")
 	if Eventos.singleplayer && !Eventos.tutorialSingleplayerHecho:
 		pantallprogamerproooo.play("SinglePlayer")
+		Eventos.tutorialSingleplayerHecho=true
+		
 		print("tamos solitos")
 	elif !Eventos.multiplayer && !Eventos.tutorialMultiplayerHecho:
 		pantallprogamerproooo.play("MultiPlayer")
+		Eventos.tutorialMultiplayer=true
+		
 		print("tamos no solitos")
 	bg_music_tutorial.stream = load("res://Musica/tfcf_plato_v2.wav")
 	bg_music_tutorial.autoplay = true

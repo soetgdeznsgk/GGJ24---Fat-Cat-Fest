@@ -4,8 +4,12 @@ extends Control
 @onready var soundQueue = []
 @onready var switch = false
 @onready var sfxVS := preload("res://SFX/Narrador/vs1.mp3")
-
+var bg_music_versus:= AudioStreamPlayer.new()
 func _ready():
+	bg_music_versus.stream = load("res://Musica/tfcf_vs.mp3")
+	bg_music_versus.autoplay = true
+	bg_music_versus.bus = "Music"
+	add_child(bg_music_versus)
 	$Gato1.get_child(0).play("Idle")
 	$Gato2.get_child(0).play("Idle")
 	$Gato1.get_child(1).set_text(nombreGato1)

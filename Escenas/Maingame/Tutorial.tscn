@@ -118,7 +118,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_boehc"]
 resource_name = "eneltutorial"
-length = 5.0
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -138,7 +138,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(5),
+"times": PackedFloat32Array(3),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -232,8 +232,7 @@ z_index = 5
 position = Vector2(689, 385)
 scale = Vector2(0.712037, 0.712037)
 sprite_frames = SubResource("SpriteFrames_632lu")
-animation = &"SinglePlayer"
-frame_progress = 0.779887
+animation = &"MultiPlayer"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

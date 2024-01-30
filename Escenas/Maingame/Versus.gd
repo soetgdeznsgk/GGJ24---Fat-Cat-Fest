@@ -28,7 +28,13 @@ func _ready():
 func _on_audio_player_finished():
 	var currentSound = soundQueue.pop_front()
 	if !currentSound:
-		get_tree().change_scene_to_file("res://Escenas/Maingame/Tutorial.tscn")
+		if Eventos.singleplayer && !Eventos.tutorialSingleplayerHecho:
+			get_tree().change_scene_to_file("res://Escenas/Maingame/TutorialSingleplayer.tscn")
+		elif !Eventos.singleplayer && !Eventos.tutorialMultiplayerHecho:
+			get_tree().change_scene_to_file("res://Escenas/Maingame/TutorialMultiplayer.tscn")
+		else:
+			get_tree().change_scene_to_file("res://Escenas/Maingame/Maingame.tscn")
+			
 	$AudioPlayer.stream = currentSound
 	$AudioPlayer.play()
 		

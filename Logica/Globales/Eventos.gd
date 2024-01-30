@@ -1,10 +1,9 @@
 extends Node
 
 var singleplayer : bool
-var tutorialSingleplayerHecho: bool
-var tutorialMultiplayerHecho: bool
+var tutorialSingleplayerHecho: bool = false
+var tutorialMultiplayerHecho: bool = false
 var ganador = 0
-
 
 signal nuevoEvento(evento)
 signal bajarTelon

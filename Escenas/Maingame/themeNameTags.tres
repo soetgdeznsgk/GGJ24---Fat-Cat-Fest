@@ -1,24 +1,19 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://v28k7lh33uhi"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://v28k7lh33uhi"]
 
 [ext_resource type="Texture2D" uid="uid://cv5wxnpo7jbsb" path="res://Sprites/UI/Fondo nombre2.png" id="1_rkcgc"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_drik2"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3gmru"]
 texture = ExtResource("1_rkcgc")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xpnqh"]
-bg_color = Color(0, 0, 0, 1)
-border_color = Color(0, 0.937255, 0.698039, 1)
-corner_radius_top_left = 2
-shadow_color = Color(0, 0, 0, 0.823529)
+texture_margin_left = 20.0
+texture_margin_top = 16.0
+texture_margin_right = 20.0
+texture_margin_bottom = 17.0
+draw_center = false
 
 [resource]
 default_font_size = 22
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/constants/outline_size = 4
 Label/fonts/font = null
-Label/styles/normal = SubResource("StyleBoxTexture_drik2")
-Label/styles/style = SubResource("StyleBoxFlat_xpnqh")
+Label/styles/normal = SubResource("StyleBoxTexture_3gmru")
+Label/styles/style = null

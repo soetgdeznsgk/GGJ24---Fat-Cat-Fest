@@ -383,10 +383,9 @@ centered = false
 [node name="Label" type="Label" parent="."]
 visible = false
 z_index = 7
-z_as_relative = false
-offset_left = 267.0
+offset_left = 500.0
 offset_top = 333.0
-offset_right = 1125.0
+offset_right = 1358.0
 offset_bottom = 512.0
 theme = ExtResource("9_b1d82")
 theme_override_font_sizes/font_size = 64
@@ -400,11 +399,11 @@ visible_ratio = 0.0
 
 [node name="Button" type="TextureButton" parent="."]
 visible = false
-z_index = 2
-offset_left = 450.0
-offset_top = 545.0
-offset_right = 1626.0
-offset_bottom = 865.0
+z_index = 5
+offset_left = 460.0
+offset_top = 560.0
+offset_right = 1636.0
+offset_bottom = 880.0
 scale = Vector2(0.375, 0.375)
 texture_normal = ExtResource("9_dkl1p")
 texture_pressed = ExtResource("9_dkl1p")
@@ -444,10 +443,10 @@ texture = ExtResource("7_t76n8")
 [node name="LabelNombre" type="Label" parent="."]
 z_index = 1
 z_as_relative = false
-offset_left = 447.0
+offset_left = 420.0
 offset_top = 478.0
-offset_right = 888.0
-offset_bottom = 540.0
+offset_right = 930.0
+offset_bottom = 556.0
 theme = ExtResource("9_b1d82")
 theme_override_font_sizes/font_size = 32
 text = "NOMBRE LARGO QUE COLOCO"

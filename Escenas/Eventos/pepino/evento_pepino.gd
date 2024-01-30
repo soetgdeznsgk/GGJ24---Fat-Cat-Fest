@@ -20,6 +20,10 @@ var ultimoInputRegistrado = -1
 var jugador = 1
 
 func _ready():
+	$Label.modulate = Color("#88D662")
+	$Label.text = Names.name_player1
+	$Label2.modulate = Color("#F2DF6F")
+	$Label2.text = Names.name_player2
 	var tiempoExplox = randi_range(5,10)
 	var probLado = randf()
 	$Label.modulate = Color("#F2DF6F")

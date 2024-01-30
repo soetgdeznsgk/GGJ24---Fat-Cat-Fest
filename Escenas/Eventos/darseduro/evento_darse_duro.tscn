@@ -43,6 +43,9 @@ position = Vector2(561, 260)
 metadata/_edit_group_ = true
 
 [node name="Label" parent="Gato" index="0"]
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 268.615
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" parent="Gato/sprPadre/Cabeza" index="1"]
@@ -55,9 +58,11 @@ z_index = 1
 z_as_relative = false
 position = Vector2(862, 260)
 jugador = 2
-metadata/_edit_group_ = true
 
 [node name="Label" parent="Gato2" index="0"]
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 268.615
 metadata/_edit_use_anchors_ = true
 
 [node name="SprCuerpo" parent="Gato2/sprPadre" index="0"]

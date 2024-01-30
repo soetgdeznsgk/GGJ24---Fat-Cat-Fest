@@ -18,6 +18,10 @@ enum {LEFT,RIGHT}
 var speed = 0.55
 
 func _ready():
+	$Label.modulate = Color("#88D662")
+	$Label.text = Names.name_player1
+	$Label2.modulate = Color("#F2DF6F")
+	$Label2.text = Names.name_player2
 	var tiempoExplox = randi_range(5,10)
 	$TimerExplosion.start(tiempoExplox)
 	$TimerPepinoAudioAcel.start(tiempoExplox - 1.5)
@@ -42,11 +46,6 @@ func _ready():
 		sprGato2.play("arriveth")
 		sprGato1.play("idle_loop")
 		bombPos = RIGHT
-
-	$Label.modulate = Color("#F2DF6F")
-	$Label.text = Names.name_player1
-	$Label2.modulate = Color("#88D662")
-	$Label2.text = Names.name_player2
 
 func _physics_process(_delta: float) -> void:
 	if !finished:

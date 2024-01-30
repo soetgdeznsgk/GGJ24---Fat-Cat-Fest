@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://crl5a2dbvi2xl"]
+[gd_scene load_steps=22 format=3 uid="uid://crl5a2dbvi2xl"]
 
 [ext_resource type="Script" path="res://Escenas/Maingame/TutorialSingleplayer.gd" id="1_fos5q"]
 [ext_resource type="Texture2D" uid="uid://cth80ou0c0vgb" path="res://Sprites/Fondos/bggame0.png" id="1_vdrdg"]
@@ -8,14 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://bjsfpkws15228" path="res://Sprites/Fondos/bggame3.png" id="5_2cwwo"]
 [ext_resource type="Texture2D" uid="uid://bvcmj27m3cp0i" path="res://Sprites/Fondos/bggame5.png" id="6_ialtc"]
 [ext_resource type="Script" path="res://Escenas/Maingame/Camera2D.gd" id="7_70oll"]
-[ext_resource type="Texture2D" uid="uid://dffv5pexrts7s" path="res://Sprites/Tutorial/tutomulti0.png" id="8_sagft"]
-[ext_resource type="Texture2D" uid="uid://dnqyuwlha5q5y" path="res://Sprites/Tutorial/tutomulti1.png" id="9_f74a2"]
-[ext_resource type="Texture2D" uid="uid://dnluclbudf8c8" path="res://Sprites/Tutorial/tutomulti2.png" id="10_gffaj"]
-[ext_resource type="Texture2D" uid="uid://c2u3363gowwtp" path="res://Sprites/Tutorial/tutomulti3.png" id="11_ddaev"]
-[ext_resource type="Texture2D" uid="uid://cgmvmqv1rnhx4" path="res://Sprites/Tutorial/tutomulti4.png" id="12_8cu0k"]
-[ext_resource type="Texture2D" uid="uid://dn37swknis57g" path="res://Sprites/Tutorial/tutomulti5.png" id="13_u1t32"]
-[ext_resource type="Texture2D" uid="uid://bkun3og03fy1r" path="res://Sprites/Tutorial/tutomulti6.png" id="14_v5qyj"]
-[ext_resource type="Texture2D" uid="uid://l1vwh8aovvjb" path="res://Sprites/Tutorial/tutomulti7.png" id="15_rh8gv"]
 [ext_resource type="Texture2D" uid="uid://lnk3o11d0ybq" path="res://Sprites/Tutorial/tutosingle0.png" id="16_l4s3g"]
 [ext_resource type="Texture2D" uid="uid://b1t73re0wn1og" path="res://Sprites/Tutorial/tutosingle1.png" id="17_bhoei"]
 [ext_resource type="Texture2D" uid="uid://c13o0g3uj45ri" path="res://Sprites/Tutorial/tutosingle2.png" id="18_humqs"]
@@ -27,35 +19,6 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4d58f"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("8_sagft")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_f74a2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_gffaj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_ddaev")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_8cu0k")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_u1t32")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_v5qyj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_rh8gv")
-}],
-"loop": true,
-"name": &"MultiPlayer",
-"speed": 2.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("16_l4s3g")
@@ -232,7 +195,7 @@ z_index = 5
 position = Vector2(689, -389)
 scale = Vector2(0.712037, 0.712037)
 sprite_frames = SubResource("SpriteFrames_4d58f")
-animation = &"MultiPlayer"
+animation = &"SinglePlayer"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -24,12 +24,14 @@ func cambiar_rol():
 		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj2"
 		diccionarioInputs[Enums.Derecha] = "DerechaPj2"
 		$Label.text = Names.name_player2
+		$Label.modulate = Color("#F2DF6F")
 	else:
 		diccionarioInputs[Enums.Arriba] = "ArribaPj1"
 		diccionarioInputs[Enums.Abajo]  = "AbajoPj1"
 		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj1"
 		diccionarioInputs[Enums.Derecha] = "DerechaPj1"
 		$Label.text = Names.name_player1
+		$Label.modulate = Color("#88D662")
 
 func _physics_process(delta: float) -> void:
 	if !canMove:

@@ -26,6 +26,8 @@ animations = [{
 
 [sub_resource type="LabelSettings" id="LabelSettings_2f5hc"]
 font_size = 40
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3quny"]
 animations = [{
@@ -43,6 +45,8 @@ animations = [{
 
 [sub_resource type="LabelSettings" id="LabelSettings_cob6d"]
 font_size = 40
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Versus" type="Control"]
 layout_mode = 3
@@ -129,5 +133,5 @@ bus = &"SFX"
 
 [connection signal="frame_changed" from="Gato1/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="finished" from="AudioPlayer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="finished" from="AudioPlayer" to="." method="_on_audio_player_finished"]
+[connection signal="finished" from="AudioPlayer" to="." method="_on_audio_stream_player_finished"]

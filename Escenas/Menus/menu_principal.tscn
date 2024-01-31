@@ -378,6 +378,16 @@ offset_right = 592.0
 offset_bottom = 72.0
 placeholder_text = "COPIAR AAQUI TEXTO"
 
+[node name="LineEdit2" type="LineEdit" parent="MultiOrLocal/BtnUnirse"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 94.0
+offset_right = 235.0
+offset_bottom = 161.0
+placeholder_text = "FUCKING ADDRESS"
+alignment = 1
+editable = false
+
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer/BackButton" to="." method="_undevelop_menu"]
 [connection signal="mp_start_game" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer" to="." method="_on_h_box_container_mp_start_game"]
 [connection signal="sp_start_game" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer" to="." method="_on_h_box_container_sp_start_game"]

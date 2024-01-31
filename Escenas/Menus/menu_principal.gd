@@ -120,6 +120,7 @@ func _on_btn_crear_server_pressed() -> void:
 	# Players can join using this address.
 	MultiplayerControl.address = await GotmMultiplayer.get_address()
 	print(MultiplayerControl.address)
+	$MultiOrLocal/BtnUnirse/LineEdit2.text = MultiplayerControl.address
 	loaded_peer.rpc_id(1)
 	
 	#var lobby_name = "My lobby"

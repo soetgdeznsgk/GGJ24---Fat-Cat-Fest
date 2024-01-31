@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://b4olfp085mokh"]
+[gd_scene load_steps=63 format=3 uid="uid://b4olfp085mokh"]
 
 [ext_resource type="Script" path="res://Escenas/Maingame/Maingame.gd" id="1_bpnxe"]
 [ext_resource type="Texture2D" uid="uid://cth80ou0c0vgb" path="res://Sprites/Fondos/bggame0.png" id="2_2njl2"]
@@ -298,11 +298,6 @@ properties/1/path = NodePath(".:inputBufferHost")
 properties/1/spawn = false
 properties/1/replication_mode = 2
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_r33gv"]
-properties/0/path = NodePath(".:text")
-properties/0/spawn = false
-properties/0/replication_mode = 2
-
 [node name="Maingame" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_bpnxe")
@@ -410,16 +405,6 @@ comidas = NodePath("../comidas")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="MultiControl"]
 replication_config = SubResource("SceneReplicationConfig_jjw11")
-
-[node name="LineEdit2" type="LineEdit" parent="."]
-offset_left = 625.0
-offset_top = 94.0
-offset_right = 1086.0
-offset_bottom = 204.0
-placeholder_text = "JUST KMS YA :C"
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="LineEdit2"]
-replication_config = SubResource("SceneReplicationConfig_r33gv")
 
 [editable path="Comandos"]
 [editable path="Comandos2"]

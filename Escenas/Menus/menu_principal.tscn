@@ -133,11 +133,13 @@ metadata/_edit_lock_ = true
 [node name="HBoxContainer" type="HBoxContainer" parent="MenuPrincipal"]
 layout_mode = 2
 theme_override_constants/separation = 32
+metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer"]
 layout_mode = 2
 size_flags_stretch_ratio = 1.39
 alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="Logo" type="TextureRect" parent="MenuPrincipal/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(717, 376)
@@ -326,6 +328,7 @@ position = Vector2(86, 468)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_2evkp")
 animation = &"Eat"
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.756863, 0.756863, 0.756863, 0.882353)
@@ -344,6 +347,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("24_uy50r")
 expand_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="MultiOrLocal" type="Control" parent="."]
 anchors_preset = 0

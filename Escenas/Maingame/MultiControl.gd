@@ -38,6 +38,7 @@ func push_new_set():
 @rpc("any_peer","reliable","call_local")
 func push_new_input(input):
 	gato2Comandos.ultimoInputRegistrado = input
+	print(Time.get_ticks_msec())
 	#if jugador == 1:
 		#inputBufferHost.append(input)
 		#print('hoster ', inputBufferHost)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cxwff3nt01gul"]
+[gd_scene load_steps=25 format=3 uid="uid://cxwff3nt01gul"]
 
 [ext_resource type="Script" path="res://Escenas/Eventos/romperplatos/evento_romper_platos.gd" id="1_6r5rn"]
 [ext_resource type="Texture2D" uid="uid://difkvs4ri15mk" path="res://Sprites/QuickTimeEvent/fondoplatos.png" id="2_6owar"]
@@ -222,6 +222,14 @@ _data = {
 "pop_numeros": SubResource("Animation_dq3ws")
 }
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_5m0rh"]
+properties/0/path = NodePath("Martillo:position")
+properties/0/spawn = false
+properties/0/replication_mode = 1
+properties/1/path = NodePath("Plato:position")
+properties/1/spawn = false
+properties/1/replication_mode = 1
+
 [node name="EventoRomperPlatos" type="Node2D"]
 script = ExtResource("1_6r5rn")
 
@@ -341,6 +349,9 @@ texture = ExtResource("8_1phx8")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_5m0rh")
 
 [connection signal="timeout" from="TimerFinalEvento" to="." method="_on_timer_final_evento_timeout"]
 [connection signal="timeout" from="TimerCambiarRoles" to="." method="pop_timer"]

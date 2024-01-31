@@ -39,8 +39,10 @@ func _ready():
 	Eventos.comandosAcabados.connect(entradaReceta)
 	Eventos.nuevoEvento.connect(pausarProcesos)
 	Eventos.finalEvento.connect(reanudarProcesos)
-	#entradaReceta(1)
-	#entradaReceta(2)
+	
+	if !Eventos.multiOnline:
+		entradaReceta(1)
+		entradaReceta(2)
 	
 func pausarProcesos(_cache):
 	recetaActualJugador1.visible = false

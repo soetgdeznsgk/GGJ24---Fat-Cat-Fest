@@ -602,6 +602,7 @@ bus = &"SFX"
 
 [node name="PepinoAudiodesliz" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("35_c85gk")
+bus = &"SFX"
 
 [node name="TimerPepinoAudioAcel" type="Timer" parent="."]
 process_callback = 0
@@ -609,6 +610,7 @@ one_shot = true
 
 [node name="PepinoPipipi" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("42_n00io")
+bus = &"SFX"
 
 [node name="piptimer" type="Timer" parent="."]
 process_callback = 0

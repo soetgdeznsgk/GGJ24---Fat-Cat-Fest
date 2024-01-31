@@ -107,3 +107,55 @@ func _on_credits_button_pressed() -> void:
 	isDeveloped = true
 	$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer.hide()
 	$MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer.show()
+
+
+func _on_btn_crear_server_pressed() -> void:
+	Eventos.singleplayer = false
+	Eventos.multiOnline = true
+	MultiplayerControl.isHost = true
+	Names.generar_nombres()
+	MultiplayerControl.peer  = await GotmMultiplayer.create_server()
+	MultiplayerControl.multiplayer.multiplayer_peer = MultiplayerControl.peer
+	MultiplayerControl.multiplayer.peer_connected.connect(func(id): MultiplayerControl.clientId = id)
+	# Players can join using this address.
+	MultiplayerControl.address = await GotmMultiplayer.get_address()
+	print(MultiplayerControl.address)
+	loaded_peer.rpc_id(1)
+	
+	#var lobby_name = "My lobby"
+	#var lobby: GotmLobby = await GotmLobby.create(lobby_name)
+
+
+func _on_btn_unirse_pressed() -> void:
+	Eventos.singleplayer = false
+	Eventos.multiOnline = true
+	MultiplayerControl.address = $MultiOrLocal/BtnUnirse/LineEdit.text
+	MultiplayerControl.isHost = false
+	Names.generar_nombres()
+	MultiplayerControl.peer = await GotmMultiplayer.create_client(MultiplayerControl.address)
+	MultiplayerControl.multiplayer.multiplayer_peer = MultiplayerControl.peer
+	MultiplayerControl.multiplayer.connected_to_server.connect(func(): print("connected!"))
+	MultiplayerControl.multiplayer.connection_failed.connect(func(): print("connection failed"))
+
+	await MultiplayerControl.multiplayer.connected_to_server
+	loaded_peer.rpc_id(1)
+	#MultiplayerControl.peer.put_var("initiate game")
+	
+	#var lobbies: Array = await GotmLobby.list()
+	#if !lobbies:
+		#print("no lobbies found")
+		#return
+	#var address: String = lobbies[0].address
+	#print(lobbies)
+
+var cantidadPeer = 0
+@rpc("any_peer", "call_local", "reliable")
+func loaded_peer():
+	if multiplayer.is_server():
+		cantidadPeer += 1
+	if cantidadPeer == 2:
+		init_multi.rpc()
+		
+@rpc("authority","call_local","unreliable")
+func init_multi():
+	get_tree().change_scene_to_file("res://Escenas/Maingame/Maingame.tscn")

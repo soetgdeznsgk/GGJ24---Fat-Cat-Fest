@@ -14,7 +14,7 @@ var chokesonido
 var stunSonido
 
 @export var duracionStun = 2
-var ultimoInputRegistrado = null
+var ultimoInputRegistrado = -1
 var procesosPausados = false
 @onready var anim = $AnimationPlayer
 @onready var comandoNodos = [$Comando0, $Comando1, $Comando2, $Comando3]
@@ -30,6 +30,9 @@ var devices
 var numeroMitadComida
 var sfx_comer := AudioStreamPlayer.new()
 var comer_flag
+
+signal llegaronComandos(comandos)
+signal nuevoInputRegistrado(input)
 
 
 func _ready() -> void:
@@ -77,13 +80,16 @@ func _ready() -> void:
 func set_comandos(numeroJugador, nuevosComandos : Array):
 	#Solo actualiza si es el jugador correcot
 	if numeroJugador == jugador:
-		comandos = nuevosComandos
+		if comandos != nuevosComandos:
+			llegaronComandos.emit(nuevosComandos)
+		comandos = nuevosComandos.duplicate()
 		comandosConFlechas = nuevosComandos.duplicate()
 		numeroMitadComida = ceili(nuevosComandos.size() / 2)
 		# Colocar las primeras 3 flechas que llegan de la comida
 		for i in range(3):
 			var ultimo = comandos.pop_front()
 			comandoNodos[i].texture = listaTexturas[ultimo]
+		
 
 func _physics_process(_delta: float) -> void:
 	if procesosPausados:
@@ -91,25 +97,30 @@ func _physics_process(_delta: float) -> void:
 	# Input buffering
 	if Input.is_action_just_pressed(diccionarioInputs[Enums.Arriba]):# or (jugador == 2 and Input.is_action_pressed(diccionarioInputs[Enums.Arriba]) and Eventos.singleplayer):
 		ultimoInputRegistrado = Enums.Arriba
+		nuevoInputRegistrado.emit(Enums.Arriba)
 	elif Input.is_action_just_pressed(diccionarioInputs[Enums.Abajo]):# or (jugador == 2 and Input.is_action_pressed(diccionarioInputs[Enums.Abajo]) and Eventos.singleplayer):
 		ultimoInputRegistrado = Enums.Abajo
+		nuevoInputRegistrado.emit(Enums.Abajo)
 	elif Input.is_action_just_pressed(diccionarioInputs[Enums.Izquierda]):# or (jugador == 2 and Input.is_action_pressed(diccionarioInputs[Enums.Izquierda]) and Eventos.singleplayer):
 		ultimoInputRegistrado = Enums.Izquierda
+		nuevoInputRegistrado.emit(Enums.Izquierda)
 	elif Input.is_action_just_pressed(diccionarioInputs[Enums.Derecha]):# or (jugador == 2 and Input.is_action_pressed(diccionarioInputs[Enums.Derecha]) and Eventos.singleplayer):
 		ultimoInputRegistrado = Enums.Derecha
+		nuevoInputRegistrado.emit(Enums.Derecha)
+		
 	# Si está spameando entonces va mas rápido la animación
-	if ultimoInputRegistrado != null and anim.is_playing() \
+	if ultimoInputRegistrado != -1 and anim.is_playing() \
 	and anim.assigned_animation == "scroll_izquierda" and rachaGanadora:
 		anim.speed_scale = 4
 	# Si ya no hay buffer vuelve la animación a ser lenta
-	if ultimoInputRegistrado == null and anim.assigned_animation == "scroll_izquierda":
+	if ultimoInputRegistrado == -1 and anim.assigned_animation == "scroll_izquierda":
 		anim.speed_scale = 1
 	# Acá es donde verifica si quedan comandos en la lista y verifica justo cuando
 	# lo permita la entrada según el buffer
 	if comandosConFlechas.size() > 0:
-		if ultimoInputRegistrado != null and permitirEntradas:
+		if ultimoInputRegistrado != -1 and permitirEntradas:
 			verificarCorrecta(ultimoInputRegistrado)
-			ultimoInputRegistrado = null
+			ultimoInputRegistrado = -1
 			permitirEntradas = false
 
 func verificarCorrecta(Direccion : int): #ésta función no se está llamando siempre que la CPU presiona tecla
@@ -191,9 +202,10 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		reemplazarTexturas()
 		errorContinuo = false
 		rachaGanadora = true
+		permitirEntradas = true
 	elif anim_name == "error_flecha":
 		anim.speed_scale = 1
-	permitirEntradas = true
+		permitirEntradas = true
 
 func pausarProcesos():
 	procesosPausados = true

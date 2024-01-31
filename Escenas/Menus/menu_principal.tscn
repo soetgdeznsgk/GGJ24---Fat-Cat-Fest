@@ -345,9 +345,40 @@ mouse_filter = 2
 texture = ExtResource("24_uy50r")
 expand_mode = 1
 
+[node name="MultiOrLocal" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 784.0
+offset_top = 114.0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="BtnCrearServer" type="Button" parent="MultiOrLocal"]
+layout_mode = 0
+offset_right = 339.0
+offset_bottom = 77.0
+text = "CREAR SERVER"
+
+[node name="BtnUnirse" type="Button" parent="MultiOrLocal"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 98.0
+offset_right = 343.0
+offset_bottom = 175.0
+text = "UNIRSE A SERVER"
+
+[node name="LineEdit" type="LineEdit" parent="MultiOrLocal/BtnUnirse"]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 5.0
+offset_right = 592.0
+offset_bottom = 72.0
+placeholder_text = "COPIAR AAQUI TEXTO"
+
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer/BackButton" to="." method="_undevelop_menu"]
 [connection signal="mp_start_game" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer" to="." method="_on_h_box_container_mp_start_game"]
 [connection signal="sp_start_game" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer" to="." method="_on_h_box_container_sp_start_game"]
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/OptionsButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox/HBoxContainer2/HBoxContainer/BackButton" to="." method="_undevelop_menu"]
+[connection signal="pressed" from="MultiOrLocal/BtnCrearServer" to="." method="_on_btn_crear_server_pressed"]
+[connection signal="pressed" from="MultiOrLocal/BtnUnirse" to="." method="_on_btn_unirse_pressed"]

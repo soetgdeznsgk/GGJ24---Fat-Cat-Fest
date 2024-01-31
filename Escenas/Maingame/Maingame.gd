@@ -8,7 +8,9 @@ func _ready() -> void:
 	if Eventos.singleplayer:
 		var bot = preload("res://Logica/cpu_jugador.tscn").instantiate()
 		add_child(bot)
+	
 #region INPUT BOTONES
+	if Eventos.singleplayer or Eventos.multiOnline:
 		InputMap.action_erase_events("ArribaPj2") 
 		InputMap.action_erase_events("AbajoPj2")
 		InputMap.action_erase_events("IzquierdaPj2")
@@ -26,7 +28,7 @@ func _ready() -> void:
 		key.keycode = KEY_RIGHT
 		InputMap.action_add_event("DerechaPj1",key)
 #endregion
-	else:
+	elif !Eventos.singleplayer and !Eventos.multiOnline:
 #region INPUT BOTONES
 		var key = InputEventKey.new()
 		key.keycode = KEY_UP

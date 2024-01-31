@@ -73,8 +73,11 @@ _data = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer"]
-offset_right = 647.0
-offset_bottom = 89.0
+anchors_preset = -1
+anchor_right = 0.474
+anchor_bottom = 0.116
+offset_right = -0.48407
+offset_bottom = -0.0880051
 size_flags_horizontal = 3
 script = ExtResource("1_262t7")
 

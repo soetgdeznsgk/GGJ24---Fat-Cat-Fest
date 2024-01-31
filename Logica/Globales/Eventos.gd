@@ -1,10 +1,12 @@
 extends Node
 
 var singleplayer : bool
+
 var tutorialSingleplayerHecho: bool
 var tutorialMultiplayerHecho: bool
 var ganador = 0
 
+var multiOnline : bool = false
 
 signal nuevoEvento(evento)
 signal bajarTelon

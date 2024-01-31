@@ -6,18 +6,19 @@ extends Node
 
 @export var inputBufferClient : Array = []
 @export var inputBufferHost : Array = []
-var comando1
-var comando2
+var comandoGato2
 
 func _ready() -> void:
+	print(Time.get_ticks_msec())
 	print("es multi?", Eventos.multiOnline)
 	if !Eventos.multiOnline:
 		queue_free()
 		return
-	#gato1Comandos.llegaronComandos.connect(push_new_set_rpc)
+	gato1Comandos.llegaronComandos.connect(push_new_set_rpc)
 	gato1Comandos.nuevoInputRegistrado.connect(push_new_input_rpc)
 
 func push_new_input_rpc(input):
+	#print(Time.get_ticks_msec())
 	if multiplayer.is_server():
 		push_new_input.rpc_id(MultiplayerControl.clientId,input)
 	else:
@@ -26,19 +27,20 @@ func push_new_input_rpc(input):
 
 func push_new_set_rpc(comandos):
 	if multiplayer.is_server():
-		comando1 = comandos
+		push_new_set.rpc_id(MultiplayerControl.clientId, comandos)
 	else:
-		comando2 = comandos
-	#push_new_set.rpc()
+		push_new_set.rpc_id(MultiplayerControl.hostingId, comandos)
 
-func push_new_set():
-	pass
+@rpc("any_peer","reliable","call_local")
+func push_new_set(comando):
+	await get_tree().create_timer(0.3).timeout
+	gato2Comandos.set_comandos(2,comando)
 
 
 @rpc("any_peer","reliable","call_local")
 func push_new_input(input):
 	gato2Comandos.ultimoInputRegistrado = input
-	print(Time.get_ticks_msec())
+	#print(Time.get_ticks_msec())
 	#if jugador == 1:
 		#inputBufferHost.append(input)
 		#print('hoster ', inputBufferHost)

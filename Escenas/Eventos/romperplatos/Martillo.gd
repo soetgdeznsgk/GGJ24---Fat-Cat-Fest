@@ -9,18 +9,29 @@ var diccionarioInputs := {}
 @export var speed : int = 30
 var canMove = true
 var vectorVelocidad : Vector2
-var vectorVelocidadVertical : Vector2
-var vectorVelocidadHorizontal : Vector2
+
+func _ready() -> void:
+	Eventos.enviarVector.connect(recibir_nuevo_input)
+
+func recibir_nuevo_input(vector, jugadorARecibir):
+	if jugador == jugadorARecibir:
+		vectorVelocidad = vector
 
 func set_golpeando(golpe):
 	golpeando = golpe
 
 func cambiar_rol():
 	if jugador == 2:
-		diccionarioInputs[Enums.Arriba] = "ArribaPj2"
-		diccionarioInputs[Enums.Abajo] = "AbajoPj2"
-		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj2"
-		diccionarioInputs[Enums.Derecha] = "DerechaPj2"
+		if !Eventos.multiOnline:
+			diccionarioInputs[Enums.Arriba] = "ArribaPj2"
+			diccionarioInputs[Enums.Abajo] = "AbajoPj2"
+			diccionarioInputs[Enums.Izquierda] = "IzquierdaPj2"
+			diccionarioInputs[Enums.Derecha] = "DerechaPj2"
+		else:
+			diccionarioInputs[Enums.Arriba] = "ArribaPj1"
+			diccionarioInputs[Enums.Abajo]  = "AbajoPj1"
+			diccionarioInputs[Enums.Izquierda] = "IzquierdaPj1"
+			diccionarioInputs[Enums.Derecha] = "DerechaPj1"
 		$Label.text = Names.name_player2
 		$Label.modulate = Color("#F2DF6F")
 		is_p2_hammer.emit(true)
@@ -51,22 +62,25 @@ func _physics_process(delta: float) -> void:
 		position.x = 100
 	if position.x > 1200:
 		position.x = 1200
-	
-	if Input.is_action_pressed(diccionarioInputs[Enums.Arriba]):
-		vectorVelocidad.y = -1
-	if Input.is_action_pressed(diccionarioInputs[Enums.Abajo]):
-		vectorVelocidad.y = 1
-	if Input.is_action_pressed(diccionarioInputs[Enums.Abajo]) and Input.is_action_pressed(diccionarioInputs[Enums.Arriba]):
-		vectorVelocidad.y = 0 
-	if Input.is_action_pressed(diccionarioInputs[Enums.Izquierda]):
-		vectorVelocidad.x = -1
-	if Input.is_action_pressed(diccionarioInputs[Enums.Derecha]):
-		vectorVelocidad.x = 1
-	if Input.is_action_pressed(diccionarioInputs[Enums.Izquierda]) and Input.is_action_pressed(diccionarioInputs[Enums.Derecha]):
-		vectorVelocidad.x = 0 
-	
+	if !Eventos.multiOnline or (multiplayer.is_server() and jugador == 1) or (!multiplayer.is_server() and jugador == 2):
+		if Input.is_action_pressed(diccionarioInputs[Enums.Arriba]):
+			vectorVelocidad.y = -1
+		if Input.is_action_pressed(diccionarioInputs[Enums.Abajo]):
+			vectorVelocidad.y = 1
+		if Input.is_action_pressed(diccionarioInputs[Enums.Abajo]) and Input.is_action_pressed(diccionarioInputs[Enums.Arriba])\
+		or !Input.is_action_pressed(diccionarioInputs[Enums.Abajo]) and !Input.is_action_pressed(diccionarioInputs[Enums.Arriba]):
+			vectorVelocidad.y = 0 
+		if Input.is_action_pressed(diccionarioInputs[Enums.Izquierda]):
+			vectorVelocidad.x = -1
+		if Input.is_action_pressed(diccionarioInputs[Enums.Derecha]):
+			vectorVelocidad.x = 1
+		if Input.is_action_pressed(diccionarioInputs[Enums.Izquierda]) and Input.is_action_pressed(diccionarioInputs[Enums.Derecha])\
+		or !Input.is_action_pressed(diccionarioInputs[Enums.Izquierda]) and !Input.is_action_pressed(diccionarioInputs[Enums.Derecha]):
+			vectorVelocidad.x = 0
+		# Enviar por rpc el vector velocidad
+		Eventos.nuevoVectorRegistrado.emit(vectorVelocidad, jugador)
 	position += vectorVelocidad.normalized() * speed * delta
-	vectorVelocidad = Vector2.ZERO # intento
+	#vectorVelocidad = Vector2.ZERO # intento
 	
 	if platoAqui and golpeando:
 		get_parent().perderVidaPlato()

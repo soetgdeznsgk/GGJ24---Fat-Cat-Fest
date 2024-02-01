@@ -20,14 +20,19 @@ var enCooldown = false
 var vida = 10
 var lista_random_punch = [preload("res://Escenas/Eventos/darseduro/sfx/bonk.mp3"), preload("res://Escenas/Eventos/darseduro/sfx/puh.mp3"),\
 preload("res://Escenas/Eventos/darseduro/sfx/thun.mp3")]
-var random_offset : float
+@export var random_offset : float = 0.1
 var puedoRecibirHit = true
 @export var sonidosPegar : Array[AudioStream]
+var ultimoInputRegistrado = -1
 
 func _ready() -> void:
 	if jugador == 2:
-		diccionarioInputs[Enums.Arriba] = "ArribaPj2"
-		diccionarioInputs[Enums.Abajo] = "AbajoPj2"
+		if !Eventos.multiOnline:
+			diccionarioInputs[Enums.Arriba] = "ArribaPj2"
+			diccionarioInputs[Enums.Abajo] = "AbajoPj2"
+		else:
+			diccionarioInputs[Enums.Arriba] = "ArribaPj1"
+			diccionarioInputs[Enums.Abajo]  = "AbajoPj1"
 		$Label.text = Names.name_player2
 		$sprPadre.scale.x = -1
 		$arrow.position.x*=-1
@@ -37,13 +42,37 @@ func _ready() -> void:
 		diccionarioInputs[Enums.Abajo]  = "AbajoPj1"
 		$Label.text = Names.name_player1
 		$Label.modulate = Color("#88D662")
+	Eventos.enviarInput.connect(recibir_nuevo_input)
+
+func recibir_nuevo_input(input, jugadorARecibir):
+	if jugador == jugadorARecibir:
+		ultimoInputRegistrado = input
 
 func _physics_process(_delta: float) -> void:
 	if !puedeGolpear:
 		return
 	
-	if Input.is_action_just_pressed(diccionarioInputs[Enums.Arriba]) or (jugador == 2 and Eventos.singleplayer and Input.is_action_pressed(diccionarioInputs[Enums.Arriba])):
-		random_offset = randf_range(0, +0.3) # TODO ajustar offset a lo que diga el testeo
+#region NO ONLINE INPUTS
+	if !Eventos.multiOnline:
+		if Input.is_action_just_pressed(diccionarioInputs[Enums.Arriba]):
+			ultimoInputRegistrado = Enums.Arriba
+			Eventos.nuevoInputRegistrado.emit(ultimoInputRegistrado, jugador)
+		elif Input.is_action_just_pressed(diccionarioInputs[Enums.Abajo]):
+			ultimoInputRegistrado = Enums.Abajo
+			Eventos.nuevoInputRegistrado.emit(ultimoInputRegistrado, jugador)
+#endregion
+#region ONLINE INPUTS
+	else:
+		if (multiplayer.is_server() and jugador == 1) or (!multiplayer.is_server() and jugador == 2):
+			if Input.is_action_just_pressed(diccionarioInputs[Enums.Arriba]):
+				ultimoInputRegistrado = Enums.Arriba
+				Eventos.nuevoInputRegistrado.emit(ultimoInputRegistrado, jugador)
+			elif Input.is_action_just_pressed(diccionarioInputs[Enums.Abajo]):
+				ultimoInputRegistrado = Enums.Abajo
+				Eventos.nuevoInputRegistrado.emit(ultimoInputRegistrado, jugador)
+#endregion
+	if ultimoInputRegistrado == Enums.Arriba or \
+	(jugador == 2 and Eventos.singleplayer and Input.is_action_pressed(diccionarioInputs[Enums.Arriba])):
 		if golpeando and !enCooldown:
 			sprArrow.play("down")
 			golpeando = false
@@ -55,8 +84,8 @@ func _physics_process(_delta: float) -> void:
 		else:
 			anim.play("shake")
 			sprArrow.visible=false
-			
-	if Input.is_action_just_pressed(diccionarioInputs[Enums.Abajo]) or (jugador == 2 and Eventos.singleplayer and Input.is_action_pressed(diccionarioInputs[Enums.Abajo])):
+	if ultimoInputRegistrado == Enums.Abajo or \
+	(jugador == 2 and Eventos.singleplayer and Input.is_action_pressed(diccionarioInputs[Enums.Abajo])):
 		if !golpeando and !enCooldown:
 			sprArrow.play("up")
 			golpeando = true
@@ -68,7 +97,6 @@ func _physics_process(_delta: float) -> void:
 			sprArrow.visible=false
 		else:
 			anim.play("shake")
-			
 
 func _on_cabeza_area_entered(_area: Area2D) -> void:
 	if puedoRecibirHit:
@@ -80,7 +108,6 @@ func _on_cabeza_area_entered(_area: Area2D) -> void:
 		var tweenCabeza = get_tree().create_tween()
 		tweenCabeza.set_ease(Tween.EASE_IN)
 		tweenCabeza.tween_property(cabeza,"position", markerCabeza, 0.12)
-		
 		vida -= 1
 		$VidaSprite.frame += 1
 		puedoRecibirHit = false
@@ -95,6 +122,8 @@ func _on_cabeza_area_exited(_area: Area2D) -> void:
 	puedoRecibirHit = true
 
 func _on_timer_cooldown_timeout() -> void:
+	# TODO ajustar offset a lo que diga el testeo
+	random_offset = randf_range(0, +0.3)
 	enCooldown = false
 	if jugador == 2:
 		p2_can_hit.emit()

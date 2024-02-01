@@ -32,7 +32,7 @@ func finJuego(_ganador):
 	anim.play("fin_juego")
 	
 func tiempoAleatorio():
-	return 10000#randi_range(15,25) 
+	return randi_range(15,25) 
 
 func generarNuevoEvento():
 	timer.start(tiempoAleatorio())
@@ -54,12 +54,15 @@ func set_selection(selectionFromServer):
 func _on_timer_timeout():
 	#logica de cambio de evento
 	selection = randi_range(0,listaEventos.size() - 1)
+	# TEST
+	#selection = 1
 	if selection == ultimoEvento:
 		if selection < 2:
 			selection += 1
 		elif selection == 2:
 			selection = 0
-	set_selection.rpc_id(MultiplayerControl.clientId,selection)
+	if Eventos.multiOnline:
+		set_selection.rpc_id(MultiplayerControl.clientId,selection)
 	match selection:
 		0:
 			$LabelCualEventoEs.text = "Plate Breaker"
@@ -74,11 +77,22 @@ func cheer(prob : float):
 	Eventos.catCheer.emit(prob)
 
 func finAnimacion():
+	if !Eventos.multiOnline:
+		var eventoInstanciado = listaEventos[selection].instantiate()
+		ultimoEvento = selection 
+		add_child(eventoInstanciado)
+		Eventos.nuevoEvento.emit(selection) # ésto es lo que le dice a la CPU
+	else:
+		if multiplayer.is_server():
+			finAnimacionRpc.rpc()
+
+@rpc("authority","call_local","reliable")
+func finAnimacionRpc():
 	var eventoInstanciado = listaEventos[selection].instantiate()
 	ultimoEvento = selection 
 	add_child(eventoInstanciado)
-	Eventos.nuevoEvento.emit(selection) # ésto es lo que le dice a la CPU
-	
+	Eventos.nuevoEvento.emit(selection)
+
 func final_evento(ganador):
 	var texto = "Winner:\n"
 	if ganador == 0:

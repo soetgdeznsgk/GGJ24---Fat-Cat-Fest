@@ -119,8 +119,11 @@ func _on_btn_crear_server_pressed() -> void:
 	MultiplayerControl.multiplayer.peer_connected.connect(func(id): MultiplayerControl.clientId = id)
 	# Players can join using this address.
 	MultiplayerControl.address = await GotmMultiplayer.get_address()
-	print(MultiplayerControl.address)
-	$MultiOrLocal/BtnUnirse/LineEdit2.text = MultiplayerControl.address
+	
+	# Bobada de remplazar sstrings para que no parezca una IP
+	var code = MultiplayerControl.address.replace(":","Z").to_upper().substr(2,-1)
+	print(code)
+	$MultiOrLocal/BtnUnirse/LineEdit2.text = code
 	loaded_peer.rpc_id(1)
 	
 	#var lobby_name = "My lobby"
@@ -131,9 +134,10 @@ func _on_btn_unirse_pressed() -> void:
 	Eventos.singleplayer = false
 	Eventos.multiOnline = true
 	MultiplayerControl.address = $MultiOrLocal/BtnUnirse/LineEdit.text
+	var code = "fc" + MultiplayerControl.address.replace("Z",":").to_lower()
 	MultiplayerControl.isHost = false
 	Names.generar_nombres()
-	MultiplayerControl.peer = await GotmMultiplayer.create_client(MultiplayerControl.address)
+	MultiplayerControl.peer = await GotmMultiplayer.create_client(code)
 	MultiplayerControl.multiplayer.multiplayer_peer = MultiplayerControl.peer
 	MultiplayerControl.multiplayer.connected_to_server.connect(func(): print("connected!"))
 	MultiplayerControl.multiplayer.connection_failed.connect(func(): print("connection failed"))

@@ -388,11 +388,9 @@ process_callback = 0
 script = ExtResource("5_864na")
 zoomFinal = Vector2(1.5, 1.5)
 
-[node name="MultiControl" type="Node" parent="." node_paths=PackedStringArray("gato1Comandos", "gato2Comandos", "comidas")]
+[node name="MultiControl" type="Node" parent="." node_paths=PackedStringArray("comidas")]
 process_mode = 3
 script = ExtResource("60_hahn1")
-gato1Comandos = NodePath("../Comandos2")
-gato2Comandos = NodePath("../Comandos")
 comidas = NodePath("../comidas")
 
 [editable path="Comandos"]

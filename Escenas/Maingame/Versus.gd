@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 @onready var nombreGato1 = Names.name_player1
 @onready var nombreGato2 = Names.name_player2
 @onready var soundQueue = []

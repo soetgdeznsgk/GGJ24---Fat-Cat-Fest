@@ -48,10 +48,7 @@ font_size = 40
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Versus" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-theme = ExtResource("4_dswoe")
+[node name="Versus" type="Node2D"]
 script = ExtResource("1_4am3t")
 
 [node name="Gato1" type="Node2D" parent="."]
@@ -69,9 +66,9 @@ frame_progress = 0.109849
 unique_name_in_owner = true
 z_index = 1
 offset_left = 157.0
-offset_top = 110.0
-offset_right = 497.0
-offset_bottom = 290.0
+offset_top = 120.0
+offset_right = 537.0
+offset_bottom = 300.0
 theme = ExtResource("4_dswoe")
 label_settings = SubResource("LabelSettings_2f5hc")
 horizontal_alignment = 1
@@ -93,10 +90,10 @@ frame_progress = 0.793002
 [node name="NombreGato2" type="Label" parent="Gato2"]
 unique_name_in_owner = true
 z_index = 1
-offset_left = 900.0
-offset_top = 110.0
-offset_right = 1240.0
-offset_bottom = 290.0
+offset_left = 800.0
+offset_top = 120.0
+offset_right = 1180.0
+offset_bottom = 300.0
 theme = ExtResource("4_dswoe")
 label_settings = SubResource("LabelSettings_cob6d")
 horizontal_alignment = 1
@@ -106,8 +103,8 @@ justification_flags = 0
 
 [node name="VS" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(693, 198)
-scale = Vector2(0.505935, 0.505935)
+position = Vector2(670, 210)
+scale = Vector2(0.35, 0.35)
 texture = ExtResource("13_e1mvw")
 
 [node name="Timer" type="Timer" parent="."]
@@ -131,7 +128,4 @@ metadata/_edit_lock_ = true
 unique_name_in_owner = true
 bus = &"SFX"
 
-[connection signal="frame_changed" from="Gato1/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="finished" from="AudioPlayer" to="." method="_on_audio_player_finished"]
-[connection signal="finished" from="AudioPlayer" to="." method="_on_audio_stream_player_finished"]

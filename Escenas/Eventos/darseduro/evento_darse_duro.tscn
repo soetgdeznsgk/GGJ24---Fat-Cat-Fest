@@ -36,8 +36,8 @@ position = Vector2(561, 260)
 metadata/_edit_group_ = true
 
 [node name="Label" parent="Gato" index="0"]
-offset_left = -100.0
-offset_right = 100.0
+offset_left = -110.0
+offset_right = 105.0
 offset_bottom = 268.615
 metadata/_edit_use_anchors_ = true
 
@@ -53,8 +53,8 @@ position = Vector2(862, 260)
 jugador = 2
 
 [node name="Label" parent="Gato2" index="0"]
-offset_left = -100.0
-offset_right = 100.0
+offset_left = -110.0
+offset_right = 105.0
 offset_bottom = 268.615
 metadata/_edit_use_anchors_ = true
 

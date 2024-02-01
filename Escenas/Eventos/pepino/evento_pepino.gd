@@ -39,7 +39,6 @@ func recibir_nuevo_input(input, jugadorARecibir):
 	if jugador != jugadorARecibir:
 		ultimoInputRegistrado = input
 
-
 @rpc("authority","call_local","reliable")
 func set_pepino_lado(tiempoExplox, probLado):
 	$TimerExplosion.start(tiempoExplox)
@@ -110,7 +109,7 @@ func _physics_process(_delta: float) -> void:
 
 func _on_timer_final_evento_timeout():
 	Eventos.finalEvento.emit(ganador)
-	queue_free()	
+	queue_free()
 
 func _on_timer_explosion_timeout():
 	$AudioStreamPlayer.stream = lista_random_sfx_boom.pick_random()

@@ -36,7 +36,3 @@ func push_new_input(input, jugador):
 func push_new_vector(vector, jugador):
 	if Eventos.ganador == 0 :
 		Eventos.enviarVector.emit(vector, jugador)
-
-
-
-

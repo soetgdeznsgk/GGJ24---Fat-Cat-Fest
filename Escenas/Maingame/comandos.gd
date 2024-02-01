@@ -24,7 +24,7 @@ var sacarJeta = true
 var errorContinuo = false
 var rachaGanadora = false
 var comandos : Array = []
-var comandosConFlechas : Array = []
+@export var comandosConFlechas : Array = []
 var permitirEntradas = true
 var devices
 var numeroMitadComida
@@ -120,18 +120,13 @@ func _physics_process(_delta: float) -> void:
 	else:
 		if (multiplayer.is_server() and jugador == 1) or (!multiplayer.is_server() and jugador == 2):
 			if Input.is_action_just_pressed(diccionarioInputs[Enums.Arriba]):
-				ultimoInputRegistrado = Enums.Arriba
-				Eventos.nuevoInputRegistrado.emit(ultimoInputRegistrado, jugador)
+				Eventos.nuevoInputRegistrado.emit(Enums.Arriba, jugador)
 			elif Input.is_action_just_pressed(diccionarioInputs[Enums.Abajo]):
-				ultimoInputRegistrado = Enums.Abajo
-				Eventos.nuevoInputRegistrado.emit(ultimoInputRegistrado, jugador)
+				Eventos.nuevoInputRegistrado.emit(Enums.Abajo, jugador)
 			elif Input.is_action_just_pressed(diccionarioInputs[Enums.Izquierda]):
-				ultimoInputRegistrado = Enums.Izquierda
-				Eventos.nuevoInputRegistrado.emit(ultimoInputRegistrado, jugador)
+				Eventos.nuevoInputRegistrado.emit(Enums.Izquierda, jugador)
 			elif Input.is_action_just_pressed(diccionarioInputs[Enums.Derecha]):
-				ultimoInputRegistrado = Enums.Derecha
-				Eventos.nuevoInputRegistrado.emit(ultimoInputRegistrado, jugador)
-	
+				Eventos.nuevoInputRegistrado.emit(Enums.Derecha, jugador)
 #endregion
 		
 	# Si está spameando entonces va mas rápido la animación

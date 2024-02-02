@@ -14,7 +14,6 @@ var chokesonido
 var stunSonido
 
 @export var duracionStun = 2
-var ultimoInputRegistrado = -1
 var procesosPausados = false
 @onready var anim = $AnimationPlayer
 @onready var comandoNodos = [$Comando0, $Comando1, $Comando2, $Comando3]
@@ -30,10 +29,10 @@ var devices
 var numeroMitadComida
 var sfx_comer := AudioStreamPlayer.new()
 var comer_flag
-
+var inputArray = []
 signal llegaronComandos(comandos)
 signal nuevoInputRegistrado(input)
-
+var isInputInCooldown = false
 
 func _ready() -> void:
 	comer_flag = false
@@ -85,13 +84,11 @@ func _ready() -> void:
 
 func recibir_nuevo_input(input, jugadorARecibir):
 	if jugador == jugadorARecibir:
-		ultimoInputRegistrado = input
+		inputArray.append(input)
 
 func set_comandos(numeroJugador, nuevosComandos : Array):
-	#Solo actualiza si es el jugador correcot
+	#Solo actualiza si es el jugador correcto
 	if numeroJugador == jugador:
-		if comandos != nuevosComandos:
-			llegaronComandos.emit(nuevosComandos)
 		comandos = nuevosComandos.duplicate()
 		comandosConFlechas = nuevosComandos.duplicate()
 		numeroMitadComida = ceili(nuevosComandos.size() / 2)
@@ -108,40 +105,57 @@ func _physics_process(_delta: float) -> void:
 #region NO ONLINE INPUT
 	if !Eventos.multiOnline:
 		if Input.is_action_just_pressed(diccionarioInputs[Enums.Arriba]):
-			ultimoInputRegistrado = Enums.Arriba
+			inputArray.append(Enums.Arriba)
+			isInputInCooldown = true
+			$TmrInputCooldown.start()
 		elif Input.is_action_just_pressed(diccionarioInputs[Enums.Abajo]):
-			ultimoInputRegistrado = Enums.Abajo
+			inputArray.append(Enums.Abajo)
+			isInputInCooldown = true
+			$TmrInputCooldown.start()
 		elif Input.is_action_just_pressed(diccionarioInputs[Enums.Izquierda]):
-			ultimoInputRegistrado = Enums.Izquierda
+			inputArray.append(Enums.Izquierda)
+			isInputInCooldown = true
+			$TmrInputCooldown.start()
 		elif Input.is_action_just_pressed(diccionarioInputs[Enums.Derecha]):
-			ultimoInputRegistrado = Enums.Derecha
+			inputArray.append(Enums.Derecha)
+			isInputInCooldown = true
+			$TmrInputCooldown.start()
 #endregion
 #region ONLINE INPUT
 	else:
-		if (multiplayer.is_server() and jugador == 1) or (!multiplayer.is_server() and jugador == 2):
-			if Input.is_action_just_pressed(diccionarioInputs[Enums.Arriba]):
-				Eventos.nuevoInputRegistrado.emit(Enums.Arriba, jugador)
-			elif Input.is_action_just_pressed(diccionarioInputs[Enums.Abajo]):
-				Eventos.nuevoInputRegistrado.emit(Enums.Abajo, jugador)
-			elif Input.is_action_just_pressed(diccionarioInputs[Enums.Izquierda]):
-				Eventos.nuevoInputRegistrado.emit(Enums.Izquierda, jugador)
-			elif Input.is_action_just_pressed(diccionarioInputs[Enums.Derecha]):
-				Eventos.nuevoInputRegistrado.emit(Enums.Derecha, jugador)
+		if !isInputInCooldown:
+			if (multiplayer.is_server() and jugador == 1) or (!multiplayer.is_server() and jugador == 2):
+				if Input.is_action_just_pressed(diccionarioInputs[Enums.Arriba]):
+					Eventos.nuevoInputRegistrado.emit(Enums.Arriba, jugador)
+					isInputInCooldown = true
+					$TmrInputCooldown.start()
+				elif Input.is_action_just_pressed(diccionarioInputs[Enums.Abajo]):
+					Eventos.nuevoInputRegistrado.emit(Enums.Abajo, jugador)
+					isInputInCooldown = true
+					$TmrInputCooldown.start()
+				elif Input.is_action_just_pressed(diccionarioInputs[Enums.Izquierda]):
+					Eventos.nuevoInputRegistrado.emit(Enums.Izquierda, jugador)
+					isInputInCooldown = true
+					$TmrInputCooldown.start()
+				elif Input.is_action_just_pressed(diccionarioInputs[Enums.Derecha]):
+					Eventos.nuevoInputRegistrado.emit(Enums.Derecha, jugador)
+					isInputInCooldown = true
+					$TmrInputCooldown.start()
 #endregion
 		
 	# Si está spameando entonces va mas rápido la animación
-	if ultimoInputRegistrado != -1 and anim.is_playing() \
+	if inputArray.size() > 0 and anim.is_playing() \
 	and anim.assigned_animation == "scroll_izquierda" and rachaGanadora:
 		anim.speed_scale = 4
 	# Si ya no hay buffer vuelve la animación a ser lenta
-	if ultimoInputRegistrado == -1 and anim.assigned_animation == "scroll_izquierda":
+	if inputArray.size() == 0 and anim.assigned_animation == "scroll_izquierda":
 		anim.speed_scale = 1
 	# Acá es donde verifica si quedan comandos en la lista y verifica justo cuando
 	# lo permita la entrada según el buffer
 	if comandosConFlechas.size() > 0:
-		if ultimoInputRegistrado != -1 and permitirEntradas:
-			verificarCorrecta(ultimoInputRegistrado)
-			ultimoInputRegistrado = -1
+		if inputArray.size() > 0 and permitirEntradas:
+			var ult = inputArray.pop_front()
+			verificarCorrecta(ult)
 			permitirEntradas = false
 
 func verificarCorrecta(Direccion : int): #ésta función no se está llamando siempre que la CPU presiona tecla
@@ -182,9 +196,12 @@ func verificarCorrecta(Direccion : int): #ésta función no se está llamando si
 func reemplazarTexturas():
 	comandos.pop_front()
 	comandosConFlechas.pop_front()
-	comandoNodos[0].texture = comandoNodos[1].texture
-	comandoNodos[1].texture = comandoNodos[2].texture
-	comandoNodos[2].texture = comandoNodos[3].texture
+	for i in range(3):
+		var texture = null
+		if comandosConFlechas.size() > i:
+			texture = listaTexturas[comandosConFlechas[i]]
+		comandoNodos[i].texture = texture
+			
 	for i in comandoNodos.size():
 		comandoNodos[i].position = Vector2((i+1)*128, 51)
 		comandoNodos[i].self_modulate = Color(1,1,1,1)
@@ -211,11 +228,11 @@ func error_flechas():
 	rachaGanadora =false
 	# Lo demora arto si se equivocó de manera greedy
 	if !errorContinuo:
-		anim.speed_scale = 0.2
+		anim.speed_scale = 0.6
 		anim.queue("error_flecha")
 		errorContinuo = true
 	else: # lo demora menos si se equivocó en el mismo
-		anim.speed_scale = 0.8
+		anim.speed_scale = 1.1
 		anim.queue("error_flecha")
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -260,3 +277,7 @@ func reanudarProcesos(ganador):
 func _on_tmr_sacar_jeta_timeout() -> void:
 	sacarJeta = true
 	spriteGato.play("loop_comer")
+
+
+func _on_tmr_input_cooldown_timeout() -> void:
+	isInputInCooldown = false

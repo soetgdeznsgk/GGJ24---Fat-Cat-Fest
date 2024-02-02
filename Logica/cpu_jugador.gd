@@ -89,7 +89,7 @@ func eat(cache) -> void:
 		#print("Inputs de la cpu ", inp)
 		
 		if inp != null: # Solo manda inputs SI tiene un input, para evitar q se rompa por null
-			get_node(referencia_comandos).ultimoInputRegistrado = inp
+			get_node(referencia_comandos).inputArray.append(inp)
 			#bufferedInputs.clear()
 		#eat(0)
 		var taim = 1.6

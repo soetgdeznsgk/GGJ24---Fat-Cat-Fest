@@ -208,6 +208,7 @@ flat = true
 script = ExtResource("9_xmcnb")
 
 [node name="MultiOrLocal" type="MarginContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer" node_paths=PackedStringArray("codigotexto", "lineEditJoin")]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -310,7 +311,6 @@ layout_mode = 2
 text = "JOIN TO SERVER"
 
 [node name="MainVBoxContainer" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

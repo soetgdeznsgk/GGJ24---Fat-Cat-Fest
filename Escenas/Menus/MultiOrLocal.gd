@@ -1,5 +1,6 @@
 extends Control
-
+@export var codigotexto:LineEdit
+@export var lineEditJoin:LineEdit
 
 func _on_btn_crear_server_pressed() -> void:
 	Eventos.singleplayer = false
@@ -13,14 +14,14 @@ func _on_btn_crear_server_pressed() -> void:
 	
 	# Bobada de remplazar sstrings para que no parezca una IP
 	var code = MultiplayerControl.address.replace(":","Z").to_upper().substr(2,-1)
-	$LineAddressCopy.text = code
+	codigotexto.text = code
 	loaded_peer.rpc_id(1)
 
 
 func _on_btn_unirse_pressed() -> void:
 	Eventos.singleplayer = false
 	Eventos.multiOnline = true
-	MultiplayerControl.address = $BtnUnirse/LineEditJoin.text
+	MultiplayerControl.address = lineEditJoin.text
 	var code = "fc" + MultiplayerControl.address.replace("Z",":").to_lower()
 	MultiplayerControl.isHost = false
 	MultiplayerControl.peer = await GotmMultiplayer.create_client(code)
@@ -45,8 +46,8 @@ func init_multi():
 	get_tree().change_scene_to_file("res://Escenas/Maingame/Versus.tscn")
 
 func _on_btn_copy_to_clip_board_pressed() -> void:
-	DisplayServer.clipboard_set($LineAddressCopy.text)
+	DisplayServer.clipboard_set(codigotexto.text)
 
 func _on_btn_paste_clip_board_pressed() -> void:
 	var current_clipboard = DisplayServer.clipboard_get()
-	$BtnUnirse/LineEditJoin.text = current_clipboard
+	lineEditJoin.text = current_clipboard

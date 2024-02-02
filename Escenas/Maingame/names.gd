@@ -48,16 +48,31 @@ func lookupAudioFile(in_name: String, opcion: int) -> String:
 	return "error"
 
 func generar_nombres():
-	Names.nameInitial1 = nameinitial.pick_random()
-	Names.nameFinal1 = namefinal.pick_random()
-	Names.nameInitial2 = nameinitial.pick_random()
-	Names.nameFinal2 = namefinal.pick_random()
+	nameInitial1 = nameinitial.pick_random()
+	nameFinal1 = namefinal.pick_random()
+	nameInitial2 = nameinitial.pick_random()
+	nameFinal2 = namefinal.pick_random()
 	while nameFinal1 == nameFinal2:
 		nameFinal1 = namefinal.pick_random()
+	encontrar_audio_nombres()
+	if Eventos.multiOnline and multiplayer.is_server():
+		generar_nombres_rpc.rpc(nameInitial1, nameFinal1,\
+		nameInitial2, nameFinal2)
+		
+
+@rpc("authority","call_local","reliable")
+func generar_nombres_rpc(Initial1,Final1,Initial2,Final2):
+	nameInitial1 = Initial1
+	nameFinal1 = Final1
+	nameInitial2 = Initial2
+	nameFinal2 = Final2
+	encontrar_audio_nombres()
+
+func encontrar_audio_nombres():
 	#☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️
-	Names.dirAudioInitial1 = lookupAudioFile(nameInitial1, 1)
-	Names.dirAudioFinal1 = lookupAudioFile(nameFinal1, 2)
-	Names.dirAudioInitial2 = lookupAudioFile(nameInitial2, 1)
-	Names.dirAudioFinal2 = lookupAudioFile(nameFinal2, 2)
-	Names.name_player1 = nameInitial1 + " " + nameFinal1
-	Names.name_player2 = nameInitial2 + " " + nameFinal2
+	dirAudioInitial1 = lookupAudioFile(nameInitial1, 1)
+	dirAudioFinal1 = lookupAudioFile(nameFinal1, 2)
+	dirAudioInitial2 = lookupAudioFile(nameInitial2, 1)
+	dirAudioFinal2 = lookupAudioFile(nameFinal2, 2)
+	name_player1 = nameInitial1 + " " + nameFinal1
+	name_player2 = nameInitial2 + " " + nameFinal2

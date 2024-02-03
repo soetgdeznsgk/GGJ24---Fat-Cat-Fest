@@ -276,7 +276,7 @@ func reanudarProcesos(ganador):
 
 func _on_tmr_sacar_jeta_timeout() -> void:
 	sacarJeta = true
-	spriteGato.play("loop_comer")
+	spriteGato.play("idle")
 
 
 func _on_tmr_input_cooldown_timeout() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://b4olfp085mokh"]
+[gd_scene load_steps=62 format=3 uid="uid://b4olfp085mokh"]
 
 [ext_resource type="Script" path="res://Escenas/Maingame/Maingame.gd" id="1_bpnxe"]
 [ext_resource type="Texture2D" uid="uid://cth80ou0c0vgb" path="res://Sprites/Fondos/bggame0.png" id="2_2njl2"]
@@ -59,6 +59,7 @@
 [ext_resource type="Texture2D" uid="uid://di726ju43had" path="res://Sprites/Gatos/Gato Lampara/Stun/Stund_12.png" id="51_rg8hi"]
 [ext_resource type="Texture2D" uid="uid://c6ivbsns74sna" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_6.png" id="52_8igfr"]
 [ext_resource type="Texture2D" uid="uid://cnfax4kkp1e5v" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_7.png" id="53_dyoi3"]
+[ext_resource type="Script" path="res://Escenas/Maingame/MultiControl.gd" id="60_hahn1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1yar0"]
 animations = [{
@@ -290,6 +291,7 @@ animations = [{
 }]
 
 [node name="Maingame" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_bpnxe")
 
 [node name="Fondo" type="Sprite2D" parent="."]
@@ -355,7 +357,6 @@ script = ExtResource("12_gw84n")
 
 [node name="Comandos2" parent="." groups=["comandos_nodo_to_cpu"] instance=ExtResource("2_wilsv")]
 position = Vector2(209, 504)
-metadata/_edit_lock_ = true
 
 [node name="Gato" parent="Comandos2" index="0"]
 position = Vector2(265, -163)
@@ -386,6 +387,11 @@ position = Vector2(681, 386)
 process_callback = 0
 script = ExtResource("5_864na")
 zoomFinal = Vector2(1.5, 1.5)
+
+[node name="MultiControl" type="Node" parent="." node_paths=PackedStringArray("comidas")]
+process_mode = 3
+script = ExtResource("60_hahn1")
+comidas = NodePath("../comidas")
 
 [editable path="Comandos"]
 [editable path="Comandos2"]

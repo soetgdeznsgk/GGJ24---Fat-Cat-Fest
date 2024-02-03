@@ -536,5 +536,11 @@ process_callback = 0
 wait_time = 0.2
 one_shot = true
 
+[node name="TmrInputCooldown" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.07
+one_shot = true
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="TmrSacarJeta" to="." method="_on_tmr_sacar_jeta_timeout"]
+[connection signal="timeout" from="TmrInputCooldown" to="." method="_on_tmr_input_cooldown_timeout"]

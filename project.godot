@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Enums="*res://Logica/Globales/enums.gd"
 Eventos="*res://Logica/Globales/Eventos.gd"
 Names="*res://Escenas/Maingame/names.gd"
+MultiplayerControl="*res://Logica/Globales/MultiplayerControl.gd"
 
 [debug]
 
@@ -29,8 +30,13 @@ gdscript/warnings/integer_division=0
 
 window/size/viewport_width=1366
 window/size/viewport_height=768
-window/size/mode=3
+window/size/window_width_override=683
+window/size/window_height_override=384
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gdgotm/plugin.cfg")
 
 [input]
 

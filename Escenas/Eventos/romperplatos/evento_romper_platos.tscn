@@ -279,6 +279,7 @@ justification_flags = 0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Martillo"]
 stream = ExtResource("9_541f7")
+bus = &"SFX"
 
 [node name="Plato" type="Area2D" parent="."]
 position = Vector2(1168, 620)

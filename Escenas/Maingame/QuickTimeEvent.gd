@@ -22,7 +22,8 @@ var ultimoEvento
 var selection 
 
 func _ready():
-	generarNuevoEvento()
+	if !Eventos.multiOnline or multiplayer.is_server():
+		generarNuevoEvento()
 	Eventos.finalEvento.connect(final_evento)
 	Eventos.ganadorFestival.connect(finJuego)
 
@@ -31,23 +32,37 @@ func finJuego(_ganador):
 	anim.play("fin_juego")
 	
 func tiempoAleatorio():
-	return randi_range(15,25) 
+	return randi_range(10,15) + randi_range(12,15) 
 
 func generarNuevoEvento():
 	timer.start(tiempoAleatorio())
-	
+
+
+@rpc("authority","call_remote","reliable")
+func set_selection(selectionFromServer):
+	selection = selectionFromServer
+	match selection:
+		0:
+			$LabelCualEventoEs.text = "Plate Breaker"
+		1:
+			$LabelCualEventoEs.text = "Hot Cucumber"
+		2:
+			$LabelCualEventoEs.text = "Cat Fight"
+	anim.play("pop_up")
+	Eventos.bajarTelon.emit()
 
 func _on_timer_timeout():
 	#logica de cambio de evento
 	selection = randi_range(0,listaEventos.size() - 1)
 	# TEST
-	#selection = 0
+	#selection = 1
 	if selection == ultimoEvento:
 		if selection < 2:
 			selection += 1
 		elif selection == 2:
 			selection = 0
-	print("seleccion del evento: ", selection) # pa comprobar que no de por fuera de lo usual y no rompa la pcu
+	if Eventos.multiOnline:
+		set_selection.rpc_id(MultiplayerControl.clientId,selection)
 	match selection:
 		0:
 			$LabelCualEventoEs.text = "Plate Breaker"
@@ -62,12 +77,22 @@ func cheer(prob : float):
 	Eventos.catCheer.emit(prob)
 
 func finAnimacion():
-	# TESTING: selection = 1
+	if !Eventos.multiOnline:
+		var eventoInstanciado = listaEventos[selection].instantiate()
+		ultimoEvento = selection 
+		add_child(eventoInstanciado)
+		Eventos.nuevoEvento.emit(selection) # ésto es lo que le dice a la CPU
+	else:
+		if multiplayer.is_server():
+			finAnimacionRpc.rpc()
+
+@rpc("authority","call_local","reliable")
+func finAnimacionRpc():
 	var eventoInstanciado = listaEventos[selection].instantiate()
 	ultimoEvento = selection 
 	add_child(eventoInstanciado)
-	Eventos.nuevoEvento.emit(selection) # ésto es lo que le dice a la CPU
-	
+	Eventos.nuevoEvento.emit(selection)
+
 func final_evento(ganador):
 	var texto = "Winner:\n"
 	if ganador == 0:
@@ -78,7 +103,11 @@ func final_evento(ganador):
 		texto += Names.name_player2
 	$Label.text = texto
 	$AnimationPlayer.play("final_evento")
-	generarNuevoEvento()
+	if !Eventos.multiOnline or multiplayer.is_server():
+		generarNuevoEvento()
+
+#region SFX
+
 
 func set_sfx_random_go():
 	select_random_sfx_from_pool($AudioStreamPlayer, lista_random_sfx_go)
@@ -95,3 +124,5 @@ func set_sfx_random_anuncia():
 func select_random_sfx_from_pool(sfx : AudioStreamPlayer, pool : Array):
 	var selected = pool.pick_random()
 	sfx.stream = selected
+
+#endregion

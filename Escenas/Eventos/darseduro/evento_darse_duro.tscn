@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://qc207m1uyidi"]
+[gd_scene load_steps=10 format=3 uid="uid://qc207m1uyidi"]
 
 [ext_resource type="Script" path="res://Escenas/Eventos/darseduro/evento_darse_duro.gd" id="1_gmxqv"]
 [ext_resource type="PackedScene" uid="uid://fkqmi5o8tqo5" path="res://Escenas/Eventos/darseduro/gato.tscn" id="1_k6i8i"]
@@ -26,6 +26,14 @@ animations = [{
 "name": &"normal",
 "speed": 5.0
 }]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_a34pm"]
+properties/0/path = NodePath("Gato:random_offset")
+properties/0/spawn = false
+properties/0/replication_mode = 0
+properties/1/path = NodePath("Gato2:random_offset")
+properties/1/spawn = false
+properties/1/replication_mode = 0
 
 [node name="EventoDarseDuro" type="Node2D"]
 script = ExtResource("1_gmxqv")
@@ -89,6 +97,9 @@ position = Vector2(-3, 14)
 scale = Vector2(0.712, 0.712)
 texture = ExtResource("7_48ro4")
 centered = false
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_a34pm")
 
 [connection signal="p2_can_hit" from="Gato2" to="." method="relay_p2_can_hit"]
 [connection signal="timeout" from="TimerFinalizarEvento" to="." method="_on_timer_finalizar_evento_timeout"]

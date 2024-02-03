@@ -10,7 +10,6 @@ func _on_timer_finalizar_evento_timeout() -> void:
 	elif $Gato.conteoGolpesRecibidos > $Gato2.conteoGolpesRecibidos:
 		Eventos.finalEvento.emit(2)
 	queue_free()
-	print($Gato.conteoGolpesRecibidos, " ", $Gato2.conteoGolpesRecibidos )
 
 func set_winner_by_life(winner):
 	if winner == 1:

@@ -1,6 +1,6 @@
 [gd_scene load_steps=28 format=3 uid="uid://fkqmi5o8tqo5"]
 
-[ext_resource type="Script" path="res://Escenas/Eventos/darseduro/Sprite2D.gd" id="2_ketnl"]
+[ext_resource type="Script" path="res://Escenas/Eventos/darseduro/GatoDarseDuro.gd" id="2_ketnl"]
 [ext_resource type="Theme" uid="uid://v28k7lh33uhi" path="res://Escenas/Maingame/themeNameTags.tres" id="2_no4kq"]
 [ext_resource type="Texture2D" uid="uid://c3yirgs0h7a0w" path="res://Sprites/Gatos/Gato Timmy/Pelea/cuerpo.png" id="3_y306q"]
 [ext_resource type="Texture2D" uid="uid://ba35h2hopp7qk" path="res://Sprites/Gatos/Gato Timmy/Pelea/cabeza golpe.png" id="4_sv5nm"]

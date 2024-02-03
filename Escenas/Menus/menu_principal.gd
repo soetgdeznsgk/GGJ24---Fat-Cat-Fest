@@ -4,7 +4,7 @@ var isDeveloped := false
 var bg_music := AudioStreamPlayer.new()
 var noMouse = false
 var mousePos : Vector2
-@onready var gatoGif = $MenuPrincipal/HBoxContainer/CenterContainer/GatoGif
+@onready var gatoGif = $CenterContainer/GatoGif
 @onready var button_standard_audio := AudioStreamPlayer.new()
 @onready var return_button_audio := AudioStreamPlayer.new()
 
@@ -76,6 +76,7 @@ func _undevelop_menu():
 	$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.PlayButton.grab_focus()
 	$MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones.hide()
 	$MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer.hide()
+	$MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal.hide()
 	# esconder creditos también
 
 func _on_option_button_pressed():
@@ -96,7 +97,7 @@ func _on_h_box_container_mp_start_game(): # iniciar juego mp
 func _on_h_box_container_sp_start_game(): # iniciar juego sp
 	button_standard_audio.play()
 	Eventos.singleplayer = true
-	Names.generar_nombres()	
+	Names.generar_nombres()
 	get_tree().change_scene_to_file("res://Escenas/Maingame/Versus.tscn")
 	Names.name_player2 += " (CPU)"
 
@@ -107,3 +108,11 @@ func _on_credits_button_pressed() -> void:
 	isDeveloped = true
 	$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer.hide()
 	$MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer.show()
+
+
+func _on_online_button_pressed():
+	button_standard_audio.play()
+	isDeveloped = true
+	$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer.hide()
+	$MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal.show()
+	pass # Replace with function body.

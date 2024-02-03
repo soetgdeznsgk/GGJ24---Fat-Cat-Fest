@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://wibtjjyhafg4"]
+[gd_scene load_steps=35 format=3 uid="uid://wibtjjyhafg4"]
 
 [ext_resource type="Texture2D" uid="uid://xw1nnvfwkcch" path="res://Escenas/Menus/Buttons/Perilla.png" id="1_57c0c"]
 [ext_resource type="Script" path="res://Escenas/Menus/menu_principal.gd" id="1_vn785"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://d0fmw3oywajax" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0010.png" id="18_m2i7m"]
 [ext_resource type="Texture2D" uid="uid://d2scq3mwqpuwh" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0011.png" id="19_uxlfc"]
 [ext_resource type="Texture2D" uid="uid://cth80ou0c0vgb" path="res://Sprites/Fondos/bggame0.png" id="24_uy50r"]
+[ext_resource type="Script" path="res://Escenas/Menus/MultiOrLocal.gd" id="26_7lec7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_76xur"]
 
@@ -133,11 +134,13 @@ metadata/_edit_lock_ = true
 [node name="HBoxContainer" type="HBoxContainer" parent="MenuPrincipal"]
 layout_mode = 2
 theme_override_constants/separation = 32
+metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer"]
 layout_mode = 2
 size_flags_stretch_ratio = 1.39
 alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="Logo" type="TextureRect" parent="MenuPrincipal/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(717, 376)
@@ -204,6 +207,109 @@ icon = ExtResource("5_vsw83")
 flat = true
 script = ExtResource("9_xmcnb")
 
+[node name="MultiOrLocal" type="MarginContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer" node_paths=PackedStringArray("codigotexto", "lineEditJoin")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("26_7lec7")
+codigotexto = NodePath("VBoxContainer2/HBoxContainer/VBoxContainer/LineAddressCopy")
+lineEditJoin = NodePath("VBoxContainer2/HBoxContainer/VBoxContainer2/LineEditJoin")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="BackButton" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer" instance=ExtResource("4_cnkgm")]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
+text = "Back "
+icon = ExtResource("5_vsw83")
+flat = true
+script = ExtResource("9_xmcnb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "HOST"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="LineAddressCopy" type="LineEdit" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+alignment = 1
+editable = false
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+select_all_on_focus = true
+
+[node name="BtnCopyToClipBoard" type="Button" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+text = "COPY TO CLIPBOARD"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 20)
+layout_mode = 2
+
+[node name="BtnCrearServer" type="Button" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 70)
+layout_mode = 2
+text = "CREATE SERVER"
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label2" type="Label" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "JOIN"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="LineEditJoin" type="LineEdit" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+placeholder_text = "Copy code here"
+select_all_on_focus = true
+
+[node name="BtnPasteClipBoard" type="Button" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+text = "PASTE CLIPBOARD"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(150, 20)
+layout_mode = 2
+
+[node name="BtnUnirse" type="Button" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(250, 70)
+layout_mode = 2
+text = "JOIN TO SERVER"
+
 [node name="MainVBoxContainer" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -214,6 +320,10 @@ alignment = 2
 [node name="HBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer" instance=ExtResource("7_ok2fb")]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="OnlineButton" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer" instance=ExtResource("4_cnkgm")]
+layout_mode = 2
+text = "Online"
 
 [node name="OptionsButton" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer" instance=ExtResource("4_cnkgm")]
 unique_name_in_owner = true
@@ -315,17 +425,22 @@ flat = true
 alignment = 2
 script = ExtResource("9_xmcnb")
 
-[node name="CenterContainer" type="CenterContainer" parent="MenuPrincipal/HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
+offset_left = 799.0
+offset_top = 8.0
+offset_right = 1316.0
+offset_bottom = 760.0
 size_flags_horizontal = 3
 metadata/_edit_lock_ = true
 
-[node name="GatoGif" type="AnimatedSprite2D" parent="MenuPrincipal/HBoxContainer/CenterContainer"]
+[node name="GatoGif" type="AnimatedSprite2D" parent="CenterContainer"]
 z_index = -2
-position = Vector2(86, 468)
+position = Vector2(86, 500)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_2evkp")
 animation = &"Eat"
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.756863, 0.756863, 0.756863, 0.882353)
@@ -344,10 +459,17 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("24_uy50r")
 expand_mode = 1
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer/BackButton" to="." method="_undevelop_menu"]
+[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/BackButton" to="." method="_undevelop_menu"]
+[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer/BtnCopyToClipBoard" to="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal" method="_on_btn_copy_to_clip_board_pressed"]
+[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer/BtnCrearServer" to="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal" method="_on_btn_crear_server_pressed"]
+[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer2/BtnPasteClipBoard" to="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal" method="_on_btn_paste_clip_board_pressed"]
+[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer2/BtnUnirse" to="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal" method="_on_btn_unirse_pressed"]
 [connection signal="mp_start_game" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer" to="." method="_on_h_box_container_mp_start_game"]
 [connection signal="sp_start_game" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer" to="." method="_on_h_box_container_sp_start_game"]
+[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/OnlineButton" to="." method="_on_online_button_pressed"]
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/OptionsButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox/HBoxContainer2/HBoxContainer/BackButton" to="." method="_undevelop_menu"]

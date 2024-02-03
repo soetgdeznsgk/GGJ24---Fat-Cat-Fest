@@ -3,6 +3,7 @@ extends Control
 @export var lineEditJoin:LineEdit
 
 func _on_btn_crear_server_pressed() -> void:
+	$VBoxContainer2/HBoxContainer/VBoxContainer/BtnCrearServer.disabled = true
 	Eventos.singleplayer = false
 	Eventos.multiOnline = true
 	MultiplayerControl.isHost = true
@@ -19,6 +20,7 @@ func _on_btn_crear_server_pressed() -> void:
 
 
 func _on_btn_unirse_pressed() -> void:
+	$VBoxContainer2/HBoxContainer/VBoxContainer2/BtnUnirse.disabled = true
 	Eventos.singleplayer = false
 	Eventos.multiOnline = true
 	MultiplayerControl.address = lineEditJoin.text
@@ -27,10 +29,9 @@ func _on_btn_unirse_pressed() -> void:
 	MultiplayerControl.peer = await GotmMultiplayer.create_client(code)
 	MultiplayerControl.multiplayer.multiplayer_peer = MultiplayerControl.peer
 	MultiplayerControl.multiplayer.connected_to_server.connect(func(): print("connected!"))
-	MultiplayerControl.multiplayer.connection_failed.connect(func(): print("connection failed"))
+	MultiplayerControl.multiplayer.connection_failed.connect(func(): $VBoxContainer2/HBoxContainer/VBoxContainer2/BtnUnirse.disabled = false)
 	await MultiplayerControl.multiplayer.connected_to_server
 	loaded_peer.rpc_id(1)
-
 
 var cantidadPeer = 0
 @rpc("any_peer", "call_local", "reliable")

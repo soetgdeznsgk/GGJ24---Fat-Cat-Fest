@@ -4,7 +4,7 @@ var isDeveloped := false
 var bg_music := AudioStreamPlayer.new()
 var noMouse = false
 var mousePos : Vector2
-@onready var gatoGif = $CenterContainer/GatoGif
+@onready var gatoGif = %GatoGif
 @onready var button_standard_audio := AudioStreamPlayer.new()
 @onready var return_button_audio := AudioStreamPlayer.new()
 
@@ -75,8 +75,8 @@ func _undevelop_menu():
 	$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.showPlayButton()
 	$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer.PlayButton.grab_focus()
 	$MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones.hide()
-	$MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer.hide()
-	$MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal.hide()
+	%CreditsContainer.hide()
+	%MultiOrLocal.hide()
 	# esconder creditos también
 
 func _on_option_button_pressed():
@@ -85,8 +85,6 @@ func _on_option_button_pressed():
 	$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer.hide()
 	$MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones.show()
 	$MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer/MusicVolumeSlider.grab_focus()
-
-
 
 func _on_h_box_container_mp_start_game(): # iniciar juego mp
 	button_standard_audio.play()
@@ -104,15 +102,14 @@ func _on_h_box_container_sp_start_game(): # iniciar juego sp
 
 func _on_credits_button_pressed() -> void:
 	button_standard_audio.play()
-	$MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox/HBoxContainer2/HBoxContainer/BackButton.grab_focus()
+	%CreditsContainer/BackButton.grab_focus()
 	isDeveloped = true
 	$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer.hide()
-	$MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer.show()
+	%CreditsContainer.show()
 
 
 func _on_online_button_pressed():
 	button_standard_audio.play()
 	isDeveloped = true
 	$MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer.hide()
-	$MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal.show()
-	pass # Replace with function body.
+	%MultiOrLocal.show()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://wibtjjyhafg4"]
+[gd_scene load_steps=34 format=3 uid="uid://wibtjjyhafg4"]
 
 [ext_resource type="Texture2D" uid="uid://xw1nnvfwkcch" path="res://Escenas/Menus/Buttons/Perilla.png" id="1_57c0c"]
 [ext_resource type="Script" path="res://Escenas/Menus/menu_principal.gd" id="1_vn785"]
@@ -60,9 +60,6 @@ bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dstja"]
 bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nxwv3"]
-texture = ExtResource("12_bgwur")
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_2evkp"]
 animations = [{
 "frames": [{
@@ -116,40 +113,30 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_tlrkq")
 script = ExtResource("1_vn785")
-metadata/_edit_lock_ = true
 
 [node name="MenuPrincipal" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 34.0
+offset_top = 274.0
+offset_right = -596.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 30
-metadata/_edit_lock_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MenuPrincipal"]
 layout_mode = 2
 theme_override_constants/separation = 32
+alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer"]
 layout_mode = 2
-size_flags_stretch_ratio = 1.39
+size_flags_horizontal = 3
 alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="Logo" type="TextureRect" parent="MenuPrincipal/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(717, 376)
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 1.15
-texture = ExtResource("3_3y4pc")
-expand_mode = 1
-stretch_mode = 5
 metadata/_edit_lock_ = true
 
 [node name="ContenedorOpciones" type="MarginContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer"]
@@ -207,115 +194,10 @@ icon = ExtResource("5_vsw83")
 flat = true
 script = ExtResource("9_xmcnb")
 
-[node name="MultiOrLocal" type="MarginContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer" node_paths=PackedStringArray("codigotexto", "lineEditJoin")]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-script = ExtResource("26_7lec7")
-codigotexto = NodePath("VBoxContainer2/HBoxContainer/VBoxContainer/LineAddressCopy")
-lineEditJoin = NodePath("VBoxContainer2/HBoxContainer/VBoxContainer2/LineEditJoin")
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2"]
-layout_mode = 2
-alignment = 1
-
-[node name="BackButton" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer" instance=ExtResource("4_cnkgm")]
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
-text = "Back "
-icon = ExtResource("5_vsw83")
-flat = true
-script = ExtResource("9_xmcnb")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="Label" type="Label" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "HOST"
-horizontal_alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
-[node name="LineAddressCopy" type="LineEdit" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(250, 50)
-layout_mode = 2
-alignment = 1
-editable = false
-context_menu_enabled = false
-virtual_keyboard_enabled = false
-middle_mouse_paste_enabled = false
-select_all_on_focus = true
-
-[node name="BtnCopyToClipBoard" type="Button" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(250, 50)
-layout_mode = 2
-text = "COPY TO CLIPBOARD"
-
-[node name="MarginContainer2" type="MarginContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(150, 20)
-layout_mode = 2
-
-[node name="BtnCrearServer" type="Button" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(250, 70)
-layout_mode = 2
-text = "CREATE SERVER"
-
-[node name="MarginContainer" type="MarginContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(120, 0)
-layout_mode = 2
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-alignment = 1
-
-[node name="Label2" type="Label" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "JOIN"
-horizontal_alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
-[node name="LineEditJoin" type="LineEdit" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(250, 50)
-layout_mode = 2
-placeholder_text = "Copy code here"
-select_all_on_focus = true
-
-[node name="BtnPasteClipBoard" type="Button" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(250, 50)
-layout_mode = 2
-text = "PASTE CLIPBOARD"
-
-[node name="MarginContainer2" type="MarginContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(150, 20)
-layout_mode = 2
-
-[node name="BtnUnirse" type="Button" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(250, 70)
-layout_mode = 2
-text = "JOIN TO SERVER"
-
 [node name="MainVBoxContainer" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 10
-alignment = 2
 
 [node name="HBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer" instance=ExtResource("7_ok2fb")]
 layout_mode = 2
@@ -323,7 +205,7 @@ size_flags_vertical = 3
 
 [node name="OnlineButton" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer" instance=ExtResource("4_cnkgm")]
 layout_mode = 2
-text = "Online"
+text = "Online (Beta)"
 
 [node name="OptionsButton" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer" instance=ExtResource("4_cnkgm")]
 unique_name_in_owner = true
@@ -348,101 +230,7 @@ icon = ExtResource("5_j1sg3")
 [node name="MarginContainer" type="MarginContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer"]
 layout_mode = 2
 
-[node name="CreditsContainer" type="PanelContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 3.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_nxwv3")
-
-[node name="CreditsVBox" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer"]
-layout_direction = 1
-layout_mode = 2
-size_flags_stretch_ratio = 3.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 300
-alignment = 1
-
-[node name="Label3" type="Label" parent="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox/HBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
-theme_override_font_sizes/font_size = 15
-text = "
-
-"
-horizontal_alignment = 1
-
-[node name="Label4" type="Label" parent="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox/HBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
-theme_override_font_sizes/font_size = 10
-text = "  
-
-
-
-
-
-
-
-
-"
-horizontal_alignment = 1
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 300
-alignment = 1
-
-[node name="Label3" type="Label" parent="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox/HBoxContainer2"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
-theme_override_font_sizes/font_size = 15
-horizontal_alignment = 1
-
-[node name="HBoxContainer" type="VBoxContainer" parent="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox/HBoxContainer2"]
-layout_mode = 2
-
-[node name="Label4" type="Label" parent="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox/HBoxContainer2/HBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
-theme_override_font_sizes/font_size = 15
-text = "
-
-
-"
-horizontal_alignment = 1
-
-[node name="BackButton" parent="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox/HBoxContainer2/HBoxContainer" instance=ExtResource("4_cnkgm")]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
-text = "Back"
-icon = ExtResource("5_vsw83")
-flat = true
-alignment = 2
-script = ExtResource("9_xmcnb")
-
-[node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 2
-offset_left = 799.0
-offset_top = 8.0
-offset_right = 1316.0
-offset_bottom = 760.0
-size_flags_horizontal = 3
-metadata/_edit_lock_ = true
-
-[node name="GatoGif" type="AnimatedSprite2D" parent="CenterContainer"]
-z_index = -2
-position = Vector2(86, 500)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_2evkp")
-animation = &"Eat"
-metadata/_edit_lock_ = true
-
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureFondo" type="TextureRect" parent="."]
 modulate = Color(0.756863, 0.756863, 0.756863, 0.882353)
 z_index = -5
 clip_contents = true
@@ -461,15 +249,192 @@ texture = ExtResource("24_uy50r")
 expand_mode = 1
 metadata/_edit_lock_ = true
 
+[node name="Logo" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 50.0
+offset_top = 8.0
+offset_right = 701.0
+offset_bottom = 278.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.15
+texture = ExtResource("3_3y4pc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MultiOrLocal" type="Control" parent="." node_paths=PackedStringArray("codigotexto", "lineEditJoin")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+anchors_preset = 0
+offset_left = 222.0
+offset_top = 284.0
+offset_right = 1009.0
+offset_bottom = 639.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("26_7lec7")
+codigotexto = NodePath("Host/LineAddressCopy")
+lineEditJoin = NodePath("Join/LineEditJoin")
+
+[node name="BackButton" parent="MultiOrLocal" instance=ExtResource("4_cnkgm")]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 155.0
+offset_bottom = 355.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
+text = "Back "
+icon = ExtResource("5_vsw83")
+flat = true
+script = ExtResource("9_xmcnb")
+
+[node name="Host" type="Control" parent="MultiOrLocal"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 178.0
+offset_right = 178.0
+
+[node name="Label" type="Label" parent="MultiOrLocal/Host"]
+layout_mode = 2
+offset_right = 250.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 32
+text = "HOST"
+horizontal_alignment = 1
+
+[node name="LineAddressCopy" type="LineEdit" parent="MultiOrLocal/Host"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+offset_top = 105.0
+offset_right = 250.0
+offset_bottom = 155.0
+placeholder_text = "Send this to your friend"
+alignment = 1
+editable = false
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+select_all_on_focus = true
+
+[node name="BtnCopyToClipBoard" type="Button" parent="MultiOrLocal/Host"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+offset_top = 175.0
+offset_right = 250.0
+offset_bottom = 225.0
+text = "COPY TO CLIPBOARD"
+
+[node name="BtnCrearServer" type="Button" parent="MultiOrLocal/Host"]
+custom_minimum_size = Vector2(250, 70)
+layout_mode = 2
+offset_top = 285.0
+offset_right = 250.0
+offset_bottom = 355.0
+text = "CREATE SERVER"
+
+[node name="Join" type="Control" parent="MultiOrLocal"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 465.0
+offset_right = 465.0
+
+[node name="Label2" type="Label" parent="MultiOrLocal/Join"]
+layout_mode = 2
+offset_right = 250.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 32
+text = "JOIN"
+horizontal_alignment = 1
+
+[node name="LineEditJoin" type="LineEdit" parent="MultiOrLocal/Join"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+offset_top = 105.0
+offset_right = 250.0
+offset_bottom = 155.0
+placeholder_text = "Copy code here"
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+clear_button_enabled = true
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="BtnPasteClipBoard" type="Button" parent="MultiOrLocal/Join"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+offset_top = 175.0
+offset_right = 250.0
+offset_bottom = 225.0
+action_mode = 0
+text = "PASTE CLIPBOARD"
+
+[node name="BtnUnirse" type="Button" parent="MultiOrLocal/Join"]
+custom_minimum_size = Vector2(250, 70)
+layout_mode = 2
+offset_top = 285.0
+offset_right = 250.0
+offset_bottom = 355.0
+action_mode = 0
+text = "JOIN TO SERVER"
+
+[node name="CreditsContainer" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+anchors_preset = 0
+offset_left = 268.0
+offset_top = 68.0
+offset_right = 1152.0
+offset_bottom = 697.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="TextureRect" type="TextureRect" parent="CreditsContainer"]
+layout_mode = 2
+offset_right = 884.0
+offset_bottom = 629.0
+texture = ExtResource("12_bgwur")
+
+[node name="BackButton" parent="CreditsContainer" instance=ExtResource("4_cnkgm")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 568.0
+offset_top = 399.0
+offset_right = 818.0
+offset_bottom = 577.0
+theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
+text = "Back"
+icon = ExtResource("5_vsw83")
+flat = true
+alignment = 2
+script = ExtResource("9_xmcnb")
+
+[node name="GatoGif" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+z_index = -2
+position = Vector2(885, 508)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_2evkp")
+animation = &"Eat"
+frame = 4
+frame_progress = 0.643584
+metadata/_edit_lock_ = true
+
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/ContenedorOpciones/OptionsVBoxContainer/BackButton" to="." method="_undevelop_menu"]
-[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/BackButton" to="." method="_undevelop_menu"]
-[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer/BtnCopyToClipBoard" to="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal" method="_on_btn_copy_to_clip_board_pressed"]
-[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer/BtnCrearServer" to="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal" method="_on_btn_crear_server_pressed"]
-[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer2/BtnPasteClipBoard" to="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal" method="_on_btn_paste_clip_board_pressed"]
-[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal/VBoxContainer2/HBoxContainer/VBoxContainer2/BtnUnirse" to="MenuPrincipal/HBoxContainer/VBoxContainer/MultiOrLocal" method="_on_btn_unirse_pressed"]
 [connection signal="mp_start_game" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer" to="." method="_on_h_box_container_mp_start_game"]
 [connection signal="sp_start_game" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/HBoxContainer" to="." method="_on_h_box_container_sp_start_game"]
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/OnlineButton" to="." method="_on_online_button_pressed"]
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/OptionsButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/CreditsContainer/CreditsVBox/HBoxContainer2/HBoxContainer/BackButton" to="." method="_undevelop_menu"]
+[connection signal="pressed" from="MultiOrLocal/BackButton" to="." method="_undevelop_menu"]
+[connection signal="pressed" from="MultiOrLocal/Host/BtnCopyToClipBoard" to="MultiOrLocal" method="_on_btn_copy_to_clip_board_pressed"]
+[connection signal="pressed" from="MultiOrLocal/Host/BtnCrearServer" to="MultiOrLocal" method="_on_btn_crear_server_pressed"]
+[connection signal="pressed" from="MultiOrLocal/Join/BtnPasteClipBoard" to="MultiOrLocal" method="_on_btn_paste_clip_board_pressed"]
+[connection signal="pressed" from="MultiOrLocal/Join/BtnUnirse" to="MultiOrLocal" method="_on_btn_unirse_pressed"]
+[connection signal="pressed" from="CreditsContainer/BackButton" to="." method="_undevelop_menu"]

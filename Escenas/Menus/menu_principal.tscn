@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://b4e8p240jvkcc" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0003.png" id="11_c5trp"]
 [ext_resource type="Texture2D" uid="uid://bry527snkoxli" path="res://Escenas/Menus/Imgs/Creditos.png" id="12_bgwur"]
 [ext_resource type="Texture2D" uid="uid://bjuakr1esl2db" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0004.png" id="12_yvj5k"]
+[ext_resource type="PackedScene" uid="uid://dr6kk3dex250x" path="res://Escenas/Menus/multi_or_local.tscn" id="13_635vw"]
 [ext_resource type="Texture2D" uid="uid://cu8ihu268drfj" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0005.png" id="13_dneix"]
 [ext_resource type="Texture2D" uid="uid://sadnih3iylgi" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0006.png" id="14_t50se"]
 [ext_resource type="Texture2D" uid="uid://blay5roeuvwla" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0007.png" id="15_h1gip"]
@@ -25,7 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://d0fmw3oywajax" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0010.png" id="18_m2i7m"]
 [ext_resource type="Texture2D" uid="uid://d2scq3mwqpuwh" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0011.png" id="19_uxlfc"]
 [ext_resource type="Texture2D" uid="uid://cth80ou0c0vgb" path="res://Sprites/Fondos/bggame0.png" id="24_uy50r"]
-[ext_resource type="Script" path="res://Escenas/Menus/MultiOrLocal.gd" id="26_7lec7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_76xur"]
 
@@ -262,124 +262,8 @@ texture = ExtResource("3_3y4pc")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="MultiOrLocal" type="Control" parent="." node_paths=PackedStringArray("codigotexto", "lineEditJoin")]
+[node name="MultiOrLocal" parent="." instance=ExtResource("13_635vw")]
 unique_name_in_owner = true
-visible = false
-layout_mode = 2
-anchors_preset = 0
-offset_left = 222.0
-offset_top = 284.0
-offset_right = 1009.0
-offset_bottom = 639.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-script = ExtResource("26_7lec7")
-codigotexto = NodePath("Host/LineAddressCopy")
-lineEditJoin = NodePath("Join/LineEditJoin")
-
-[node name="BackButton" parent="MultiOrLocal" instance=ExtResource("4_cnkgm")]
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 2
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 155.0
-offset_bottom = 355.0
-size_flags_horizontal = 0
-theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
-text = "Back "
-icon = ExtResource("5_vsw83")
-flat = true
-script = ExtResource("9_xmcnb")
-
-[node name="Host" type="Control" parent="MultiOrLocal"]
-layout_mode = 2
-anchors_preset = 0
-offset_left = 178.0
-offset_right = 178.0
-
-[node name="Label" type="Label" parent="MultiOrLocal/Host"]
-layout_mode = 2
-offset_right = 250.0
-offset_bottom = 45.0
-theme_override_font_sizes/font_size = 32
-text = "HOST"
-horizontal_alignment = 1
-
-[node name="LineAddressCopy" type="LineEdit" parent="MultiOrLocal/Host"]
-custom_minimum_size = Vector2(250, 50)
-layout_mode = 2
-offset_top = 105.0
-offset_right = 250.0
-offset_bottom = 155.0
-placeholder_text = "Send this to your friend"
-alignment = 1
-editable = false
-context_menu_enabled = false
-virtual_keyboard_enabled = false
-middle_mouse_paste_enabled = false
-select_all_on_focus = true
-
-[node name="BtnCopyToClipBoard" type="Button" parent="MultiOrLocal/Host"]
-custom_minimum_size = Vector2(250, 50)
-layout_mode = 2
-offset_top = 175.0
-offset_right = 250.0
-offset_bottom = 225.0
-text = "COPY TO CLIPBOARD"
-
-[node name="BtnCrearServer" type="Button" parent="MultiOrLocal/Host"]
-custom_minimum_size = Vector2(250, 70)
-layout_mode = 2
-offset_top = 285.0
-offset_right = 250.0
-offset_bottom = 355.0
-text = "CREATE SERVER"
-
-[node name="Join" type="Control" parent="MultiOrLocal"]
-layout_mode = 2
-anchors_preset = 0
-offset_left = 465.0
-offset_right = 465.0
-
-[node name="Label2" type="Label" parent="MultiOrLocal/Join"]
-layout_mode = 2
-offset_right = 250.0
-offset_bottom = 45.0
-theme_override_font_sizes/font_size = 32
-text = "JOIN"
-horizontal_alignment = 1
-
-[node name="LineEditJoin" type="LineEdit" parent="MultiOrLocal/Join"]
-custom_minimum_size = Vector2(250, 50)
-layout_mode = 2
-offset_top = 105.0
-offset_right = 250.0
-offset_bottom = 155.0
-placeholder_text = "Copy code here"
-context_menu_enabled = false
-virtual_keyboard_enabled = false
-clear_button_enabled = true
-deselect_on_focus_loss_enabled = false
-drag_and_drop_selection_enabled = false
-
-[node name="BtnPasteClipBoard" type="Button" parent="MultiOrLocal/Join"]
-custom_minimum_size = Vector2(250, 50)
-layout_mode = 2
-offset_top = 175.0
-offset_right = 250.0
-offset_bottom = 225.0
-action_mode = 0
-text = "PASTE CLIPBOARD"
-
-[node name="BtnUnirse" type="Button" parent="MultiOrLocal/Join"]
-custom_minimum_size = Vector2(250, 70)
-layout_mode = 2
-offset_top = 285.0
-offset_right = 250.0
-offset_bottom = 355.0
-action_mode = 0
-text = "JOIN TO SERVER"
 
 [node name="CreditsContainer" type="Control" parent="."]
 unique_name_in_owner = true
@@ -432,9 +316,4 @@ metadata/_edit_lock_ = true
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/OnlineButton" to="." method="_on_online_button_pressed"]
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/OptionsButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="MenuPrincipal/HBoxContainer/VBoxContainer/MainVBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="MultiOrLocal/BackButton" to="." method="_undevelop_menu"]
-[connection signal="pressed" from="MultiOrLocal/Host/BtnCopyToClipBoard" to="MultiOrLocal" method="_on_btn_copy_to_clip_board_pressed"]
-[connection signal="pressed" from="MultiOrLocal/Host/BtnCrearServer" to="MultiOrLocal" method="_on_btn_crear_server_pressed"]
-[connection signal="pressed" from="MultiOrLocal/Join/BtnPasteClipBoard" to="MultiOrLocal" method="_on_btn_paste_clip_board_pressed"]
-[connection signal="pressed" from="MultiOrLocal/Join/BtnUnirse" to="MultiOrLocal" method="_on_btn_unirse_pressed"]
 [connection signal="pressed" from="CreditsContainer/BackButton" to="." method="_undevelop_menu"]

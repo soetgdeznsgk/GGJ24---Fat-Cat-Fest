@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dqkbqgmrg4aj4"]
+
+[ext_resource type="FontFile" uid="uid://bcxxoy6dqr1cg" path="res://Escenas/Menus/Fonts/Before the Rainbow.otf" id="1_s7gfy"]
+
+[resource]
+font = ExtResource("1_s7gfy")
+font_size = 64
+font_color = Color(0.921569, 0.807843, 0.611765, 1)
+outline_size = 9
+outline_color = Color(0.141176, 0.141176, 0.141176, 1)

@@ -3,7 +3,7 @@ extends Control
 @export var lineEditJoin:LineEdit
 
 func _on_btn_crear_server_pressed() -> void:
-	$VBoxContainer2/HBoxContainer/VBoxContainer/BtnCrearServer.disabled = true
+	$Host/BtnCrearServer.disabled = true
 	Eventos.singleplayer = false
 	Eventos.multiOnline = true
 	MultiplayerControl.isHost = true
@@ -20,7 +20,7 @@ func _on_btn_crear_server_pressed() -> void:
 
 
 func _on_btn_unirse_pressed() -> void:
-	$VBoxContainer2/HBoxContainer/VBoxContainer2/BtnUnirse.disabled = true
+	$Join/BtnUnirse.disabled = true
 	Eventos.singleplayer = false
 	Eventos.multiOnline = true
 	MultiplayerControl.address = lineEditJoin.text

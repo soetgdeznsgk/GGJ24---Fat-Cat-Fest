@@ -37,17 +37,12 @@ var referencia_pepino := NodePath("../QuickTimeEvent/evento_pepino")
 var referencia_darseduro := NodePath("../QuickTimeEvent/EventoDarseDuro")
 var can_play := true
 
-
-func set_difficulty() -> void:
-	currDifficulty = randi_range(1, 3)
-	
-
 func _enter_tree() -> void:
 	Eventos.nuevoEvento.connect(minigame_entered)
 	Eventos.finalEvento.connect(resume_eating)
 	Eventos.bajarTelon.connect(set_idle)
-	
-	set_difficulty()
+
+	currDifficulty = Eventos.cpuDiff
 	eat(1.0)
 	print("cpu difficulty: ", currDifficulty, " / 3")
 	

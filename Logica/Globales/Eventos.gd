@@ -1,5 +1,6 @@
 extends Node
 
+var cpuDiff : int = 1 #Default
 var singleplayer : bool
 
 var tutorialSingleplayerHecho: bool

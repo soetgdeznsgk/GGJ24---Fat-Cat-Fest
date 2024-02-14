@@ -1,12 +1,13 @@
-[gd_scene load_steps=30 format=3 uid="uid://cm3o6uywu0d23"]
+[gd_scene load_steps=31 format=3 uid="uid://cm3o6uywu0d23"]
 
 [ext_resource type="Script" path="res://Escenas/Maingame/Tutorial.gd" id="1_nxb07"]
-[ext_resource type="Texture2D" uid="uid://cth80ou0c0vgb" path="res://Sprites/Fondos/bggame0.png" id="2_8k71y"]
-[ext_resource type="Texture2D" uid="uid://bo1blyw4wxvco" path="res://Sprites/Fondos/bggame1.png" id="3_xdfnt"]
-[ext_resource type="Texture2D" uid="uid://br1n14m8wh2p" path="res://Sprites/Fondos/bggame2.png" id="4_04rjw"]
-[ext_resource type="Texture2D" uid="uid://6ygmtis46k1w" path="res://Sprites/Fondos/bggame4.png" id="5_xyl73"]
-[ext_resource type="Texture2D" uid="uid://bjsfpkws15228" path="res://Sprites/Fondos/bggame3.png" id="6_txrmg"]
-[ext_resource type="Texture2D" uid="uid://bvcmj27m3cp0i" path="res://Sprites/Fondos/bggame5.png" id="7_tr2wy"]
+[ext_resource type="Texture2D" uid="uid://phm2xg5aruw2" path="res://Sprites/Fondos/cielo png.png" id="2_v10oe"]
+[ext_resource type="Texture2D" uid="uid://btq4pabtvb268" path="res://Sprites/Fondos/fondo0.png" id="3_fdqq0"]
+[ext_resource type="Texture2D" uid="uid://dpvoi6spn47il" path="res://Sprites/Fondos/decor.png" id="4_4gqpm"]
+[ext_resource type="Texture2D" uid="uid://68c3772giv2y" path="res://Sprites/Fondos/stage.png" id="5_7d164"]
+[ext_resource type="Texture2D" uid="uid://da3s274bbp3f" path="res://Sprites/Fondos/cartel.png" id="6_elbbe"]
+[ext_resource type="Texture2D" uid="uid://btxkfnwb6hkvx" path="res://Sprites/Fondos/sillas.png" id="7_axbbj"]
+[ext_resource type="Texture2D" uid="uid://epturoc0id2" path="res://Sprites/Fondos/mesa.png" id="8_mmlpo"]
 [ext_resource type="Texture2D" uid="uid://dffv5pexrts7s" path="res://Sprites/Tutorial/tutomulti0.png" id="9_oc8o3"]
 [ext_resource type="Texture2D" uid="uid://dnqyuwlha5q5y" path="res://Sprites/Tutorial/tutomulti1.png" id="10_jp8nr"]
 [ext_resource type="Texture2D" uid="uid://dnluclbudf8c8" path="res://Sprites/Tutorial/tutomulti2.png" id="11_3b8v1"]
@@ -188,29 +189,34 @@ script = ExtResource("1_nxb07")
 animationPlayador = NodePath("AnimationPlayer")
 pantallprogamerproooo = NodePath("pantalla")
 
+[node name="Cielo" type="Sprite2D" parent="."]
+scale = Vector2(0.712, 0.712)
+texture = ExtResource("2_v10oe")
+centered = false
+
 [node name="Fondo" type="Sprite2D" parent="."]
 scale = Vector2(0.712, 0.712)
-texture = ExtResource("2_8k71y")
+texture = ExtResource("3_fdqq0")
 centered = false
 
 [node name="Deco" type="Sprite2D" parent="."]
 scale = Vector2(0.712, 0.712)
-texture = ExtResource("3_xdfnt")
+texture = ExtResource("4_4gqpm")
 centered = false
 
 [node name="Stage" type="Sprite2D" parent="."]
 scale = Vector2(0.712, 0.712)
-texture = ExtResource("4_04rjw")
+texture = ExtResource("5_7d164")
 centered = false
 
 [node name="Cartel" type="Sprite2D" parent="."]
 scale = Vector2(0.712, 0.712)
-texture = ExtResource("5_xyl73")
+texture = ExtResource("6_elbbe")
 centered = false
 
 [node name="Sillas" type="Sprite2D" parent="."]
 scale = Vector2(0.712, 0.712)
-texture = ExtResource("6_txrmg")
+texture = ExtResource("7_axbbj")
 centered = false
 
 [node name="Mesa" type="Sprite2D" parent="."]
@@ -218,7 +224,7 @@ z_index = 1
 z_as_relative = false
 position = Vector2(-3, 14)
 scale = Vector2(0.712, 0.712)
-texture = ExtResource("7_tr2wy")
+texture = ExtResource("8_mmlpo")
 centered = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -229,10 +235,12 @@ zoomFinal = Vector2(1.5, 1.5)
 
 [node name="pantalla" type="AnimatedSprite2D" parent="."]
 z_index = 5
-position = Vector2(689, 385)
+position = Vector2(689, -389)
 scale = Vector2(0.712037, 0.712037)
 sprite_frames = SubResource("SpriteFrames_632lu")
-animation = &"MultiPlayer"
+animation = &"SinglePlayer"
+frame = 4
+frame_progress = 0.185834
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -1,18 +1,19 @@
-[gd_scene load_steps=62 format=3 uid="uid://b4olfp085mokh"]
+[gd_scene load_steps=63 format=3 uid="uid://b4olfp085mokh"]
 
 [ext_resource type="Script" path="res://Escenas/Maingame/Maingame.gd" id="1_bpnxe"]
-[ext_resource type="Texture2D" uid="uid://cth80ou0c0vgb" path="res://Sprites/Fondos/bggame0.png" id="2_2njl2"]
 [ext_resource type="PackedScene" uid="uid://bbx7yskj14jdm" path="res://Escenas/Maingame/comandos.tscn" id="2_wilsv"]
-[ext_resource type="Texture2D" uid="uid://bo1blyw4wxvco" path="res://Sprites/Fondos/bggame1.png" id="3_4acqm"]
+[ext_resource type="Texture2D" uid="uid://phm2xg5aruw2" path="res://Sprites/Fondos/cielo png.png" id="2_wtxbv"]
+[ext_resource type="Texture2D" uid="uid://btq4pabtvb268" path="res://Sprites/Fondos/fondo0.png" id="3_d2i5e"]
 [ext_resource type="PackedScene" uid="uid://c76u6u5uvxdgl" path="res://Escenas/Maingame/QuickTimeEvent.tscn" id="3_fvsyg"]
-[ext_resource type="Texture2D" uid="uid://br1n14m8wh2p" path="res://Sprites/Fondos/bggame2.png" id="4_jowbt"]
+[ext_resource type="Texture2D" uid="uid://dpvoi6spn47il" path="res://Sprites/Fondos/decor.png" id="4_huwv6"]
 [ext_resource type="Script" path="res://Escenas/Maingame/Camera2D.gd" id="5_864na"]
+[ext_resource type="Texture2D" uid="uid://68c3772giv2y" path="res://Sprites/Fondos/stage.png" id="5_cg6i8"]
 [ext_resource type="PackedScene" uid="uid://bcrmlxmuoakqy" path="res://Escenas/Maingame/comidas.tscn" id="5_on172"]
-[ext_resource type="Texture2D" uid="uid://6ygmtis46k1w" path="res://Sprites/Fondos/bggame4.png" id="5_spstp"]
-[ext_resource type="Texture2D" uid="uid://bjsfpkws15228" path="res://Sprites/Fondos/bggame3.png" id="6_uffrh"]
-[ext_resource type="Texture2D" uid="uid://bvcmj27m3cp0i" path="res://Sprites/Fondos/bggame5.png" id="7_mmh4e"]
+[ext_resource type="Texture2D" uid="uid://da3s274bbp3f" path="res://Sprites/Fondos/cartel.png" id="6_tdjgg"]
+[ext_resource type="Texture2D" uid="uid://btxkfnwb6hkvx" path="res://Sprites/Fondos/sillas.png" id="7_wvtio"]
 [ext_resource type="Theme" uid="uid://v28k7lh33uhi" path="res://Escenas/Maingame/themeNameTags.tres" id="8_3c2xy"]
 [ext_resource type="PackedScene" uid="uid://cp85xfjdi08u2" path="res://Escenas/Maingame/Publico/GatosPublico.tscn" id="8_5t0gr"]
+[ext_resource type="Texture2D" uid="uid://epturoc0id2" path="res://Sprites/Fondos/mesa.png" id="8_puv5b"]
 [ext_resource type="Texture2D" uid="uid://be32a7i3firyx" path="res://Sprites/Gatos/Gato Lampara/Derrota/derrota_1.png" id="10_b0fbt"]
 [ext_resource type="Texture2D" uid="uid://cy6qb0p25ajap" path="res://Sprites/Gatos/Gato Lampara/Derrota/derrota_2.png" id="11_4bhyq"]
 [ext_resource type="Script" path="res://Escenas/Maingame/NamePlayer1.gd" id="11_ecigq"]
@@ -294,29 +295,34 @@ animations = [{
 process_mode = 1
 script = ExtResource("1_bpnxe")
 
+[node name="Cielo" type="Sprite2D" parent="."]
+scale = Vector2(0.712, 0.712)
+texture = ExtResource("2_wtxbv")
+centered = false
+
 [node name="Fondo" type="Sprite2D" parent="."]
 scale = Vector2(0.712, 0.712)
-texture = ExtResource("2_2njl2")
+texture = ExtResource("3_d2i5e")
 centered = false
 
 [node name="Deco" type="Sprite2D" parent="."]
 scale = Vector2(0.712, 0.712)
-texture = ExtResource("3_4acqm")
+texture = ExtResource("4_huwv6")
 centered = false
 
 [node name="Stage" type="Sprite2D" parent="."]
 scale = Vector2(0.712, 0.712)
-texture = ExtResource("4_jowbt")
+texture = ExtResource("5_cg6i8")
 centered = false
 
 [node name="Cartel" type="Sprite2D" parent="."]
 scale = Vector2(0.712, 0.712)
-texture = ExtResource("5_spstp")
+texture = ExtResource("6_tdjgg")
 centered = false
 
 [node name="Sillas" type="Sprite2D" parent="."]
 scale = Vector2(0.712, 0.712)
-texture = ExtResource("6_uffrh")
+texture = ExtResource("7_wvtio")
 centered = false
 
 [node name="Mesa" type="Sprite2D" parent="."]
@@ -324,7 +330,7 @@ z_index = 1
 z_as_relative = false
 position = Vector2(-3, 14)
 scale = Vector2(0.712, 0.712)
-texture = ExtResource("7_mmh4e")
+texture = ExtResource("8_puv5b")
 centered = false
 
 [node name="comidas" parent="." instance=ExtResource("5_on172")]

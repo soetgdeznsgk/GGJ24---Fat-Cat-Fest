@@ -5,10 +5,7 @@ extends Node2D
 
 func _ready() -> void:
 	Eventos.ganadorFestival.connect(finJuego)
-	
-	if Eventos.singleplayer:
-		var bot = preload("res://Logica/cpu_jugador.tscn").instantiate()
-		add_child(bot)
+	if Eventos.singleplayer: add_child(preload("res://Logica/cpu_jugador.tscn").instantiate())
 	
 #region INPUT BOTONES
 	if Eventos.singleplayer or Eventos.multiOnline:
@@ -95,7 +92,6 @@ func _ready() -> void:
 #endregion
 		
 		# en caso de que se ejecute luego de una partida SP, reestablecer las acciones de Pj1
-		pass
 	
 
 func finJuego(ganador):

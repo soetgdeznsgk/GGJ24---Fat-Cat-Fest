@@ -44,7 +44,6 @@ func _ready() -> void:
 	Eventos.finalEvento.connect(reanudarProcesos)
 	Eventos.nuevaComida.connect(set_comandos)
 	Eventos.enviarInput.connect(recibir_nuevo_input)
-	spriteGato.play("idle")
 	
 	if !Eventos.multiOnline:
 	# Dependiendo del jugador tiene ciertas teclas para el physic process
@@ -82,6 +81,8 @@ func _ready() -> void:
 		$NamePlayer.modulate = Color("#88D662")
 		for i in comandoNodos:
 			i.modulate = Color("#88D662")
+			
+		spriteGato.play("idle")
 
 func recibir_nuevo_input(input, jugadorARecibir):
 	if jugador == jugadorARecibir:

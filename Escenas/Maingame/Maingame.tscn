@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://b4olfp085mokh"]
+[gd_scene load_steps=111 format=3 uid="uid://b4olfp085mokh"]
 
 [ext_resource type="Script" path="res://Escenas/Maingame/Maingame.gd" id="1_bpnxe"]
 [ext_resource type="PackedScene" uid="uid://bbx7yskj14jdm" path="res://Escenas/Maingame/comandos.tscn" id="2_wilsv"]
@@ -104,6 +104,7 @@
 [ext_resource type="Texture2D" uid="uid://cnfax4kkp1e5v" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_7.png" id="53_dyoi3"]
 [ext_resource type="Script" path="res://Escenas/Maingame/MultiControl.gd" id="60_hahn1"]
 [ext_resource type="AudioStream" uid="uid://d125kjwj283hf" path="res://Musica/tfcf_comida_v2.wav" id="62_3jfes"]
+[ext_resource type="Texture2D" uid="uid://c1vd6327w5erl" path="res://Sprites/QuickTimeEvent/telon.png" id="103_v3nfo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i500e"]
 animations = [{
@@ -536,36 +537,99 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="Animation" id="Animation_nagcy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Telon:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Telon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -776)]
+}
+
+[sub_resource type="Animation" id="Animation_f3wdh"]
+resource_name = "SubirTelon"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Telon:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Telon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -776)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6bily"]
+_data = {
+"RESET": SubResource("Animation_nagcy"),
+"SubirTelon": SubResource("Animation_f3wdh")
+}
+
 [node name="Maingame" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_bpnxe")
 
-[node name="Cielo" type="Sprite2D" parent="."]
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Cielo" type="Sprite2D" parent="Background"]
 scale = Vector2(0.712, 0.712)
 texture = ExtResource("2_wtxbv")
 centered = false
 
-[node name="Fondo" type="Sprite2D" parent="."]
+[node name="Fondo" type="Sprite2D" parent="Background"]
 scale = Vector2(0.712, 0.712)
 texture = ExtResource("3_d2i5e")
 centered = false
 
-[node name="Deco" type="Sprite2D" parent="."]
+[node name="Deco" type="Sprite2D" parent="Background"]
 scale = Vector2(0.712, 0.712)
 texture = ExtResource("4_huwv6")
 centered = false
 
-[node name="Stage" type="Sprite2D" parent="."]
+[node name="Stage" type="Sprite2D" parent="Background"]
 scale = Vector2(0.712, 0.712)
 texture = ExtResource("5_cg6i8")
 centered = false
 
-[node name="Cartel" type="Sprite2D" parent="."]
+[node name="Cartel" type="Sprite2D" parent="Background"]
 scale = Vector2(0.712, 0.712)
 texture = ExtResource("6_tdjgg")
 centered = false
 
-[node name="Sillas" type="Sprite2D" parent="."]
+[node name="Sillas" type="Sprite2D" parent="Background"]
 scale = Vector2(0.712, 0.712)
 texture = ExtResource("7_wvtio")
 centered = false
@@ -575,14 +639,16 @@ z_as_relative = false
 position = Vector2(467, 341)
 scale = Vector2(0.587113, 0.611574)
 sprite_frames = SubResource("SpriteFrames_i500e")
-animation = &"idle"
+animation = &"loop_victoria"
+autoplay = "loop_victoria"
 
 [node name="GatoP2" type="AnimatedSprite2D" parent="."]
 z_as_relative = false
 position = Vector2(902, 282)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_1yar0")
-animation = &"idle"
+animation = &"loop_victoria"
+autoplay = "loop_victoria"
 
 [node name="Mesa" type="Sprite2D" parent="."]
 z_index = 1
@@ -646,12 +712,27 @@ process_callback = 0
 script = ExtResource("5_864na")
 zoomFinal = Vector2(1.5, 1.5)
 
-[node name="MultiControl" type="Node" parent="." node_paths=PackedStringArray("comidas")]
+[node name="Telon" type="Sprite2D" parent="."]
+visible = false
+z_index = 5
+z_as_relative = false
+position = Vector2(0, -776)
+scale = Vector2(0.73, 0.73)
+texture = ExtResource("103_v3nfo")
+centered = false
+
+[node name="OnlineControl" type="Node" parent="." node_paths=PackedStringArray("comidas")]
 process_mode = 3
 script = ExtResource("60_hahn1")
 comidas = NodePath("../comidas")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BgMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("62_3jfes")
 autoplay = true
 bus = &"Music"
+
+[node name="ControlTelon" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6bily")
+}
+autoplay = "SubirTelon"

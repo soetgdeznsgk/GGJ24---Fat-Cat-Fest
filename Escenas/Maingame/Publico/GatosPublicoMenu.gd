@@ -38,14 +38,13 @@ func instantiateRandomCats(number) -> void:
 		catInstances.append(catInstance)
 
 func _on_special_btn_pressed():
-	for i in range(5):
-		for cat in catInstances:
-			# Generate a random number to determine if the cat cheers (50% chance)
-			if randf() < 0.6:
-				# Access the AnimationPlayer in each cat and play the cheer animation
-				var animPlayer = cat.get_node("AnimationPlayer")
-				if animPlayer != null:
-					animPlayer.play("cheer")
+	for cat in catInstances:
+		# Generate a random number to determine if the cat cheers (50% chance)
+		if randf() < 0.6:
+			# Access the AnimationPlayer in each cat and play the cheer animation
+			var animPlayer = cat.get_node("AnimationPlayer")
+			if animPlayer != null:
+				animPlayer.play("cheer")
 
 func _on_info_btn_pressed():
 	instantiateRandomCats(randi_range(6,10))

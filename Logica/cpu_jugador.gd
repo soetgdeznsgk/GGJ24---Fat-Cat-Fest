@@ -18,7 +18,7 @@ var bufferedInputs : PackedStringArray
 var currState := States.Eating # por ahora no hace nada pero
 var currDifficulty : int # va de 1 a 3
 
-var referencia_comandos := NodePath("../Comandos") #esto funciona xq cpu se instancia después de que Maingame esté ready
+var referencia_comandos := NodePath("../ComandosP2") #esto funciona xq cpu se instancia después de que Maingame esté ready
 
 # variables relevantes a rompeplatos
 var referencia_rompeplatos := NodePath("../QuickTimeEvent/EventoRomperPlatos")
@@ -124,7 +124,6 @@ func break_dishes(cache) -> void:
 			if pos_dish.y > 600: 
 				vectorPenalization += (pos_dish - pos_hammer).length() * Vector2.UP
 			elif pos_dish.y < 140: 
-				#pepe ?????????????????????
 				vectorPenalization += (pos_dish - pos_hammer).length() * Vector2.DOWN
 				
 			if ((vectorOrtonormal / 3) + pos_dish).x > 1200 or ((vectorOrtonormal / 3) + pos_dish).x < 140 or ((vectorOrtonormal / 3) + pos_dish).y > 600 or ((vectorOrtonormal / 3) + pos_dish).y < 140:

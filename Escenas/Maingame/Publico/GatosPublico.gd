@@ -30,8 +30,7 @@ func _process(_delta: float) -> void:
 
 func instantiateRandomCats() -> void:
 	# Generate a random number of cats
-	#TODO : dependiendo de la diff y todo menos o mas publico
-	var numberOfCats = randi_range(6, 10)
+	var numberOfCats = randi_range(2+Eventos.cpuDiff, 10)
 
 	# Shuffle the array of cat X positions to randomize their order
 	catXPositions.shuffle()

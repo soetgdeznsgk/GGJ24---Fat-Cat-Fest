@@ -1,19 +1,19 @@
 [gd_scene load_steps=51 format=3 uid="uid://c1chhpmxmfbcs"]
 
 [ext_resource type="Script" path="res://Escenas/escenario_ganador.gd" id="1_b6hkr"]
-[ext_resource type="Texture2D" uid="uid://cth80ou0c0vgb" path="res://Sprites/Fondos/bggame0.png" id="2_htofk"]
-[ext_resource type="Texture2D" uid="uid://bo1blyw4wxvco" path="res://Sprites/Fondos/bggame1.png" id="3_ifghr"]
+[ext_resource type="Texture2D" uid="uid://phm2xg5aruw2" path="res://Sprites/Fondos/cielo png.png" id="2_msn6k"]
+[ext_resource type="Texture2D" uid="uid://btq4pabtvb268" path="res://Sprites/Fondos/fondo0.png" id="3_sq4wr"]
 [ext_resource type="Texture2D" uid="uid://c1vd6327w5erl" path="res://Sprites/QuickTimeEvent/telon.png" id="4_68s83"]
-[ext_resource type="Texture2D" uid="uid://br1n14m8wh2p" path="res://Sprites/Fondos/bggame2.png" id="5_u17bd"]
-[ext_resource type="AudioStream" uid="uid://dlw2j0ch3eerj" path="res://SFX/sonidosNoImplementadosSebastian/sonidoAlGanar2.mp3" id="5_y5mei"]
-[ext_resource type="Texture2D" uid="uid://6ygmtis46k1w" path="res://Sprites/Fondos/bggame4.png" id="6_eq25d"]
+[ext_resource type="Texture2D" uid="uid://dpvoi6spn47il" path="res://Sprites/Fondos/decor.png" id="4_u307e"]
+[ext_resource type="AudioStream" uid="uid://ddshnuc57y832" path="res://SFX/sonidosNoImplementadosSebastian/sonidoAlGanar2.mp3" id="5_y5mei"]
+[ext_resource type="Texture2D" uid="uid://68c3772giv2y" path="res://Sprites/Fondos/stage.png" id="7_0iutj"]
 [ext_resource type="Texture2D" uid="uid://pwdu2te4is4b" path="res://Sprites/Comidas/5Pla.png" id="7_t76n8"]
+[ext_resource type="Texture2D" uid="uid://epturoc0id2" path="res://Sprites/Fondos/mesa.png" id="8_d8atp"]
 [ext_resource type="Texture2D" uid="uid://0bvht6hr3spr" path="res://Sprites/Comidas/2Pla.png" id="8_vjk00"]
 [ext_resource type="Theme" uid="uid://v28k7lh33uhi" path="res://Escenas/Maingame/themeNameTags.tres" id="9_b1d82"]
 [ext_resource type="Texture2D" uid="uid://ck2pho23ifqed" path="res://Sprites/EscenaGanador/play again.png" id="9_dkl1p"]
 [ext_resource type="Texture2D" uid="uid://coegn5p0gvs3r" path="res://Sprites/Comidas/4Pla.png" id="9_krila"]
 [ext_resource type="Texture2D" uid="uid://dx7uis8jda7ap" path="res://Sprites/Comidas/1Pla.png" id="9_lshxh"]
-[ext_resource type="Texture2D" uid="uid://bvcmj27m3cp0i" path="res://Sprites/Fondos/bggame5.png" id="9_uko8v"]
 [ext_resource type="Texture2D" uid="uid://cirw8axeuwckb" path="res://Sprites/Comidas/3Pla.png" id="10_c287q"]
 [ext_resource type="Texture2D" uid="uid://bkiqmc3oh8ydq" path="res://Sprites/Gatos/Gato Timmy/derrota/derrota1.png" id="15_sa425"]
 [ext_resource type="Texture2D" uid="uid://pyph7c3rg6jm" path="res://Sprites/Gatos/Gato Timmy/victoria/victoria1.png" id="16_k7dxt"]
@@ -337,17 +337,23 @@ libraries = {
 "": SubResource("AnimationLibrary_1lp07")
 }
 
+[node name="Cielo" type="Sprite2D" parent="."]
+scale = Vector2(0.712, 0.712)
+texture = ExtResource("2_msn6k")
+centered = false
+
 [node name="Fondo" type="Sprite2D" parent="."]
 scale = Vector2(0.712, 0.712)
-texture = ExtResource("2_htofk")
+texture = ExtResource("3_sq4wr")
 centered = false
 
 [node name="Deco" type="Sprite2D" parent="."]
 scale = Vector2(0.712, 0.712)
-texture = ExtResource("3_ifghr")
+texture = ExtResource("4_u307e")
 centered = false
 
 [node name="Telon" type="Sprite2D" parent="."]
+visible = false
 z_index = 6
 position = Vector2(688, 386)
 scale = Vector2(0.73, 0.73)
@@ -360,19 +366,18 @@ bus = &"SFX"
 
 [node name="Stage" type="Sprite2D" parent="."]
 scale = Vector2(0.712, 0.712)
-texture = ExtResource("5_u17bd")
+texture = ExtResource("7_0iutj")
 centered = false
 
 [node name="Cartel" type="Sprite2D" parent="."]
 scale = Vector2(0.712, 0.712)
-texture = ExtResource("6_eq25d")
 centered = false
 
 [node name="Mesa2" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(-9, 125)
 scale = Vector2(0.712, 0.6)
-texture = ExtResource("9_uko8v")
+texture = ExtResource("8_d8atp")
 centered = false
 
 [node name="Label" type="Label" parent="."]

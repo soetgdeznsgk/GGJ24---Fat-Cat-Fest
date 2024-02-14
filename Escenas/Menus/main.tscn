@@ -780,6 +780,7 @@ pivot_offset = Vector2(388, 60)
 stream = ExtResource("24_ss026")
 
 [node name="OLConfig" type="VBoxContainer" parent="."]
+visible = false
 offset_left = 43.0
 offset_top = 356.0
 offset_right = 927.0
@@ -968,7 +969,6 @@ pivot_offset = Vector2(388, 52)
 stream = ExtResource("24_ss026")
 
 [node name="CreditsPath" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = 650.0

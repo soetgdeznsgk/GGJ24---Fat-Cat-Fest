@@ -1,10 +1,11 @@
 extends Node2D
-var bg_music_game := AudioStreamPlayer.new()
+
+@onready var comandosP1 = $ComandosP1
+@onready var comandosP2 = $ComandosP2
+
 func _ready() -> void:
-	bg_music_game.stream = load("res://Musica/tfcf_comida_v2.wav")
-	bg_music_game.autoplay = true
-	bg_music_game.bus = "Music"
-	add_child(bg_music_game)
+	Eventos.ganadorFestival.connect(finJuego)
+	
 	if Eventos.singleplayer:
 		var bot = preload("res://Logica/cpu_jugador.tscn").instantiate()
 		add_child(bot)
@@ -95,16 +96,17 @@ func _ready() -> void:
 		
 		# en caso de que se ejecute luego de una partida SP, reestablecer las acciones de Pj1
 		pass
-	Eventos.ganadorFestival.connect(finJuego)
+	
 
 func finJuego(ganador):
-	$Comandos.procesosPausados =true
-	$Comandos2.procesosPausados =true
+	comandosP1.procesosPausados =true
+	comandosP2.procesosPausados =true
 	Eventos.ganador = ganador
-	if Eventos.singleplayer:
-		get_node("CPUJugador").queue_free()
-	$Comandos2.queue_free()
-	$Comandos.queue_free()
+	if Eventos.singleplayer: get_node("CPUJugador").queue_free()
+	comandosP2.queue_free()
+	comandosP1.queue_free()
+	$GatoP1.queue_free()
+	$GatoP2.queue_free()
 	$comidas.queue_free()
 	$Mesa.queue_free()
 	$Sillas.queue_free()

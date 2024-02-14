@@ -1,7 +1,7 @@
 extends Node
 # alerta de radiacion
-var name_player1
-var name_player2
+var name_player1 = "test"
+var name_player2 = "test"
 var nameInitial1
 var nameFinal1
 var nameInitial2

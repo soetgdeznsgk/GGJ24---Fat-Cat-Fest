@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var jugador = 1
+
 var diccionarioInputs := {}
 var listaTexturas = [ load("res://Sprites/Comandos/flechaArriba.png"), \
 load("res://Sprites/Comandos/FlechaAbajo.png"), \

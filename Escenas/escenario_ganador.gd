@@ -48,7 +48,7 @@ func set_sfx_random_anuncia():
 	pass
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Escenas/Menus/menu_principal.tscn")
+	get_tree().change_scene_to_file("res://Escenas/Menus/main.tscn")
 	Eventos.ganador = 0
 	queue_free()
 

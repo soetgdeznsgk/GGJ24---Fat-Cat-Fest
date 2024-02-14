@@ -40,8 +40,8 @@
 [ext_resource type="AudioStream" uid="uid://bklvqyn27ypk5" path="res://SFX/desliz.mp3" id="36_gefc8"]
 [ext_resource type="AudioStream" uid="uid://bq7vtrxjmjaww" path="res://SFX/pepinoAsutadoProta.mp3" id="37_17m6d"]
 [ext_resource type="AudioStream" uid="uid://dsox8ku4mbwv" path="res://SFX/pepinoAsustado.mp3" id="37_b0gs2"]
+[ext_resource type="Texture2D" uid="uid://epturoc0id2" path="res://Sprites/Fondos/mesa.png" id="42_k7hv6"]
 [ext_resource type="AudioStream" uid="uid://bw6ayv5ctml5g" path="res://SFX/pipLento.mp3" id="42_n00io"]
-[ext_resource type="Texture2D" uid="uid://bvcmj27m3cp0i" path="res://Sprites/Fondos/bggame5.png" id="47_bl0jf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_icecy"]
 animations = [{
@@ -539,9 +539,10 @@ frame = 2
 frame_progress = 1.0
 
 [node name="Mesa" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(-3, 14)
 scale = Vector2(0.712, 0.712)
-texture = ExtResource("47_bl0jf")
+texture = ExtResource("42_k7hv6")
 centered = false
 
 [node name="SprBomba" type="AnimatedSprite2D" parent="."]

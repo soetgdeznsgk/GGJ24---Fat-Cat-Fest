@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://caeckabqu6fjj"]
+[gd_scene load_steps=81 format=3 uid="uid://caeckabqu6fjj"]
 
 [ext_resource type="Script" path="res://Escenas/Menus/main.gd" id="1_dsd06"]
 [ext_resource type="PackedScene" uid="uid://wdjwfpa5g8le" path="res://Escenas/Menus/txtBtn.tscn" id="1_kpdnp"]
@@ -30,6 +30,8 @@
 [ext_resource type="Script" path="res://Escenas/Menus/specialBtn.gd" id="27_vyo02"]
 [ext_resource type="AudioStream" uid="uid://cm88aolt5lx7h" path="res://Musica/tfcf_menu_v2.wav" id="28_7evsh"]
 [ext_resource type="AudioStream" uid="uid://beq5dwheh53fp" path="res://Escenas/Menus/sfx/button_standard.wav" id="29_5ghey"]
+[ext_resource type="PackedScene" uid="uid://cp85xfjdi08u2" path="res://Escenas/Maingame/Publico/GatosPublico.tscn" id="29_n8xkr"]
+[ext_resource type="Script" path="res://Escenas/Maingame/Publico/GatosPublicoMenu.gd" id="30_rr68k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0q3tf"]
 animations = [{
@@ -1025,6 +1027,10 @@ pivot_offset = Vector2(154, 50)
 [node name="ButtonPress" parent="CreditsPath/HBoxContainer/creditsPathBack" index="2"]
 stream = ExtResource("24_ss026")
 
+[node name="PublicoCreditos" parent="." instance=ExtResource("29_n8xkr")]
+script = ExtResource("30_rr68k")
+yippies = Array[AudioStream]([])
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../CreditsPath")
 libraries = {
@@ -1043,6 +1049,7 @@ bus = &"SFX"
 [connection signal="pressed" from="MainOptPath/playBtn" to="." method="_on_play_btn_pressed"]
 [connection signal="pressed" from="MainOptPath/optionsBtn" to="." method="_on_options_btn_pressed"]
 [connection signal="pressed" from="MainOptPath/infoBtn" to="." method="_on_info_btn_pressed"]
+[connection signal="pressed" from="MainOptPath/infoBtn" to="PublicoCreditos" method="_on_info_btn_pressed"]
 [connection signal="pressed" from="PlayPath/SPBtn" to="." method="_on_sp_btn_pressed"]
 [connection signal="pressed" from="PlayPath/DiffSelector/EasyBtn" to="." method="_on_easy_btn_pressed"]
 [connection signal="pressed" from="PlayPath/DiffSelector/MediumBtn" to="." method="_on_medium_btn_pressed"]
@@ -1056,8 +1063,9 @@ bus = &"SFX"
 [connection signal="pressed" from="OptionsPath/optionsPathBack" to="." method="_on_options_path_back_pressed"]
 [connection signal="mouse_entered" from="CreditsPath/HBoxContainer/specialBtn" to="CreditsPath/HBoxContainer/specialBtn" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CreditsPath/HBoxContainer/specialBtn" to="CreditsPath/HBoxContainer/specialBtn" method="_on_mouse_exited"]
-[connection signal="pressed" from="CreditsPath/HBoxContainer/specialBtn" to="." method="_on_special_btn_pressed"]
+[connection signal="pressed" from="CreditsPath/HBoxContainer/specialBtn" to="PublicoCreditos" method="_on_special_btn_pressed"]
 [connection signal="pressed" from="CreditsPath/HBoxContainer/creditsPathBack" to="." method="_on_credits_path_back_pressed"]
+[connection signal="pressed" from="CreditsPath/HBoxContainer/creditsPathBack" to="PublicoCreditos" method="_on_credits_path_back_pressed"]
 
 [editable path="MainOptPath/playBtn"]
 [editable path="MainOptPath/optionsBtn"]

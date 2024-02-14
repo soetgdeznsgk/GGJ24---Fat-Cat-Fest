@@ -193,11 +193,7 @@ func _on_play_path_back_pressed(): change_path("mainPath")
 
 func _on_options_btn_pressed(): change_path("OptionsPath")
 func _on_options_path_back_pressed(): change_path("mainPath")
-func _on_info_btn_pressed(): animP.play("slideInCredits")
-	
-func _on_special_btn_pressed():
-	#TODO: SPAWNEAR GATOS YIPPIES EN LOS CRÉDITOS
-	print("yippie")
 
+func _on_info_btn_pressed(): animP.play("slideInCredits")
 func _on_credits_path_back_pressed(): animP.play("slideOutCredits")
 

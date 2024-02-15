@@ -1029,7 +1029,6 @@ stream = ExtResource("24_ss026")
 
 [node name="PublicoCreditos" parent="." instance=ExtResource("29_n8xkr")]
 script = ExtResource("30_rr68k")
-yippies = Array[AudioStream]([])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../CreditsPath")

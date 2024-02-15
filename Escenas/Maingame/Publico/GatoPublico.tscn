@@ -142,5 +142,5 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -0.1
-max_polyphony = 2
+max_polyphony = 10
 bus = &"SFX"

@@ -37,7 +37,6 @@ func tiempoAleatorio():
 func generarNuevoEvento():
 	timer.start(tiempoAleatorio())
 
-
 @rpc("authority","call_remote","reliable")
 func set_selection(selectionFromServer):
 	selection = selectionFromServer

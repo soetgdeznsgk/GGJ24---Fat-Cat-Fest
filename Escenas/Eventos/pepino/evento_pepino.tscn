@@ -599,6 +599,7 @@ justification_flags = 0
 process_callback = 0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+max_polyphony = 5
 bus = &"SFX"
 
 [node name="PepinoAudiodesliz" type="AudioStreamPlayer" parent="."]

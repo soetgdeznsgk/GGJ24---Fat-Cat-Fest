@@ -3,6 +3,7 @@ extends Node
 var cpuDiff : int = 1 #Default
 var singleplayer : bool
 
+var isThereAnEvent : bool = false
 var tutorialSingleplayerHecho: bool
 var tutorialMultiplayerHecho: bool
 var ganador = 0

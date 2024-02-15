@@ -92,7 +92,6 @@ func _ready() -> void:
 #endregion
 		
 		# en caso de que se ejecute luego de una partida SP, reestablecer las acciones de Pj1
-	
 
 func finJuego(ganador):
 	comandosP1.procesosPausados =true

@@ -18,8 +18,14 @@ var stunSonido
 var procesosPausados = false
 @onready var anim = $AnimationPlayer
 @onready var comandoNodos = [$Comando0, $Comando1, $Comando2, $Comando3]
-@export var spriteGato : AnimatedSprite2D  
+@export var spritesGato : SpriteFrames
+@onready var spriteGato = $Gato
+
+
+@onready var playerLabel = $NamePlayer
 @onready var tmrSacarJeta = $TmrSacarJeta
+
+
 var sacarJeta = true
 var errorContinuo = false
 var rachaGanadora = false
@@ -39,6 +45,7 @@ func _ready() -> void:
 	comer_flag = false
 	sfx_comer.bus = "SFX"
 	add_child(sfx_comer)
+	spriteGato.sprite_frames = spritesGato
 	#Señales
 	Eventos.bajarTelon.connect(pausarProcesos)
 	Eventos.finalEvento.connect(reanudarProcesos)
@@ -66,7 +73,8 @@ func _ready() -> void:
 		load("res://SFX/nom7.mp3")]
 		listaSfxAcabarPlato = [load("res://SFX/finalComida1.mp3"), load("res://SFX/finalComida2.mp3"),\
 		load("res://SFX/finalComida3.mp3"), load("res://SFX/finalComida4.mp3")]
-		$NamePlayer.modulate = Color("#F2DF6F")
+		playerLabel.text = Names.name_player2
+		playerLabel.modulate = Color("#F2DF6F")
 		for i in comandoNodos:
 			i.modulate = Color("#F2DF6F")
 	else:
@@ -78,11 +86,10 @@ func _ready() -> void:
 		listaSfxAcabarPlato = [load("res://SFX/GatoProta/terminar1.mp3"), load("res://SFX/GatoProta/terminar2.mp3"),\
 		load("res://SFX/GatoProta/terminar3.mp3"), load("res://SFX/GatoProta/terminar4.mp3"),load("res://SFX/GatoProta/terminar5.mp3"),\
 		load("res://SFX/GatoProta/terminar6.mp3")]
-		$NamePlayer.modulate = Color("#88D662")
+		playerLabel.text = Names.name_player1
+		playerLabel.modulate = Color("#88D662")
 		for i in comandoNodos:
 			i.modulate = Color("#88D662")
-			
-		spriteGato.play("idle")
 
 func recibir_nuevo_input(input, jugadorARecibir):
 	if jugador == jugadorARecibir:
@@ -192,7 +199,9 @@ func verificarCorrecta(Direccion : int): #ésta función no se está llamando si
 		spriteGato.play("choke")
 		sfx_comer.play()
 		error_flechas()
+		procesosPausados = true
 		await get_tree().create_timer(.5).timeout
+		if (!Eventos.isThereAnEvent): procesosPausados = false
 		spriteGato.play("idle")
 
 func reemplazarTexturas():
@@ -248,6 +257,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		permitirEntradas = true
 
 func pausarProcesos():
+	Eventos.isThereAnEvent = true
 	procesosPausados = true
 	spriteGato.visible = false
 	for i in comandoNodos:
@@ -256,6 +266,7 @@ func pausarProcesos():
 func reanudarProcesos(ganador):
 	# Esperar que el telon se vaya
 	await get_tree().create_timer(3).timeout
+	Eventos.isThereAnEvent = false
 	#Si se stunea:
 	if ganador == jugador or ganador == 0:
 		procesosPausados = false
@@ -275,11 +286,12 @@ func reanudarProcesos(ganador):
 		for i in comandoNodos.size()-1:
 			comandoNodos[i].visible = true
 
-
 func _on_tmr_sacar_jeta_timeout() -> void:
 	sacarJeta = true
-	spriteGato.play("loop_comer")
-
 
 func _on_tmr_input_cooldown_timeout() -> void:
 	isInputInCooldown = false
+
+func _on_gato_animation_finished():
+	if(spriteGato.animation == "comer_normal"):
+		spriteGato.play("idle")

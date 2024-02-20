@@ -6,7 +6,7 @@ extends Node2D
 func _ready() -> void:
 	Eventos.ganadorFestival.connect(finJuego)
 	if Eventos.singleplayer: add_child(preload("res://Logica/cpu_jugador.tscn").instantiate())
-	
+
 #region INPUT BOTONES
 	if Eventos.singleplayer or Eventos.multiOnline:
 		InputMap.action_erase_events("ArribaPj2") 

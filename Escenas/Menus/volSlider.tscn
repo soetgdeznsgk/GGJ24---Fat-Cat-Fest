@@ -34,16 +34,15 @@ corner_radius_bottom_left = 8
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -3.0
-offset_right = -574.0
-offset_bottom = -662.0
+offset_right = -626.0
+offset_bottom = -692.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 15
 script = ExtResource("1_inrtd")
 
 [node name="bus_name" type="Label" parent="."]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 30
@@ -64,10 +63,11 @@ ignore_texture_size = true
 stretch_mode = 5
 
 [node name="HSlider" type="HSlider" parent="."]
-custom_minimum_size = Vector2(250, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
+size_flags_vertical = 4
+size_flags_stretch_ratio = 3.16
 focus_neighbor_left = NodePath("../muteBtn")
 theme_override_icons/grabber = ExtResource("1_y3men")
 theme_override_icons/grabber_highlight = ExtResource("6_cvv1m")
@@ -79,8 +79,9 @@ step = 0.05
 value = 1.0
 
 [node name="volEdit" type="SpinBox" parent="."]
-custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_icons/updown = SubResource("CanvasTexture_rtg3u")
 step = 5.0
 alignment = 1

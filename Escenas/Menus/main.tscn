@@ -23,9 +23,9 @@
 [ext_resource type="Texture2D" uid="uid://da11csmw1ur6g" path="res://Sprites/Menu/Singleplayer.png" id="21_jqggg"]
 [ext_resource type="Texture2D" uid="uid://on3n0bdtwhht" path="res://Sprites/Menu/Multiplayer.png" id="22_ax1kq"]
 [ext_resource type="Texture2D" uid="uid://cekhhkb62r1bb" path="res://Sprites/Menu/BackButton.png" id="23_yr6lm"]
-[ext_resource type="Texture2D" uid="uid://bx75088nh8wa8" path="res://Escenas/Eventos/pepino/Creditos.png" id="24_abr5d"]
 [ext_resource type="AudioStream" uid="uid://ch424mgukemql" path="res://Escenas/Menus/sfx/back_button_sfx.wav" id="24_ss026"]
 [ext_resource type="PackedScene" uid="uid://l1ftaodoo155" path="res://Escenas/Menus/volSlider.tscn" id="25_wq1bv"]
+[ext_resource type="Texture2D" uid="uid://bry527snkoxli" path="res://Escenas/Menus/Imgs/Creditos.png" id="26_qbyef"]
 [ext_resource type="Texture2D" uid="uid://dln0jeo1dnku" path="res://Sprites/Menu/SoundButtonFocused.png" id="26_vxvh7"]
 [ext_resource type="Script" path="res://Escenas/Menus/specialBtn.gd" id="27_vyo02"]
 [ext_resource type="AudioStream" uid="uid://cm88aolt5lx7h" path="res://Musica/tfcf_menu_v2.wav" id="28_7evsh"]
@@ -547,10 +547,10 @@ position = Vector2(407, 229)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_0q3tf")
 autoplay = "default"
-frame_progress = 0.717492
+frame = 1
+frame_progress = 0.877486
 centered = false
 metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
 
 [node name="MainOptPath" type="VBoxContainer" parent="."]
 visible = false
@@ -897,7 +897,6 @@ pivot_offset = Vector2(388, 60)
 stream = ExtResource("24_ss026")
 
 [node name="OptionsPath" type="VBoxContainer" parent="."]
-visible = false
 offset_left = 43.0
 offset_top = 356.0
 offset_right = 927.0
@@ -971,6 +970,7 @@ pivot_offset = Vector2(388, 52)
 stream = ExtResource("24_ss026")
 
 [node name="CreditsPath" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = 650.0
@@ -981,7 +981,7 @@ metadata/_edit_lock_ = true
 [node name="Creditos" type="Sprite2D" parent="CreditsPath"]
 position = Vector2(694, 387)
 scale = Vector2(1.65757, 1.65757)
-texture = ExtResource("24_abr5d")
+texture = ExtResource("26_qbyef")
 metadata/_edit_lock_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CreditsPath"]

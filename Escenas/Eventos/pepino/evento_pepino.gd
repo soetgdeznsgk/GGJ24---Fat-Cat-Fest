@@ -26,10 +26,6 @@ func _ready():
 	$Label2.text = Names.name_player2
 	var tiempoExplox = randi_range(5,10)
 	var probLado = randf()
-	$Label.modulate = Color("#F2DF6F")
-	$Label.text = Names.name_player1
-	$Label2.modulate = Color("#88D662")
-	$Label2.text = Names.name_player2
 	Eventos.enviarInput.connect(recibir_nuevo_input)
 	if !Eventos.multiOnline:
 		set_pepino_lado(tiempoExplox, probLado)

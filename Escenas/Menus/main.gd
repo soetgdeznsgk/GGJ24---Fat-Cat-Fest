@@ -54,6 +54,8 @@ var currentPath = null
 var topBtn : Control 
 var botBtn : Control
 
+var displayedMsgs   = []
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -163,7 +165,7 @@ func _on_create_btn_pressed():
 	var code = MultiplayerControl.address.replace(":","Z").to_upper().substr(2,-1)
 	copyCodeLabel.text = code
 	DisplayServer.clipboard_set(code)
-	#TODO: Coso mostrar que se copió el código ya
+	bocadillo.displayText({"text" : "Copied!", "time":3})
 	loaded_peer.rpc_id(1)
 
 var cantidadPeer = 0
@@ -207,22 +209,45 @@ func _on_credits_path_back_pressed():
 	animP.play("slideOutCredits")
 	
 func randomFuniMsg():
-		bocadillo.displayText(
-		[
-			["tengo hambre we",1],
-			["a pero si fuera yuli",1],
-			["inside joke #3", 1],
-			["miaw :3", 1 ],
-			["dame 2 d carne 4 de choclo 5 de carne 1 de choclo 5 de choclo 5 de choclo ",3],
-			["UN SALUDO A LA GRASAAAAAAAAAAAAAAAAA", 2],
-			["AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", 2],
-			["ඞ" , 0.5],
-			["I povited", 1],
-			["Eating a burguer with no honey mustard", 2],
-			["The legend of buñuelo png", 1],
-			["papa y katsup y no' fuimo", 1],
-			["un video más mi gente pa perder el tiempo", 1],
-			["War. War never changes", 1],
-			["couldn´t reach the quota :c", 1],
-		].pick_random())
+	
+	var msgs = [
+	{ "text": "tengo hambre we", "time": 1.0, "fontSize": 28 },
+	{ "text": "a pero si fuera yuli", "time": 1.0, "fontSize": 28 },
+	{ "text": "inside joke #3", "time": 1.0, "fontSize": 28 },
+	{ "text": ":3", "time": 5.0, "fontSize": 90 },
+	{ "text": "Dos de carne, cuatro de choclo, cinco de carne, una de choclo, nueve de carne, siete de choclo, cinco de choclo, cinco de carne, cinco de choclo, cinco de choclo, cinco de choclo, una de choclo, dos de choclo, cinco de choclo", "time": 3.0, "fontSize": 12 },
+	{ "text": "UN SALUDO A LA GRASAAAAAAAAAAAAAAAAA", "time": 2.0, "fontSize": 28 },
+	{ "text": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH!", "time": 2.0, "fontSize": 20 },
+	{ "text": "ඞ", "time": 0.5, "fontSize": 90 },
+	{ "text": "I povited", "time": 1.0, "fontSize": 28 },
+	{ "text": "Eating a burguer with no honey mustard", "time": 2.0, "fontSize": 28 },
+	{ "text": "The legend of buñuelo png", "time": 2.0, "fontSize": 28 },
+	{ "text": "papa y katsup y no' fuimo", "time": 2.0, "fontSize": 28 },
+	{ "text": "un video más mi gente pa perder el tiempo", "time": 2.0, "fontSize": 28 },
+	{ "text": "War. War never changes", "time": 2.0, "fontSize": 28 },
+	{ "text": "couldn't reach the quota :c", "time": 2.0, "fontSize": 28 },
+	{ "text": "Cuando no como me da hambre", "time": 2.0, "fontSize": 28 },
+	{ "text": "Skibidi fortnite", "time": 1.0, "fontSize": 28 },
+	{ "text": "Masenko haa", "time": 1.0, "fontSize": 28 },
+	{ "text": "Also try Minecraft!", "time": 1.0, "fontSize": 28 },
+	{ "text": "Also try Gem Frenzy!", "time": 1.0, "fontSize": 28 },
+	{ "text": "Fat Cat Fest: Repentance", "time": 3.0, "fontSize": 28 },
+	{ "text": "Who am I?", "time": 5.0, "fontSize": 28 },
+	{ "text": "mañana sale silksong mañana sale silksong mañana sale silksong mañana sale silksong mañana sale silksong mañana sale silksong mañana sale silksong mañana sale silksong mañana sale silksong mañana sale silksong mañana sale silksong mañana sale silksong", "time": 1.0, "fontSize": 12 },
+	{ "text": "\"A terrifying presence has entered the room...\"", "time": 2.0, "fontSize": 29 },
+	{ "text": "Papu despierta, tienes que hornear unos momazos", "time": 2.0, "fontSize": 28 }
+	]
 
+	if displayedMsgs.size() == msgs.size():
+		displayedMsgs.clear()
+
+	# Choose a random message from the list of undisplayed messages
+	var undisplayedMsgs = msgs.filter(func(msg) -> bool:
+		return msg not in displayedMsgs
+	)
+	
+	var randomMsg = undisplayedMsgs[randi() % undisplayedMsgs.size()]
+	displayedMsgs.append(randomMsg)
+
+	# Display the message
+	bocadillo.displayText(randomMsg)

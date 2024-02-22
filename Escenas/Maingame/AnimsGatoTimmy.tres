@@ -92,9 +92,32 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("9_8gap0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ikfdf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_s523s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ikfdf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_s523s")
 }],
-"loop": true,
+"loop": false,
 "name": &"comer_fast",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_kerki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_8eqxp")
+}],
+"loop": false,
+"name": &"comer_finish",
 "speed": 16.0
 }, {
 "frames": [{

@@ -295,3 +295,8 @@ func _on_tmr_input_cooldown_timeout() -> void:
 func _on_gato_animation_finished():
 	if(spriteGato.animation == "comer_normal"):
 		spriteGato.play("idle")
+	elif (spriteGato.animation == "comer_finish"):
+		spriteGato.play("idle")
+	elif (spriteGato.animation == "comer_fast"):
+		spriteGato.play("comer_finish")
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://b4olfp085mokh"]
+[gd_scene load_steps=53 format=3 uid="uid://b4olfp085mokh"]
 
 [ext_resource type="Script" path="res://Escenas/Maingame/Maingame.gd" id="1_bpnxe"]
 [ext_resource type="PackedScene" uid="uid://bbx7yskj14jdm" path="res://Escenas/Maingame/comandos.tscn" id="2_wilsv"]
@@ -24,8 +24,10 @@
 [ext_resource type="Texture2D" uid="uid://c1278lmlowdcl" path="res://Sprites/Menu/PlayButton.png" id="24_ioci0"]
 [ext_resource type="Texture2D" uid="uid://bfi0qrx7f2qau" path="res://Sprites/Menu/OptionsButton.png" id="25_v75yl"]
 [ext_resource type="Texture2D" uid="uid://b3fkjs1sli64p" path="res://Escenas/Menus/Imgs/GatoMusica.png" id="27_l0qjl"]
+[ext_resource type="Texture2D" uid="uid://dpl78rr5af0au" path="res://Sprites/Menu/Chulito.png" id="28_a88xy"]
 [ext_resource type="Texture2D" uid="uid://dln0jeo1dnku" path="res://Sprites/Menu/SoundButtonFocused.png" id="28_l0jvb"]
 [ext_resource type="Script" path="res://Escenas/Menus/specialBtn.gd" id="29_15fdv"]
+[ext_resource type="Texture2D" uid="uid://boayuc7idcros" path="res://Sprites/Menu/X.png" id="31_fui1c"]
 [ext_resource type="Script" path="res://Escenas/Maingame/MultiControl.gd" id="60_hahn1"]
 [ext_resource type="AudioStream" uid="uid://d125kjwj283hf" path="res://Musica/tfcf_comida_v2.wav" id="62_3jfes"]
 [ext_resource type="Texture2D" uid="uid://c1vd6327w5erl" path="res://Sprites/QuickTimeEvent/telon.png" id="103_v3nfo"]
@@ -232,6 +234,7 @@ spritesGato = ExtResource("11_u4y2o")
 
 [node name="Gato" parent="ComandosP1" index="0"]
 position = Vector2(258, -172)
+animation = &"comer_finish"
 
 [node name="NamePlayer" parent="ComandosP1" index="8"]
 offset_left = 45.0
@@ -248,6 +251,7 @@ spritesGato = ExtResource("14_7e1hi")
 position = Vector2(261.414, -209.943)
 scale = Vector2(0.702028, 0.731276)
 sprite_frames = ExtResource("14_7e1hi")
+animation = &"comer_finish"
 
 [node name="NamePlayer" parent="ComandosP2" index="8"]
 offset_left = 79.0
@@ -297,6 +301,7 @@ autoplay = "SubirTelon"
 
 [node name="Pause" type="TextureRect" parent="."]
 process_mode = 3
+visible = false
 z_index = 99
 clip_contents = true
 custom_minimum_size = Vector2(900, 400)
@@ -613,6 +618,7 @@ theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 40
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Pause/ConfirmContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 50
 
@@ -623,7 +629,7 @@ theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 10
 theme_override_font_sizes/font_size = 70
-text = "PAUSED!"
+text = "CONFIRM"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -742,7 +748,7 @@ alignment = 1
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 focus_neighbor_right = NodePath("../DenyBtn")
-texture_normal = ExtResource("24_ioci0")
+texture_normal = ExtResource("28_a88xy")
 texture_focused = ExtResource("28_l0jvb")
 ignore_texture_size = true
 stretch_mode = 5
@@ -752,7 +758,7 @@ script = ExtResource("29_15fdv")
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 focus_neighbor_left = NodePath("../ConfirmBtn")
-texture_normal = ExtResource("22_uh3vs")
+texture_normal = ExtResource("31_fui1c")
 texture_focused = ExtResource("28_l0jvb")
 ignore_texture_size = true
 stretch_mode = 5

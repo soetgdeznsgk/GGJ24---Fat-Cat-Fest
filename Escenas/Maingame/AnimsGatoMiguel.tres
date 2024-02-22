@@ -121,9 +121,29 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("16_wd8fy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_0kus2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_wd8fy")
 }],
-"loop": true,
+"loop": false,
 "name": &"comer_fast",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_i1nge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_tyxj2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_4me3h")
+}],
+"loop": false,
+"name": &"comer_finish",
 "speed": 16.0
 }, {
 "frames": [{

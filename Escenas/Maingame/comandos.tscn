@@ -261,7 +261,7 @@ z_as_relative = false
 position = Vector2(312, -175)
 scale = Vector2(0.587113, 0.611574)
 sprite_frames = ExtResource("2_1u5ug")
-animation = &"loop_victoria"
+animation = &"comer_fast"
 autoplay = "loop_victoria"
 
 [node name="Comando0" type="Sprite2D" parent="."]

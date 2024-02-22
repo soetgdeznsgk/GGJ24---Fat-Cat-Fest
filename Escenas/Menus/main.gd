@@ -47,6 +47,7 @@ extends Node2D
 
 @onready var animP = $AnimationPlayer
 @onready var gatoTragon = $gatoTragon
+@onready var bocadillo = $Bocadillo
 
 var vp : Viewport
 var currentPath = null
@@ -81,19 +82,26 @@ func _input(event):
 			Globals.mouseToggle = true
 			Globals.focusedNode.grab_focus()
 	
-	if Input.is_action_pressed("ui_up") and !vp.gui_get_focus_owner():
+	if Input.is_action_just_pressed("ui_up") and !vp.gui_get_focus_owner():
 		topBtn.grab_focus()
 		
-	if Input.is_action_pressed("ui_down") and !vp.gui_get_focus_owner():
+	if Input.is_action_just_pressed("ui_down") and !vp.gui_get_focus_owner():
 		botBtn.grab_focus()
 		
-	if Input.is_action_pressed("ui_cancel"):
-		if currentPath == "playPath" and diffSelector.is_visible():
-			SPBtn.visible = true
-			diffSelector.visible = false
-			topBtn = SPBtn
-			SPBtn.grab_focus()
-
+	if Input.is_action_just_pressed("ui_cancel"):
+		
+		if currentPath == "playPath":
+			if diffSelector.is_visible():
+				SPBtn.visible = true
+				diffSelector.visible = false
+				topBtn = SPBtn
+				SPBtn.grab_focus()
+			else: 
+				change_path("mainPath")
+		
+		if currentPath == "OptionsPath":
+			change_path("mainPath")
+			
 
 func _focus_change(control : Control):
 	# playPath
@@ -195,5 +203,26 @@ func _on_options_btn_pressed(): change_path("OptionsPath")
 func _on_options_path_back_pressed(): change_path("mainPath")
 
 func _on_info_btn_pressed(): animP.play("slideInCredits")
-func _on_credits_path_back_pressed(): animP.play("slideOutCredits")
+func _on_credits_path_back_pressed(): 
+	animP.play("slideOutCredits")
+	
+func randomFuniMsg():
+		bocadillo.displayText(
+		[
+			["tengo hambre we",1],
+			["a pero si fuera yuli",1],
+			["inside joke #3", 1],
+			["miaw :3", 1 ],
+			["dame 2 d carne 4 de choclo 5 de carne 1 de choclo 5 de choclo 5 de choclo ",3],
+			["UN SALUDO A LA GRASAAAAAAAAAAAAAAAAA", 2],
+			["AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", 2],
+			["ඞ" , 0.5],
+			["I povited", 1],
+			["Eating a burguer with no honey mustard", 2],
+			["The legend of buñuelo png", 1],
+			["papa y katsup y no' fuimo", 1],
+			["un video más mi gente pa perder el tiempo", 1],
+			["War. War never changes", 1],
+			["couldn´t reach the quota :c", 1],
+		].pick_random())
 

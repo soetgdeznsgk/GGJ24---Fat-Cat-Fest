@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://caeckabqu6fjj"]
+[gd_scene load_steps=88 format=3 uid="uid://caeckabqu6fjj"]
 
 [ext_resource type="Script" path="res://Escenas/Menus/main.gd" id="1_dsd06"]
 [ext_resource type="PackedScene" uid="uid://wdjwfpa5g8le" path="res://Escenas/Menus/txtBtn.tscn" id="1_kpdnp"]
@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://jsp1brrwdxu7" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0009.png" id="15_s6odb"]
 [ext_resource type="Texture2D" uid="uid://d0fmw3oywajax" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0010.png" id="16_axirg"]
 [ext_resource type="Texture2D" uid="uid://d2scq3mwqpuwh" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0011.png" id="17_eacj1"]
+[ext_resource type="Texture2D" uid="uid://bbsax2a2qdvmu" path="res://Sprites/Menu/BocadilloPapu.png" id="17_wpibv"]
+[ext_resource type="Script" path="res://Escenas/Menus/Bocadillo.gd" id="18_jd4tn"]
 [ext_resource type="Texture2D" uid="uid://bfi0qrx7f2qau" path="res://Sprites/Menu/OptionsButton.png" id="19_j6ght"]
 [ext_resource type="Texture2D" uid="uid://da11csmw1ur6g" path="res://Sprites/Menu/Singleplayer.png" id="21_jqggg"]
 [ext_resource type="Texture2D" uid="uid://on3n0bdtwhht" path="res://Sprites/Menu/Multiplayer.png" id="22_ax1kq"]
@@ -30,6 +32,7 @@
 [ext_resource type="Script" path="res://Escenas/Menus/specialBtn.gd" id="27_vyo02"]
 [ext_resource type="AudioStream" uid="uid://cm88aolt5lx7h" path="res://Musica/tfcf_menu_v2.wav" id="28_7evsh"]
 [ext_resource type="AudioStream" uid="uid://beq5dwheh53fp" path="res://Escenas/Menus/sfx/button_standard.wav" id="29_5ghey"]
+[ext_resource type="Texture2D" uid="uid://n3oj3dljrinx" path="res://Sprites/Menu/Estrella.png" id="29_b6lqg"]
 [ext_resource type="PackedScene" uid="uid://cp85xfjdi08u2" path="res://Escenas/Maingame/Publico/GatosPublico.tscn" id="29_n8xkr"]
 [ext_resource type="Script" path="res://Escenas/Maingame/Publico/GatosPublicoMenu.gd" id="30_rr68k"]
 
@@ -76,6 +79,96 @@ animations = [{
 "name": &"default",
 "speed": 20.0
 }]
+
+[sub_resource type="Animation" id="Animation_j0d31"]
+resource_name = "appear"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_hfqco"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_78gfs"]
+resource_name = "disappear"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jg01s"]
+_data = {
+"RESET": SubResource("Animation_hfqco"),
+"appear": SubResource("Animation_j0d31"),
+"disappear": SubResource("Animation_78gfs")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8mow"]
 resource_local_to_scene = true
@@ -502,6 +595,20 @@ tracks/4/keys = {
 "update": 0,
 "values": [0.0, 62.8319]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"randomFuniMsg"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b3bgs"]
 _data = {
@@ -551,6 +658,54 @@ frame = 1
 frame_progress = 0.877486
 centered = false
 metadata/_edit_group_ = true
+
+[node name="Bocadillo" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(200, 100)
+offset_left = 924.0
+offset_top = 270.0
+offset_right = 1247.0
+offset_bottom = 447.0
+texture = ExtResource("17_wpibv")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("18_jd4tn")
+
+[node name="MarginContainer" type="MarginContainer" parent="Bocadillo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.427
+anchor_right = 0.5
+anchor_bottom = 0.427
+offset_left = -154.5
+offset_top = -66.579
+offset_right = 158.5
+offset_bottom = 66.421
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 2
+
+[node name="Label" type="Label" parent="Bocadillo/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.14902, 0.14902, 0.14902, 1)
+theme_override_colors/font_outline_color = Color(0.768627, 0.619608, 0.494118, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bocadillo"]
+libraries = {
+"": SubResource("AnimationLibrary_jg01s")
+}
 
 [node name="MainOptPath" type="VBoxContainer" parent="."]
 visible = false
@@ -897,6 +1052,7 @@ pivot_offset = Vector2(388, 60)
 stream = ExtResource("24_ss026")
 
 [node name="OptionsPath" type="VBoxContainer" parent="."]
+visible = false
 offset_left = 43.0
 offset_top = 356.0
 offset_right = 927.0
@@ -995,7 +1151,7 @@ offset_bottom = 599.0
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 disabled = true
-texture_normal = ExtResource("2_mtafr")
+texture_normal = ExtResource("29_b6lqg")
 texture_focused = ExtResource("26_vxvh7")
 ignore_texture_size = true
 stretch_mode = 5

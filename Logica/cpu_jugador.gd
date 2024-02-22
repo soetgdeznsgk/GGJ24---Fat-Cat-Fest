@@ -44,7 +44,6 @@ func _enter_tree() -> void:
 
 	currDifficulty = Eventos.cpuDiff
 	eat(1.0)
-	print("cpu difficulty: ", currDifficulty, " / 3")
 	
 func minigame_entered(activity : int) -> void:
 	match activity:
@@ -80,9 +79,7 @@ func eat(cache) -> void:
 			elif get_node(referencia_comandos).permitirEntradas:
 				inp = get_node(referencia_comandos).comandosConFlechas[0]
 				
-		#TEST
-		#print("Inputs de la cpu ", inp)
-		
+
 		if inp != null: # Solo manda inputs SI tiene un input, para evitar q se rompa por null
 			get_node(referencia_comandos).inputArray.append(inp)
 			#bufferedInputs.clear()

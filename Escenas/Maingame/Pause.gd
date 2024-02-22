@@ -68,10 +68,10 @@ func _input(event):
 			else:
 				change_path("defaultContainer")
 	
-	if Input.is_action_pressed("ui_up") and !vp.gui_get_focus_owner():
+	if Input.is_action_pressed("ui_up") and !vp.gui_get_focus_owner() and paused:
 		topBtn.grab_focus()
 		
-	if Input.is_action_pressed("ui_down") and !vp.gui_get_focus_owner():
+	if Input.is_action_pressed("ui_down") and !vp.gui_get_focus_owner() and paused:
 		botBtn.grab_focus()
 
 func _on_continue_btn_pressed():

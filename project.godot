@@ -22,6 +22,7 @@ Eventos="*res://Logica/Globales/Eventos.gd"
 Names="*res://Escenas/Maingame/names.gd"
 MultiplayerControl="*res://Logica/Globales/MultiplayerControl.gd"
 Globals="*res://Escenas/Menus/globals.gd"
+RecursosGatos="*res://Logica/Globales/RecursosGatos.gd"
 
 [debug]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bbx7yskj14jdm"]
 
 [ext_resource type="Script" path="res://Escenas/Maingame/comandos.gd" id="1_k17g7"]
-[ext_resource type="SpriteFrames" uid="uid://cyaxk0781m4d7" path="res://Escenas/Maingame/AnimsGatoTimmy.tres" id="2_1u5ug"]
+[ext_resource type="SpriteFrames" uid="uid://cyaxk0781m4d7" path="res://RecursosGatos/Maingame_Timmy.tres" id="2_ea2pn"]
 [ext_resource type="Theme" uid="uid://v28k7lh33uhi" path="res://Escenas/Maingame/themeNameTags.tres" id="3_6kd42"]
 [ext_resource type="Script" path="res://Escenas/Maingame/NamePlayer1.gd" id="4_ihhwp"]
 
@@ -258,11 +258,11 @@ script = ExtResource("1_k17g7")
 
 [node name="Gato" type="AnimatedSprite2D" parent="."]
 z_as_relative = false
-position = Vector2(312, -175)
-scale = Vector2(0.587113, 0.611574)
-sprite_frames = ExtResource("2_1u5ug")
-animation = &"comer_fast"
+position = Vector2(124, -494)
+sprite_frames = ExtResource("2_ea2pn")
+animation = &"begin_derrota"
 autoplay = "loop_victoria"
+centered = false
 
 [node name="Comando0" type="Sprite2D" parent="."]
 z_index = 1

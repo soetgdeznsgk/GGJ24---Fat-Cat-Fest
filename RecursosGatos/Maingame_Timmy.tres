@@ -107,7 +107,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"comer_fast",
-"speed": 16.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -147,7 +147,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"comer_normal",
-"speed": 16.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,

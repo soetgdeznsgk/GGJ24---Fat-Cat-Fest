@@ -1,12 +1,16 @@
 extends Node2D
 
-@export var jugador = 1
+@export var jugador : int = 1
+var duracionStun : int = 2
+
+@export var comandosConFlechas : Array = []
 
 var diccionarioInputs := {}
 var listaTexturas = [ load("res://Sprites/Comandos/flechaArriba.png"), \
 load("res://Sprites/Comandos/FlechaAbajo.png"), \
 load("res://Sprites/Comandos/FlechaIzquierda.png"), \
 load("res://Sprites/Comandos/FlechaDerecha.png") ]
+
 var listaSfxComer 
 var listaSfxAcabarPlato
 var ultimoNom
@@ -14,13 +18,11 @@ var ultimoAcabarPlato
 var chokesonido
 var stunSonido
 
-@export var duracionStun = 2
 var procesosPausados = false
+
 @onready var anim = $AnimationPlayer
 @onready var comandoNodos = [$Comando0, $Comando1, $Comando2, $Comando3]
-@export var spritesGato : SpriteFrames
 @onready var spriteGato = $Gato
-
 
 @onready var playerLabel = $NamePlayer
 @onready var tmrSacarJeta = $TmrSacarJeta
@@ -30,28 +32,26 @@ var sacarJeta = true
 var errorContinuo = false
 var rachaGanadora = false
 var comandos : Array = []
-@export var comandosConFlechas : Array = []
 var permitirEntradas = true
 var devices
 var numeroMitadComida
 var sfx_comer := AudioStreamPlayer.new()
-var comer_flag
+var comer_flag = false
 var inputArray = []
 signal llegaronComandos(comandos)
 signal nuevoInputRegistrado(input)
 var isInputInCooldown = false
 
 func _ready() -> void:
-	comer_flag = false
 	sfx_comer.bus = "SFX"
 	add_child(sfx_comer)
-	spriteGato.sprite_frames = spritesGato
-	#Señales
+	#region SEÑALES
 	Eventos.bajarTelon.connect(pausarProcesos)
 	Eventos.finalEvento.connect(reanudarProcesos)
 	Eventos.nuevaComida.connect(set_comandos)
 	Eventos.enviarInput.connect(recibir_nuevo_input)
-	
+	#endregion
+	#region CONTROLES
 	if !Eventos.multiOnline:
 	# Dependiendo del jugador tiene ciertas teclas para el physic process
 		diccionarioInputs[Enums.Arriba] = "ArribaPj" + str(jugador)
@@ -63,20 +63,30 @@ func _ready() -> void:
 		diccionarioInputs[Enums.Abajo]  = "AbajoPj1" 
 		diccionarioInputs[Enums.Izquierda] = "IzquierdaPj1" 
 		diccionarioInputs[Enums.Derecha] = "DerechaPj1"
+	#endregion
+	
+	#Carga dinámica de recursos basado en el personaje seleccionado
+	var recursos = RecursosGatos.recursos[RecursosGatos.catSelectionP1 if jugador == 1 else \
+				   						  RecursosGatos.catSelectionP2]["mainGame"]
+	spriteGato.sprite_frames = recursos["anims"]
+	var sprPosition = recursos["positionLeft" if jugador == 1 else "positionRight"]
+	spriteGato.position.x = sprPosition[0]
+	spriteGato.position.y = sprPosition[1]
+	spriteGato.scale = recursos["scale"]
+	spriteGato.play("loop_victoria")
+	
+	var sonidos = recursos["sonidos"]
+	
 
 	if jugador == 2:
 		stunSonido = load("res://SFX/sonidosNoImplementadosSebastian/stun1.mp3")
-		chokesonido= load("res://Escenas/Maingame/sfx/buzz1.mp3")
+		chokesonido= load("res://SFX/sonidosNoImplementadosSebastian/buzz1.mp3")
 		listaSfxComer=[load("res://SFX/nom1.mp3"),load("res://SFX/nom2.mp3"),\
 		load("res://SFX/nom3.mp3"),load("res://SFX/nom4.mp3"),\
 		load("res://SFX/nom5.mp3"),load("res://SFX/nom6.mp3"),
 		load("res://SFX/nom7.mp3")]
 		listaSfxAcabarPlato = [load("res://SFX/finalComida1.mp3"), load("res://SFX/finalComida2.mp3"),\
 		load("res://SFX/finalComida3.mp3"), load("res://SFX/finalComida4.mp3")]
-		playerLabel.text = Names.name_player2
-		playerLabel.modulate = Color("#F2DF6F")
-		for i in comandoNodos:
-			i.modulate = Color("#F2DF6F")
 	else:
 		stunSonido = load("res://SFX/GatoProta/dizzy.mp3")
 		chokesonido= load("res://SFX/GatoProta/choke.mp3")
@@ -86,10 +96,14 @@ func _ready() -> void:
 		listaSfxAcabarPlato = [load("res://SFX/GatoProta/terminar1.mp3"), load("res://SFX/GatoProta/terminar2.mp3"),\
 		load("res://SFX/GatoProta/terminar3.mp3"), load("res://SFX/GatoProta/terminar4.mp3"),load("res://SFX/GatoProta/terminar5.mp3"),\
 		load("res://SFX/GatoProta/terminar6.mp3")]
-		playerLabel.text = Names.name_player1
-		playerLabel.modulate = Color("#88D662")
-		for i in comandoNodos:
-			i.modulate = Color("#88D662")
+		
+
+	playerLabel.text = Names.name_player1 if jugador == 1 else Names.name_player2
+	
+	var playerColor = Color("#88D662") if jugador == 1 else Color("#F2DF6F")
+	playerLabel.modulate = playerColor
+	for i in comandoNodos:
+		i.modulate = playerColor
 
 func recibir_nuevo_input(input, jugadorARecibir):
 	if jugador == jugadorARecibir:
@@ -106,7 +120,6 @@ func set_comandos(numeroJugador, nuevosComandos : Array):
 			var ultimo = comandos.pop_front()
 			comandoNodos[i].texture = listaTexturas[ultimo]
 		
-
 func _physics_process(_delta: float) -> void:
 	if procesosPausados:
 		return

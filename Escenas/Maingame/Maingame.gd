@@ -91,7 +91,7 @@ func _ready() -> void:
 		
 #endregion
 		
-		# en caso de que se ejecute luego de una partida SP, reestablecer las acciones de Pj1
+	# en caso de que se ejecute luego de una partida SP, reestablecer las acciones de Pj1
 
 func finJuego(ganador):
 	comandosP1.procesosPausados =true
@@ -105,7 +105,7 @@ func finJuego(ganador):
 	$Background.queue_free()
 	$Pause.queue_free()
 	await get_tree().create_timer(2.2).timeout
-	var scn = load("res://Escenas/escenario_ganador.tscn")
+	var scn = load("res://Escenas/Maingame/escenario_ganador.tscn")
 	get_parent().add_child(scn.instantiate())
 	$QuickTimeEvent.queue_free()
 	

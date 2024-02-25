@@ -6,43 +6,65 @@ var diccionarioInputs := {}
 @export var jugador = 1
 @export var golpeando = false
 @export var puedeGolpear = true
-@onready var markerCabeza = $sprPadre/Marker2D2.position
 @onready var cabeza = $sprPadre/Cabeza
-@export var spriteCabeza : AnimatedSprite2D
 @onready var cuerpo = $sprPadre/SprCuerpo
 @onready var pata = $sprPadre/Pata
 @onready var initialPos = pata.position
 @onready var cabezaPosInicial = cabeza.position
+var markerCabeza
 @onready var sprArrow = $arrow
 @onready var anim = $AnimationPlayer
 @onready var soundP = $AudioStreamPlayer
+
+@onready var sprCabeza = $sprPadre/Cabeza/SprCabeza
+@onready var sprPata = $sprPadre/Pata/SprPata
+@onready var sprCuerpo = $sprPadre/SprCuerpo
 
 var conteoGolpesRecibidos = 0
 var enCooldown = false
 var vida = 10
 var lista_random_punch = Globals.loadResources("res://SFX/QuickTimeEvents/DarseDuro/")
+
 @export var random_offset : float = 0.1
 var puedoRecibirHit = true
-@export var sonidosPegar : Array[AudioStream]
 var ultimoInputRegistrado = -1
 
+var resources
+
 func _ready() -> void:
+	
+	resources = RecursosGatos.recursos[RecursosGatos.catSelectionP1 if jugador == 1 else \
+				   						  RecursosGatos.catSelectionP2]["darseDuro"]
+	
+	var resourcesPata = resources["Pata"]
+	sprPata.texture = resourcesPata["sprite"]
+	sprPata.scale = resourcesPata["scale"]
+	
+	var resourcesCuerpo = resources["Cuerpo"]
+	sprCuerpo.texture = resourcesCuerpo["sprite"]
+	sprCuerpo.position = resourcesCuerpo["pos"]
+	sprCuerpo.scale = resourcesCuerpo["scale"]
+	
+	var resourcesCabeza = resources["Cabeza"]
+	sprCabeza.texture = resourcesCabeza["CabezaNormal"]
+	sprCabeza.position = resourcesCabeza["pos"]
+	sprCabeza.scale = resourcesCabeza["scale"]
+	markerCabeza =  resourcesCabeza["markerDown"]
+	
+	sprArrow.play("down")
+	
 	if jugador == 2:
-		if !Eventos.multiOnline:
-			diccionarioInputs[Enums.Arriba] = "ArribaPj2"
-			diccionarioInputs[Enums.Abajo] = "AbajoPj2"
-		else:
-			diccionarioInputs[Enums.Arriba] = "ArribaPj1"
-			diccionarioInputs[Enums.Abajo]  = "AbajoPj1"
-		$Label.text = Names.name_player2
-		$sprPadre.scale.x = -1
-		$arrow.position.x*=-1
-		$Label.modulate = Color("#F2DF6F")
+		diccionarioInputs[Enums.Arriba] = "ArribaPj2" if !Eventos.multiOnline else "ArribaPj1"
+		diccionarioInputs[Enums.Abajo] = "AbajoPj2" if !Eventos.multiOnline else "AbajoPj1"
 	else:
 		diccionarioInputs[Enums.Arriba] = "ArribaPj1"
 		diccionarioInputs[Enums.Abajo]  = "AbajoPj1"
-		$Label.text = Names.name_player1
-		$Label.modulate = Color("#88D662")
+		
+	$sprPadre.scale.x *= -1 if jugador == 2 else 1
+	$Label.text = Names.name_player2 if jugador == 2 else Names.name_player1
+	$arrow.position.x *= -1 if jugador == 2 else 1
+	$Label.modulate = Color("#F2DF6F") if jugador == 2 else Color("#88D662")
+	
 	Eventos.enviarInput.connect(recibir_nuevo_input)
 
 func recibir_nuevo_input(input, jugadorARecibir):
@@ -50,8 +72,7 @@ func recibir_nuevo_input(input, jugadorARecibir):
 		ultimoInputRegistrado = input
 
 func _physics_process(_delta: float) -> void:
-	if !puedeGolpear:
-		return
+	if !puedeGolpear: return
 	
 #region NO ONLINE INPUTS
 	if !Eventos.multiOnline:
@@ -82,9 +103,10 @@ func _physics_process(_delta: float) -> void:
 			tween.tween_property(pata,"position",$sprPadre/MarkerMediaPAta.position,0.1 + random_offset)
 			tween.tween_property(pata,"position",initialPos,0.05 + (random_offset / 2))
 			$TimerCooldown.start(0.09 + random_offset)
-		else:
-			anim.play("shake")
 			sprArrow.visible=false
+		else:
+			if enCooldown: anim.play("shake")
+
 	if ultimoInputRegistrado == Enums.Abajo or \
 	(jugador == 2 and Eventos.singleplayer and Input.is_action_pressed(diccionarioInputs[Enums.Abajo])):
 		if !golpeando and !enCooldown:
@@ -97,14 +119,12 @@ func _physics_process(_delta: float) -> void:
 			$TimerCooldown.start(0.15)
 			sprArrow.visible=false
 		else:
-			anim.play("shake")
+			if enCooldown: anim.play("shake")
 
 func _on_cabeza_area_entered(_area: Area2D) -> void:
 	if puedoRecibirHit:
-		
 		Globals.playRandomSound(soundP, lista_random_punch)
-		
-		spriteCabeza.play("bonk")
+		sprCabeza.texture = resources["Cabeza"]["CabezaHit"]
 		#Recibe golpe
 		conteoGolpesRecibidos += 1
 		var tweenCabeza = get_tree().create_tween()
@@ -117,7 +137,7 @@ func _on_cabeza_area_entered(_area: Area2D) -> void:
 			get_parent().set_winner_by_life(jugador)
 
 func _on_cabeza_area_exited(_area: Area2D) -> void:
-	spriteCabeza.play("normal")
+	sprCabeza.texture = resources["Cabeza"]["CabezaNormal"]
 	var tweenCabeza = get_tree().create_tween()
 	tweenCabeza.tween_property(cabeza,"position", cabezaPosInicial, 0.1)
 	await get_tree().create_timer(0.2).timeout
@@ -127,6 +147,5 @@ func _on_timer_cooldown_timeout() -> void:
 	# TODO ajustar offset a lo que diga el testeo
 	random_offset = randf_range(0, +0.3)
 	enCooldown = false
-	if jugador == 2:
-		p2_can_hit.emit()
+	if jugador == 2: p2_can_hit.emit()
 	sprArrow.visible=true

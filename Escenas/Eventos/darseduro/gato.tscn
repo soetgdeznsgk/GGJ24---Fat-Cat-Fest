@@ -1,12 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://fkqmi5o8tqo5"]
+[gd_scene load_steps=26 format=3 uid="uid://fkqmi5o8tqo5"]
 
 [ext_resource type="Script" path="res://Escenas/Eventos/darseduro/GatoDarseDuro.gd" id="2_ketnl"]
 [ext_resource type="Theme" uid="uid://v28k7lh33uhi" path="res://Escenas/Maingame/themeNameTags.tres" id="2_no4kq"]
-[ext_resource type="Texture2D" uid="uid://c3yirgs0h7a0w" path="res://Sprites/Gatos/Gato Timmy/Pelea/cuerpo.png" id="3_y306q"]
-[ext_resource type="Texture2D" uid="uid://ba35h2hopp7qk" path="res://Sprites/Gatos/Gato Timmy/Pelea/cabeza golpe.png" id="4_sv5nm"]
-[ext_resource type="Texture2D" uid="uid://uonw70nwwxo8" path="res://Sprites/Gatos/Gato Timmy/Pelea/cabeza.png" id="5_bmlfh"]
+[ext_resource type="Texture2D" uid="uid://c5eke5n4jq0fe" path="res://Sprites/Gatos/Miguel/Pelea/Tordo.png" id="3_l3bwa"]
+[ext_resource type="Texture2D" uid="uid://f6aq1o2gsg3l" path="res://Sprites/Gatos/Miguel/Pelea/cabeza.png" id="4_2chsk"]
+[ext_resource type="Texture2D" uid="uid://06ewbyb62nbi" path="res://Sprites/Gatos/Miguel/Pelea/Puño.png" id="5_yj7vs"]
 [ext_resource type="Texture2D" uid="uid://b7u2syubd446b" path="res://Sprites/Comandos/FlechaAbajo.png" id="6_1h6gw"]
-[ext_resource type="Texture2D" uid="uid://cprjli65hfnoi" path="res://Sprites/Gatos/Gato Timmy/Pelea/mano.png" id="6_7e0ed"]
 [ext_resource type="Texture2D" uid="uid://ds5cfarbrgm6r" path="res://Sprites/Comandos/flechaArriba.png" id="7_q0gdi"]
 [ext_resource type="Texture2D" uid="uid://b44jobh427hxp" path="res://Sprites/DarSEDuro/vidaFull.png" id="9_0rrfm"]
 [ext_resource type="Texture2D" uid="uid://cmnx6iwc6p8k0" path="res://Sprites/DarSEDuro/vida9.png" id="10_uvrbe"]
@@ -20,25 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://bqeyhfrbmgxhy" path="res://Sprites/DarSEDuro/vida1.png" id="18_hc247"]
 [ext_resource type="Texture2D" uid="uid://bub7jneptd1bv" path="res://Sprites/DarSEDuro/vidaVacia.png" id="19_fuf7n"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_7mixs"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_sv5nm")
-}],
-"loop": true,
-"name": &"bonk",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_bmlfh")
-}],
-"loop": true,
-"name": &"normal",
-"speed": 5.0
-}]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5a1ld"]
 size = Vector2(60, 60)
 
@@ -51,7 +31,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("6_1h6gw")
 }],
-"loop": false,
+"loop": true,
 "name": &"down",
 "speed": 1.0
 }, {
@@ -59,7 +39,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_q0gdi")
 }],
-"loop": false,
+"loop": true,
 "name": &"up",
 "speed": 1.0
 }]
@@ -166,10 +146,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Gato" type="Node2D" node_paths=PackedStringArray("spriteCabeza")]
+[node name="Gato" type="Node2D"]
 scale = Vector2(1.3, 1.3)
 script = ExtResource("2_ketnl")
-spriteCabeza = NodePath("sprPadre/Cabeza/SprCabeza")
 
 [node name="Label" type="Label" parent="."]
 z_index = 1
@@ -186,21 +165,18 @@ autowrap_mode = 2
 [node name="sprPadre" type="Sprite2D" parent="."]
 
 [node name="SprCuerpo" type="Sprite2D" parent="sprPadre"]
-position = Vector2(-22.3077, 96.9231)
+position = Vector2(0, 96)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("3_y306q")
+texture = ExtResource("3_l3bwa")
 
 [node name="Cabeza" type="Area2D" parent="sprPadre"]
-position = Vector2(3.07692, -4.61539)
 
-[node name="SprCabeza" type="AnimatedSprite2D" parent="sprPadre/Cabeza"]
-position = Vector2(0.769231, 5.38462)
+[node name="SprCabeza" type="Sprite2D" parent="sprPadre/Cabeza"]
+position = Vector2(0, -10)
 scale = Vector2(0.4, 0.4)
-sprite_frames = SubResource("SpriteFrames_7mixs")
-animation = &"normal"
+texture = ExtResource("4_2chsk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sprPadre/Cabeza"]
-position = Vector2(0, 6.92308)
 shape = SubResource("RectangleShape2D_5a1ld")
 
 [node name="MarkerFinalPAta" type="Marker2D" parent="sprPadre"]
@@ -214,14 +190,12 @@ position = Vector2(-94, -71)
 metadata/_edit_group_ = true
 
 [node name="SprPata" type="Sprite2D" parent="sprPadre/Pata"]
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("6_7e0ed")
+z_index = 5
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_yj7vs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sprPadre/Pata"]
 shape = SubResource("RectangleShape2D_rswb3")
-
-[node name="Marker2D2" type="Marker2D" parent="sprPadre"]
-position = Vector2(0, 57)
 
 [node name="TimerCooldown" type="Timer" parent="."]
 process_callback = 0
@@ -235,7 +209,7 @@ bus = &"SFX"
 position = Vector2(-180, 44.615)
 scale = Vector2(0.35, 0.34)
 sprite_frames = SubResource("SpriteFrames_3b2i4")
-animation = &"down"
+animation = &"up"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

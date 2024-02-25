@@ -67,9 +67,7 @@ func _ready() -> void:
 				   						  RecursosGatos.catSelectionP2]["mainGame"]
 
 	spriteGato.sprite_frames = recursos["anims"]
-	var sprPosition = recursos["positionLeft" if jugador == 1 else "positionRight"]
-	spriteGato.position.x = sprPosition[0]
-	spriteGato.position.y = sprPosition[1]
+	spriteGato.position = recursos["positionLeft" if jugador == 1 else "positionRight"]
 	spriteGato.scale = recursos["scale"]
 	spriteGato.play("loop_victoria")
 	

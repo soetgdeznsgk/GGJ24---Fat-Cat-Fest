@@ -8,15 +8,10 @@ preload("res://Escenas/Eventos/pepino/evento_pepino.tscn"),
 preload("res://Escenas/Eventos/darseduro/evento_darse_duro.tscn")
 ]
 
-var lista_random_sfx_go = [preload("res://Escenas/Eventos/SFX/miauGo.mp3"), preload("res://Escenas/Eventos/SFX/gouu.mp3"),\
- preload("res://Escenas/Eventos/SFX/miauugo.mp3")]
-
-var lista_random_count = [preload("res://Escenas/Eventos/SFX/miauth1.mp3"), preload("res://Escenas/Eventos/SFX/miauth2.mp3"),\
-preload("res://Escenas/Eventos/SFX/miau3th.mp3"), preload("res://Escenas/Eventos/SFX/miauGrave.mp3")]
-
-var lista_campana = [preload("res://Escenas/Eventos/SFX/campanita.mp3"), preload("res://Escenas/Eventos/SFX/campanita2.mp3")]
-
-var lista_gato_anuncia = [preload("res://Escenas/Eventos/SFX/gatoanunciagrave.mp3"), preload("res://Escenas/Eventos/SFX/randomGatoAnuncia.mp3")]
+var lista_random_sfx_go = Globals.loadResources("res://SFX/QuickTimeEvents/Go/")
+var lista_random_count = Globals.loadResources("res://SFX/QuickTimeEvents/Countdown/")
+var lista_campana = Globals.loadResources("res://SFX/QuickTimeEvents/Campana/")
+var lista_gato_anuncia = Globals.loadResources("res://SFX/QuickTimeEvents/Announcer/")
 
 var ultimoEvento 
 var selection 
@@ -95,7 +90,7 @@ func finAnimacionRpc():
 func final_evento(ganador):
 	var texto = "Winner:\n"
 	if ganador == 0:
-		texto = "None, GIT GUD"
+		texto = "No one!, GIT GUD"
 	elif ganador == 1:
 		texto += Names.name_player1
 	elif ganador == 2:
@@ -107,6 +102,8 @@ func final_evento(ganador):
 
 #region SFX
 
+# Esto lo iba a cambiar pero solo Dios y sebas sabía como servía esto
+# ahora solo Dios
 
 func set_sfx_random_go():
 	select_random_sfx_from_pool($AudioStreamPlayer, lista_random_sfx_go)

@@ -15,11 +15,12 @@ var diccionarioInputs := {}
 @onready var cabezaPosInicial = cabeza.position
 @onready var sprArrow = $arrow
 @onready var anim = $AnimationPlayer
+@onready var soundP = $AudioStreamPlayer
+
 var conteoGolpesRecibidos = 0
 var enCooldown = false
 var vida = 10
-var lista_random_punch = [preload("res://Escenas/Eventos/darseduro/sfx/bonk.mp3"), preload("res://Escenas/Eventos/darseduro/sfx/puh.mp3"),\
-preload("res://Escenas/Eventos/darseduro/sfx/thun.mp3")]
+var lista_random_punch = Globals.loadResources("res://SFX/QuickTimeEvents/DarseDuro/")
 @export var random_offset : float = 0.1
 var puedoRecibirHit = true
 @export var sonidosPegar : Array[AudioStream]
@@ -100,8 +101,9 @@ func _physics_process(_delta: float) -> void:
 
 func _on_cabeza_area_entered(_area: Area2D) -> void:
 	if puedoRecibirHit:
-		$AudioStreamPlayer.stream = lista_random_punch.pick_random()
-		$AudioStreamPlayer.play()
+		
+		Globals.playRandomSound(soundP, lista_random_punch)
+		
 		spriteCabeza.play("bonk")
 		#Recibe golpe
 		conteoGolpesRecibidos += 1

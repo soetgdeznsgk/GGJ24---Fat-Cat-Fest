@@ -11,12 +11,10 @@ load("res://Sprites/Comandos/FlechaAbajo.png"), \
 load("res://Sprites/Comandos/FlechaIzquierda.png"), \
 load("res://Sprites/Comandos/FlechaDerecha.png") ]
 
-var listaSfxComer 
-var listaSfxAcabarPlato
-var ultimoNom
-var ultimoAcabarPlato
-var chokesonido
-var stunSonido
+var sounds_eating 
+var sounds_finished
+var sounds_choke
+var sounds_stun
 
 var procesosPausados = false
 
@@ -26,7 +24,6 @@ var procesosPausados = false
 
 @onready var playerLabel = $NamePlayer
 @onready var tmrSacarJeta = $TmrSacarJeta
-
 
 var sacarJeta = true
 var errorContinuo = false
@@ -68,6 +65,7 @@ func _ready() -> void:
 	#Carga dinámica de recursos basado en el personaje seleccionado
 	var recursos = RecursosGatos.recursos[RecursosGatos.catSelectionP1 if jugador == 1 else \
 				   						  RecursosGatos.catSelectionP2]["mainGame"]
+
 	spriteGato.sprite_frames = recursos["anims"]
 	var sprPosition = recursos["positionLeft" if jugador == 1 else "positionRight"]
 	spriteGato.position.x = sprPosition[0]
@@ -77,26 +75,10 @@ func _ready() -> void:
 	
 	var sonidos = recursos["sonidos"]
 	
-
-	if jugador == 2:
-		stunSonido = load("res://SFX/sonidosNoImplementadosSebastian/stun1.mp3")
-		chokesonido= load("res://SFX/sonidosNoImplementadosSebastian/buzz1.mp3")
-		listaSfxComer=[load("res://SFX/nom1.mp3"),load("res://SFX/nom2.mp3"),\
-		load("res://SFX/nom3.mp3"),load("res://SFX/nom4.mp3"),\
-		load("res://SFX/nom5.mp3"),load("res://SFX/nom6.mp3"),
-		load("res://SFX/nom7.mp3")]
-		listaSfxAcabarPlato = [load("res://SFX/finalComida1.mp3"), load("res://SFX/finalComida2.mp3"),\
-		load("res://SFX/finalComida3.mp3"), load("res://SFX/finalComida4.mp3")]
-	else:
-		stunSonido = load("res://SFX/GatoProta/dizzy.mp3")
-		chokesonido= load("res://SFX/GatoProta/choke.mp3")
-		listaSfxComer=[load("res://SFX/GatoProta/ÑAM1.mp3"),load("res://SFX/GatoProta/ñam2.mp3"),\
-		load("res://SFX/GatoProta/ñam3.mp3"),load("res://SFX/GatoProta/ñam4.mp3"),\
-		load("res://SFX/GatoProta/ñam5.mp3")]
-		listaSfxAcabarPlato = [load("res://SFX/GatoProta/terminar1.mp3"), load("res://SFX/GatoProta/terminar2.mp3"),\
-		load("res://SFX/GatoProta/terminar3.mp3"), load("res://SFX/GatoProta/terminar4.mp3"),load("res://SFX/GatoProta/terminar5.mp3"),\
-		load("res://SFX/GatoProta/terminar6.mp3")]
-		
+	sounds_eating = sonidos["eating"]
+	sounds_finished = sonidos["finished"]
+	sounds_choke = sonidos["choke"]
+	sounds_stun = sonidos["stunned"]
 
 	playerLabel.text = Names.name_player1 if jugador == 1 else Names.name_player2
 	
@@ -121,8 +103,7 @@ func set_comandos(numeroJugador, nuevosComandos : Array):
 			comandoNodos[i].texture = listaTexturas[ultimo]
 		
 func _physics_process(_delta: float) -> void:
-	if procesosPausados:
-		return
+	if procesosPausados: return
 	# Input buffering
 #region NO ONLINE INPUT
 	if !Eventos.multiOnline:
@@ -182,36 +163,23 @@ func _physics_process(_delta: float) -> void:
 
 func verificarCorrecta(Direccion : int): #ésta función no se está llamando siempre que la CPU presiona tecla
 	if comandosConFlechas[0] == Direccion:
-		var sfxRand
-		if comandosConFlechas.size() > 1:
-			sfxRand = listaSfxComer.pick_random()
-			while sfxRand == ultimoNom:
-				sfxRand = listaSfxComer.pick_random()
-			sfx_comer.stream = sfxRand
-			ultimoNom = sfxRand
-		else:
-			sfxRand = listaSfxAcabarPlato.pick_random()
-			while sfxRand == ultimoAcabarPlato:
-				sfxRand = listaSfxAcabarPlato.pick_random()
-			sfx_comer.stream = sfxRand
-			ultimoAcabarPlato = sfxRand
-			
 		# Spam
 		if !sacarJeta:
 			spriteGato.play("comer_fast")
-			tmrSacarJeta.start(0.3)
 		else:
 			spriteGato.play("comer_normal")
-			tmrSacarJeta.start(0.3)
 			sacarJeta = false
 			
-		sfx_comer.play()
+		tmrSacarJeta.start(0.3)
+		
+		Globals.playRandomSound(sfx_comer, sounds_eating if comandosConFlechas.size() > 1 else sounds_finished)
 		actualizar_flechas()
 	else:
-		sfx_comer.stream = chokesonido
+		
+		Globals.playRandomSound(sfx_comer, sounds_choke)
 		spriteGato.play("choke")
-		sfx_comer.play()
 		error_flechas()
+		
 		procesosPausados = true
 		await get_tree().create_timer(.5).timeout
 		if (!Eventos.isThereAnEvent): procesosPausados = false
@@ -288,11 +256,9 @@ func reanudarProcesos(ganador):
 			comandoNodos[i].visible = true
 	else:
 		spriteGato.visible = true
-		sfx_comer.stream = stunSonido
-		sfx_comer.play()
+		Globals.playRandomSound(sfx_comer, sounds_stun)
+
 		spriteGato.play("begin_stun")
-		await get_tree().create_timer(.2).timeout
-		spriteGato.play("loop_stun")
 		await get_tree().create_timer(duracionStun).timeout
 		spriteGato.play("idle")
 		procesosPausados = false
@@ -312,4 +278,6 @@ func _on_gato_animation_finished():
 		spriteGato.play("idle")
 	elif (spriteGato.animation == "comer_fast"):
 		spriteGato.play("comer_finish")
+	elif (spriteGato.animation == "begin_stun"):
+		spriteGato.play("loop_stun")
 

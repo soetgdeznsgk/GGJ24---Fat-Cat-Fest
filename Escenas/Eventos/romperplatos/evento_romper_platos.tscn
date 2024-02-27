@@ -1,46 +1,33 @@
-[gd_scene load_steps=24 format=3 uid="uid://cxwff3nt01gul"]
+[gd_scene load_steps=19 format=3 uid="uid://cxwff3nt01gul"]
 
 [ext_resource type="Script" path="res://Escenas/Eventos/romperplatos/evento_romper_platos.gd" id="1_6r5rn"]
 [ext_resource type="Texture2D" uid="uid://difkvs4ri15mk" path="res://Sprites/QuickTimeEvent/fondoplatos.png" id="2_6owar"]
 [ext_resource type="Script" path="res://Escenas/Eventos/romperplatos/Martillo.gd" id="2_krrne"]
-[ext_resource type="Texture2D" uid="uid://m1icc5x7rlub" path="res://Sprites/QuickTimeEvent/brazomarpj1-1.png" id="2_ldjf1"]
-[ext_resource type="Texture2D" uid="uid://dqtsl3p2axvdr" path="res://Sprites/QuickTimeEvent/patasPlato.png" id="3_0p7wu"]
 [ext_resource type="Script" path="res://Escenas/Eventos/romperplatos/Plato.gd" id="5_2sp3d"]
+[ext_resource type="Texture2D" uid="uid://dgtakk4w7t5yb" path="res://Sprites/Gatos/Timmy/plateBreaker/hammer_up.png" id="5_2sus6"]
 [ext_resource type="Theme" uid="uid://v28k7lh33uhi" path="res://Escenas/Maingame/themeNameTags.tres" id="6_2dsyk"]
-[ext_resource type="Texture2D" uid="uid://dgtakk4w7t5yb" path="res://Sprites/QuickTimeEvent/brazomarpj1-2.png" id="6_141ws"]
-[ext_resource type="Texture2D" uid="uid://b4rtbvcjkyc4j" path="res://Sprites/QuickTimeEvent/brazomarpj2-1.png" id="7_3ras2"]
 [ext_resource type="Texture2D" uid="uid://d1sa3ql83f6nf" path="res://Sprites/QuickTimeEvent/2.png" id="8_1phx8"]
-[ext_resource type="Texture2D" uid="uid://wun40n2i3h41" path="res://Sprites/QuickTimeEvent/brazomarpj2-2.png" id="8_itf0f"]
-[ext_resource type="AudioStream" uid="uid://dq4jf66in0p8" path="res://SFX/QuickTimeEvents/PlateBreaker/boing.mp3" id="9_541f7"]
 [ext_resource type="Texture2D" uid="uid://cpwig8pnlt1pg" path="res://Sprites/QuickTimeEvent/1.png" id="9_ffqqa"]
+[ext_resource type="Texture2D" uid="uid://bypu4lheo1mmv" path="res://Sprites/Gatos/Timmy/plateBreaker/plate_0.png" id="9_ieu7m"]
 [ext_resource type="Texture2D" uid="uid://6p1tfoa04b18" path="res://Sprites/QuickTimeEvent/Go.png" id="10_5ke27"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tblx1"]
 size = Vector2(140, 140)
 
+[sub_resource type="Animation" id="Animation_7diyl"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_oiywi"]
 resource_name = "Martillando"
 length = 0.6
 loop_mode = 1
-tracks/0/type = "value"
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("2_ldjf1"), ExtResource("6_141ws"), ExtResource("2_ldjf1")]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0.3, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
@@ -50,97 +37,11 @@ tracks/1/keys = {
 "args": [false],
 "method": &"set_golpeando"
 }]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AudioStreamPlayer:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.6),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_3x2d6"]
-resource_name = "MartillandoP2"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("7_3ras2"), ExtResource("8_itf0f"), ExtResource("7_3ras2")]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [true],
-"method": &"set_golpeando"
-}, {
-"args": [false],
-"method": &"set_golpeando"
-}]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AudioStreamPlayer:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.6),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_7diyl"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_ldjf1")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uv3c1"]
 _data = {
-"MartillandoP1": SubResource("Animation_oiywi"),
-"MartillandoP2": SubResource("Animation_3x2d6"),
+"Martillando": SubResource("Animation_oiywi"),
 "RESET": SubResource("Animation_7diyl")
 }
 
@@ -254,7 +155,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="Martillo"]
 position = Vector2(-754, -2)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_ldjf1")
+texture = ExtResource("5_2sus6")
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Martillo"]
@@ -278,7 +179,6 @@ vertical_alignment = 1
 justification_flags = 0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Martillo"]
-stream = ExtResource("9_541f7")
 bus = &"SFX"
 
 [node name="Plato" type="Area2D" parent="."]
@@ -290,7 +190,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D2" type="Sprite2D" parent="Plato"]
 position = Vector2(815, -5)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_0p7wu")
+texture = ExtResource("9_ieu7m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plato"]
 position = Vector2(-8, -6)
@@ -333,6 +233,7 @@ libraries = {
 }
 
 [node name="SprNumeros" type="Sprite2D" parent="."]
+visible = false
 z_index = 6
 z_as_relative = false
 position = Vector2(666, 385)

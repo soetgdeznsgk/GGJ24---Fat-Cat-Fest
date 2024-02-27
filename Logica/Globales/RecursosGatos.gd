@@ -2,7 +2,7 @@ extends Node
 
 #VALORES DEFAULT
 #TODO: CAMBIAR ESTAS GLOBALES DESDE LA PJ SELECTION SCREEN
-var catSelectionP1 : String = "Timmy" 
+var catSelectionP1 : String = "Miguel" 
 var catSelectionP2 : String = "Timmy"
 
 @onready var recursos = {
@@ -37,6 +37,14 @@ var catSelectionP2 : String = "Timmy"
 						 "posDer" : Vector2(917, 330),
 						 "scale" : Vector2(0.65, 0.65),
 						 "sounds" : Globals.loadResources("res://SFX/Gatos/Timmy/Eventos/Pepino/"),
+			},
+			"plateBreaker" : {
+				"hammer0" : preload("res://Sprites/Gatos/Timmy/plateBreaker/hammer_down.png"),
+				"hammer1" : preload("res://Sprites/Gatos/Timmy/plateBreaker/hammer_up.png"),
+				"plate0" : preload("res://Sprites/Gatos/Timmy/plateBreaker/plate_0.png"),
+				"plate1" : preload("res://Sprites/Gatos/Timmy/plateBreaker/plate_1.png"),
+				"plate2" : preload("res://Sprites/Gatos/Timmy/plateBreaker/plate_2.png"),
+				"plate3" : preload("res://Sprites/Gatos/Timmy/plateBreaker/plate_3.png"),
 			},
 			"winnerScreen" : { 	"anims" : "",
 							"scale" : 1.0,
@@ -73,6 +81,14 @@ var catSelectionP2 : String = "Timmy"
 						 "posDer" : Vector2(930, 271),
 						 "scale" : Vector2(0.65, 0.65),
 						 "sounds" : Globals.loadResources("res://SFX/Gatos/Miguel/Eventos/Pepino/"),
+			},
+			"plateBreaker" : {
+				"hammer0" : preload("res://Sprites/Gatos/Miguel/plateBreaker/hammer_down.png"),
+				"hammer1" : preload("res://Sprites/Gatos/Miguel/plateBreaker/hammer_up.png"),
+				"plate0" : preload("res://Sprites/Gatos/Miguel/plateBreaker/plate_0.png"),
+				"plate1" : preload("res://Sprites/Gatos/Miguel/plateBreaker/plate_1.png"),
+				"plate2" : preload("res://Sprites/Gatos/Miguel/plateBreaker/plate_2.png"),
+				"plate3" : preload("res://Sprites/Gatos/Miguel/plateBreaker/plate_3.png"),
 			},
 			"winnerScreen" : { 	"anims" : "",
 							"scale" : 1.0,

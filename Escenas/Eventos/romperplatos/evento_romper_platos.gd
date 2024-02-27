@@ -3,6 +3,7 @@ extends Node2D
 signal is_p2_hammer(bool) # la CPU necesita ésta señal para saber quién es
 @onready var posicionesPosiblesMartillo := [$Marker2DM1.position, $Marker2DM2.position, $Marker2DM3.position]
 @onready var posicionesPosiblesPlato := [$Marker2DP1.position, $Marker2DP2.position, $Marker2DP3.position]
+
 # El atacante puede ser el jugador 1 o el 2, luego cambian
 var atacante = 1
 var defensor = 2
@@ -10,7 +11,8 @@ var defensor = 2
 var p2_started_as_hammer : bool # necesario para la CPU al inicio de la partida
 var puntajePj1 = 0
 var puntajePj2 = 0
-var crack = preload("res://Escenas/Eventos/romperplatos/sfx/plato_crack.mp3")
+
+var sounds_crack = Globals.loadResources("res://SFX/QuickTimeEvents/PlateBreaker/Crack/")
 
 func _ready() -> void:
 	if !Eventos.multiOnline:
@@ -60,14 +62,9 @@ func reiniciar_pos_rpc(martilloPosSelec, platoPosSelec) -> void:
 	$Martillo.position = martilloPosSelec
 	$Plato.position = platoPosSelec
 
-
 func cambiar_roles() -> void:
-	if atacante == 1:
-		defensor = 1
-		atacante = 2
-	else:
-		defensor = 2
-		atacante = 1
+	defensor = 1 if atacante == 1 else 2
+	atacante = 2 if atacante == 1 else 1
 	$Martillo.jugador = atacante
 	$Plato.jugador = defensor
 	$Martillo.cambiar_rol()
@@ -80,8 +77,7 @@ func cambiar_roles() -> void:
 
 func perderVidaPlato() -> void:
 	if !Eventos.multiOnline:
-		$AudioStreamPlayer.stream = crack
-		$AudioStreamPlayer.play()
+		Globals.playRandomSound($AudioStreamPlayer, sounds_crack)
 		$Plato.perder_vida()
 	else:
 		if multiplayer.is_server():
@@ -89,8 +85,7 @@ func perderVidaPlato() -> void:
 
 @rpc("authority","reliable","call_local")
 func perderVidaPlatoRpc():
-	$AudioStreamPlayer.stream = crack
-	$AudioStreamPlayer.play()
+	Globals.playRandomSound($AudioStreamPlayer, sounds_crack)
 	$Plato.perder_vida()
 
 func pop_timer() -> void:

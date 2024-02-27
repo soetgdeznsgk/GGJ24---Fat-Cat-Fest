@@ -272,13 +272,14 @@ _data = {
 script = ExtResource("1_8qjqu")
 
 [node name="Gato" type="AnimatedSprite2D" parent="."]
-position = Vector2(917, 327)
+position = Vector2(448, 331)
 scale = Vector2(0.65, 0.65)
 sprite_frames = ExtResource("2_mskrm")
 animation = &"arriveth"
+frame = 2
 
 [node name="Gato2" type="AnimatedSprite2D" parent="."]
-position = Vector2(462, 265)
+position = Vector2(914, 259)
 scale = Vector2(-0.65, 0.65)
 sprite_frames = ExtResource("3_hwhva")
 animation = &"arriveth"

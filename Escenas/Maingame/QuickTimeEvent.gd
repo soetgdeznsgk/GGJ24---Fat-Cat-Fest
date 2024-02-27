@@ -25,9 +25,18 @@ func _ready():
 func finJuego(_ganador):
 	timer.stop()
 	anim.play("fin_juego")
-	
+
 func tiempoAleatorio():
-	return randi_range(10,15) + randi_range(12,15) 
+	if Eventos.singleplayer:
+		match Eventos.cpuDiff:
+			1:
+				return randi_range(12,16)
+			2:
+				return randi_range(10,14)
+			3: 
+				return randi_range(8,12)
+	else:
+		return randi_range(8,12) if !Eventos.multiOnline else randi_range(10,14)
 
 func generarNuevoEvento():
 	timer.start(tiempoAleatorio())

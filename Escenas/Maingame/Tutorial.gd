@@ -13,7 +13,7 @@ func _ready():
 		Eventos.tutorialMultiplayerHecho = true
 	else: transicionSinTutorial()
 	
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("ui_accept") and animP.get_current_animation() == "eneltutorial":
 		pasandoalfinal()
 # Estas cosas se llaman desde el animation player

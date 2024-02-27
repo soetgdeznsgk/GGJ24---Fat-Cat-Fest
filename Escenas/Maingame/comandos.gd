@@ -42,6 +42,9 @@ var isInputInCooldown = false
 func _ready() -> void:
 	sfx_comer.bus = "SFX"
 	add_child(sfx_comer)
+	
+	$TmrInputCooldown.wait_time = 0.0001 if (!Eventos.singleplayer and !Eventos.multiOnline) else 0.07
+	
 	#region SEÑALES
 	Eventos.bajarTelon.connect(pausarProcesos)
 	Eventos.finalEvento.connect(reanudarProcesos)
@@ -202,6 +205,7 @@ func reemplazarTexturas():
 		Eventos.comidaAPuntoDeTerminar.emit(jugador)
 	elif comandosConFlechas.size() == 0:
 		# Emitir que ya se comió todo
+		inputArray.clear() 
 		spriteGato.play("idle")
 		Eventos.comandosAcabados.emit(jugador)
 
@@ -236,6 +240,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		permitirEntradas = true
 
 func pausarProcesos():
+	inputArray.clear() # clearear buffer de inputs
 	Eventos.isThereAnEvent = true
 	procesosPausados = true
 	spriteGato.visible = false

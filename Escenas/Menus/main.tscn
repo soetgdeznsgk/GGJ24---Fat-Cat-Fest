@@ -660,7 +660,6 @@ centered = false
 metadata/_edit_group_ = true
 
 [node name="MainOptPath" type="VBoxContainer" parent="."]
-visible = false
 offset_left = 43.0
 offset_top = 356.0
 offset_right = 927.0

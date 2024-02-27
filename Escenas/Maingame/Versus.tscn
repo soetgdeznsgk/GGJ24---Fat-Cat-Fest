@@ -1,49 +1,19 @@
-[gd_scene load_steps=19 format=3 uid="uid://0urut37fsjci"]
+[gd_scene load_steps=15 format=3 uid="uid://0urut37fsjci"]
 
 [ext_resource type="Script" path="res://Escenas/Maingame/Versus.gd" id="1_4am3t"]
-[ext_resource type="Texture2D" uid="uid://cmnmlwu86ovk" path="res://Sprites/Versus/pose de pelea 1.png" id="2_5axbq"]
-[ext_resource type="Texture2D" uid="uid://c0y8a8dqm8l5" path="res://Sprites/Versus/timmy vs 01.png" id="2_mrj2d"]
-[ext_resource type="Texture2D" uid="uid://drup06abu4g1i" path="res://Sprites/Versus/timmy vs 02.png" id="3_cp6mv"]
-[ext_resource type="Texture2D" uid="uid://dv264aj7oiker" path="res://Sprites/Versus/pose de pelea 2.png" id="3_obtmw"]
+[ext_resource type="SpriteFrames" uid="uid://d4g6pw51m6thl" path="res://RecursosGatos/Versus_Timmy.tres" id="3_oa8ja"]
 [ext_resource type="Theme" uid="uid://v28k7lh33uhi" path="res://Escenas/Maingame/themeNameTags.tres" id="4_dswoe"]
+[ext_resource type="SpriteFrames" uid="uid://kiy0lf4y0p2c" path="res://RecursosGatos/Versus_Miguel.tres" id="4_hn13d"]
 [ext_resource type="AudioStream" uid="uid://blmgid5vqdg6m" path="res://Musica/tfcf_vs.mp3" id="10_js5gf"]
 [ext_resource type="Texture2D" uid="uid://c1vd6327w5erl" path="res://Sprites/QuickTimeEvent/telon.png" id="11_2cjh5"]
 [ext_resource type="Texture2D" uid="uid://bqq38hbne211l" path="res://Sprites/Versus/bgvs1.png" id="13_81dkm"]
 [ext_resource type="Texture2D" uid="uid://02raxd33yta" path="res://Sprites/Versus/vs.png" id="13_e1mvw"]
 [ext_resource type="Texture2D" uid="uid://bcvg1jjgh8vha" path="res://Sprites/Versus/bgvs2.png" id="14_0vgf6"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_yog88"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_mrj2d")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_cp6mv")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 2.0
-}]
-
 [sub_resource type="LabelSettings" id="LabelSettings_2f5hc"]
 font_size = 40
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_3quny"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_5axbq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_obtmw")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 5.0
-}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cob6d"]
 font_size = 40
@@ -131,21 +101,19 @@ anchors_preset = 0
 theme = ExtResource("4_dswoe")
 script = ExtResource("1_4am3t")
 
-[node name="Gato1" type="Node2D" parent="."]
-unique_name_in_owner = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Gato1"]
+[node name="Gato1" type="AnimatedSprite2D" parent="."]
 z_index = 1
-position = Vector2(358, 580)
+position = Vector2(1050, 550)
 scale = Vector2(0.6, 0.6)
-sprite_frames = SubResource("SpriteFrames_yog88")
+sprite_frames = ExtResource("3_oa8ja")
 animation = &"Idle"
 autoplay = "Idle"
 frame_progress = 0.109849
 
-[node name="NombreGato1" type="Label" parent="Gato1"]
-unique_name_in_owner = true
+[node name="NombreGato1" type="Label" parent="."]
+modulate = Color(0.533333, 0.839216, 0.384314, 1)
 z_index = 1
+layout_mode = 0
 offset_left = 157.0
 offset_top = 110.0
 offset_right = 497.0
@@ -157,21 +125,19 @@ vertical_alignment = 1
 autowrap_mode = 2
 justification_flags = 0
 
-[node name="Gato2" type="Node2D" parent="."]
-unique_name_in_owner = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Gato2"]
+[node name="Gato2" type="AnimatedSprite2D" parent="."]
 z_index = 1
-position = Vector2(1000, 580)
+position = Vector2(358, 556)
 scale = Vector2(1.2, 1.2)
-sprite_frames = SubResource("SpriteFrames_3quny")
+sprite_frames = ExtResource("4_hn13d")
 animation = &"Idle"
 autoplay = "Idle"
 frame_progress = 0.793002
 
-[node name="NombreGato2" type="Label" parent="Gato2"]
-unique_name_in_owner = true
+[node name="NombreGato2" type="Label" parent="."]
+modulate = Color(0.94902, 0.87451, 0.435294, 1)
 z_index = 1
+layout_mode = 0
 offset_left = 900.0
 offset_top = 110.0
 offset_right = 1240.0
@@ -228,7 +194,7 @@ libraries = {
 "": SubResource("AnimationLibrary_6bily")
 }
 
-[connection signal="frame_changed" from="Gato1/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
+[connection signal="frame_changed" from="Gato1" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="finished" from="AudioPlayer" to="." method="_on_audio_player_finished"]
 [connection signal="finished" from="AudioPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="finished" from="AudioPlayer" to="." method="_on_audio_player_finished"]

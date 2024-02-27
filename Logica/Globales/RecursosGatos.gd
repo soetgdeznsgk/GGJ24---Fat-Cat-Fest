@@ -2,12 +2,17 @@ extends Node
 
 #VALORES DEFAULT
 #TODO: CAMBIAR ESTAS GLOBALES DESDE LA PJ SELECTION SCREEN
-var catSelectionP1 : String = "Miguel" 
+var catSelectionP1 : String = "Timmy" 
 var catSelectionP2 : String = "Timmy"
 
 @onready var recursos = {
 	"Timmy" : {
-			"versusScreen" : "",
+			"versusScreen" : {
+								"anims" : preload("res://RecursosGatos/Versus_Timmy.tres"),
+								"posLeft": Vector2(358, 580),
+								"posRight": Vector2(1050, 580),
+								"scale": Vector2(0.6, 0.6),
+			},
 			"mainGame" : { 	"anims" : preload("res://RecursosGatos/Maingame_Timmy.tres"),
 							"positionLeft" : Vector2(136,-298),
 							"positionRight" : Vector2(148,-298),
@@ -46,12 +51,22 @@ var catSelectionP2 : String = "Timmy"
 				"plate2" : preload("res://Sprites/Gatos/Timmy/plateBreaker/plate_2.png"),
 				"plate3" : preload("res://Sprites/Gatos/Timmy/plateBreaker/plate_3.png"),
 			},
-			"winnerScreen" : { 	"anims" : "",
-							"scale" : 1.0,
+			"winnerScreen" : { 	"anims" : preload("res://RecursosGatos/Maingame_Timmy.tres"),
+								"posWinner" : Vector2(686, 381),
+								"scaleWinner" : Vector2(0.6, 0.6),
+								"posLoser" : Vector2(1039, 414),
+								"scaleLoser" : Vector2(0.5, 0.5),
+								"soundsWinner" : Globals.loadResources("res://SFX/Gatos/Timmy/Winner/"),
+								"soundsLoser" : Globals.loadResources("res://SFX/Gatos/Timmy/Loser/"),
 						},
 		},
 	"Miguel" : {
-			"versusScreen" : "",
+			"versusScreen" : {
+								"anims" : preload("res://RecursosGatos/Versus_Miguel.tres"),
+								"posLeft": Vector2(358, 580),
+								"posRight": Vector2(1000, 580),
+								"scale": Vector2(1.2, 1.2),
+			},
 			"mainGame" : { 	"anims" : preload("res://RecursosGatos/Maingame_Miguel.tres"),
 							"positionLeft" : Vector2(40,-402),
 							"positionRight" : Vector2(40,-402),
@@ -90,8 +105,13 @@ var catSelectionP2 : String = "Timmy"
 				"plate2" : preload("res://Sprites/Gatos/Miguel/plateBreaker/plate_2.png"),
 				"plate3" : preload("res://Sprites/Gatos/Miguel/plateBreaker/plate_3.png"),
 			},
-			"winnerScreen" : { 	"anims" : "",
-							"scale" : 1.0,
+			"winnerScreen" : { 	"anims" : preload("res://RecursosGatos/Maingame_Miguel.tres"),
+								"posWinner" : Vector2(689, 340),
+								"scaleWinner" : Vector2(0.7, 0.7),
+								"posLoser" : Vector2(1004, 375),
+								"scaleLoser" : Vector2(0.55, 0.55),
+								"soundsWinner" : Globals.loadResources("res://SFX/Gatos/Miguel/Winner/"),
+								"soundsLoser" : Globals.loadResources("res://SFX/Gatos/Miguel/Loser/"),
 						},
 		},
 }

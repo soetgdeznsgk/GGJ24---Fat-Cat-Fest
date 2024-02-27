@@ -98,8 +98,6 @@ func set_pepino_lado(tiempoExplox, probLado):
 		sprGato1.play("idle_loop")
 		bombPos = RIGHT
 
-	audioPPepino.stream = load("res://SFX/QuickTimeEvents/Pepino/pipLento.mp3")
-
 func _physics_process(_delta: float) -> void:
 	if !finished:
 		if !Eventos.multiOnline:

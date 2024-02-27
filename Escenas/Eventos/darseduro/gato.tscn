@@ -190,7 +190,7 @@ position = Vector2(-94, -71)
 metadata/_edit_group_ = true
 
 [node name="SprPata" type="Sprite2D" parent="sprPadre/Pata"]
-z_index = 5
+z_index = 1
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_yj7vs")
 

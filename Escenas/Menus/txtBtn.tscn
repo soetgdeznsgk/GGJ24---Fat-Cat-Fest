@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://wdjwfpa5g8le"]
 
 [ext_resource type="Script" path="res://Escenas/Menus/txtBtn.gd" id="1_rqy1f"]
-[ext_resource type="AudioStream" uid="uid://beq5dwheh53fp" path="res://Escenas/Menus/sfx/button_standard.wav" id="2_13h2f"]
+[ext_resource type="AudioStream" uid="uid://beq5dwheh53fp" path="res://SFX/UI/button_standard.wav" id="2_13h2f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r78jv"]
 resource_local_to_scene = true

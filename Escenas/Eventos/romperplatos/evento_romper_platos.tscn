@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b4rtbvcjkyc4j" path="res://Sprites/QuickTimeEvent/brazomarpj2-1.png" id="7_3ras2"]
 [ext_resource type="Texture2D" uid="uid://d1sa3ql83f6nf" path="res://Sprites/QuickTimeEvent/2.png" id="8_1phx8"]
 [ext_resource type="Texture2D" uid="uid://wun40n2i3h41" path="res://Sprites/QuickTimeEvent/brazomarpj2-2.png" id="8_itf0f"]
-[ext_resource type="AudioStream" uid="uid://dq4jf66in0p8" path="res://SFX/boing.mp3" id="9_541f7"]
+[ext_resource type="AudioStream" uid="uid://dq4jf66in0p8" path="res://SFX/QuickTimeEvents/PlateBreaker/boing.mp3" id="9_541f7"]
 [ext_resource type="Texture2D" uid="uid://cpwig8pnlt1pg" path="res://Sprites/QuickTimeEvent/1.png" id="9_ffqqa"]
 [ext_resource type="Texture2D" uid="uid://6p1tfoa04b18" path="res://Sprites/QuickTimeEvent/Go.png" id="10_5ke27"]
 

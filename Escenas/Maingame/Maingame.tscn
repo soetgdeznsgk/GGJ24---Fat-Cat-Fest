@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://l1ftaodoo155" path="res://Escenas/Menus/volSlider.tscn" id="20_kj8wq"]
 [ext_resource type="PackedScene" uid="uid://wdjwfpa5g8le" path="res://Escenas/Menus/txtBtn.tscn" id="21_43pne"]
 [ext_resource type="Texture2D" uid="uid://cekhhkb62r1bb" path="res://Sprites/Menu/BackButton.png" id="22_uh3vs"]
-[ext_resource type="AudioStream" uid="uid://ch424mgukemql" path="res://Escenas/Menus/sfx/back_button_sfx.wav" id="23_3xhxe"]
+[ext_resource type="AudioStream" uid="uid://ch424mgukemql" path="res://SFX/UI/back_button_sfx.wav" id="23_3xhxe"]
 [ext_resource type="Texture2D" uid="uid://c1278lmlowdcl" path="res://Sprites/Menu/PlayButton.png" id="24_ioci0"]
 [ext_resource type="Texture2D" uid="uid://bfi0qrx7f2qau" path="res://Sprites/Menu/OptionsButton.png" id="25_v75yl"]
 [ext_resource type="Texture2D" uid="uid://b3fkjs1sli64p" path="res://Escenas/Menus/Imgs/GatoMusica.png" id="27_l0qjl"]

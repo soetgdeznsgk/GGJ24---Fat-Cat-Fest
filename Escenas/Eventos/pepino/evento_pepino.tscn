@@ -1,31 +1,11 @@
-[gd_scene load_steps=53 format=3 uid="uid://c6s322jcilwwp"]
+[gd_scene load_steps=26 format=3 uid="uid://c6s322jcilwwp"]
 
 [ext_resource type="Script" path="res://Escenas/Eventos/pepino/evento_pepino.gd" id="1_8qjqu"]
-[ext_resource type="Texture2D" uid="uid://no27l5vow0nc" path="res://Sprites/Gatos/Timmy/Pepino/pepino-_0000_1.png" id="2_h1lc3"]
-[ext_resource type="Texture2D" uid="uid://b7e25smbbpiqf" path="res://Sprites/Gatos/Miguel/Pepino/pepino_3.png" id="3_cq0ls"]
+[ext_resource type="SpriteFrames" uid="uid://drj80553lsie4" path="res://RecursosGatos/Pepino_Timmy.tres" id="2_mskrm"]
+[ext_resource type="SpriteFrames" uid="uid://d3kfey7bkupmo" path="res://RecursosGatos/Pepino_Miguel.tres" id="3_hwhva"]
 [ext_resource type="Texture2D" uid="uid://bsfarbyogdekf" path="res://Sprites/Comandos/FlechaDerecha.png" id="3_i6pxy"]
-[ext_resource type="Texture2D" uid="uid://d34btp7krp434" path="res://Sprites/Gatos/Timmy/Pepino/pepino-_0001_2.png" id="3_xth34"]
 [ext_resource type="Texture2D" uid="uid://8ghf3slrnybo" path="res://Sprites/Comandos/FlechaIzquierda.png" id="4_4vkfi"]
-[ext_resource type="Texture2D" uid="uid://b15kty7dw46ni" path="res://Sprites/Gatos/Timmy/Pepino/pepino-_0002_3.png" id="4_fbhnx"]
-[ext_resource type="Texture2D" uid="uid://kwhljgcvqhu4" path="res://Sprites/Gatos/Miguel/Pepino/pepino_4.png" id="4_jlh8x"]
-[ext_resource type="Texture2D" uid="uid://biu3cvs1f0mc0" path="res://Sprites/Gatos/Miguel/Pepino/pepino_5.png" id="5_bdb3i"]
-[ext_resource type="Texture2D" uid="uid://ce152e7kj2mvy" path="res://Sprites/Gatos/Timmy/Pepino/pepino-_0003_4.png" id="5_r7i2n"]
 [ext_resource type="Theme" uid="uid://v28k7lh33uhi" path="res://Escenas/Maingame/themeNameTags.tres" id="6_22ykq"]
-[ext_resource type="Texture2D" uid="uid://pemccwwhuaw6" path="res://Sprites/Gatos/Miguel/Pepino/pepino_6.png" id="6_80a8w"]
-[ext_resource type="Texture2D" uid="uid://cnlgfi4od1t6s" path="res://Sprites/Gatos/Timmy/Pepino/pepino-_0004_5.png" id="6_s8rvm"]
-[ext_resource type="Texture2D" uid="uid://cifamxeehrxox" path="res://Sprites/Gatos/Timmy/Pepino/pepino-_0005_6.png" id="7_m45qk"]
-[ext_resource type="Texture2D" uid="uid://lmathp48qf0r" path="res://Sprites/Gatos/Miguel/Pepino/pepino_10.png" id="7_ypwl7"]
-[ext_resource type="Texture2D" uid="uid://d3mw6mjmcxky2" path="res://Sprites/Gatos/Timmy/Pepino/pepino-_0009_10.png" id="8_8aiyq"]
-[ext_resource type="Texture2D" uid="uid://ce84f865joy07" path="res://Sprites/Gatos/Miguel/Pepino/pepino_11.png" id="8_ut3n3"]
-[ext_resource type="Texture2D" uid="uid://5saiibvr0oee" path="res://Sprites/Gatos/Miguel/Pepino/pepino_1.png" id="9_5y45x"]
-[ext_resource type="Texture2D" uid="uid://cdk1wy48b41gj" path="res://Sprites/Gatos/Timmy/Pepino/pepino-_0010_11.png" id="9_c1mgk"]
-[ext_resource type="Texture2D" uid="uid://d3p6p7hv3gic6" path="res://Sprites/Gatos/Timmy/Pepino/pepino-_0006_7.png" id="10_e2gv6"]
-[ext_resource type="Texture2D" uid="uid://dgobnga4k050j" path="res://Sprites/Gatos/Miguel/Pepino/pepino_2.png" id="10_iqo31"]
-[ext_resource type="Texture2D" uid="uid://ny8ivla01si6" path="res://Sprites/Gatos/Miguel/Pepino/pepino_9.png" id="11_d63ry"]
-[ext_resource type="Texture2D" uid="uid://hjdxlyjb1xab" path="res://Sprites/Gatos/Timmy/Pepino/pepino-_0007_8.png" id="11_do6go"]
-[ext_resource type="Texture2D" uid="uid://1mp3o2te0dsy" path="res://Sprites/Gatos/Timmy/Pepino/pepino-_0008_9.png" id="12_dj5p8"]
-[ext_resource type="Texture2D" uid="uid://dppexot0eraam" path="res://Sprites/Gatos/Miguel/Pepino/pepino_7.png" id="12_ed6yc"]
-[ext_resource type="Texture2D" uid="uid://b8guf4l8sx0p3" path="res://Sprites/Gatos/Miguel/Pepino/pepino_8.png" id="13_v5hmj"]
 [ext_resource type="Texture2D" uid="uid://clrtd08suvir6" path="res://Sprites/QuickTimeEvent/Pepino/Pepino10.png" id="14_np27c"]
 [ext_resource type="Texture2D" uid="uid://c12p8dw8d325g" path="res://Sprites/QuickTimeEvent/Pepino/pepibomb1.png" id="14_xrbfh"]
 [ext_resource type="Texture2D" uid="uid://ey5882q2d0ii" path="res://Sprites/QuickTimeEvent/Pepino/pepibomb2.png" id="15_am3c0"]
@@ -36,152 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://brerjd32xx526" path="res://Sprites/QuickTimeEvent/Pepino/pepibomb7.png" id="20_fqw2v"]
 [ext_resource type="Texture2D" uid="uid://b7e8gbcvmwjih" path="res://Sprites/QuickTimeEvent/Pepino/pepibomb8.png" id="21_d5rui"]
 [ext_resource type="Texture2D" uid="uid://fo68qncllhxv" path="res://Sprites/QuickTimeEvent/Pepino/pepibomb9.png" id="22_4728u"]
-[ext_resource type="AudioStream" uid="uid://ugv7i13u2boq" path="res://SFX/pepinoCae.mp3" id="35_c85gk"]
-[ext_resource type="AudioStream" uid="uid://cbnvndxyuxx5v" path="res://SFX/desliz.mp3" id="36_gefc8"]
-[ext_resource type="AudioStream" uid="uid://bq7vtrxjmjaww" path="res://SFX/pepinoAsutadoProta.mp3" id="37_17m6d"]
-[ext_resource type="AudioStream" uid="uid://dsox8ku4mbwv" path="res://SFX/pepinoAsustado.mp3" id="37_b0gs2"]
 [ext_resource type="Texture2D" uid="uid://epturoc0id2" path="res://Sprites/Fondos/mesa.png" id="42_k7hv6"]
-[ext_resource type="AudioStream" uid="uid://bw6ayv5ctml5g" path="res://SFX/pipLento.mp3" id="42_n00io"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_icecy"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_h1lc3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_xth34")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_fbhnx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_r7i2n")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_s8rvm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_m45qk")
-}],
-"loop": false,
-"name": &"arriveth",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("8_8aiyq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_c1mgk")
-}],
-"loop": true,
-"name": &"bomba",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_h1lc3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_xth34")
-}],
-"loop": true,
-"name": &"idle_loop",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_s8rvm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_m45qk")
-}],
-"loop": true,
-"name": &"its_here",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("10_e2gv6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_do6go")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_dj5p8")
-}],
-"loop": false,
-"name": &"leaveth",
-"speed": 8.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_tmqid"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_cq0ls")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_jlh8x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_bdb3i")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_80a8w")
-}],
-"loop": false,
-"name": &"arriveth",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_ypwl7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_ut3n3")
-}],
-"loop": true,
-"name": &"bomba",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("9_5y45x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_iqo31")
-}],
-"loop": true,
-"name": &"idle_loop",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_bdb3i")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_80a8w")
-}],
-"loop": true,
-"name": &"its_here",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("11_d63ry")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_ed6yc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_v5hmj")
-}],
-"loop": false,
-"name": &"leaveth",
-"speed": 10.0
-}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f4tn4"]
 animations = [{
@@ -252,30 +87,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(212, 375)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PepinoAudiodesliz:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PepinoAudiodesliz:stream")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("35_c85gk")]
-}
 
 [sub_resource type="Animation" id="Animation_kqo28"]
 resource_name = "explosion"
@@ -343,30 +154,6 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(0.2, 0.2), Vector2(0.2, 0.2), Vector2(0.2, 0.18), Vector2(0.2, 0.2)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PepinoAudiodesliz:stream")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("35_c85gk")]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PepinoAudiodesliz:playing")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.6),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_i2vue"]
 resource_name = "spawn_right"
@@ -406,34 +193,9 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PepinoAudiodesliz:stream")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("35_c85gk")]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PepinoAudiodesliz:playing")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.6),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_bm7vc"]
 resource_name = "swipe_left"
-length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -441,39 +203,31 @@ tracks/0/path = NodePath("SprBomba:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7),
-"transitions": PackedFloat32Array(0.5, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(801.971, 410), Vector2(560.141, 410)]
 }
-tracks/1/type = "value"
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("PepinoAudiodesliz:playing")
+tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.1, 0.6),
+"times": PackedFloat32Array(0.5, 1),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PepinoAudiodesliz:stream")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("36_gefc8"), ExtResource("37_17m6d")]
+"values": [{
+"args": [0],
+"method": &"bombPosChange"
+}, {
+"args": [],
+"method": &"finishMoving"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_hr30r"]
 resource_name = "swipe_right"
-length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -481,34 +235,27 @@ tracks/0/path = NodePath("SprBomba:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7),
-"transitions": PackedFloat32Array(0.5, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(560.141, 410), Vector2(801.971, 410)]
 }
-tracks/1/type = "value"
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("PepinoAudiodesliz:playing")
+tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.1, 0.6),
+"times": PackedFloat32Array(0.5, 1),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PepinoAudiodesliz:stream")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("36_gefc8"), ExtResource("37_b0gs2")]
+"values": [{
+"args": [1],
+"method": &"bombPosChange"
+}, {
+"args": [],
+"method": &"finishMoving"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wb75p"]
@@ -525,17 +272,17 @@ _data = {
 script = ExtResource("1_8qjqu")
 
 [node name="Gato" type="AnimatedSprite2D" parent="."]
-position = Vector2(453, 330)
+position = Vector2(917, 327)
 scale = Vector2(0.65, 0.65)
-sprite_frames = SubResource("SpriteFrames_icecy")
-animation = &"its_here"
+sprite_frames = ExtResource("2_mskrm")
+animation = &"arriveth"
 
 [node name="Gato2" type="AnimatedSprite2D" parent="."]
-position = Vector2(930, 271)
+position = Vector2(462, 265)
 scale = Vector2(-0.65, 0.65)
-sprite_frames = SubResource("SpriteFrames_tmqid")
-animation = &"leaveth"
-frame = 2
+sprite_frames = ExtResource("3_hwhva")
+animation = &"arriveth"
+frame = 3
 frame_progress = 1.0
 
 [node name="Mesa" type="Sprite2D" parent="."]
@@ -551,8 +298,6 @@ z_index = 1
 position = Vector2(212, 375)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_f4tn4")
-frame = 8
-frame_progress = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -595,33 +340,28 @@ horizontal_alignment = 1
 vertical_alignment = 1
 justification_flags = 0
 
+[node name="AudioPlayerGatos" type="AudioStreamPlayer" parent="."]
+max_polyphony = 2
+bus = &"SFX"
+
+[node name="AudioPlayerPepino" type="AudioStreamPlayer" parent="."]
+max_polyphony = 10
+bus = &"SFX"
+
+[node name="AudioPlayerPepino2" type="AudioStreamPlayer" parent="."]
+max_polyphony = 10
+bus = &"SFX"
+
 [node name="TimerExplosion" type="Timer" parent="."]
 process_callback = 0
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-max_polyphony = 5
-bus = &"SFX"
-
-[node name="PepinoAudiodesliz" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("35_c85gk")
-bus = &"SFX"
-
-[node name="TimerPepinoAudioAcel" type="Timer" parent="."]
-process_callback = 0
-one_shot = true
-
-[node name="PepinoPipipi" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("42_n00io")
-bus = &"SFX"
-
 [node name="piptimer" type="Timer" parent="."]
 process_callback = 0
+wait_time = 0.4
 one_shot = true
-autostart = true
 
 [connection signal="animation_finished" from="Gato" to="." method="_on_gato_animation_finished"]
 [connection signal="animation_finished" from="Gato2" to="." method="_on_gato_2_animation_finished"]
 [connection signal="timeout" from="TimerFinalEvento" to="." method="_on_timer_final_evento_timeout"]
 [connection signal="timeout" from="TimerExplosion" to="." method="_on_timer_explosion_timeout"]
-[connection signal="timeout" from="TimerPepinoAudioAcel" to="." method="_on_timer_pepino_audio_acel_timeout"]
 [connection signal="timeout" from="piptimer" to="." method="_on_piptimer_timeout"]

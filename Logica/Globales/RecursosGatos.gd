@@ -2,8 +2,8 @@ extends Node
 
 #VALORES DEFAULT
 #TODO: CAMBIAR ESTAS GLOBALES DESDE LA PJ SELECTION SCREEN
-var catSelectionP1 : String = "Miguel" 
-var catSelectionP2 : String = "Miguel"
+var catSelectionP1 : String = "Timmy" 
+var catSelectionP2 : String = "Timmy"
 
 @onready var recursos = {
 	"Timmy" : {
@@ -32,6 +32,12 @@ var catSelectionP2 : String = "Miguel"
 							"Pata" : {	"sprite" : preload("res://Sprites/Gatos/Timmy/Pelea/mano.png"),
 										 "scale" : Vector2(0.4, 0.4),},
 						},
+			"pepino" : { "anims" : preload("res://RecursosGatos/Pepino_Timmy.tres"),
+						 "posIzq" : Vector2(453, 330),
+						 "posDer" : Vector2(917, 330),
+						 "scale" : Vector2(0.65, 0.65),
+						 "sounds" : Globals.loadResources("res://SFX/Gatos/Timmy/Eventos/Pepino/"),
+			},
 			"winnerScreen" : { 	"anims" : "",
 							"scale" : 1.0,
 						},
@@ -62,6 +68,12 @@ var catSelectionP2 : String = "Miguel"
 							"Pata" : {	"sprite" : preload("res://Sprites/Gatos/Miguel/Pelea/Puño.png"),
 										 "scale" : Vector2(0.3, 0.3),},
 						},
+						"pepino" : { "anims" : preload("res://RecursosGatos/Pepino_Miguel.tres"),
+						 "posIzq" : Vector2(462, 271),
+						 "posDer" : Vector2(930, 271),
+						 "scale" : Vector2(0.65, 0.65),
+						 "sounds" : Globals.loadResources("res://SFX/Gatos/Miguel/Eventos/Pepino/"),
+			},
 			"winnerScreen" : { 	"anims" : "",
 							"scale" : 1.0,
 						},

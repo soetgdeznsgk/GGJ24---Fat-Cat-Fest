@@ -21,30 +21,16 @@ var namefinal : Array = ["Car", "Kitty", "WAR CRIMINAL", "Chonker", "Purrer", "B
 
 func lookupAudioFile(in_name: String, opcion: int) -> String:
 	var dir
-	var dirString
+	var dirString = "res://SFX/Narrador/prefijos/" if opcion == 1 else "res://SFX/Narrador/posfijos/"
 	#☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️☢️
-	match opcion:
-		1:
-			dir = DirAccess.open("res://SFX/Narrador/prefijos")
-			dirString = "res://SFX/Narrador/prefijos/"
-			dir.list_dir_begin()
-			var file_name = dir.get_next()
-			while file_name != "":
-				if file_name.contains(in_name.to_lower().format(["-"], " ")):
-					file_name = file_name.trim_suffix(".import")
-					return dirString + file_name
-				file_name = dir.get_next()
-		2:
-			dir = DirAccess.open("res://SFX/Narrador/posfijos")
-			dirString = "res://SFX/Narrador/posfijos/"
-			dir.list_dir_begin()
-			var file_name = dir.get_next()
-			while file_name != "":
-				if file_name.contains(in_name.to_lower().format(["-"], " ")):
-					file_name = file_name.trim_suffix(".import")
-					return dirString + file_name
-				file_name = dir.get_next()
-				
+	dir = DirAccess.open(dirString)
+	dir.list_dir_begin()
+	var file_name = dir.get_next()
+	while file_name != "":
+		if file_name.contains(in_name.to_lower().format(["-"], " ")):
+			file_name = file_name.trim_suffix(".import")
+			return dirString + file_name
+		file_name = dir.get_next()
 	return "error"
 
 func generar_nombres():

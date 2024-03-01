@@ -1,0 +1,118 @@
+[gd_scene load_steps=7 format=3 uid="uid://kcqxgo84fi45"]
+
+[ext_resource type="StyleBox" uid="uid://3gjeyh8dsx21" path="res://Escenas/Menus/Buttons/estilo_botones.tres" id="2_807na"]
+[ext_resource type="Texture2D" uid="uid://x886cltnkwtt" path="res://Escenas/Menus/Buttons/PlayButton.png" id="2_uoykt"]
+[ext_resource type="Script" path="res://Escenas/Menus/Buttons/Button.gd" id="3_vseul"]
+
+[sub_resource type="Animation" id="Animation_p1s8v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_styles/hover:content_margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:theme_override_font_sizes/font_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [60]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:theme_override_constants/outline_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_f4xeh"]
+resource_name = "slide"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_styles/hover:content_margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.4, 1),
+"update": 0,
+"values": [-1.0, 85.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:theme_override_font_sizes/font_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.4, 1),
+"update": 0,
+"values": [60, 80]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:theme_override_constants/outline_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.4, 1),
+"update": 1,
+"values": [0, 10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8uuh1"]
+_data = {
+"RESET": SubResource("Animation_p1s8v"),
+"slide": SubResource("Animation_f4xeh")
+}
+
+[node name="PlayButton" type="Button"]
+anchors_preset = -1
+anchor_right = 0.402
+anchor_bottom = 0.232
+offset_right = -0.132019
+offset_bottom = -0.17601
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = ExtResource("2_807na")
+theme_override_styles/hover = ExtResource("2_807na")
+theme_override_styles/focus = ExtResource("2_807na")
+text = "Play"
+icon = ExtResource("2_uoykt")
+expand_icon = true
+script = ExtResource("3_vseul")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+callback_mode_process = 0
+libraries = {
+"": SubResource("AnimationLibrary_8uuh1")
+}
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

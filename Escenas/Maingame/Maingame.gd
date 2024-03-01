@@ -1,14 +1,14 @@
 extends Node2D
-
-@onready var comandosP1 = $ComandosP1
-@onready var comandosP2 = $ComandosP2
-
+var bg_music_game := AudioStreamPlayer.new()
 func _ready() -> void:
-	Eventos.ganadorFestival.connect(finJuego)
-	if Eventos.singleplayer: add_child(preload("res://Logica/cpu_jugador.tscn").instantiate())
-
+	bg_music_game.stream = load("res://Musica/tfcf_comida_v2.wav")
+	bg_music_game.autoplay = true
+	bg_music_game.bus = "Music"
+	add_child(bg_music_game)
+	if Eventos.singleplayer:
+		var bot = preload("res://Logica/cpu_jugador.tscn").instantiate()
+		add_child(bot)
 #region INPUT BOTONES
-	if Eventos.singleplayer or Eventos.multiOnline:
 		InputMap.action_erase_events("ArribaPj2") 
 		InputMap.action_erase_events("AbajoPj2")
 		InputMap.action_erase_events("IzquierdaPj2")
@@ -26,7 +26,7 @@ func _ready() -> void:
 		key.keycode = KEY_RIGHT
 		InputMap.action_add_event("DerechaPj1",key)
 #endregion
-	elif !Eventos.singleplayer and !Eventos.multiOnline:
+	else:
 #region INPUT BOTONES
 		var key = InputEventKey.new()
 		key.keycode = KEY_UP
@@ -91,21 +91,27 @@ func _ready() -> void:
 		
 #endregion
 		
-	# en caso de que se ejecute luego de una partida SP, reestablecer las acciones de Pj1
+		# en caso de que se ejecute luego de una partida SP, reestablecer las acciones de Pj1
+		pass
+	Eventos.ganadorFestival.connect(finJuego)
 
 func finJuego(ganador):
-	comandosP1.procesosPausados =true
-	comandosP2.procesosPausados =true
+	$Comandos.procesosPausados =true
+	$Comandos2.procesosPausados =true
 	Eventos.ganador = ganador
-	if Eventos.singleplayer: get_node("CPUJugador").queue_free()
-	comandosP2.queue_free()
-	comandosP1.queue_free()
+	if Eventos.singleplayer:
+		get_node("CPUJugador").queue_free()
+	$Comandos2.queue_free()
+	$Comandos.queue_free()
 	$comidas.queue_free()
 	$Mesa.queue_free()
-	$Background.queue_free()
-	$Pause.queue_free()
+	$Sillas.queue_free()
+	$Cartel.queue_free()
+	$Stage.queue_free()
+	$Deco.queue_free()
+	$Fondo.queue_free()
 	await get_tree().create_timer(2.2).timeout
-	var scn = load("res://Escenas/Maingame/escenario_ganador.tscn")
+	var scn = load("res://Escenas/escenario_ganador.tscn")
 	get_parent().add_child(scn.instantiate())
 	$QuickTimeEvent.queue_free()
 	

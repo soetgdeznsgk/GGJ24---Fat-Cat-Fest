@@ -4,10 +4,12 @@ extends Node2D
 @onready var anim = $AnimationPlayer
 var yipee
 
+
 func _ready():
 	sprite.frame = randi() % 70
 	anim.play("idle_appear")
 	$AudioStreamPlayer.stream = yipee
+	
 
 func play_yipee():
 	if randf() < 0.5:

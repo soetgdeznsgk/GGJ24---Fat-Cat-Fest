@@ -1,27 +1,23 @@
 extends Node2D
 
-@onready var animP = $AnimationPlayer
-@onready var sprPantalla = $pantalla
-var mainGame = preload("res://Escenas/Maingame/Maingame.tscn")
+var bg_music_tutorial:= AudioStreamPlayer.new()
+@export var animationPlayador:AnimationPlayer
+@export var pantallprogamerproooo:AnimatedSprite2D
 
+# Called when the node enters the scene tree for the first time.
 func _ready():
-	if (!Eventos.tutorialSingleplayerHecho && Eventos.singleplayer):
-		sprPantalla.play("SinglePlayer")
-		Eventos.tutorialSingleplayerHecho = true
-	elif (!Eventos.tutorialMultiplayerHecho && !Eventos.singleplayer):
-		sprPantalla.play("MultiPlayer")
-		Eventos.tutorialMultiplayerHecho = true
-	else: transicionSinTutorial()
-	
-func _input(_event):
-	if Input.is_action_just_pressed("ui_accept") and animP.get_current_animation() == "eneltutorial":
-		pasandoalfinal()
-# Estas cosas se llaman desde el animation player
-func pasandoaltutorial():
-	animP.play("eneltutorial")
-func pasandoalfinal():
-	animP.play("adios_tutorialprogamer")
-func transicionSinTutorial():
-	animP.play("transicion_sin_tutorial")
+	animationPlayador.play("iniciotutorialprogamer")
+	pantallprogamerproooo.play("MultiPlayer")
+	bg_music_tutorial.stream = load("res://Musica/tfcf_plato_v2.wav")
+	bg_music_tutorial.autoplay = true
+	bg_music_tutorial.bus = "Music"
+	add_child(bg_music_tutorial)
 
-func fintutorial(): get_tree().change_scene_to_packed(mainGame)
+func pasandoaltutorial():
+	animationPlayador.play("eneltutorial")
+func pasandoalfinal():
+	animationPlayador.play("adios_tutorialprogamer")
+
+func _on_animation_player_animation_finished(anim_name):
+	Eventos.tutorialMultiplayerHecho = true
+	get_tree().change_scene_to_file("res://Escenas/Maingame/Maingame.tscn")

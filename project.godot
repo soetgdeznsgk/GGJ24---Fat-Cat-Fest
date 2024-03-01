@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Ggj 24"
-run/main_scene="res://Escenas/Menus/main.tscn"
+run/main_scene="res://Escenas/Menus/menu_principal.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,9 +20,6 @@ config/icon="res://icon.svg"
 Enums="*res://Logica/Globales/enums.gd"
 Eventos="*res://Logica/Globales/Eventos.gd"
 Names="*res://Escenas/Maingame/names.gd"
-MultiplayerControl="*res://Logica/Globales/MultiplayerControl.gd"
-Globals="*res://Escenas/Menus/globals.gd"
-RecursosGatos="*res://Logica/Globales/RecursosGatos.gd"
 
 [debug]
 
@@ -32,13 +29,8 @@ gdscript/warnings/integer_division=0
 
 window/size/viewport_width=1366
 window/size/viewport_height=768
-window/size/window_width_override=683
-window/size/window_height_override=384
+window/size/mode=3
 window/stretch/mode="canvas_items"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/gdgotm/plugin.cfg")
 
 [input]
 

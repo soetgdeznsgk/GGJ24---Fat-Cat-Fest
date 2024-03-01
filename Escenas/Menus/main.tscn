@@ -1,0 +1,1242 @@
+[gd_scene load_steps=88 format=3 uid="uid://caeckabqu6fjj"]
+
+[ext_resource type="Script" path="res://Escenas/Menus/main.gd" id="1_dsd06"]
+[ext_resource type="PackedScene" uid="uid://wdjwfpa5g8le" path="res://Escenas/Menus/txtBtn.tscn" id="1_kpdnp"]
+[ext_resource type="Texture2D" uid="uid://phm2xg5aruw2" path="res://Sprites/Fondos/cielo png.png" id="2_fgxj3"]
+[ext_resource type="Texture2D" uid="uid://c102jhen7k2p6" path="res://Sprites/Fondos/fondo1.png" id="2_gdh8q"]
+[ext_resource type="Texture2D" uid="uid://c1278lmlowdcl" path="res://Sprites/Menu/PlayButton.png" id="2_mtafr"]
+[ext_resource type="Texture2D" uid="uid://bu663bpjbff02" path="res://Escenas/Menus/Imgs/FatCatFestLogoConNombre.png" id="4_dkdr5"]
+[ext_resource type="Texture2D" uid="uid://eofbm62g57g8" path="res://Sprites/Menu/InfoButton.png" id="4_si8ot"]
+[ext_resource type="Texture2D" uid="uid://cm6j5vcnxq6rx" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0000.png" id="6_yt07n"]
+[ext_resource type="Texture2D" uid="uid://ymdvj5rbfrom" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0001.png" id="7_esmgb"]
+[ext_resource type="Texture2D" uid="uid://cko7qdpjm2shp" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0002.png" id="8_h8u3g"]
+[ext_resource type="Texture2D" uid="uid://b4e8p240jvkcc" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0003.png" id="9_rnvno"]
+[ext_resource type="Texture2D" uid="uid://bjuakr1esl2db" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0004.png" id="10_as1wt"]
+[ext_resource type="Texture2D" uid="uid://cu8ihu268drfj" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0005.png" id="11_00h2o"]
+[ext_resource type="Texture2D" uid="uid://sadnih3iylgi" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0006.png" id="12_0mv2n"]
+[ext_resource type="Texture2D" uid="uid://blay5roeuvwla" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0007.png" id="13_lnpvy"]
+[ext_resource type="Texture2D" uid="uid://sqy5qjj17ad5" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0008.png" id="14_kmk5g"]
+[ext_resource type="Texture2D" uid="uid://jsp1brrwdxu7" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0009.png" id="15_s6odb"]
+[ext_resource type="Texture2D" uid="uid://d0fmw3oywajax" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0010.png" id="16_axirg"]
+[ext_resource type="Texture2D" uid="uid://d2scq3mwqpuwh" path="res://Sprites/Gatos/GatoMenu/GatoMenu_0011.png" id="17_eacj1"]
+[ext_resource type="Texture2D" uid="uid://bbsax2a2qdvmu" path="res://Sprites/Menu/BocadilloPapu.png" id="17_wpibv"]
+[ext_resource type="Script" path="res://Escenas/Menus/Bocadillo.gd" id="18_jd4tn"]
+[ext_resource type="Texture2D" uid="uid://bfi0qrx7f2qau" path="res://Sprites/Menu/OptionsButton.png" id="19_j6ght"]
+[ext_resource type="Texture2D" uid="uid://da11csmw1ur6g" path="res://Sprites/Menu/Singleplayer.png" id="21_jqggg"]
+[ext_resource type="Texture2D" uid="uid://on3n0bdtwhht" path="res://Sprites/Menu/Multiplayer.png" id="22_ax1kq"]
+[ext_resource type="Texture2D" uid="uid://cekhhkb62r1bb" path="res://Sprites/Menu/BackButton.png" id="23_yr6lm"]
+[ext_resource type="AudioStream" uid="uid://ch424mgukemql" path="res://SFX/UI/back_button_sfx.wav" id="24_ss026"]
+[ext_resource type="PackedScene" uid="uid://l1ftaodoo155" path="res://Escenas/Menus/volSlider.tscn" id="25_wq1bv"]
+[ext_resource type="Texture2D" uid="uid://bry527snkoxli" path="res://Escenas/Menus/Imgs/Creditos.png" id="26_qbyef"]
+[ext_resource type="Texture2D" uid="uid://dln0jeo1dnku" path="res://Sprites/Menu/SoundButtonFocused.png" id="26_vxvh7"]
+[ext_resource type="Script" path="res://Escenas/Menus/specialBtn.gd" id="27_vyo02"]
+[ext_resource type="AudioStream" uid="uid://cm88aolt5lx7h" path="res://Musica/tfcf_menu_v2.wav" id="28_7evsh"]
+[ext_resource type="AudioStream" uid="uid://beq5dwheh53fp" path="res://SFX/UI/button_standard.wav" id="29_5ghey"]
+[ext_resource type="Texture2D" uid="uid://n3oj3dljrinx" path="res://Sprites/Menu/Estrella.png" id="29_b6lqg"]
+[ext_resource type="PackedScene" uid="uid://cp85xfjdi08u2" path="res://Escenas/Maingame/Publico/GatosPublico.tscn" id="29_n8xkr"]
+[ext_resource type="Script" path="res://Escenas/Maingame/Publico/GatosPublicoMenu.gd" id="30_rr68k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0q3tf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_yt07n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_esmgb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_h8u3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_rnvno")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_as1wt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_00h2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_0mv2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_lnpvy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_kmk5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_s6odb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_axirg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_eacj1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8mow"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dc4dy"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_is3kr"]
+resource_local_to_scene = true
+draw_center = false
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lryx5"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gyotu"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k164m"]
+resource_local_to_scene = true
+draw_center = false
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1cjqh"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6jheo"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ec2o8"]
+resource_local_to_scene = true
+draw_center = false
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rlwsr"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fidl"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2bpkf"]
+resource_local_to_scene = true
+draw_center = false
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3do07"]
+resource_local_to_scene = true
+bg_color = Color(0.403922, 0.678431, 0.34902, 0.498039)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0hw2"]
+resource_local_to_scene = true
+draw_center = false
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ve8c1"]
+resource_local_to_scene = true
+bg_color = Color(0.784314, 0.545098, 0.215686, 0.498039)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfc22"]
+resource_local_to_scene = true
+draw_center = false
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ko1wx"]
+resource_local_to_scene = true
+bg_color = Color(0.733333, 0.223529, 0.27451, 0.498039)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6uif"]
+resource_local_to_scene = true
+draw_center = false
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vl6m6"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uyaxe"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kls35"]
+resource_local_to_scene = true
+draw_center = false
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bhlfd"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ejul6"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7h6cx"]
+resource_local_to_scene = true
+draw_center = false
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nal8e"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mbc2l"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xdcp6"]
+resource_local_to_scene = true
+draw_center = false
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vn0wv"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rn3rr"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5hroe"]
+resource_local_to_scene = true
+draw_center = false
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_un36g"]
+bg_color = Color(0, 0, 0, 0.498039)
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.686275)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rpe8e"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dp5dx"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yq72o"]
+resource_local_to_scene = true
+draw_center = false
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j5eae"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jagu"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wwr3i"]
+resource_local_to_scene = true
+draw_center = false
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktpn5"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hsp2f"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iwga8"]
+resource_local_to_scene = true
+draw_center = false
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 5
+
+[sub_resource type="Animation" id="Animation_hfqco"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_j0d31"]
+resource_name = "appear"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_78gfs"]
+resource_name = "disappear"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jg01s"]
+_data = {
+"RESET": SubResource("Animation_hfqco"),
+"appear": SubResource("Animation_j0d31"),
+"disappear": SubResource("Animation_78gfs")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qibq4"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jnner"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nnn4c"]
+resource_local_to_scene = true
+draw_center = false
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 5
+
+[sub_resource type="Animation" id="Animation_8ruwj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 650)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../gatoTragon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(407, 229)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../logo:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(321, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../logo:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HBoxContainer/specialBtn:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HBoxContainer/creditsPathBack:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_5bbbo"]
+resource_name = "slideCredits"
+length = 0.8
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["CreditsPath"],
+"method": &"change_path"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../gatoTragon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(407, 229), Vector2(1020, 229)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../logo:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(321, 0), Vector2(321, -347)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.248931, 0.8),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(0, 650), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HBoxContainer/specialBtn:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HBoxContainer/creditsPathBack:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_2qxym"]
+resource_name = "slideOutCredits"
+length = 0.8
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["mainPath"],
+"method": &"change_path"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../gatoTragon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1020, 229), Vector2(407, 229)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../logo:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(321, -347), Vector2(321, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 0.5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 650)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../logo:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 62.8319]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"randomFuniMsg"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b3bgs"]
+_data = {
+"RESET": SubResource("Animation_8ruwj"),
+"slideInCredits": SubResource("Animation_5bbbo"),
+"slideOutCredits": SubResource("Animation_2qxym")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_dsd06")
+
+[node name="cielo" type="TextureRect" parent="."]
+offset_right = 1366.0
+offset_bottom = 768.0
+texture = ExtResource("2_fgxj3")
+expand_mode = 3
+stretch_mode = 5
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="fondo" type="TextureRect" parent="."]
+offset_right = 1366.0
+offset_bottom = 768.0
+texture = ExtResource("2_gdh8q")
+expand_mode = 3
+stretch_mode = 5
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="logo" type="TextureRect" parent="."]
+offset_left = 321.0
+offset_right = 1027.0
+offset_bottom = 347.0
+pivot_offset = Vector2(353, 173)
+texture = ExtResource("4_dkdr5")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="gatoTragon" type="AnimatedSprite2D" parent="."]
+position = Vector2(407, 229)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_0q3tf")
+autoplay = "default"
+frame = 1
+frame_progress = 0.877486
+centered = false
+metadata/_edit_group_ = true
+
+[node name="MainOptPath" type="VBoxContainer" parent="."]
+offset_left = 43.0
+offset_top = 356.0
+offset_right = 927.0
+offset_bottom = 723.0
+theme_override_constants/separation = 15
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="playBtn" parent="MainOptPath" instance=ExtResource("1_kpdnp")]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../optionsBtn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v8mow")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dc4dy")
+theme_override_styles/focus = SubResource("StyleBoxFlat_is3kr")
+icon = ExtResource("2_mtafr")
+btnText = "Play"
+
+[node name="Label" parent="MainOptPath/playBtn" index="0"]
+anchor_left = 0.562
+anchor_right = 0.562
+offset_left = -387.808
+offset_top = -52.0
+offset_right = 388.192
+offset_bottom = 52.0
+pivot_offset = Vector2(388, 52)
+
+[node name="optionsBtn" parent="MainOptPath" instance=ExtResource("1_kpdnp")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../playBtn")
+focus_neighbor_bottom = NodePath("../infoBtn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lryx5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gyotu")
+theme_override_styles/focus = SubResource("StyleBoxFlat_k164m")
+icon = ExtResource("19_j6ght")
+btnText = "Options"
+
+[node name="Label" parent="MainOptPath/optionsBtn" index="0"]
+anchor_left = 0.562
+anchor_top = 0.509
+anchor_right = 0.562
+anchor_bottom = 0.509
+offset_left = -387.808
+offset_top = -52.008
+offset_right = 388.192
+offset_bottom = 51.992
+pivot_offset = Vector2(388, 52)
+
+[node name="infoBtn" parent="MainOptPath" instance=ExtResource("1_kpdnp")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../optionsBtn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1cjqh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6jheo")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ec2o8")
+icon = ExtResource("4_si8ot")
+btnText = "Credits"
+
+[node name="Label" parent="MainOptPath/infoBtn" index="0"]
+anchor_left = 0.558
+anchor_top = 0.513
+anchor_right = 0.558
+anchor_bottom = 0.513
+offset_left = -384.272
+offset_top = -51.969
+offset_right = 391.728
+offset_bottom = 52.031
+pivot_offset = Vector2(388, 52)
+
+[node name="PlayPath" type="VBoxContainer" parent="."]
+visible = false
+offset_left = 43.0
+offset_top = 356.0
+offset_right = 927.0
+offset_bottom = 723.0
+theme_override_constants/separation = 15
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="SPBtn" parent="PlayPath" instance=ExtResource("1_kpdnp")]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../HBoxContainer/MPBtn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rlwsr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0fidl")
+theme_override_styles/focus = SubResource("StyleBoxFlat_2bpkf")
+icon = ExtResource("21_jqggg")
+btnText = "Singleplayer"
+
+[node name="Label" parent="PlayPath/SPBtn" index="0"]
+anchor_left = 0.562
+anchor_top = 0.482
+anchor_right = 0.562
+anchor_bottom = 0.482
+offset_left = -387.808
+offset_top = -55.984
+offset_right = 388.192
+offset_bottom = 56.016
+pivot_offset = Vector2(388, 56)
+
+[node name="DiffSelector" type="HBoxContainer" parent="PlayPath"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+theme_override_constants/separation = 15
+
+[node name="EasyBtn" parent="PlayPath/DiffSelector" instance=ExtResource("1_kpdnp")]
+layout_mode = 2
+focus_neighbor_right = NodePath("../MediumBtn")
+focus_neighbor_bottom = NodePath("../../HBoxContainer/MPBtn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3do07")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3do07")
+theme_override_styles/focus = SubResource("StyleBoxFlat_p0hw2")
+btnText = "Easy"
+
+[node name="Label" parent="PlayPath/DiffSelector/EasyBtn" index="0"]
+anchor_left = 0.496
+anchor_right = 0.496
+offset_left = -143.864
+offset_top = -52.0
+offset_right = 144.136
+offset_bottom = 52.0
+pivot_offset = Vector2(144, 52)
+
+[node name="MediumBtn" parent="PlayPath/DiffSelector" instance=ExtResource("1_kpdnp")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../EasyBtn")
+focus_neighbor_right = NodePath("../HardBtn")
+focus_neighbor_bottom = NodePath("../../HBoxContainer/MPBtn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ve8c1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ve8c1")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kfc22")
+btnText = "Medium"
+
+[node name="Label" parent="PlayPath/DiffSelector/MediumBtn" index="0"]
+anchor_left = 0.512
+anchor_right = 0.512
+offset_left = -143.92
+offset_top = -52.0
+offset_right = 144.08
+offset_bottom = 52.0
+pivot_offset = Vector2(144, 52)
+
+[node name="HardBtn" parent="PlayPath/DiffSelector" instance=ExtResource("1_kpdnp")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../MediumBtn")
+focus_neighbor_bottom = NodePath("../../HBoxContainer/MPBtn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ko1wx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ko1wx")
+theme_override_styles/focus = SubResource("StyleBoxFlat_o6uif")
+btnText = "Hard"
+
+[node name="Label" parent="PlayPath/DiffSelector/HardBtn" index="0"]
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -144.5
+offset_top = -52.0
+offset_right = 143.5
+offset_bottom = 52.0
+pivot_offset = Vector2(144, 52)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayPath"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+theme_override_constants/separation = 15
+
+[node name="MPBtn" parent="PlayPath/HBoxContainer" instance=ExtResource("1_kpdnp")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../../SPBtn")
+focus_neighbor_right = NodePath("../OLBtn")
+focus_neighbor_bottom = NodePath("../../playPathBack")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vl6m6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uyaxe")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kls35")
+icon = ExtResource("22_ax1kq")
+btnText = "Local"
+
+[node name="Label" parent="PlayPath/HBoxContainer/MPBtn" index="0"]
+anchor_left = 0.629
+anchor_right = 0.629
+offset_left = -163.986
+offset_top = -58.0
+offset_right = 164.014
+offset_bottom = 54.0
+pivot_offset = Vector2(164, 56)
+
+[node name="OLBtn" parent="PlayPath/HBoxContainer" instance=ExtResource("1_kpdnp")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_bhlfd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ejul6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7h6cx")
+icon = ExtResource("22_ax1kq")
+btnText = "Online"
+
+[node name="Label" parent="PlayPath/HBoxContainer/OLBtn" index="0"]
+anchor_left = 0.625
+anchor_top = 0.518
+anchor_right = 0.625
+anchor_bottom = 0.518
+offset_left = -163.875
+offset_top = -60.016
+offset_right = 164.125
+offset_bottom = 59.984
+pivot_offset = Vector2(164, 60)
+
+[node name="playPathBack" parent="PlayPath" instance=ExtResource("1_kpdnp")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../HBoxContainer/MPBtn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nal8e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mbc2l")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xdcp6")
+icon = ExtResource("23_yr6lm")
+btnText = "Go back"
+
+[node name="Label" parent="PlayPath/playPathBack" index="0"]
+anchor_left = 0.562
+anchor_top = 0.504
+anchor_right = 0.562
+anchor_bottom = 0.504
+offset_left = -387.808
+offset_top = -59.952
+offset_right = 388.192
+offset_bottom = 60.048
+pivot_offset = Vector2(388, 60)
+
+[node name="ButtonPress" parent="PlayPath/playPathBack" index="2"]
+stream = ExtResource("24_ss026")
+
+[node name="OLConfig" type="VBoxContainer" parent="."]
+visible = false
+offset_left = 43.0
+offset_top = 356.0
+offset_right = 927.0
+offset_bottom = 723.0
+theme_override_constants/separation = 15
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="HostOptions" type="HBoxContainer" parent="OLConfig"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+theme_override_constants/separation = 15
+
+[node name="CreateBtn" parent="OLConfig/HostOptions" instance=ExtResource("1_kpdnp")]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../../PeerOptions/JoinBtn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vn0wv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rn3rr")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5hroe")
+icon = ExtResource("19_j6ght")
+btnText = "Create"
+
+[node name="Label" parent="OLConfig/HostOptions/CreateBtn" index="0"]
+anchor_left = 0.629
+anchor_right = 0.629
+offset_left = -163.986
+offset_top = -58.0
+offset_right = 164.014
+offset_bottom = 54.0
+pivot_offset = Vector2(164, 56)
+
+[node name="CopyCode" type="LineEdit" parent="OLConfig/HostOptions"]
+custom_minimum_size = Vector2(434, 0)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 25
+theme_override_styles/read_only = SubResource("StyleBoxFlat_un36g")
+placeholder_text = "Send this to your friend"
+alignment = 1
+editable = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+drag_and_drop_selection_enabled = false
+select_all_on_focus = true
+
+[node name="PeerOptions" type="HBoxContainer" parent="OLConfig"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+theme_override_constants/separation = 15
+
+[node name="JoinBtn" parent="OLConfig/PeerOptions" instance=ExtResource("1_kpdnp")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../../HostOptions/CreateBtn")
+focus_neighbor_right = NodePath("../PasteCode")
+focus_neighbor_bottom = NodePath("../../onlinePathBack")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rpe8e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dp5dx")
+theme_override_styles/focus = SubResource("StyleBoxFlat_yq72o")
+icon = ExtResource("2_mtafr")
+btnText = "Join"
+
+[node name="Label" parent="OLConfig/PeerOptions/JoinBtn" index="0"]
+anchor_left = 0.629
+anchor_right = 0.629
+offset_left = -163.986
+offset_top = -58.0
+offset_right = 164.014
+offset_bottom = 54.0
+pivot_offset = Vector2(164, 56)
+
+[node name="PasteCode" type="LineEdit" parent="OLConfig/PeerOptions"]
+custom_minimum_size = Vector2(434, 0)
+layout_mode = 2
+focus_neighbor_left = NodePath("../JoinBtn")
+focus_neighbor_top = NodePath("../../HostOptions/CreateBtn")
+focus_neighbor_bottom = NodePath("../../onlinePathBack")
+theme_override_font_sizes/font_size = 25
+placeholder_text = "Paste lobby code here"
+alignment = 1
+virtual_keyboard_enabled = false
+clear_button_enabled = true
+deselect_on_focus_loss_enabled = false
+select_all_on_focus = true
+caret_blink = true
+caret_mid_grapheme = true
+
+[node name="onlinePathBack" parent="OLConfig" instance=ExtResource("1_kpdnp")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../PeerOptions/JoinBtn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_j5eae")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7jagu")
+theme_override_styles/focus = SubResource("StyleBoxFlat_wwr3i")
+icon = ExtResource("23_yr6lm")
+btnText = "Go back"
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Label" parent="OLConfig/onlinePathBack" index="0"]
+anchor_left = 0.562
+anchor_top = 0.504
+anchor_right = 0.562
+anchor_bottom = 0.504
+offset_left = -387.808
+offset_top = -59.952
+offset_right = 388.192
+offset_bottom = 60.048
+pivot_offset = Vector2(388, 60)
+
+[node name="ButtonPress" parent="OLConfig/onlinePathBack" index="2"]
+stream = ExtResource("24_ss026")
+
+[node name="OptionsPath" type="VBoxContainer" parent="."]
+visible = false
+offset_left = 43.0
+offset_top = 356.0
+offset_right = 927.0
+offset_bottom = 723.0
+theme_override_constants/separation = 15
+
+[node name="masterVolSlider" parent="OptionsPath" instance=ExtResource("25_wq1bv")]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+label_bus = "Master volume"
+bus_name = "Master"
+
+[node name="muteBtn" parent="OptionsPath/masterVolSlider" index="1"]
+focus_neighbor_bottom = NodePath("../../musicVolSlider/muteBtn")
+
+[node name="HSlider" parent="OptionsPath/masterVolSlider" index="2"]
+scrollable = false
+
+[node name="volEdit" parent="OptionsPath/masterVolSlider" index="3"]
+focus_next = NodePath("../../musicVolSlider/muteBtn")
+
+[node name="musicVolSlider" parent="OptionsPath" instance=ExtResource("25_wq1bv")]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+label_bus = "Music"
+bus_name = "Music"
+
+[node name="muteBtn" parent="OptionsPath/musicVolSlider" index="1"]
+focus_neighbor_top = NodePath("../../masterVolSlider/muteBtn")
+focus_neighbor_bottom = NodePath("../../sfxVolSlider/muteBtn")
+
+[node name="volEdit" parent="OptionsPath/musicVolSlider" index="3"]
+focus_next = NodePath("../../sfxVolSlider/muteBtn")
+
+[node name="sfxVolSlider" parent="OptionsPath" instance=ExtResource("25_wq1bv")]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+label_bus = "Sound FX"
+bus_name = "SFX"
+
+[node name="muteBtn" parent="OptionsPath/sfxVolSlider" index="1"]
+focus_neighbor_top = NodePath("../../musicVolSlider/muteBtn")
+
+[node name="volEdit" parent="OptionsPath/sfxVolSlider" index="3"]
+focus_next = NodePath("../../optionsPathBack")
+
+[node name="optionsPathBack" parent="OptionsPath" instance=ExtResource("1_kpdnp")]
+layout_mode = 2
+size_flags_stretch_ratio = 0.8
+theme_override_styles/normal = SubResource("StyleBoxFlat_ktpn5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hsp2f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_iwga8")
+icon = ExtResource("23_yr6lm")
+btnText = "Go back"
+
+[node name="Label" parent="OptionsPath/optionsPathBack" index="0"]
+anchor_left = 0.558
+anchor_top = 0.513
+anchor_right = 0.558
+anchor_bottom = 0.513
+offset_left = -384.272
+offset_top = -51.969
+offset_right = 391.728
+offset_bottom = 52.031
+pivot_offset = Vector2(388, 52)
+
+[node name="ButtonPress" parent="OptionsPath/optionsPathBack" index="2"]
+stream = ExtResource("24_ss026")
+
+[node name="Bocadillo" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(200, 100)
+offset_left = 924.0
+offset_top = 270.0
+offset_right = 1247.0
+offset_bottom = 447.0
+texture = ExtResource("17_wpibv")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("18_jd4tn")
+
+[node name="MarginContainer" type="MarginContainer" parent="Bocadillo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.427
+anchor_right = 0.5
+anchor_bottom = 0.427
+offset_left = -154.5
+offset_top = -66.579
+offset_right = 158.5
+offset_bottom = 66.421
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 2
+
+[node name="Label" type="Label" parent="Bocadillo/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.14902, 0.14902, 0.14902, 1)
+theme_override_colors/font_outline_color = Color(0.768627, 0.619608, 0.494118, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 12
+text = "mañana sale silksong mañana sale silksong mañana sale silksong mañana sale silksong mañana sale silksong mañana sale silksong mañana sale silksong mañana sale silksong mañana sale silksong mañana sale silksong mañana sale silksong mañana sale silksong"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bocadillo"]
+libraries = {
+"": SubResource("AnimationLibrary_jg01s")
+}
+
+[node name="CreditsPath" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 650.0
+offset_right = 1366.0
+offset_bottom = 1418.0
+metadata/_edit_lock_ = true
+
+[node name="Creditos" type="Sprite2D" parent="CreditsPath"]
+position = Vector2(694, 387)
+scale = Vector2(1.65757, 1.65757)
+texture = ExtResource("26_qbyef")
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CreditsPath"]
+layout_mode = 0
+offset_left = 573.0
+offset_top = 475.0
+offset_right = 1234.0
+offset_bottom = 599.0
+
+[node name="specialBtn" type="TextureButton" parent="CreditsPath/HBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("29_b6lqg")
+texture_focused = ExtResource("26_vxvh7")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("27_vyo02")
+
+[node name="creditsPathBack" parent="CreditsPath/HBoxContainer" instance=ExtResource("1_kpdnp")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../PeerOptions/JoinBtn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qibq4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jnner")
+theme_override_styles/focus = SubResource("StyleBoxFlat_nnn4c")
+disabled = true
+icon = ExtResource("23_yr6lm")
+btnText = "Go back"
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Label" parent="CreditsPath/HBoxContainer/creditsPathBack" index="0"]
+anchor_left = 0.619
+anchor_top = 0.51
+anchor_right = 0.619
+anchor_bottom = 0.51
+offset_left = -154.695
+offset_top = -50.0
+offset_right = 154.305
+offset_bottom = 50.0
+pivot_offset = Vector2(154, 50)
+
+[node name="ButtonPress" parent="CreditsPath/HBoxContainer/creditsPathBack" index="2"]
+stream = ExtResource("24_ss026")
+
+[node name="PublicoCreditos" parent="." instance=ExtResource("29_n8xkr")]
+script = ExtResource("30_rr68k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CreditsPath")
+libraries = {
+"": SubResource("AnimationLibrary_b3bgs")
+}
+
+[node name="BgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_7evsh")
+autoplay = true
+bus = &"Music"
+
+[node name="ButtonPress" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("29_5ghey")
+bus = &"SFX"
+
+[connection signal="pressed" from="MainOptPath/playBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="MainOptPath/optionsBtn" to="." method="_on_options_btn_pressed"]
+[connection signal="pressed" from="MainOptPath/infoBtn" to="." method="_on_info_btn_pressed"]
+[connection signal="pressed" from="MainOptPath/infoBtn" to="PublicoCreditos" method="_on_info_btn_pressed"]
+[connection signal="pressed" from="PlayPath/SPBtn" to="." method="_on_sp_btn_pressed"]
+[connection signal="pressed" from="PlayPath/DiffSelector/EasyBtn" to="." method="_on_easy_btn_pressed"]
+[connection signal="pressed" from="PlayPath/DiffSelector/MediumBtn" to="." method="_on_medium_btn_pressed"]
+[connection signal="pressed" from="PlayPath/DiffSelector/HardBtn" to="." method="_on_hard_btn_pressed"]
+[connection signal="pressed" from="PlayPath/HBoxContainer/MPBtn" to="." method="_on_mp_btn_pressed"]
+[connection signal="pressed" from="PlayPath/HBoxContainer/OLBtn" to="." method="_on_ol_btn_pressed"]
+[connection signal="pressed" from="PlayPath/playPathBack" to="." method="_on_play_path_back_pressed"]
+[connection signal="pressed" from="OLConfig/HostOptions/CreateBtn" to="." method="_on_create_btn_pressed"]
+[connection signal="pressed" from="OLConfig/PeerOptions/JoinBtn" to="." method="_on_join_btn_pressed"]
+[connection signal="pressed" from="OLConfig/onlinePathBack" to="." method="_on_online_path_back_pressed"]
+[connection signal="pressed" from="OptionsPath/optionsPathBack" to="." method="_on_options_path_back_pressed"]
+[connection signal="mouse_entered" from="CreditsPath/HBoxContainer/specialBtn" to="CreditsPath/HBoxContainer/specialBtn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CreditsPath/HBoxContainer/specialBtn" to="CreditsPath/HBoxContainer/specialBtn" method="_on_mouse_exited"]
+[connection signal="pressed" from="CreditsPath/HBoxContainer/specialBtn" to="PublicoCreditos" method="_on_special_btn_pressed"]
+[connection signal="pressed" from="CreditsPath/HBoxContainer/creditsPathBack" to="." method="_on_credits_path_back_pressed"]
+[connection signal="pressed" from="CreditsPath/HBoxContainer/creditsPathBack" to="PublicoCreditos" method="_on_credits_path_back_pressed"]
+
+[editable path="MainOptPath/playBtn"]
+[editable path="MainOptPath/optionsBtn"]
+[editable path="MainOptPath/infoBtn"]
+[editable path="PlayPath/SPBtn"]
+[editable path="PlayPath/DiffSelector/EasyBtn"]
+[editable path="PlayPath/DiffSelector/MediumBtn"]
+[editable path="PlayPath/DiffSelector/HardBtn"]
+[editable path="PlayPath/HBoxContainer/MPBtn"]
+[editable path="PlayPath/HBoxContainer/OLBtn"]
+[editable path="PlayPath/playPathBack"]
+[editable path="OLConfig/HostOptions/CreateBtn"]
+[editable path="OLConfig/PeerOptions/JoinBtn"]
+[editable path="OLConfig/onlinePathBack"]
+[editable path="OptionsPath/masterVolSlider"]
+[editable path="OptionsPath/musicVolSlider"]
+[editable path="OptionsPath/sfxVolSlider"]
+[editable path="OptionsPath/optionsPathBack"]
+[editable path="CreditsPath/HBoxContainer/creditsPathBack"]

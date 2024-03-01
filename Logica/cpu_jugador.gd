@@ -18,7 +18,7 @@ var bufferedInputs : PackedStringArray
 var currState := States.Eating # por ahora no hace nada pero
 var currDifficulty : int # va de 1 a 3
 
-var referencia_comandos := NodePath("../Comandos") #esto funciona xq cpu se instancia después de que Maingame esté ready
+var referencia_comandos := NodePath("../ComandosP2") #esto funciona xq cpu se instancia después de que Maingame esté ready
 
 # variables relevantes a rompeplatos
 var referencia_rompeplatos := NodePath("../QuickTimeEvent/EventoRomperPlatos")
@@ -37,19 +37,13 @@ var referencia_pepino := NodePath("../QuickTimeEvent/evento_pepino")
 var referencia_darseduro := NodePath("../QuickTimeEvent/EventoDarseDuro")
 var can_play := true
 
-
-func set_difficulty() -> void:
-	currDifficulty = randi_range(1, 3)
-	
-
 func _enter_tree() -> void:
 	Eventos.nuevoEvento.connect(minigame_entered)
 	Eventos.finalEvento.connect(resume_eating)
 	Eventos.bajarTelon.connect(set_idle)
-	
-	set_difficulty()
+
+	currDifficulty = Eventos.cpuDiff
 	eat(1.0)
-	print("cpu difficulty: ", currDifficulty, " / 3")
 	
 func minigame_entered(activity : int) -> void:
 	match activity:
@@ -85,11 +79,9 @@ func eat(cache) -> void:
 			elif get_node(referencia_comandos).permitirEntradas:
 				inp = get_node(referencia_comandos).comandosConFlechas[0]
 				
-		#TEST
-		#print("Inputs de la cpu ", inp)
-		
+
 		if inp != null: # Solo manda inputs SI tiene un input, para evitar q se rompa por null
-			get_node(referencia_comandos).ultimoInputRegistrado = inp
+			get_node(referencia_comandos).inputArray.append(inp)
 			#bufferedInputs.clear()
 		#eat(0)
 		var taim = 1.6
@@ -129,7 +121,6 @@ func break_dishes(cache) -> void:
 			if pos_dish.y > 600: 
 				vectorPenalization += (pos_dish - pos_hammer).length() * Vector2.UP
 			elif pos_dish.y < 140: 
-				#pepe ?????????????????????
 				vectorPenalization += (pos_dish - pos_hammer).length() * Vector2.DOWN
 				
 			if ((vectorOrtonormal / 3) + pos_dish).x > 1200 or ((vectorOrtonormal / 3) + pos_dish).x < 140 or ((vectorOrtonormal / 3) + pos_dish).y > 600 or ((vectorOrtonormal / 3) + pos_dish).y < 140:

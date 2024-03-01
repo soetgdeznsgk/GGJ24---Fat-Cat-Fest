@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdwsliw2xh10j"]
+[gd_scene load_steps=8 format=3 uid="uid://bdwsliw2xh10j"]
 
 [ext_resource type="Script" path="res://Escenas/Maingame/Publico/GatoPublico.gd" id="1_ekp2j"]
 [ext_resource type="Texture2D" uid="uid://bdpt1304dx3rs" path="res://Sprites/Gatos/Publico/sprite sheet publicoF.png" id="2_v1lea"]
@@ -88,11 +88,40 @@ tracks/1/keys = {
 "values": [Vector2(0, 0), Vector2(0, -129), Vector2(0, -122)]
 }
 
+[sub_resource type="Animation" id="Animation_1lsjm"]
+resource_name = "idle_dissappear"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.7),
+"transitions": PackedFloat32Array(1, 1, 0.5),
+"update": 0,
+"values": [Vector2(0, -122), Vector2(0, -129), Vector2(0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ut0b0"]
 _data = {
 "RESET": SubResource("Animation_ywjxw"),
 "cheer": SubResource("Animation_70goy"),
-"idle_appear": SubResource("Animation_g6s0d")
+"idle_appear": SubResource("Animation_g6s0d"),
+"idle_dissappear": SubResource("Animation_1lsjm")
 }
 
 [node name="GatoPublico" type="Node2D"]
@@ -113,5 +142,5 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -0.1
-max_polyphony = 2
+max_polyphony = 10
 bus = &"SFX"

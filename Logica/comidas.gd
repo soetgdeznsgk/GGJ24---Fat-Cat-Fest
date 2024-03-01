@@ -27,10 +27,11 @@ var primerPlatoStack2 = true
 var recetaActualJugador1
 var recetaActualJugador2
 var recogiendo=false
-
+signal comidaListaGenerada(lista1,lista2)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	preloadRecetas()
+	await get_tree().create_timer(0.3).timeout
 	generarListaRecetas()
 	stackPlatos = preload("res://Escenas/Recetas/Plato.tscn")
 	Eventos.mediaComida.connect(cambiarSpriteMediaComida)
@@ -38,8 +39,10 @@ func _ready():
 	Eventos.comandosAcabados.connect(entradaReceta)
 	Eventos.nuevoEvento.connect(pausarProcesos)
 	Eventos.finalEvento.connect(reanudarProcesos)
-	entradaReceta(1)
-	entradaReceta(2)
+	
+	if !Eventos.multiOnline:
+		entradaReceta(1)
+		entradaReceta(2)
 	
 func pausarProcesos(_cache):
 	recetaActualJugador1.visible = false
@@ -99,17 +102,45 @@ func preloadRecetas():
 		recetainstanciada2=recetainstanciada.instantiate()
 		recetas1[recetainstanciada1.nombre]=recetainstanciada1
 		recetas2[recetainstanciada2.nombre]=recetainstanciada2
+	# Diccionarios siempre iguales
+
 func generarListaRecetas():
 	var rng = RandomNumberGenerator.new()
 	var receta1
 	var receta2
-	for i in range(recetasString.size()):
-		receta1 = recetas1.values()[rng.randi() % recetas1.size()]
-		receta2 = recetas2.values()[rng.randi() % recetas2.size()]
-		recetas1.erase(receta1.nombre)
-		recetas2.erase(receta2.nombre)
-		listaRecetasJugador1.append(receta1)
-		listaRecetasJugador2.append(receta2)
+	
+	if !Eventos.multiOnline:
+		for i in range(recetasString.size()):
+			receta1 = recetas1.values()[rng.randi() % recetas1.size()]
+			receta2 = recetas2.values()[rng.randi() % recetas2.size()]
+			recetas1.erase(receta1.nombre)
+			recetas2.erase(receta2.nombre)
+			listaRecetasJugador1.append(receta1)
+			listaRecetasJugador2.append(receta2)
+	else:
+		if multiplayer.is_server():
+			var listaRecetasJugador1Nombres = []
+			var listaRecetasJugador2Nombres = []
+			var recDup = recetas1.duplicate()
+			var recDup2 = recetas2.duplicate()
+			for i in range(recetasString.size()):
+				receta1 = recDup.values()[rng.randi() % recDup.size()]
+				receta2 = recDup2.values()[rng.randi() % recDup2.size()]
+				recDup.erase(receta1.nombre)
+				recDup2.erase(receta2.nombre)
+				listaRecetasJugador1Nombres.append(receta1.nombre)
+				listaRecetasJugador2Nombres.append(receta2.nombre)
+			# Ya se llenaron las listas
+			comidaListaGenerada.emit(listaRecetasJugador1Nombres,listaRecetasJugador2Nombres)
+			print('comidas generadas señal emitida')
+
+func sincronizarRecetas(listaRecetasJugador1Nombres, listaRecetasJugador2Nombres):
+	for i in listaRecetasJugador1Nombres:
+		listaRecetasJugador1.append(recetas1[i])
+	for i in listaRecetasJugador2Nombres:
+		listaRecetasJugador2.append(recetas2[i])
+	
+	
 #Hace la animacion de entrada, sacando de la pool, añade la receta en el punto de spawn y finalmente la anima
 func entradaReceta(numeroJugador):
 	match numeroJugador:

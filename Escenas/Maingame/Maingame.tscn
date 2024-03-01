@@ -1,320 +1,216 @@
-[gd_scene load_steps=61 format=3 uid="uid://b4olfp085mokh"]
+[gd_scene load_steps=52 format=3 uid="uid://b4olfp085mokh"]
 
 [ext_resource type="Script" path="res://Escenas/Maingame/Maingame.gd" id="1_bpnxe"]
-[ext_resource type="Texture2D" uid="uid://cth80ou0c0vgb" path="res://Sprites/Fondos/bggame0.png" id="2_2njl2"]
 [ext_resource type="PackedScene" uid="uid://bbx7yskj14jdm" path="res://Escenas/Maingame/comandos.tscn" id="2_wilsv"]
-[ext_resource type="Texture2D" uid="uid://bo1blyw4wxvco" path="res://Sprites/Fondos/bggame1.png" id="3_4acqm"]
+[ext_resource type="Texture2D" uid="uid://phm2xg5aruw2" path="res://Sprites/Fondos/cielo png.png" id="2_wtxbv"]
+[ext_resource type="Texture2D" uid="uid://btq4pabtvb268" path="res://Sprites/Fondos/fondo0.png" id="3_d2i5e"]
 [ext_resource type="PackedScene" uid="uid://c76u6u5uvxdgl" path="res://Escenas/Maingame/QuickTimeEvent.tscn" id="3_fvsyg"]
-[ext_resource type="Texture2D" uid="uid://br1n14m8wh2p" path="res://Sprites/Fondos/bggame2.png" id="4_jowbt"]
+[ext_resource type="Texture2D" uid="uid://dpvoi6spn47il" path="res://Sprites/Fondos/decor.png" id="4_huwv6"]
 [ext_resource type="Script" path="res://Escenas/Maingame/Camera2D.gd" id="5_864na"]
+[ext_resource type="Texture2D" uid="uid://68c3772giv2y" path="res://Sprites/Fondos/stage.png" id="5_cg6i8"]
 [ext_resource type="PackedScene" uid="uid://bcrmlxmuoakqy" path="res://Escenas/Maingame/comidas.tscn" id="5_on172"]
-[ext_resource type="Texture2D" uid="uid://6ygmtis46k1w" path="res://Sprites/Fondos/bggame4.png" id="5_spstp"]
-[ext_resource type="Texture2D" uid="uid://bjsfpkws15228" path="res://Sprites/Fondos/bggame3.png" id="6_uffrh"]
-[ext_resource type="Texture2D" uid="uid://bvcmj27m3cp0i" path="res://Sprites/Fondos/bggame5.png" id="7_mmh4e"]
-[ext_resource type="Theme" uid="uid://v28k7lh33uhi" path="res://Escenas/Maingame/themeNameTags.tres" id="8_3c2xy"]
+[ext_resource type="Texture2D" uid="uid://da3s274bbp3f" path="res://Sprites/Fondos/cartel.png" id="6_tdjgg"]
+[ext_resource type="Texture2D" uid="uid://btxkfnwb6hkvx" path="res://Sprites/Fondos/sillas.png" id="7_wvtio"]
 [ext_resource type="PackedScene" uid="uid://cp85xfjdi08u2" path="res://Escenas/Maingame/Publico/GatosPublico.tscn" id="8_5t0gr"]
-[ext_resource type="Texture2D" uid="uid://be32a7i3firyx" path="res://Sprites/Gatos/Gato Lampara/Derrota/derrota_1.png" id="10_b0fbt"]
-[ext_resource type="Texture2D" uid="uid://cy6qb0p25ajap" path="res://Sprites/Gatos/Gato Lampara/Derrota/derrota_2.png" id="11_4bhyq"]
-[ext_resource type="Script" path="res://Escenas/Maingame/NamePlayer1.gd" id="11_ecigq"]
-[ext_resource type="Texture2D" uid="uid://bsrtqtu8jglj7" path="res://Sprites/Gatos/Gato Lampara/Derrota/derrota_3.png" id="12_d86bf"]
-[ext_resource type="Script" path="res://Escenas/Maingame/NamePlayer2.gd" id="12_gw84n"]
-[ext_resource type="Texture2D" uid="uid://ift7nin2u23b" path="res://Sprites/Gatos/Gato Lampara/Derrota/derrota_4.png" id="13_eqr0p"]
-[ext_resource type="Texture2D" uid="uid://dlkwth7ficdy6" path="res://Sprites/Gatos/Gato Lampara/Derrota/derrota_5.png" id="14_43502"]
-[ext_resource type="Texture2D" uid="uid://dp62k0b3xsf23" path="res://Sprites/Gatos/Gato Lampara/Derrota/derrota_6.png" id="15_aefu4"]
-[ext_resource type="Texture2D" uid="uid://ddptkdvb0kh03" path="res://Sprites/Gatos/Gato Lampara/Stun/Stund_1.png" id="16_bkq7m"]
-[ext_resource type="Texture2D" uid="uid://d36fxpnwusj2c" path="res://Sprites/Gatos/Gato Lampara/Stun/Stund_2.png" id="17_cky2x"]
-[ext_resource type="Texture2D" uid="uid://b8npns1i2lhse" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_1.png" id="18_uew4k"]
-[ext_resource type="Texture2D" uid="uid://dn2mhwp2s5oba" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_2.png" id="19_ercak"]
-[ext_resource type="Texture2D" uid="uid://dy14n47dsotas" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_3.png" id="20_a5pyx"]
-[ext_resource type="Texture2D" uid="uid://bwluk7h88ijmm" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_4.png" id="21_wp8m4"]
-[ext_resource type="Texture2D" uid="uid://dfq2wkotj6art" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_5.png" id="22_vfttn"]
-[ext_resource type="Texture2D" uid="uid://chqp37nhrckdj" path="res://Sprites/Gatos/Gato Lampara/Choke/atragantao.png" id="23_jlbxw"]
-[ext_resource type="Texture2D" uid="uid://dbp7cvw1mo0lv" path="res://Sprites/Gatos/Gato Lampara/Comer/comer_3.png" id="24_k8k6x"]
-[ext_resource type="Texture2D" uid="uid://5ykh7hut5eup" path="res://Sprites/Gatos/Gato Lampara/Comer/comer_4.png" id="25_2gq73"]
-[ext_resource type="Texture2D" uid="uid://r71t6pridemb" path="res://Sprites/Gatos/Gato Lampara/Comer/comer_1.png" id="26_2056y"]
-[ext_resource type="Texture2D" uid="uid://5m388eudxkwj" path="res://Sprites/Gatos/Gato Lampara/Comer/comer_2.png" id="27_wppnc"]
-[ext_resource type="Texture2D" uid="uid://cciglemuc30nh" path="res://Sprites/Gatos/Gato Lampara/Comer/comer_5.png" id="28_dummu"]
-[ext_resource type="Texture2D" uid="uid://crf42ugsvorbg" path="res://Sprites/Gatos/Gato Lampara/Comer/comer_6.png" id="29_0jr37"]
-[ext_resource type="Texture2D" uid="uid://d134kx03wcrga" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_1.png" id="30_kubpa"]
-[ext_resource type="Texture2D" uid="uid://d1gv302xw61m1" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_2.png" id="31_sjdyf"]
-[ext_resource type="Texture2D" uid="uid://bel2o6m0diuru" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_3.png" id="32_umiop"]
-[ext_resource type="Texture2D" uid="uid://2l0pn6n810b" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_4.png" id="33_uemiq"]
-[ext_resource type="Texture2D" uid="uid://cd6mqxe0of0mn" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_5.png" id="34_aqkun"]
-[ext_resource type="Texture2D" uid="uid://cse2fj3nt6ayc" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_6.png" id="35_qmjdb"]
-[ext_resource type="Texture2D" uid="uid://dn5fhcwtvdwun" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_7.png" id="36_q5i15"]
-[ext_resource type="Texture2D" uid="uid://im75n6tag7yg" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_8.png" id="37_ojr5m"]
-[ext_resource type="Texture2D" uid="uid://bfftcxv04s40m" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_9.png" id="38_htevi"]
-[ext_resource type="Texture2D" uid="uid://b3w1bv578ngg3" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_10.png" id="39_hqu5k"]
-[ext_resource type="Texture2D" uid="uid://druhpvn6xe83i" path="res://Sprites/Gatos/Gato Lampara/Idle/Idle_11.png" id="40_1nkka"]
-[ext_resource type="Texture2D" uid="uid://bg8luqwtrfmrj" path="res://Sprites/Gatos/Gato Lampara/Comer/comer_7.png" id="41_gcycj"]
-[ext_resource type="Texture2D" uid="uid://b6dmmudhog1do" path="res://Sprites/Gatos/Gato Lampara/Stun/Stund_3.png" id="42_h0jrt"]
-[ext_resource type="Texture2D" uid="uid://dmqoiw08i8agm" path="res://Sprites/Gatos/Gato Lampara/Stun/Stund_4.png" id="43_yfmei"]
-[ext_resource type="Texture2D" uid="uid://dookewrfjdlr4" path="res://Sprites/Gatos/Gato Lampara/Stun/Stund_5.png" id="44_g00jk"]
-[ext_resource type="Texture2D" uid="uid://dswvfekk6m27n" path="res://Sprites/Gatos/Gato Lampara/Stun/Stund_6.png" id="45_i4edg"]
-[ext_resource type="Texture2D" uid="uid://c8vrr32x4p2h8" path="res://Sprites/Gatos/Gato Lampara/Stun/Stund_7.png" id="46_eamvo"]
-[ext_resource type="Texture2D" uid="uid://bp82jcncwvv17" path="res://Sprites/Gatos/Gato Lampara/Stun/Stund_8.png" id="47_ed8xu"]
-[ext_resource type="Texture2D" uid="uid://bjrq1pwo3hv67" path="res://Sprites/Gatos/Gato Lampara/Stun/Stund_9.png" id="48_bxmpd"]
-[ext_resource type="Texture2D" uid="uid://b4miys3efwmj5" path="res://Sprites/Gatos/Gato Lampara/Stun/Stund_10.png" id="49_bussr"]
-[ext_resource type="Texture2D" uid="uid://cn43n7wn3c0pi" path="res://Sprites/Gatos/Gato Lampara/Stun/Stund_11.png" id="50_tpuit"]
-[ext_resource type="Texture2D" uid="uid://di726ju43had" path="res://Sprites/Gatos/Gato Lampara/Stun/Stund_12.png" id="51_rg8hi"]
-[ext_resource type="Texture2D" uid="uid://c6ivbsns74sna" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_6.png" id="52_8igfr"]
-[ext_resource type="Texture2D" uid="uid://cnfax4kkp1e5v" path="res://Sprites/Gatos/Gato Lampara/Victoria/Victoria_7.png" id="53_dyoi3"]
+[ext_resource type="Texture2D" uid="uid://epturoc0id2" path="res://Sprites/Fondos/mesa.png" id="8_puv5b"]
+[ext_resource type="SpriteFrames" uid="uid://difwnevqurat5" path="res://RecursosGatos/Maingame_Miguel.tres" id="11_6wvjw"]
+[ext_resource type="Script" path="res://Escenas/Maingame/Pause.gd" id="19_7l8c4"]
+[ext_resource type="Texture2D" uid="uid://cwkdsu8upsbp0" path="res://Escenas/Menus/Imgs/boxTemplate.png" id="19_611d5"]
+[ext_resource type="PackedScene" uid="uid://l1ftaodoo155" path="res://Escenas/Menus/volSlider.tscn" id="20_kj8wq"]
+[ext_resource type="PackedScene" uid="uid://wdjwfpa5g8le" path="res://Escenas/Menus/txtBtn.tscn" id="21_43pne"]
+[ext_resource type="Texture2D" uid="uid://cekhhkb62r1bb" path="res://Sprites/Menu/BackButton.png" id="22_uh3vs"]
+[ext_resource type="AudioStream" uid="uid://ch424mgukemql" path="res://SFX/UI/back_button_sfx.wav" id="23_3xhxe"]
+[ext_resource type="Texture2D" uid="uid://c1278lmlowdcl" path="res://Sprites/Menu/PlayButton.png" id="24_ioci0"]
+[ext_resource type="Texture2D" uid="uid://bfi0qrx7f2qau" path="res://Sprites/Menu/OptionsButton.png" id="25_v75yl"]
+[ext_resource type="Texture2D" uid="uid://b3fkjs1sli64p" path="res://Escenas/Menus/Imgs/GatoMusica.png" id="27_l0qjl"]
+[ext_resource type="Texture2D" uid="uid://dpl78rr5af0au" path="res://Sprites/Menu/Chulito.png" id="28_a88xy"]
+[ext_resource type="Texture2D" uid="uid://dln0jeo1dnku" path="res://Sprites/Menu/SoundButtonFocused.png" id="28_l0jvb"]
+[ext_resource type="Script" path="res://Escenas/Menus/specialBtn.gd" id="29_15fdv"]
+[ext_resource type="Texture2D" uid="uid://boayuc7idcros" path="res://Sprites/Menu/X.png" id="31_fui1c"]
+[ext_resource type="Script" path="res://Escenas/Maingame/MultiControl.gd" id="60_hahn1"]
+[ext_resource type="AudioStream" uid="uid://d125kjwj283hf" path="res://Musica/tfcf_comida_v2.wav" id="62_3jfes"]
+[ext_resource type="Texture2D" uid="uid://c1vd6327w5erl" path="res://Sprites/QuickTimeEvent/telon.png" id="103_v3nfo"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_1yar0"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("10_b0fbt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_4bhyq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_d86bf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_eqr0p")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_43502")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_aefu4")
-}],
-"loop": false,
-"name": &"begin_derrota",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("16_bkq7m")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_cky2x")
-}],
-"loop": false,
-"name": &"begin_stun",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("18_uew4k")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_ercak")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_a5pyx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_wp8m4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_vfttn")
-}],
-"loop": false,
-"name": &"begin_victoria",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("23_jlbxw")
-}],
-"loop": false,
-"name": &"choke",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("24_k8k6x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_2gq73")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_k8k6x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_2gq73")
-}],
-"loop": true,
-"name": &"comer_fast",
-"speed": 16.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("26_2056y")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27_wppnc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_k8k6x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_2gq73")
-}, {
-"duration": 1.0,
-"texture": ExtResource("28_dummu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("29_0jr37")
-}],
-"loop": false,
-"name": &"comer_normal",
-"speed": 16.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("30_kubpa")
-}, {
-"duration": 1.0,
-"texture": ExtResource("31_sjdyf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("30_kubpa")
-}, {
-"duration": 1.0,
-"texture": ExtResource("31_sjdyf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("30_kubpa")
-}, {
-"duration": 1.0,
-"texture": ExtResource("31_sjdyf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("30_kubpa")
-}, {
-"duration": 1.0,
-"texture": ExtResource("31_sjdyf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("32_umiop")
-}, {
-"duration": 1.0,
-"texture": ExtResource("33_uemiq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("34_aqkun")
-}, {
-"duration": 1.0,
-"texture": ExtResource("35_qmjdb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("36_q5i15")
-}, {
-"duration": 1.0,
-"texture": ExtResource("37_ojr5m")
-}, {
-"duration": 1.0,
-"texture": ExtResource("38_htevi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("39_hqu5k")
-}, {
-"duration": 1.0,
-"texture": ExtResource("40_1nkka")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("41_gcycj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("29_0jr37")
-}],
-"loop": true,
-"name": &"loop_comer",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("14_43502")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_aefu4")
-}],
-"loop": true,
-"name": &"loop_derrota",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("42_h0jrt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("43_yfmei")
-}, {
-"duration": 1.0,
-"texture": ExtResource("44_g00jk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("45_i4edg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("46_eamvo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("47_ed8xu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("48_bxmpd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("49_bussr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("50_tpuit")
-}, {
-"duration": 1.0,
-"texture": ExtResource("51_rg8hi")
-}],
-"loop": true,
-"name": &"loop_stun",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("52_8igfr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("53_dyoi3")
-}],
-"loop": true,
-"name": &"loop_victoria",
-"speed": 8.0
-}]
+[sub_resource type="Animation" id="Animation_nagcy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Telon:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Telon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -776)]
+}
+
+[sub_resource type="Animation" id="Animation_f3wdh"]
+resource_name = "SubirTelon"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Telon:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Telon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -776)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6bily"]
+_data = {
+"RESET": SubResource("Animation_nagcy"),
+"SubirTelon": SubResource("Animation_f3wdh")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qee5i"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dauht"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_agpxu"]
+resource_local_to_scene = true
+draw_center = false
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c6lyl"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h1d8s"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1kv2o"]
+resource_local_to_scene = true
+draw_center = false
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nsxx5"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gapmp"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ssfo"]
+resource_local_to_scene = true
+draw_center = false
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6nbgu"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20y3f"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wruh1"]
+resource_local_to_scene = true
+draw_center = false
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v5qh3"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lv5l0"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i523k"]
+resource_local_to_scene = true
+draw_center = false
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tcudf"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ujsgi"]
+resource_local_to_scene = true
+bg_color = Color(0.301961, 0.27451, 0.278431, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6rpvu"]
+resource_local_to_scene = true
+draw_center = false
+shadow_color = Color(1, 1, 1, 1)
+shadow_size = 5
 
 [node name="Maingame" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_bpnxe")
+metadata/_edit_lock_ = true
 
-[node name="Fondo" type="Sprite2D" parent="."]
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Cielo" type="Sprite2D" parent="Background"]
 scale = Vector2(0.712, 0.712)
-texture = ExtResource("2_2njl2")
+texture = ExtResource("2_wtxbv")
 centered = false
 
-[node name="Deco" type="Sprite2D" parent="."]
+[node name="Fondo" type="Sprite2D" parent="Background"]
 scale = Vector2(0.712, 0.712)
-texture = ExtResource("3_4acqm")
+texture = ExtResource("3_d2i5e")
 centered = false
 
-[node name="Stage" type="Sprite2D" parent="."]
+[node name="Deco" type="Sprite2D" parent="Background"]
 scale = Vector2(0.712, 0.712)
-texture = ExtResource("4_jowbt")
+texture = ExtResource("4_huwv6")
 centered = false
 
-[node name="Cartel" type="Sprite2D" parent="."]
+[node name="Stage" type="Sprite2D" parent="Background"]
 scale = Vector2(0.712, 0.712)
-texture = ExtResource("5_spstp")
+texture = ExtResource("5_cg6i8")
 centered = false
 
-[node name="Sillas" type="Sprite2D" parent="."]
+[node name="Cartel" type="Sprite2D" parent="Background"]
 scale = Vector2(0.712, 0.712)
-texture = ExtResource("6_uffrh")
+texture = ExtResource("6_tdjgg")
+centered = false
+
+[node name="Sillas" type="Sprite2D" parent="Background"]
+scale = Vector2(0.712, 0.712)
+texture = ExtResource("7_wvtio")
 centered = false
 
 [node name="Mesa" type="Sprite2D" parent="."]
@@ -322,7 +218,7 @@ z_index = 1
 z_as_relative = false
 position = Vector2(-3, 14)
 scale = Vector2(0.712, 0.712)
-texture = ExtResource("7_mmh4e")
+texture = ExtResource("8_puv5b")
 centered = false
 
 [node name="comidas" parent="." instance=ExtResource("5_on172")]
@@ -331,46 +227,35 @@ z_as_relative = false
 position = Vector2(681, 384)
 metadata/_edit_lock_ = true
 
-[node name="Comandos" parent="." instance=ExtResource("2_wilsv")]
+[node name="ComandosP1" parent="." groups=["comandos_nodo_to_cpu"] instance=ExtResource("2_wilsv")]
+position = Vector2(209, 504)
+
+[node name="Gato" parent="ComandosP1" index="0"]
+position = Vector2(115, -290)
+scale = Vector2(0.7, 0.7)
+
+[node name="NamePlayer" parent="ComandosP1" index="8"]
+offset_left = 45.0
+offset_top = -65.0
+offset_right = 425.0
+offset_bottom = 16.0
+
+[node name="ComandosP2" parent="." instance=ExtResource("2_wilsv")]
 position = Vector2(640, 502)
 jugador = 2
 
-[node name="Gato" parent="Comandos" index="0"]
-position = Vector2(249, -220)
-sprite_frames = SubResource("SpriteFrames_1yar0")
-animation = &"loop_comer"
+[node name="Gato" parent="ComandosP2" index="0"]
+position = Vector2(77, -343)
+scale = Vector2(0.6, 0.6)
+sprite_frames = ExtResource("11_6wvjw")
+animation = &"loop_victoria"
+frame_progress = 0.23843
 
-[node name="NamePlayer" type="Label" parent="Comandos"]
-offset_left = 66.0
-offset_top = -65.0
-offset_right = 446.0
-offset_bottom = 16.0
-theme = ExtResource("8_3c2xy")
-text = "nombre largo que coloco"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-justification_flags = 0
-script = ExtResource("12_gw84n")
-
-[node name="Comandos2" parent="." groups=["comandos_nodo_to_cpu"] instance=ExtResource("2_wilsv")]
-position = Vector2(209, 504)
-metadata/_edit_lock_ = true
-
-[node name="Gato" parent="Comandos2" index="0"]
-position = Vector2(265, -163)
-scale = Vector2(0.587113, 0.611574)
-
-[node name="NamePlayer" type="Label" parent="Comandos2"]
-offset_left = 44.0
-offset_top = -65.0
-offset_right = 424.0
-offset_bottom = 16.0
-theme = ExtResource("8_3c2xy")
-text = "nombre largo que coloco"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("11_ecigq")
+[node name="NamePlayer" parent="ComandosP2" index="8"]
+offset_left = 79.0
+offset_top = -64.0
+offset_right = 459.0
+offset_bottom = 17.0
 
 [node name="QuickTimeEvent" parent="." instance=ExtResource("3_fvsyg")]
 z_index = 2
@@ -387,5 +272,517 @@ process_callback = 0
 script = ExtResource("5_864na")
 zoomFinal = Vector2(1.5, 1.5)
 
-[editable path="Comandos"]
-[editable path="Comandos2"]
+[node name="Telon" type="Sprite2D" parent="."]
+visible = false
+z_index = 5
+z_as_relative = false
+position = Vector2(0, -776)
+scale = Vector2(0.73, 0.73)
+texture = ExtResource("103_v3nfo")
+centered = false
+
+[node name="OnlineControl" type="Node" parent="." node_paths=PackedStringArray("comidas")]
+process_mode = 3
+script = ExtResource("60_hahn1")
+comidas = NodePath("../comidas")
+
+[node name="BgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("62_3jfes")
+autoplay = true
+bus = &"Music"
+
+[node name="ControlTelon" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6bily")
+}
+autoplay = "SubirTelon"
+
+[node name="Pause" type="TextureRect" parent="."]
+process_mode = 3
+z_index = 99
+clip_contents = true
+custom_minimum_size = Vector2(900, 400)
+offset_left = 230.0
+offset_top = 139.0
+offset_right = 1130.0
+offset_bottom = 675.0
+texture = ExtResource("19_611d5")
+script = ExtResource("19_7l8c4")
+
+[node name="DefaultContainer" type="MarginContainer" parent="Pause"]
+process_mode = 3
+visible = false
+layout_mode = 2
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 890.0
+offset_bottom = 526.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause/DefaultContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="Pause/DefaultContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 70
+text = "PAUSED!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionsContainer" type="MarginContainer" parent="Pause/DefaultContainer/VBoxContainer/Label"]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="OptionsPath" type="VBoxContainer" parent="Pause/DefaultContainer/VBoxContainer/Label/OptionsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Label" type="Label" parent="Pause/DefaultContainer/VBoxContainer/Label/OptionsContainer/OptionsPath"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 40
+text = "PAUSA!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="masterVolSlider" parent="Pause/DefaultContainer/VBoxContainer/Label/OptionsContainer/OptionsPath" instance=ExtResource("20_kj8wq")]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+label_bus = "Master volume"
+bus_name = "Master"
+
+[node name="muteBtn" parent="Pause/DefaultContainer/VBoxContainer/Label/OptionsContainer/OptionsPath/masterVolSlider" index="1"]
+focus_neighbor_bottom = NodePath("../../musicVolSlider/muteBtn")
+
+[node name="HSlider" parent="Pause/DefaultContainer/VBoxContainer/Label/OptionsContainer/OptionsPath/masterVolSlider" index="2"]
+scrollable = false
+
+[node name="volEdit" parent="Pause/DefaultContainer/VBoxContainer/Label/OptionsContainer/OptionsPath/masterVolSlider" index="3"]
+focus_next = NodePath("../../musicVolSlider/muteBtn")
+
+[node name="musicVolSlider" parent="Pause/DefaultContainer/VBoxContainer/Label/OptionsContainer/OptionsPath" instance=ExtResource("20_kj8wq")]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+label_bus = "Music"
+bus_name = "Music"
+
+[node name="muteBtn" parent="Pause/DefaultContainer/VBoxContainer/Label/OptionsContainer/OptionsPath/musicVolSlider" index="1"]
+focus_neighbor_top = NodePath("../../masterVolSlider/muteBtn")
+focus_neighbor_bottom = NodePath("../../sfxVolSlider/muteBtn")
+
+[node name="volEdit" parent="Pause/DefaultContainer/VBoxContainer/Label/OptionsContainer/OptionsPath/musicVolSlider" index="3"]
+focus_next = NodePath("../../sfxVolSlider/muteBtn")
+
+[node name="sfxVolSlider" parent="Pause/DefaultContainer/VBoxContainer/Label/OptionsContainer/OptionsPath" instance=ExtResource("20_kj8wq")]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+label_bus = "Sound FX"
+bus_name = "SFX"
+
+[node name="muteBtn" parent="Pause/DefaultContainer/VBoxContainer/Label/OptionsContainer/OptionsPath/sfxVolSlider" index="1"]
+focus_neighbor_top = NodePath("../../musicVolSlider/muteBtn")
+
+[node name="volEdit" parent="Pause/DefaultContainer/VBoxContainer/Label/OptionsContainer/OptionsPath/sfxVolSlider" index="3"]
+focus_next = NodePath("../../optionsPathBack")
+
+[node name="optionsPathBack" parent="Pause/DefaultContainer/VBoxContainer/Label/OptionsContainer/OptionsPath" instance=ExtResource("21_43pne")]
+layout_mode = 2
+size_flags_stretch_ratio = 0.8
+theme_override_styles/normal = SubResource("StyleBoxFlat_qee5i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dauht")
+theme_override_styles/focus = SubResource("StyleBoxFlat_agpxu")
+icon = ExtResource("22_uh3vs")
+btnText = "Go back"
+
+[node name="Label" parent="Pause/DefaultContainer/VBoxContainer/Label/OptionsContainer/OptionsPath/optionsPathBack" index="0"]
+anchor_left = 0.558
+anchor_top = 0.513
+anchor_right = 0.558
+anchor_bottom = 0.513
+offset_left = -384.272
+offset_top = -51.969
+offset_right = 391.728
+offset_bottom = 52.031
+pivot_offset = Vector2(388, 52)
+
+[node name="ButtonPress" parent="Pause/DefaultContainer/VBoxContainer/Label/OptionsContainer/OptionsPath/optionsPathBack" index="2"]
+stream = ExtResource("23_3xhxe")
+
+[node name="continueBtn" parent="Pause/DefaultContainer/VBoxContainer" instance=ExtResource("21_43pne")]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_bottom = NodePath("../optionsBtn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_c6lyl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h1d8s")
+theme_override_styles/focus = SubResource("StyleBoxFlat_1kv2o")
+icon = ExtResource("24_ioci0")
+btnText = "Continue"
+
+[node name="Label" parent="Pause/DefaultContainer/VBoxContainer/continueBtn" index="0"]
+anchor_left = 0.592
+anchor_right = 0.592
+offset_left = -206.0
+offset_top = -48.5
+offset_right = 206.0
+offset_bottom = 48.5
+pivot_offset = Vector2(206, 48)
+
+[node name="optionsBtn" parent="Pause/DefaultContainer/VBoxContainer" instance=ExtResource("21_43pne")]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../continueBtn")
+focus_neighbor_bottom = NodePath("../mainMenuBtn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nsxx5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gapmp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_3ssfo")
+icon = ExtResource("25_v75yl")
+btnText = "Options"
+
+[node name="Label" parent="Pause/DefaultContainer/VBoxContainer/optionsBtn" index="0"]
+anchor_left = 0.59
+anchor_right = 0.59
+offset_left = -204.0
+offset_top = -47.5
+offset_right = 204.0
+offset_bottom = 46.5
+pivot_offset = Vector2(204, 47)
+
+[node name="mainMenuBtn" parent="Pause/DefaultContainer/VBoxContainer" instance=ExtResource("21_43pne")]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../optionsBtn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_6nbgu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_20y3f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_wruh1")
+icon = ExtResource("22_uh3vs")
+btnText = "Main Menu"
+
+[node name="Label" parent="Pause/DefaultContainer/VBoxContainer/mainMenuBtn" index="0"]
+anchor_left = 0.59
+anchor_top = 0.505
+anchor_right = 0.59
+anchor_bottom = 0.505
+offset_left = -204.0
+offset_top = -47.975
+offset_right = 204.0
+offset_bottom = 48.025
+pivot_offset = Vector2(204, 48)
+
+[node name="ConfigContainer" type="MarginContainer" parent="Pause"]
+process_mode = 3
+visible = false
+layout_mode = 2
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 895.0
+offset_bottom = 531.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 95
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 105
+theme_override_constants/margin_bottom = 45
+
+[node name="OptionsPath" type="VBoxContainer" parent="Pause/ConfigContainer"]
+layout_mode = 2
+theme_override_constants/separation = 22
+alignment = 1
+
+[node name="Label" type="Label" parent="Pause/ConfigContainer/OptionsPath"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 70
+text = "PAUSED!       "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="masterVolSlider" parent="Pause/ConfigContainer/OptionsPath" instance=ExtResource("20_kj8wq")]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+label_bus = "Master volume"
+bus_name = "Master"
+
+[node name="muteBtn" parent="Pause/ConfigContainer/OptionsPath/masterVolSlider" index="1"]
+focus_neighbor_bottom = NodePath("../../musicVolSlider/muteBtn")
+
+[node name="HSlider" parent="Pause/ConfigContainer/OptionsPath/masterVolSlider" index="2"]
+scrollable = false
+
+[node name="volEdit" parent="Pause/ConfigContainer/OptionsPath/masterVolSlider" index="3"]
+focus_next = NodePath("../../musicVolSlider/muteBtn")
+
+[node name="musicVolSlider" parent="Pause/ConfigContainer/OptionsPath" instance=ExtResource("20_kj8wq")]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+label_bus = "Music"
+bus_name = "Music"
+
+[node name="muteBtn" parent="Pause/ConfigContainer/OptionsPath/musicVolSlider" index="1"]
+focus_neighbor_top = NodePath("../../masterVolSlider/muteBtn")
+focus_neighbor_bottom = NodePath("../../sfxVolSlider/muteBtn")
+
+[node name="volEdit" parent="Pause/ConfigContainer/OptionsPath/musicVolSlider" index="3"]
+focus_next = NodePath("../../sfxVolSlider/muteBtn")
+
+[node name="sfxVolSlider" parent="Pause/ConfigContainer/OptionsPath" instance=ExtResource("20_kj8wq")]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+label_bus = "Sound FX"
+bus_name = "SFX"
+
+[node name="muteBtn" parent="Pause/ConfigContainer/OptionsPath/sfxVolSlider" index="1"]
+focus_neighbor_top = NodePath("../../musicVolSlider/muteBtn")
+
+[node name="volEdit" parent="Pause/ConfigContainer/OptionsPath/sfxVolSlider" index="3"]
+focus_next = NodePath("../../optionsPauseBack")
+
+[node name="optionsPauseBack" parent="Pause/ConfigContainer/OptionsPath" instance=ExtResource("21_43pne")]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.8
+theme_override_styles/normal = SubResource("StyleBoxFlat_v5qh3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lv5l0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_i523k")
+icon = ExtResource("22_uh3vs")
+btnText = "Go back"
+
+[node name="Label" parent="Pause/ConfigContainer/OptionsPath/optionsPauseBack" index="0"]
+anchor_left = 0.603
+anchor_top = 0.505
+anchor_right = 0.603
+anchor_bottom = 0.505
+offset_left = -211.5
+offset_top = -48.975
+offset_right = 199.5
+offset_bottom = 47.025
+pivot_offset = Vector2(199, 54)
+
+[node name="ButtonPress" parent="Pause/ConfigContainer/OptionsPath/optionsPauseBack" index="2"]
+stream = ExtResource("23_3xhxe")
+
+[node name="GatoMusica" type="Sprite2D" parent="Pause/ConfigContainer"]
+position = Vector2(588.5, 85)
+texture = ExtResource("27_l0qjl")
+flip_h = true
+
+[node name="ConfirmContainer" type="MarginContainer" parent="Pause"]
+process_mode = 3
+layout_mode = 2
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 890.0
+offset_bottom = 526.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause/ConfirmContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="Pause/ConfirmContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 70
+text = "CONFIRM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionsContainer" type="MarginContainer" parent="Pause/ConfirmContainer/VBoxContainer/Label"]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="OptionsPath" type="VBoxContainer" parent="Pause/ConfirmContainer/VBoxContainer/Label/OptionsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Label" type="Label" parent="Pause/ConfirmContainer/VBoxContainer/Label/OptionsContainer/OptionsPath"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.780392, 0.47451, 0.270588, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 40
+text = "PAUSA!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="masterVolSlider" parent="Pause/ConfirmContainer/VBoxContainer/Label/OptionsContainer/OptionsPath" instance=ExtResource("20_kj8wq")]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+label_bus = "Master volume"
+bus_name = "Master"
+
+[node name="muteBtn" parent="Pause/ConfirmContainer/VBoxContainer/Label/OptionsContainer/OptionsPath/masterVolSlider" index="1"]
+focus_neighbor_bottom = NodePath("../../musicVolSlider/muteBtn")
+
+[node name="HSlider" parent="Pause/ConfirmContainer/VBoxContainer/Label/OptionsContainer/OptionsPath/masterVolSlider" index="2"]
+scrollable = false
+
+[node name="volEdit" parent="Pause/ConfirmContainer/VBoxContainer/Label/OptionsContainer/OptionsPath/masterVolSlider" index="3"]
+focus_next = NodePath("../../musicVolSlider/muteBtn")
+
+[node name="musicVolSlider" parent="Pause/ConfirmContainer/VBoxContainer/Label/OptionsContainer/OptionsPath" instance=ExtResource("20_kj8wq")]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+label_bus = "Music"
+bus_name = "Music"
+
+[node name="muteBtn" parent="Pause/ConfirmContainer/VBoxContainer/Label/OptionsContainer/OptionsPath/musicVolSlider" index="1"]
+focus_neighbor_top = NodePath("../../masterVolSlider/muteBtn")
+focus_neighbor_bottom = NodePath("../../sfxVolSlider/muteBtn")
+
+[node name="volEdit" parent="Pause/ConfirmContainer/VBoxContainer/Label/OptionsContainer/OptionsPath/musicVolSlider" index="3"]
+focus_next = NodePath("../../sfxVolSlider/muteBtn")
+
+[node name="sfxVolSlider" parent="Pause/ConfirmContainer/VBoxContainer/Label/OptionsContainer/OptionsPath" instance=ExtResource("20_kj8wq")]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+label_bus = "Sound FX"
+bus_name = "SFX"
+
+[node name="muteBtn" parent="Pause/ConfirmContainer/VBoxContainer/Label/OptionsContainer/OptionsPath/sfxVolSlider" index="1"]
+focus_neighbor_top = NodePath("../../musicVolSlider/muteBtn")
+
+[node name="volEdit" parent="Pause/ConfirmContainer/VBoxContainer/Label/OptionsContainer/OptionsPath/sfxVolSlider" index="3"]
+focus_next = NodePath("../../optionsPathBack")
+
+[node name="optionsPathBack" parent="Pause/ConfirmContainer/VBoxContainer/Label/OptionsContainer/OptionsPath" instance=ExtResource("21_43pne")]
+layout_mode = 2
+size_flags_stretch_ratio = 0.8
+theme_override_styles/normal = SubResource("StyleBoxFlat_tcudf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ujsgi")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6rpvu")
+icon = ExtResource("22_uh3vs")
+btnText = "Go back"
+
+[node name="Label" parent="Pause/ConfirmContainer/VBoxContainer/Label/OptionsContainer/OptionsPath/optionsPathBack" index="0"]
+anchor_left = 0.558
+anchor_top = 0.513
+anchor_right = 0.558
+anchor_bottom = 0.513
+offset_left = -384.272
+offset_top = -51.969
+offset_right = 391.728
+offset_bottom = 52.031
+pivot_offset = Vector2(388, 52)
+
+[node name="ButtonPress" parent="Pause/ConfirmContainer/VBoxContainer/Label/OptionsContainer/OptionsPath/optionsPathBack" index="2"]
+stream = ExtResource("23_3xhxe")
+
+[node name="Label2" type="Label" parent="Pause/ConfirmContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Are you sure?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pause/ConfirmContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="ConfirmBtn" type="TextureButton" parent="Pause/ConfirmContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+focus_neighbor_right = NodePath("../DenyBtn")
+focus_neighbor_bottom = NodePath("../DenyBtn")
+texture_normal = ExtResource("28_a88xy")
+texture_focused = ExtResource("28_l0jvb")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("29_15fdv")
+
+[node name="DenyBtn" type="TextureButton" parent="Pause/ConfirmContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+focus_neighbor_left = NodePath("../ConfirmBtn")
+focus_neighbor_top = NodePath("../ConfirmBtn")
+texture_normal = ExtResource("31_fui1c")
+texture_focused = ExtResource("28_l0jvb")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("29_15fdv")
+
+[connection signal="pressed" from="Pause/DefaultContainer/VBoxContainer/continueBtn" to="Pause" method="_on_continue_btn_pressed"]
+[connection signal="pressed" from="Pause/DefaultContainer/VBoxContainer/optionsBtn" to="Pause" method="_on_options_btn_pressed"]
+[connection signal="pressed" from="Pause/DefaultContainer/VBoxContainer/mainMenuBtn" to="Pause" method="_on_main_menu_btn_pressed"]
+[connection signal="pressed" from="Pause/ConfigContainer/OptionsPath/optionsPauseBack" to="Pause" method="_on_options_pause_back_pressed"]
+[connection signal="pressed" from="Pause/ConfirmContainer/VBoxContainer/HBoxContainer/ConfirmBtn" to="Pause" method="_on_confirm_btn_pressed"]
+[connection signal="pressed" from="Pause/ConfirmContainer/VBoxContainer/HBoxContainer/DenyBtn" to="Pause" method="_on_deny_btn_pressed"]
+
+[editable path="ComandosP1"]
+[editable path="ComandosP2"]
+[editable path="Pause/DefaultContainer/VBoxContainer/Label/OptionsContainer/OptionsPath/masterVolSlider"]
+[editable path="Pause/DefaultContainer/VBoxContainer/Label/OptionsContainer/OptionsPath/musicVolSlider"]
+[editable path="Pause/DefaultContainer/VBoxContainer/Label/OptionsContainer/OptionsPath/sfxVolSlider"]
+[editable path="Pause/DefaultContainer/VBoxContainer/Label/OptionsContainer/OptionsPath/optionsPathBack"]
+[editable path="Pause/DefaultContainer/VBoxContainer/continueBtn"]
+[editable path="Pause/DefaultContainer/VBoxContainer/optionsBtn"]
+[editable path="Pause/DefaultContainer/VBoxContainer/mainMenuBtn"]
+[editable path="Pause/ConfigContainer/OptionsPath/masterVolSlider"]
+[editable path="Pause/ConfigContainer/OptionsPath/musicVolSlider"]
+[editable path="Pause/ConfigContainer/OptionsPath/sfxVolSlider"]
+[editable path="Pause/ConfigContainer/OptionsPath/optionsPauseBack"]
+[editable path="Pause/ConfirmContainer/VBoxContainer/Label/OptionsContainer/OptionsPath/masterVolSlider"]
+[editable path="Pause/ConfirmContainer/VBoxContainer/Label/OptionsContainer/OptionsPath/musicVolSlider"]
+[editable path="Pause/ConfirmContainer/VBoxContainer/Label/OptionsContainer/OptionsPath/sfxVolSlider"]
+[editable path="Pause/ConfirmContainer/VBoxContainer/Label/OptionsContainer/OptionsPath/optionsPathBack"]

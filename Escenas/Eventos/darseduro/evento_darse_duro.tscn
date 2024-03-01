@@ -1,31 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://qc207m1uyidi"]
+[gd_scene load_steps=4 format=3 uid="uid://qc207m1uyidi"]
 
 [ext_resource type="Script" path="res://Escenas/Eventos/darseduro/evento_darse_duro.gd" id="1_gmxqv"]
 [ext_resource type="PackedScene" uid="uid://fkqmi5o8tqo5" path="res://Escenas/Eventos/darseduro/gato.tscn" id="1_k6i8i"]
-[ext_resource type="Texture2D" uid="uid://dgo31h2pgnn1c" path="res://Sprites/Gatos/Gato Lampara/Pelea/cabeza aplastada.png" id="3_7m4vb"]
-[ext_resource type="Texture2D" uid="uid://f6aq1o2gsg3l" path="res://Sprites/Gatos/Gato Lampara/Pelea/cabeza.png" id="4_e6r0g"]
-[ext_resource type="Texture2D" uid="uid://c5eke5n4jq0fe" path="res://Sprites/Gatos/Gato Lampara/Pelea/Tordo.png" id="5_ara6r"]
-[ext_resource type="Texture2D" uid="uid://06ewbyb62nbi" path="res://Sprites/Gatos/Gato Lampara/Pelea/Puño.png" id="6_35ucf"]
-[ext_resource type="Texture2D" uid="uid://bvcmj27m3cp0i" path="res://Sprites/Fondos/bggame5.png" id="7_48ro4"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_e1apl"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_7m4vb")
-}],
-"loop": true,
-"name": &"bonk",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_e6r0g")
-}],
-"loop": true,
-"name": &"normal",
-"speed": 5.0
-}]
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_a34pm"]
+properties/0/path = NodePath("Gato:random_offset")
+properties/0/spawn = false
+properties/0/replication_mode = 0
+properties/1/path = NodePath("Gato2:random_offset")
+properties/1/spawn = false
+properties/1/replication_mode = 0
 
 [node name="EventoDarseDuro" type="Node2D"]
 script = ExtResource("1_gmxqv")
@@ -33,47 +17,11 @@ script = ExtResource("1_gmxqv")
 [node name="Gato" parent="." instance=ExtResource("1_k6i8i")]
 z_as_relative = false
 position = Vector2(561, 260)
-metadata/_edit_group_ = true
-
-[node name="Label" parent="Gato" index="0"]
-offset_left = -110.0
-offset_right = 105.0
-offset_bottom = 268.615
-metadata/_edit_use_anchors_ = true
-
-[node name="CollisionShape2D" parent="Gato/sprPadre/Cabeza" index="1"]
-position = Vector2(-0.769231, 16.9231)
-
-[node name="SprPata" parent="Gato/sprPadre/Pata" index="0"]
-z_index = 1
 
 [node name="Gato2" parent="." instance=ExtResource("1_k6i8i")]
 z_as_relative = false
 position = Vector2(862, 260)
 jugador = 2
-
-[node name="Label" parent="Gato2" index="0"]
-offset_left = -110.0
-offset_right = 105.0
-offset_bottom = 268.615
-metadata/_edit_use_anchors_ = true
-
-[node name="SprCuerpo" parent="Gato2/sprPadre" index="0"]
-texture = ExtResource("5_ara6r")
-
-[node name="Cabeza" parent="Gato2/sprPadre" index="1"]
-position = Vector2(-20, -15.3846)
-
-[node name="SprCabeza" parent="Gato2/sprPadre/Cabeza" index="0"]
-sprite_frames = SubResource("SpriteFrames_e1apl")
-
-[node name="SprPata" parent="Gato2/sprPadre/Pata" index="0"]
-z_index = 1
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("6_35ucf")
-
-[node name="Marker2D2" parent="Gato2/sprPadre" index="5"]
-position = Vector2(-20, 56.1538)
 
 [node name="TimerFinalizarEvento" type="Timer" parent="."]
 process_callback = 0
@@ -81,17 +29,8 @@ wait_time = 18.0
 one_shot = true
 autostart = true
 
-[node name="Mesa" type="Sprite2D" parent="."]
-visible = false
-z_index = 1
-z_as_relative = false
-position = Vector2(-3, 14)
-scale = Vector2(0.712, 0.712)
-texture = ExtResource("7_48ro4")
-centered = false
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_a34pm")
 
 [connection signal="p2_can_hit" from="Gato2" to="." method="relay_p2_can_hit"]
 [connection signal="timeout" from="TimerFinalizarEvento" to="." method="_on_timer_finalizar_evento_timeout"]
-
-[editable path="Gato"]
-[editable path="Gato2"]

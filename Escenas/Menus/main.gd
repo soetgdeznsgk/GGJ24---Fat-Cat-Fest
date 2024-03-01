@@ -148,7 +148,8 @@ func _on_mp_btn_pressed():
 	Names.generar_nombres()
 	get_tree().change_scene_to_file("res://Escenas/Maingame/Versus.tscn")
 	
-func _on_ol_btn_pressed(): change_path("OnlinePath")
+func _on_ol_btn_pressed(): 
+	bocadillo.displayText({"text" : "Soon™", "time" : 3.0, "fontSize": 28 })
 
 func _on_create_btn_pressed(): 
 	$OLConfig/HostOptions/CreateBtn.disabled = true

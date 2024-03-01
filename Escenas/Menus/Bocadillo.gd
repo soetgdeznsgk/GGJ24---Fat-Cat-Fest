@@ -3,7 +3,7 @@ extends TextureRect
 @onready var label = $MarginContainer/Label
 @onready var animP = $AnimationPlayer 
 
-func displayText(params = {"text" = "empty text", "time" = 1.0, "fontSize" = 28 }):
+func displayText(params = {"text" : "empty text", "time" : 1.0, "fontSize" : 28 }):
 	label.text= params["text"]
 	label.add_theme_font_size_override("font_size",params["fontSize"])
 	animP.play("appear")

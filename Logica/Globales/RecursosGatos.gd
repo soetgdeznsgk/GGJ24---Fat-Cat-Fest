@@ -3,7 +3,7 @@ extends Node
 #VALORES DEFAULT
 #TODO: CAMBIAR ESTAS GLOBALES DESDE LA PJ SELECTION SCREEN
 var catSelectionP1 : String = "Timmy" 
-var catSelectionP2 : String = "Timmy"
+var catSelectionP2 : String = "Miguel"
 
 @onready var recursos = {
 	"Timmy" : {

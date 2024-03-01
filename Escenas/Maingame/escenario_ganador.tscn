@@ -288,7 +288,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 justification_flags = 0
 visible_characters = 0
-visible_ratio = 0.16
+visible_ratio = 0.0
 
 [node name="LabelNombre" type="Label" parent="."]
 z_index = 1

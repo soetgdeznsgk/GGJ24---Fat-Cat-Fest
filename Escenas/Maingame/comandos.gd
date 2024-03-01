@@ -241,6 +241,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 func pausarProcesos():
 	inputArray.clear() # clearear buffer de inputs
+	playerLabel.visible = false
 	Eventos.isThereAnEvent = true
 	procesosPausados = true
 	spriteGato.visible = false
@@ -250,6 +251,7 @@ func pausarProcesos():
 func reanudarProcesos(ganador):
 	# Esperar que el telon se vaya
 	await get_tree().create_timer(3).timeout
+	playerLabel.visible = true
 	Eventos.isThereAnEvent = false
 	#Si se stunea:
 	if ganador == jugador or ganador == 0:

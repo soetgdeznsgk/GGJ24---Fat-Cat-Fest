@@ -61,9 +61,7 @@ func _ready() -> void:
 		diccionarioInputs[Enums.Abajo]  = "AbajoPj1"
 		
 	$sprPadre.scale.x *= -1 if jugador == 2 else 1
-	$Label.text = Names.name_player2 if jugador == 2 else Names.name_player1
 	$arrow.position.x *= -1 if jugador == 2 else 1
-	$Label.modulate = Color("#F2DF6F") if jugador == 2 else Color("#88D662")
 	
 	Eventos.enviarInput.connect(recibir_nuevo_input)
 

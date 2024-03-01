@@ -27,6 +27,8 @@ func finJuego(_ganador):
 	anim.play("fin_juego")
 
 func tiempoAleatorio():
+	# TEST 
+	#return 5
 	if Eventos.singleplayer:
 		match Eventos.cpuDiff:
 			1:
@@ -58,7 +60,7 @@ func _on_timer_timeout():
 	#logica de cambio de evento
 	selection = randi_range(0,listaEventos.size() - 1)
 	# TEST
-	#selection = 1
+	#selection = 2
 	if selection == ultimoEvento:
 		if selection < 2:
 			selection += 1

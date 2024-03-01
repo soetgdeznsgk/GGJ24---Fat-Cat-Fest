@@ -322,24 +322,22 @@ texture = ExtResource("4_4vkfi")
 [node name="Label" type="Label" parent="."]
 offset_left = 267.0
 offset_top = 454.0
-offset_right = 631.0
-offset_bottom = 499.0
+offset_right = 647.0
+offset_bottom = 535.0
 theme = ExtResource("6_22ykq")
-text = "PLAYER : X"
+text = "nombre largo que coloco"
 horizontal_alignment = 1
 vertical_alignment = 1
-justification_flags = 0
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 731.0
-offset_top = 457.0
-offset_right = 1095.0
-offset_bottom = 502.0
+offset_left = 719.0
+offset_top = 454.0
+offset_right = 1099.0
+offset_bottom = 535.0
 theme = ExtResource("6_22ykq")
-text = "PLAYER : X"
+text = "nombre largo que coloco"
 horizontal_alignment = 1
 vertical_alignment = 1
-justification_flags = 0
 
 [node name="AudioPlayerGatos" type="AudioStreamPlayer" parent="."]
 max_polyphony = 2

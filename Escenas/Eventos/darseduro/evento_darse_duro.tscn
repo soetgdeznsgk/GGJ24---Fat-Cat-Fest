@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://qc207m1uyidi"]
+[gd_scene load_steps=5 format=3 uid="uid://qc207m1uyidi"]
 
 [ext_resource type="Script" path="res://Escenas/Eventos/darseduro/evento_darse_duro.gd" id="1_gmxqv"]
 [ext_resource type="PackedScene" uid="uid://fkqmi5o8tqo5" path="res://Escenas/Eventos/darseduro/gato.tscn" id="1_k6i8i"]
+[ext_resource type="Theme" uid="uid://v28k7lh33uhi" path="res://Escenas/Maingame/themeNameTags.tres" id="4_u3bqn"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_a34pm"]
 properties/0/path = NodePath("Gato:random_offset")
@@ -18,10 +19,16 @@ script = ExtResource("1_gmxqv")
 z_as_relative = false
 position = Vector2(561, 260)
 
+[node name="VidaSprite" parent="Gato" index="5"]
+position = Vector2(-75.3846, 232.308)
+
 [node name="Gato2" parent="." instance=ExtResource("1_k6i8i")]
 z_as_relative = false
 position = Vector2(862, 260)
 jugador = 2
+
+[node name="VidaSprite" parent="Gato2" index="5"]
+position = Vector2(51.5385, 230.769)
 
 [node name="TimerFinalizarEvento" type="Timer" parent="."]
 process_callback = 0
@@ -32,5 +39,28 @@ autostart = true
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_a34pm")
 
+[node name="Label" type="Label" parent="."]
+offset_left = 267.0
+offset_top = 454.0
+offset_right = 647.0
+offset_bottom = 535.0
+theme = ExtResource("4_u3bqn")
+text = "nombre largo que coloco"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 719.0
+offset_top = 454.0
+offset_right = 1099.0
+offset_bottom = 535.0
+theme = ExtResource("4_u3bqn")
+text = "nombre largo que coloco"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="p2_can_hit" from="Gato2" to="." method="relay_p2_can_hit"]
 [connection signal="timeout" from="TimerFinalizarEvento" to="." method="_on_timer_finalizar_evento_timeout"]
+
+[editable path="Gato"]
+[editable path="Gato2"]

@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bbx7yskj14jdm"]
+[gd_scene load_steps=8 format=3 uid="uid://bbx7yskj14jdm"]
 
 [ext_resource type="Script" path="res://Escenas/Maingame/comandos.gd" id="1_k17g7"]
 [ext_resource type="SpriteFrames" uid="uid://cyaxk0781m4d7" path="res://RecursosGatos/Maingame_Timmy.tres" id="2_ea2pn"]
 [ext_resource type="Theme" uid="uid://v28k7lh33uhi" path="res://Escenas/Maingame/themeNameTags.tres" id="3_6kd42"]
-[ext_resource type="Script" path="res://Escenas/Maingame/NamePlayer1.gd" id="4_ihhwp"]
 
 [sub_resource type="Animation" id="Animation_rhm6t"]
 length = 0.001
@@ -309,7 +308,6 @@ theme = ExtResource("3_6kd42")
 text = "nombre largo que coloco"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("4_ihhwp")
 
 [connection signal="animation_finished" from="Gato" to="." method="_on_gato_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

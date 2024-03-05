@@ -196,5 +196,5 @@ libraries = {
 
 [connection signal="frame_changed" from="Gato1" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="finished" from="AudioPlayer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="finished" from="AudioPlayer" to="." method="_on_audio_player_finished"]
+[connection signal="finished" from="AudioPlayer" to="." method="_on_audio_stream_player_finished"]

@@ -1,0 +1,92 @@
+[gd_scene load_steps=15 format=3 uid="uid://d2wktr6x4vntn"]
+
+[ext_resource type="Texture2D" uid="uid://8ghf3slrnybo" path="res://Sprites/Comandos/FlechaIzquierda.png" id="1_65s76"]
+[ext_resource type="Texture2D" uid="uid://d134kx03wcrga" path="res://Sprites/Gatos/Miguel/Idle/Idle_1.png" id="1_m4oov"]
+[ext_resource type="Texture2D" uid="uid://d1gv302xw61m1" path="res://Sprites/Gatos/Miguel/Idle/Idle_2.png" id="2_063g2"]
+[ext_resource type="Texture2D" uid="uid://bsfarbyogdekf" path="res://Sprites/Comandos/FlechaDerecha.png" id="2_sy2xl"]
+[ext_resource type="Texture2D" uid="uid://bel2o6m0diuru" path="res://Sprites/Gatos/Miguel/Idle/Idle_3.png" id="3_u7n28"]
+[ext_resource type="Texture2D" uid="uid://2l0pn6n810b" path="res://Sprites/Gatos/Miguel/Idle/Idle_4.png" id="4_12uxy"]
+[ext_resource type="Texture2D" uid="uid://cd6mqxe0of0mn" path="res://Sprites/Gatos/Miguel/Idle/Idle_5.png" id="5_edk6g"]
+[ext_resource type="Texture2D" uid="uid://cse2fj3nt6ayc" path="res://Sprites/Gatos/Miguel/Idle/Idle_6.png" id="6_h0fvh"]
+[ext_resource type="Texture2D" uid="uid://dn5fhcwtvdwun" path="res://Sprites/Gatos/Miguel/Idle/Idle_7.png" id="7_orbpn"]
+[ext_resource type="Texture2D" uid="uid://im75n6tag7yg" path="res://Sprites/Gatos/Miguel/Idle/Idle_8.png" id="8_qnleu"]
+[ext_resource type="Texture2D" uid="uid://bfftcxv04s40m" path="res://Sprites/Gatos/Miguel/Idle/Idle_9.png" id="9_61dcp"]
+[ext_resource type="Texture2D" uid="uid://b3w1bv578ngg3" path="res://Sprites/Gatos/Miguel/Idle/Idle_10.png" id="10_h2inn"]
+[ext_resource type="Texture2D" uid="uid://druhpvn6xe83i" path="res://Sprites/Gatos/Miguel/Idle/Idle_11.png" id="11_5282e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fflkw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_m4oov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_063g2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u7n28")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_12uxy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_edk6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_h0fvh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_orbpn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qnleu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_61dcp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_h2inn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_5282e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Seleccion-pj" type="Node2D"]
+
+[node name="SelectorGato1" type="Node2D" parent="."]
+position = Vector2(318, 350)
+metadata/_edit_group_ = true
+
+[node name="Gato1" type="AnimatedSprite2D" parent="SelectorGato1"]
+sprite_frames = SubResource("SpriteFrames_fflkw")
+
+[node name="FlechaIzquierda" type="Sprite2D" parent="SelectorGato1"]
+position = Vector2(-200, 100)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_65s76")
+
+[node name="FlechaDerecha" type="Sprite2D" parent="SelectorGato1"]
+position = Vector2(200, 100)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_sy2xl")
+
+[node name="SelectorGato2" type="Node2D" parent="."]
+position = Vector2(977, 364)
+metadata/_edit_group_ = true
+
+[node name="Gato1" type="AnimatedSprite2D" parent="SelectorGato2"]
+sprite_frames = SubResource("SpriteFrames_fflkw")
+
+[node name="FlechaIzquierda" type="Sprite2D" parent="SelectorGato2"]
+position = Vector2(-200, 100)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_65s76")
+
+[node name="FlechaDerecha" type="Sprite2D" parent="SelectorGato2"]
+position = Vector2(200, 100)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_sy2xl")

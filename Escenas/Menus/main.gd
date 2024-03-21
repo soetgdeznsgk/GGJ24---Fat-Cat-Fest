@@ -157,37 +157,57 @@ func _on_create_btn_pressed():
 	Eventos.singleplayer = false
 	Eventos.multiOnline = true
 	MultiplayerControl.isHost = true
-	var server = MatchaRoom.create_server_room()
-	var code = server.id
-	DisplayServer.clipboard_set(code)
-	$OLConfig/HostOptions/CopyCode.text = code
-	# FUCK BOCADILLO DONT SIRVE
-	# bocadillo.displayText({"text" : "Copied!", "time":3})
+	var code = 'test'
+	$HolePunch.start_traversal(code, true, 'hoster')
 	
-	multiplayer.multiplayer_peer = server
-	server.peer_joined.connect(func(_id: int, peer: MatchaPeer):
-		var tt = "[Server] Peer joined (id=%s)\n and with id int =%s" % [peer.id,_id]
-		print(tt)
-		peer.on_event("loaded", self.loaded_peer.bind())
-	)
+	
+	#var server = MatchaRoom.create_server_room()
+	#var code = server.id
+	#DisplayServer.clipboard_set(code)
+	#$OLConfig/HostOptions/CopyCode.text = code
+	## FUCK BOCADILLO DONT SIRVE
+	## bocadillo.displayText({"text" : "Copied!", "time":3})
+	#
+	#multiplayer.multiplayer_peer = server
+	#server.peer_joined.connect(func(_id: int, peer: MatchaPeer):
+		#var tt = "[Server] Peer joined (id=%s)\n and with id int =%s" % [peer.id,_id]
+		#print(tt)
+		#peer.on_event("loaded", self.loaded_peer.bind())
+	#)
+	
 
 func _on_join_btn_pressed():
 	$OLConfig/PeerOptions/JoinBtn.disabled = true
 	Eventos.singleplayer = false
 	Eventos.multiOnline = true
-	MultiplayerControl.address = pasteCodeLabel.text
-	var client := MatchaRoom.create_client_room(MultiplayerControl.address) # Client must know the room id
-	client.peer_joined.connect(func(_id: int, peer: MatchaPeer):
-		var tt = "[CLIENT] Peer joined (id=%s)\n and with id int =%s" % [peer.id,_id]
-		print(tt)
-	)
-	await get_tree().create_timer(5).timeout
-	multiplayer.multiplayer_peer = client
-	
-	client.send_event("loaded")
-
+	var code = 'test'
+	$HolePunch.start_traversal(code, false, 'clienter')
+	#MultiplayerControl.address = pasteCodeLabel.text
+	#var client := MatchaRoom.create_client_room(MultiplayerControl.address) # Client must know the room id
+	#client.peer_joined.connect(func(_id: int, peer: MatchaPeer):
+		#var tt = "[CLIENT] Peer joined (id=%s)\n and with id int =%s" % [peer.id,_id]
+		#print(tt)
+	#)
+	#await get_tree().create_timer(5).timeout
+	#multiplayer.multiplayer_peer = client
+	#
+	#client.send_event("loaded")
+func _on_hole_punch_hole_punched(my_port: Variant, hosts_port: Variant, hosts_address: Variant) -> void:
+	print('panched')
+	if !MultiplayerControl.isHost:
+		# Create client.
+		var peer = ENetMultiplayerPeer.new()
+		peer.create_client(hosts_address, hosts_port)
+		multiplayer.multiplayer_peer = peer
+	if MultiplayerControl.isHost:
+		# Create server.
+		var peer = ENetMultiplayerPeer.new()
+		peer.create_server(5555, 1)
+		multiplayer.multiplayer_peer = peer
+	loaded_peer.rpc()
 var cantidadPeer = 0
 
+@rpc("any_peer")
 func loaded_peer():
 	print('me llamaron jeje')
 	if MultiplayerControl.isHost:
@@ -260,3 +280,6 @@ func randomFuniMsg():
 
 	# Display the message
 	bocadillo.displayText(randomMsg)
+
+
+

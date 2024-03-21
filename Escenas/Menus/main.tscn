@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://caeckabqu6fjj"]
+[gd_scene load_steps=89 format=3 uid="uid://caeckabqu6fjj"]
 
 [ext_resource type="Script" path="res://Escenas/Menus/main.gd" id="1_dsd06"]
 [ext_resource type="PackedScene" uid="uid://wdjwfpa5g8le" path="res://Escenas/Menus/txtBtn.tscn" id="1_kpdnp"]
@@ -35,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://n3oj3dljrinx" path="res://Sprites/Menu/Estrella.png" id="29_b6lqg"]
 [ext_resource type="PackedScene" uid="uid://cp85xfjdi08u2" path="res://Escenas/Maingame/Publico/GatosPublico.tscn" id="29_n8xkr"]
 [ext_resource type="Script" path="res://Escenas/Maingame/Publico/GatosPublicoMenu.gd" id="30_rr68k"]
+[ext_resource type="Script" path="res://addons/Holepunch/holepunch_node.gd" id="36_hyb2m"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0q3tf"]
 animations = [{
@@ -1200,6 +1201,10 @@ bus = &"Music"
 stream = ExtResource("29_5ghey")
 bus = &"SFX"
 
+[node name="HolePunch" type="Node" parent="."]
+script = ExtResource("36_hyb2m")
+rendevouz_address = "200.118.80.17"
+
 [connection signal="pressed" from="MainOptPath/playBtn" to="." method="_on_play_btn_pressed"]
 [connection signal="pressed" from="MainOptPath/optionsBtn" to="." method="_on_options_btn_pressed"]
 [connection signal="pressed" from="MainOptPath/infoBtn" to="." method="_on_info_btn_pressed"]
@@ -1220,6 +1225,7 @@ bus = &"SFX"
 [connection signal="pressed" from="CreditsPath/HBoxContainer/specialBtn" to="PublicoCreditos" method="_on_special_btn_pressed"]
 [connection signal="pressed" from="CreditsPath/HBoxContainer/creditsPathBack" to="." method="_on_credits_path_back_pressed"]
 [connection signal="pressed" from="CreditsPath/HBoxContainer/creditsPathBack" to="PublicoCreditos" method="_on_credits_path_back_pressed"]
+[connection signal="hole_punched" from="HolePunch" to="." method="_on_hole_punch_hole_punched"]
 
 [editable path="MainOptPath/playBtn"]
 [editable path="MainOptPath/optionsBtn"]

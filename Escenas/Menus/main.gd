@@ -55,13 +55,18 @@ var topBtn : Control
 var botBtn : Control
 
 var displayedMsgs   = []
-
+@export var ready_multi = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	vp = get_viewport()
 	vp.connect("gui_focus_changed",_focus_change)
 	change_path("mainPath")
+
+func _process(delta: float) -> void:
+	if ready_multi:
+		get_tree().change_scene_to_file("res://Escenas/Maingame/Versus.tscn")
+
 
 func change_path(path : String):
 	currentPath = path
@@ -157,51 +162,44 @@ func _on_create_btn_pressed():
 	Eventos.singleplayer = false
 	Eventos.multiOnline = true
 	MultiplayerControl.isHost = true
-	var server = MatchaRoom.create_server_room()
-	var code = server.id
-	DisplayServer.clipboard_set(code)
-	$OLConfig/HostOptions/CopyCode.text = code
-	# FUCK BOCADILLO DONT SIRVE
-	# bocadillo.displayText({"text" : "Copied!", "time":3})
+	MultiplayerControl.create_server()
+	MultiplayerControl.new_event.connect(handler_event)
 	
-	multiplayer.multiplayer_peer = server
-	server.peer_joined.connect(func(_id: int, peer: MatchaPeer):
-		var tt = "[Server] Peer joined (id=%s)\n and with id int =%s" % [peer.id,_id]
-		print(tt)
-		peer.on_event("loaded", self.loaded_peer.bind())
-	)
+	DisplayServer.clipboard_set(MultiplayerControl.address)
+	$OLConfig/HostOptions/CopyCode.text = MultiplayerControl.address
 
 func _on_join_btn_pressed():
 	$OLConfig/PeerOptions/JoinBtn.disabled = true
 	Eventos.singleplayer = false
 	Eventos.multiOnline = true
 	MultiplayerControl.address = pasteCodeLabel.text
-	var client := MatchaRoom.create_client_room(MultiplayerControl.address) # Client must know the room id
-	client.peer_joined.connect(func(_id: int, peer: MatchaPeer):
-		var tt = "[CLIENT] Peer joined (id=%s)\n and with id int =%s" % [peer.id,_id]
-		print(tt)
-	)
-	await get_tree().create_timer(5).timeout
-	multiplayer.multiplayer_peer = client
+	MultiplayerControl.create_client()
+	MultiplayerControl.new_event.connect(handler_event)
 	
-	client.send_event("loaded")
+	await get_tree().create_timer(3).timeout
+	MultiplayerControl.mp.send_event("loaded")
 
-var cantidadPeer = 0
+func handler_event(args):
+	print('omaga evento con ', args)
+	match args[0]:
+		'loaded':
+			loaded_peer()
+		'go_multi':
+			go_multi()
+
 
 func loaded_peer():
-	print('me llamaron jeje')
-	if MultiplayerControl.isHost:
-		cantidadPeer += 1
-	if cantidadPeer == 2:
-		Names.generar_nombres()
-		init_multi.rpc()
+	print('me llamaron remotamente')
+	Names.generar_nombres()
+	await get_tree().create_timer(5).timeout
+	MultiplayerControl.mp.send_event("go_multi")
+	ready_multi = true
 
-@rpc("authority","call_local","unreliable")
-func init_multi():
-	get_tree().change_scene_to_file("res://Escenas/Maingame/Versus.tscn")
+func go_multi():
+	print('go multi')
+	Names.generar_nombres()
+	ready_multi = true 
 
-
-	
 func _on_online_path_back_pressed(): change_path("playPath")
 func _on_play_path_back_pressed(): change_path("mainPath")
 

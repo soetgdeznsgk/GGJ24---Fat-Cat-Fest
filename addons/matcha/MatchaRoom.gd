@@ -131,6 +131,7 @@ func find_peer(filter:={}, allow_multiple_results:=false) -> MatchaPeer:
 
 # Broadcast an event to everybody in this room or just specific peers. (List of peer_id)
 func send_event(event_name: String, event_args:=[], target_peer_ids:=[]):
+	print('event sent')
 	for peer: MatchaPeer in peers:
 		if not peer.is_connected: continue
 		if target_peer_ids.size() > 0 and not target_peer_ids.has(peer.id): continue

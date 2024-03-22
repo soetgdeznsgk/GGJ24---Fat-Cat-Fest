@@ -12,6 +12,7 @@ signal disconnected
 signal closed
 signal connecting_failed
 signal sdp_created(sdp: String)
+signal emit_new_event(args)
 
 # Members
 var _announced := false
@@ -177,6 +178,7 @@ func __poll() -> void:
 			continue
 		if args.size() == 2 and typeof(args[1]) != TYPE_ARRAY:
 			continue
+		emit_new_event.emit(args)
 		_emit_event.callv(args)
 
 func __close() -> void:
@@ -196,7 +198,6 @@ func __close() -> void:
 # Handle an event
 func _emit_event(event_name: String, event_args:=[]) -> void:
 	if not event_name in _event_listener: return
-
 	# Remove null instance callbacks
 	_event_listener[event_name] = _event_listener[event_name].filter(func(e): return e[0].get_object() != null)
 

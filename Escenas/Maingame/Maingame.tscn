@@ -299,6 +299,7 @@ autoplay = "SubirTelon"
 
 [node name="Pause" type="TextureRect" parent="."]
 process_mode = 3
+visible = false
 z_index = 99
 clip_contents = true
 custom_minimum_size = Vector2(900, 400)

@@ -4,7 +4,7 @@ extends Node2D
 @onready var comandosP2 = $ComandosP2
 
 func _init() -> void:
-	name = "main"
+	name = "Maingame"
 
 func _ready() -> void:
 	Eventos.ganadorFestival.connect(finJuego)

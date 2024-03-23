@@ -617,7 +617,7 @@ _data = {
 "slideOutCredits": SubResource("Animation_2qxym")
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Menu" type="Node2D"]
 script = ExtResource("1_dsd06")
 
 [node name="cielo" type="TextureRect" parent="."]

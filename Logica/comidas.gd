@@ -31,8 +31,6 @@ signal comidaListaGenerada(lista1,lista2)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	preloadRecetas()
-	await get_tree().create_timer(0.3).timeout
-	generarListaRecetas()
 	stackPlatos = preload("res://Escenas/Recetas/Plato.tscn")
 	Eventos.mediaComida.connect(cambiarSpriteMediaComida)
 	Eventos.comidaAPuntoDeTerminar.connect(cambiarSpriteFinal)
@@ -41,9 +39,21 @@ func _ready():
 	Eventos.finalEvento.connect(reanudarProcesos)
 	
 	if !Eventos.multiOnline:
+		await get_tree().create_timer(0.3).timeout
+		generarListaRecetas()
 		entradaReceta(1)
 		entradaReceta(2)
-	
+	else:
+		if !MultiplayerControl.isHost:
+			#send host that im ready
+			client_ready_for_food.rpc()
+			 
+
+@rpc("any_peer","call_remote")
+func client_ready_for_food():
+	await get_tree().create_timer(0.3).timeout
+	generarListaRecetas()
+
 func pausarProcesos(_cache):
 	recetaActualJugador1.visible = false
 	recetaActualJugador2.visible = false

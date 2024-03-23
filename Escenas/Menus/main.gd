@@ -55,18 +55,15 @@ var topBtn : Control
 var botBtn : Control
 
 var displayedMsgs   = []
-@export var ready_multi = false
+
+func _init() -> void:
+	name = "Menu"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	vp = get_viewport()
 	vp.connect("gui_focus_changed",_focus_change)
 	change_path("mainPath")
-
-func _process(delta: float) -> void:
-	if ready_multi:
-		get_tree().change_scene_to_file("res://Escenas/Maingame/Versus.tscn")
-
 
 func change_path(path : String):
 	currentPath = path
@@ -185,20 +182,21 @@ func handler_event(args):
 		'loaded':
 			loaded_peer()
 		'go_multi':
-			go_multi()
+			go_multi.rpc()
 
 
 func loaded_peer():
 	print('me llamaron remotamente')
 	Names.generar_nombres()
-	await get_tree().create_timer(2).timeout
 	MultiplayerControl.mp.send_event("go_multi")
-	ready_multi = true
 
+
+@rpc("any_peer", "call_local","reliable")
 func go_multi():
 	print('go multi')
 	Names.generar_nombres()
-	ready_multi = true 
+	get_tree().change_scene_to_file("res://Escenas/Maingame/Versus.tscn")
+
 
 func _on_online_path_back_pressed(): change_path("playPath")
 func _on_play_path_back_pressed(): change_path("mainPath")

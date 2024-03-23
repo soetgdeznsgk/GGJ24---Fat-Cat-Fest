@@ -12,13 +12,17 @@ func _ready():
 	if !Eventos.multiOnline:
 		instantiateRandomCats()
 	else:
-		if multiplayer.is_server():
-			instantiateRandomCatsRpc.rpc( randi_range(6, 10) )
+		if !MultiplayerControl.isHost:
+			ready_client.rpc()
 	Eventos.catCheer.connect(triggerRandomCheer)
 	Eventos.ganadorFestival.connect(triggerEnd)
 	if (end):
 		triggerRandomCheer(.9)
-	
+
+@rpc("any_peer","call_remote")
+func ready_client():
+	instantiateRandomCatsRpc.rpc(randi_range(6, 10) )
+
 func triggerEnd(_ganador) ->void:
 	end=true
 

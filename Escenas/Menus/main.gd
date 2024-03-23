@@ -191,7 +191,7 @@ func handler_event(args):
 func loaded_peer():
 	print('me llamaron remotamente')
 	Names.generar_nombres()
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(2).timeout
 	MultiplayerControl.mp.send_event("go_multi")
 	ready_multi = true
 

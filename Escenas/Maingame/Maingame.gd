@@ -3,6 +3,9 @@ extends Node2D
 @onready var comandosP1 = $ComandosP1
 @onready var comandosP2 = $ComandosP2
 
+func _init() -> void:
+	name = "main"
+
 func _ready() -> void:
 	Eventos.ganadorFestival.connect(finJuego)
 	if Eventos.singleplayer: add_child(preload("res://Logica/cpu_jugador.tscn").instantiate())

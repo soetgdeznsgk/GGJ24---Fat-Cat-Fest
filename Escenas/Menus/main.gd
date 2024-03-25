@@ -127,26 +127,26 @@ func _on_easy_btn_pressed():
 	Eventos.cpuDiff = 1
 	Names.generar_nombres()
 	Names.name_player2 += " (CPU)"
-	get_tree().change_scene_to_file("res://Escenas/Maingame/Versus.tscn")
+	get_tree().change_scene_to_file("res://Escenas/Maingame/SeleccionPj.tscn")
 
 func _on_medium_btn_pressed():
 	Eventos.singleplayer = true
 	Eventos.cpuDiff = 2
 	Names.generar_nombres()
 	Names.name_player2 += " (CPU)"
-	get_tree().change_scene_to_file("res://Escenas/Maingame/Versus.tscn")
+	get_tree().change_scene_to_file("res://Escenas/Maingame/SeleccionPj.tscn")
 	
 func _on_hard_btn_pressed():
 	Eventos.singleplayer = true
 	Eventos.cpuDiff = 3
 	Names.generar_nombres()
 	Names.name_player2 += " (CPU)"
-	get_tree().change_scene_to_file("res://Escenas/Maingame/Versus.tscn")
+	get_tree().change_scene_to_file("res://Escenas/Maingame/SeleccionPj.tscn")
 
 func _on_mp_btn_pressed(): 
 	Eventos.singleplayer = false
 	Names.generar_nombres()
-	get_tree().change_scene_to_file("res://Escenas/Maingame/Versus.tscn")
+	get_tree().change_scene_to_file("res://Escenas/Maingame/SeleccionPj.tscn")
 	
 func _on_ol_btn_pressed(): 
 	bocadillo.displayText({"text" : "Soon™", "time" : 3.0, "fontSize": 28 })

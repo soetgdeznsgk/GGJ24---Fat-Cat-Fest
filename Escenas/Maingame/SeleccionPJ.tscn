@@ -41,8 +41,12 @@ offset_bottom = 350.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("13_n7q0q")
 
+[node name="Random" type="Sprite2D" parent="SelectorGato1"]
+texture = ExtResource("2_5ux4d")
+
 [node name="SelectorGato2" type="Node2D" parent="."]
 position = Vector2(1000, 350)
+scale = Vector2(0.996162, 1)
 metadata/_edit_group_ = true
 
 [node name="Gato1" type="AnimatedSprite2D" parent="SelectorGato2"]
@@ -62,3 +66,6 @@ offset_right = 450.0
 offset_bottom = 350.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("13_n7q0q")
+
+[node name="Random" type="Sprite2D" parent="SelectorGato2"]
+texture = ExtResource("2_5ux4d")
